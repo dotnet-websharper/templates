@@ -3,7 +3,7 @@ open IntelliFactory.Build
 open System.IO
 
 let bt =
-    BuildTool().PackageId("WebSharper.VisualStudio")
+    BuildTool().PackageId("WebSharper.Templates")
         .VersionFrom("WebSharper")
 
 let templates =
@@ -21,7 +21,7 @@ let templates =
 bt.Solution [
     templates
 
-    bt.PackageId("WebSharper.Templates").NuGet.CreatePackage()
+    bt.NuGet.CreatePackage()
         .Configure(fun c ->
             { c with
                 Title = Some "WebSharper.Templates"
