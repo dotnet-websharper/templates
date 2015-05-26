@@ -28,33 +28,11 @@ open System.Text.RegularExpressions
 open System.Xml
 open System.Xml.Linq
 
-type LocalSource =
-    {
-        FileSet : FileSet
-        TargetsFile : string
-        LibDir : string
-    }
-
-type NuGetPackage =
-    | PkgBytes of byte[]
-    | PkgLatestPublic
-
-type NuGetSource =
-    {
-        WebSharperNuGetPackage : option<NuGetPackage>
-        WebSharperTemplatesNuGetPackage : NuGetPackage
-        PackagesDirectory : string
-    }
-
-type Source =
-    | SLocal of LocalSource
-    | SNuGet of NuGetSource
-
 type InitOptions =
     {
         Directory : string
         ProjectName : string
-        Source : Source
+        TemplatesPackage: byte[]
     }
 
 type Template =
@@ -63,32 +41,8 @@ type Template =
 [<AutoOpen>]
 module Implementation =
 
-    let CheckNuGetOpts opts =
-        if IsFile opts.PackagesDirectory then
-            [sprintf "Invalid PackagesDirectory: %s" opts.PackagesDirectory]
-        else []
-
-    let CheckSource src =
-        match src with
-        | SLocal loc ->
-            [
-                if NotFile loc.TargetsFile then
-                    yield sprintf "WebSharper.targets not found at %s" loc.TargetsFile
-            ]
-        | _ -> []
-
-    let Complain fmt =
-        Printf.ksprintf (fun str -> "TemplateOptions: " + str) fmt
-
-    let Check opts =
-        [
-            yield! CheckSource opts.Source
-            if IsFile opts.Directory then
-                yield sprintf "Specified InitOptions.Directory is a file: %s" opts.Directory
-        ]
-
     let UnsafeChars =
-        Regex("[^_0-9a-zA-Z]")
+        Regex("[^_0-9a-zA-Z.]")
 
     let Clean str =
         match str with
@@ -101,12 +55,8 @@ module Implementation =
                 str
 
     let Prepare opts =
-        match Check opts with
-        | [] ->
-            EnsureDir opts.Directory
-            { opts with ProjectName = Clean opts.ProjectName }
-        | errors ->
-            failwith (String.concat Environment.NewLine errors)
+        EnsureDir opts.Directory
+        { opts with ProjectName = Clean opts.ProjectName }
 
     let IsTextFile path =
         match Path.GetExtension(path) with
@@ -195,120 +145,14 @@ module Implementation =
                 |> String.concat "/"
         loop (split baseDir) (split path)
 
-    let InstallRefsTo (ws: LocalSource) projectFilePath =
-        let getRelPath p = RelPath (Path.GetDirectoryName(projectFilePath)) p
-        let targetsRelPath = getRelPath ws.TargetsFile
-        let doc = XDocument.Parse(File.ReadAllText(projectFilePath))
-        let ns = doc.Root.Name.Namespace
-        let imp = ns.GetName("Import")
-        do // Install .targets file
-            let proj = XName.Get("Project")
-            let ok (el: XElement) =
-                match el.Attribute(proj) with
-                | null -> false
-                | p when p.Value = targetsRelPath -> true
-                | _ -> false
-            if doc.Elements(imp) |> Seq.forall (ok >> not) then
-                let el = XElement(imp)
-                el.SetAttributeValue(proj, targetsRelPath)
-                doc.Root.Add(el)
-        do // Install lib/net40/*.dll
-            let libPaths = Directory.GetFiles(ws.LibDir, "*.dll") |> Array.map getRelPath
-            // Remove existing references
-            libPaths |> Array.iter (fun p ->
-                let asmName = Path.GetFileNameWithoutExtension(p)
-                doc.Root.Elements(ns.GetName("ItemGroup")).Descendants(ns.GetName("Reference"))
-                |> Seq.tryFind (fun e -> Path.GetFileNameWithoutExtension(e.Value) = asmName)
-                |> Option.iter (fun e -> e.Remove()))
-            // Remove empty ItemGroups resulting from the above
-            doc.Root.Elements(ns.GetName("ItemGroup"))
-            |> Seq.filter (fun e -> e.IsEmpty)
-            |> Seq.iter (fun e -> e.Remove())
-            // Add new references
-            let ig = XElement(ns.GetName("ItemGroup"))
-            libPaths |> Array.map (fun p ->
-                XElement(ns.GetName("Reference"),
-                    XAttribute(XName.Get("Include"), Path.GetFileNameWithoutExtension p),
-                    XElement(ns.GetName("HintPath"), XText(p)),
-                    XElement(ns.GetName("Private"), XText("true"))))
-            |> Array.iter ig.Add
-            doc.Root.Add ig
-        let str = doc.ToString()
-        File.WriteAllText(projectFilePath, doc.ToString(), NeutralEncoding)
-        CopyTextFile projectFilePath projectFilePath // I assume this fixes line endings?
-
-    let InstallNuGet (nuget: NuGetSource) =
-        let getPackage publicName = function
-            | PkgLatestPublic ->
-                FsNuGet.Package.GetLatest(publicName)
-            | PkgBytes bytes ->
-                FsNuGet.Package.FromBytes(bytes)
-        let wsRoot =
-            nuget.WebSharperNuGetPackage |> Option.map (fun wsPkg ->
-                let ws = getPackage "WebSharper"  wsPkg
-                let wsRoot = Path.Combine(nuget.PackagesDirectory, ws.Text)
-                ws.Install(wsRoot)
-                wsRoot)
-        let wsTpl = getPackage "WebSharper.Templates" nuget.WebSharperTemplatesNuGetPackage
-        wsRoot, wsTpl.DataStream
-
-    let CreateLocalSource (wsRoot: string option) wsTpl =
-        {
-            FileSet = FileSet.FromZip(wsTpl, subdirectory = "templates")
-            TargetsFile = Path.Combine(wsRoot.Value, "build", "WebSharper.targets")
-            LibDir = Path.Combine(wsRoot.Value, "lib", "net40")
-        }
-
-    let InitSource src =
-        match src with
-        | SLocal local -> local
-        | SNuGet nuget ->
-            InstallNuGet nuget
-            ||> CreateLocalSource
 
     let Init id opts =
         let opts = Prepare opts
-        let local = InitSource opts.Source
-        local.FileSet.[id].Populate(opts.Directory)
+        use stream = new MemoryStream(opts.TemplatesPackage)
+        let fileset = FileSet.FromZip(stream, "templates")
+        fileset.[id].Populate(opts.Directory)
         MoveProjectFiles opts
         ExpandAllVariables opts
-
-type NuGetPackage with
-
-    static member FromBytes(bytes) =
-        Array.copy bytes |> PkgBytes
-
-    static member FromFile(path) =
-        File.ReadAllBytes(path) |> PkgBytes
-
-    static member FromStream(s: Stream) =
-        ReadStream s |> PkgBytes
-
-    static member LatestPublic() =
-        PkgLatestPublic
-
-type Source with
-    static member Local(s) = SLocal s
-    static member NuGet(s) = SNuGet s
-
-type NuGetSource with
-
-    static member Create() =
-        {
-            WebSharperNuGetPackage = Some(NuGetPackage.LatestPublic())
-            WebSharperTemplatesNuGetPackage = NuGetPackage.LatestPublic()
-            PackagesDirectory = "packages"
-        }
-
-type InitOptions with
-
-    static member Create() =
-        let source = Source.NuGet(NuGetSource.Create())
-        {
-            Directory = "."
-            ProjectName = "MyProject"
-            Source = source
-        }
 
 type Template with
 

@@ -28,8 +28,4 @@ open WebSharper
 module All =
     type FileSet = Templates.FileSet
     type InitOptions = Templates.InitOptions
-    type LocalSource = Templates.LocalSource
-    type NuGetPackage = Templates.NuGetPackage
-    type NuGetSource = Templates.NuGetSource
-    type Source = Templates.Source
     type Template = Templates.Template

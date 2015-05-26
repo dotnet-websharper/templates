@@ -24,61 +24,6 @@ namespace WebSharper.Templates
 open System
 open System.IO
 
-/// Configures local WebSharper installation.
-type LocalSource =
-    {
-        /// FileSet with all template files.
-        FileSet : FileSet
-
-        /// Path to WebSharper.targets
-        TargetsFile : string
-
-        /// Path to the lib directory
-        LibDir : string
-    }
-
-/// Represents how to get the WebSharper NuGet package (nupkg) to use.
-[<Sealed>]
-type NuGetPackage =
-
-    /// Reads the nupkg from raw bytes.
-    static member FromBytes : raw: byte[] -> NuGetPackage
-
-    /// Reads the nupkg from disk.
-    static member FromFile : path: string -> NuGetPackage
-
-    /// Reads raw nupkg bytes from a given stream.
-    static member FromStream : Stream -> NuGetPackage
-
-    /// Obtains the latest package from public NuGet repository over the network.
-    static member LatestPublic : unit -> NuGetPackage
-
-/// A Source that uses NuGet-packaged WebSharper.
-type NuGetSource =
-    {
-        /// How to get the WebSharper NuGet package.
-        WebSharperNuGetPackage : option<NuGetPackage>
-
-        /// How to get the WebSharper.Templates NuGet package.
-        WebSharperTemplatesNuGetPackage : NuGetPackage
-
-        /// Path to a directory where packages should be installed.
-        PackagesDirectory : string
-    }
-
-    /// Creates the default.
-    static member Create : unit -> NuGetSource
-
-/// Defines where to obtain WebSharper for the templates.
-[<Sealed>]
-type Source =
-
-    /// Query NuGet repository to obtain the latest WebSharper.
-    static member NuGet : NuGetSource -> Source
-
-    /// Specify a local installation.
-    static member Local : LocalSource -> Source
-
 /// Options for initializing templates.
 type InitOptions =
     {
@@ -88,12 +33,9 @@ type InitOptions =
         /// The name of the project to create.
         ProjectName : string
 
-        /// Defines how to obtain WebSharper.
-        Source : Source
+        /// The WebSharper.Templates nuget package.
+        TemplatesPackage: byte[]
     }
-
-    /// Creates default options.
-    static member Create : unit -> InitOptions
 
 /// Represents a WebSharper MSBuild/XBuild template.
 [<Sealed>]
