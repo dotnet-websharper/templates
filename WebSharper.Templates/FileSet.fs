@@ -108,7 +108,7 @@ module FileSetImplementation =
         let all = ResizeArray()
         while re.MoveToNextEntry() do
             if not re.Entry.IsDirectory then
-                writeToPath re.Entry.FilePath
+                writeToPath re.Entry.Key
                 |> Option.iter (fun path ->
                     let bytes =
                         use m = new MemoryStream()
