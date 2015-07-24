@@ -5,8 +5,8 @@ open WebSharper
 open WebSharper.Sitelets
 
 type Action =
-    | Home
-    | About
+    | [<EndPoint "GET /">] Home
+    | [<EndPoint "GET /about">] About
 
 module Skin =
     open System.Web
@@ -22,11 +22,11 @@ module Skin =
             .With("title", fun x -> x.Title)
             .With("body", fun x -> x.Body)
 
-    let WithTemplate title body : Content<Action> =
-        Content.WithTemplate MainTemplate <| fun context ->
+    let WithTemplate title body : Async<Content<Action>> =
+        Content.WithTemplate MainTemplate
             {
                 Title = title
-                Body = body context
+                Body = body
             }
 
 module Site =
@@ -40,26 +40,27 @@ module Site =
             LI ["About" => ctx.Link About]
         ]
 
-    let HomePage =
-        Skin.WithTemplate "HomePage" <| fun ctx ->
+    let HomePage ctx =
+        Skin.WithTemplate "HomePage"
             [
                 Div [Text "HOME"]
                 Div [ClientSide <@ Client.Main() @>]
                 Links ctx
             ]
 
-    let AboutPage =
-        Skin.WithTemplate "AboutPage" <| fun ctx ->
+    let AboutPage ctx =
+        Skin.WithTemplate "AboutPage"
             [
                 Div [Text "ABOUT"]
                 Links ctx
             ]
 
+    [<Website>]
     let Main =
-        Sitelet.Sum [
-            Sitelet.Content "/" Home HomePage
-            Sitelet.Content "/About" About AboutPage
-        ]
+        Sitelet.Infer <| fun ctx action ->
+            match action with
+            | Home -> HomePage ctx
+            | About -> AboutPage ctx
 
 [<Sealed>]
 type Website() =
