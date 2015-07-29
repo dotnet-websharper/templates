@@ -71,3 +71,6 @@ type Template =
     /// The bundle-uinext template.
     static member BundleUINext : Template
 
+    /// The sitelets-uinext template.
+    static member SiteletsUINext : Template
+
