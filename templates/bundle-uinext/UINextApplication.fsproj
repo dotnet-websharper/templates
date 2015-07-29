@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
@@ -40,10 +40,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Client.fs" />
-    <Compile Include="Main.fs" />
     <Content Include="index.html" />
     <Content Include="Web.config" />
     <Content Include="Global.asax" />
+    <Compile Include="Global.asax.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />

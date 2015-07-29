@@ -14,8 +14,12 @@ module Skin =
     type MainTemplate = Templating.Template<"Main.html">
 
     let WithTemplate title body =
-        MainTemplate.Doc(title = title, body = body)
-        |> Doc.AsContent
+        Content.Doc(
+            MainTemplate.Doc(
+                title = title,
+                body = body
+            )
+        )
 
 module Site =
     open WebSharper.UI.Next.Html
@@ -44,9 +48,3 @@ module Site =
         match endpoint with
         | Home -> HomePage ctx
         | About -> AboutPage ctx
-
-type Global() =
-    inherit System.Web.HttpApplication()
-
-    member g.Application_Start(sender: obj, args: System.EventArgs) =
-        ()

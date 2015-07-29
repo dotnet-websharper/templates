@@ -44,6 +44,7 @@
     <Content Include="Main.html" />
     <Content Include="Web.config" />
     <Content Include="Global.asax" />
+    <Compile Include="Global.asax.fs" />
     <Content Include="Setup.fsx" />
   </ItemGroup>
   <Target Name="IncludeContent" BeforeTargets="Compile">
