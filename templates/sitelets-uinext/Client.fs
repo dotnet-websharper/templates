@@ -19,11 +19,14 @@ module Client =
     let Main () =
         let input = input []
         let label = div []
-        div
-          [ input
-            buttonAttr
-              [ on.click (fun _ _ ->
+        div [
+            input
+            buttonAttr [
+                on.click (fun _ _ ->
                     Start input.Value (fun out ->
-                        label.Text <- out)) ]
-              [ text "Send to the server" ]
-            label ]
+                        label.Text <- out))
+            ] [
+                text "Send to the server"
+            ]
+            label
+        ]
