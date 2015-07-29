@@ -4,13 +4,11 @@ open WebSharper
 open WebSharper.JavaScript
 open WebSharper.JQuery
 open WebSharper.UI.Next
-open WebSharper.UI.Next.Notation
+open WebSharper.UI.Next.Client
 
 [<JavaScript>]
 module Client =    
-    let [<Literal>] TemplateHtmlPath = __SOURCE_DIRECTORY__ + "/index.html"
-
-    type IndexTemplate = Templating.Template<TemplateHtmlPath> 
+    type IndexTemplate = Templating.Template<"index.html">
 
     let People =
         ListModel.FromSeq [
@@ -24,13 +22,15 @@ module Client =
         let newName = Var.Create ""
 
         IndexTemplate.Main.Doc(
-            ListContainer =
-                (ListModel.View People |> Doc.Convert (fun name ->
-                    IndexTemplate.ListItem.Doc(Name = View.Const name))
-                ),
+            ListContainer = [
+                ListModel.View People |> Doc.Convert (fun name ->
+                    IndexTemplate.ListItem.Doc(Name = View.Const name)
+                )
+            ],
             Name = newName,
-            Add = (fun e ->
+            Add = (fun el ev ->
                 People.Add(newName.Value)
-                Var.Set newName "")
+                Var.Set newName ""
+            )
         )
         |> Doc.RunById "main"
