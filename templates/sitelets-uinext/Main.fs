@@ -9,42 +9,50 @@ type EndPoint =
     | [<EndPoint "/">] Home
     | [<EndPoint "/about">] About
 
-module Skin =
+module Templating =
+    open WebSharper.UI.Next.Html
 
     type MainTemplate = Templating.Template<"Main.html">
 
-    let WithTemplate title body =
+    // Compute a menubar where the menu item for the given endpoint is active
+    let MenuBar (ctx: Context<EndPoint>) endpoint : Doc list =
+        let ( => ) txt act =
+             liAttr [if endpoint = act then yield attr.``class`` "active"] [
+                aAttr [attr.href (ctx.Link act)] [text txt]
+             ]
+        [
+            li ["Home" => EndPoint.Home]
+            li ["About" => EndPoint.About]
+        ]
+
+    let Main ctx action title body =
         Content.Doc(
-            MainTemplate.Doc(title = title, body = body)
+            MainTemplate.Doc(
+                title = title,
+                menubar = MenuBar ctx action,
+                body = body
+            )
         )
 
 module Site =
     open WebSharper.UI.Next.Html
 
-    let ( ==> ) txt url =
-        aAttr [attr.href url] [text txt]
-
-    let Links (ctx: Context<EndPoint>) =
-        ul [
-            li ["Home" ==> ctx.Link Home]
-            li ["About" ==> ctx.Link About]
-        ]
-
     let HomePage ctx =
-        Skin.WithTemplate "HomePage" [
-            div [text "HOME"]
+        Templating.Main ctx EndPoint.Home "Home" [
+            h1 [text "Say Hi to the server!"]
             div [client <@ Client.Main() @>]
-            Links ctx
         ]
 
     let AboutPage ctx =
-        Skin.WithTemplate "AboutPage" [
-            div [text "ABOUT"]
-            Links ctx
+        Templating.Main ctx EndPoint.About "About" [
+            h1 [text "About"]
+            p [text "This is a template WebSharper client-server application."]
         ]
 
     [<Website>]
-    let Main = Sitelet.Infer <| fun ctx endpoint ->
-        match endpoint with
-        | Home -> HomePage ctx
-        | About -> AboutPage ctx
+    let Main =
+        Application.MultiPage (fun ctx endpoint ->
+            match endpoint with
+            | EndPoint.Home -> HomePage ctx
+            | EndPoint.About -> AboutPage ctx
+        )
