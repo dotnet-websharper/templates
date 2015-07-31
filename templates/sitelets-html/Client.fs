@@ -7,13 +7,19 @@ open WebSharper.Html.Client
 [<JavaScript>]
 module Client =
 
+    let DoSomething (input: string) =
+        System.String(Array.rev(input.ToCharArray()))
+
     let Main () =
-        let input = Input [Attr.Value ""]
-        let label = Div [Text ""]
+        let input = Input [Attr.Value ""] -< []
+        let output = H1 []
         Div [
             input
-            label
-            Button [Text "Click"]
+            Button [Text "Send"]
             |>! OnClick (fun _ _ ->
-                label.Text <- "You entered: " + input.Value)
+                output.Text <- DoSomething input.Value
+            )
+            HR []
+            H4 [Attr.Class "text-muted"] -< [Text "The server responded:"]
+            Div [Attr.Class "jumbotron"] -< [output]
         ]

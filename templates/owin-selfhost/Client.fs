@@ -9,19 +9,25 @@ module Client =
 
     let Start input k =
         async {
-            let! data = Remoting.Process(input)
+            let! data = Server.DoSomething input
             return k data
         }
         |> Async.Start
 
     let Main () =
-        let input = Input [Attr.Value ""]
-        let label = Div [Text ""]
+        let input = Input [Attr.Value ""] -< []
+        let output = H1 []
         Div [
             input
-            label
-            Button [Text "Click"]
+            Button [Text "Send"]
             |>! OnClick (fun _ _ ->
-                Start input.Value (fun out ->
-                    label.Text <- out))
+                async {
+                    let! data = Server.DoSomething input.Value
+                    output.Text <- data
+                }
+                |> Async.Start
+            )
+            HR []
+            H4 [Attr.Class "text-muted"] -< [Text "The server responded:"]
+            Div [Attr.Class "jumbotron"] -< [output]
         ]

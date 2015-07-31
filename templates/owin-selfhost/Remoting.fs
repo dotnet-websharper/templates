@@ -2,10 +2,11 @@
 
 open WebSharper
 
-module Remoting =
+module Server =
 
     [<Remote>]
-    let Process input =
+    let DoSomething input =
+        let R (s: string) = System.String(Array.rev(s.ToCharArray()))
         async {
-            return "You said: " + input
+            return R input
         }
