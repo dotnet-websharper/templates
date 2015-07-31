@@ -81,7 +81,7 @@ module SelfHostedServer =
                 appB.UseStaticFiles(
                         StaticFileOptions(
                             FileSystem = PhysicalFileSystem(rootDirectory)))
-                    .UseSitelet(rootDirectory, Site.MainSitelet)
+                    .UseSitelet(rootDirectory, Site.Main)
                 |> ignore)
             stdout.WriteLine("Serving {0}", url)
             stdin.ReadLine() |> ignore
