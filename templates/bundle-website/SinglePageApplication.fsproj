@@ -44,6 +44,7 @@
     <Content Include="Web.config" />
     <Content Include="Global.asax" />
     <Compile Include="Global.asax.fs" />
+    <None Include="Setup.fsx" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
