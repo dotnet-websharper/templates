@@ -25,17 +25,20 @@ open System
 open System.IO
 
 /// Options for initializing templates.
+[<Sealed>]
 type InitOptions =
-    {
-        /// Directory that gets created and/or populated.
-        Directory : string
 
-        /// The name of the project to create.
-        ProjectName : string
-
-        /// The WebSharper.Templates nuget package.
-        TemplatesPackage: byte[]
-    }
+    /// <summary>
+    /// Options for initializing templates.
+    /// </summary>
+    /// <param name="directory">Directory that gets created and/or populated.</param>
+    /// <param name="projectName">The name of the project to create.</param>
+    /// <param name="templatesPackage">The WebSharper.Templates nuget package.</param>
+    static member Create
+        : directory: string
+        * projectName: string
+        * templatesPackage: byte[]
+        -> InitOptions
 
 /// Represents a WebSharper MSBuild/XBuild template.
 [<Sealed>]

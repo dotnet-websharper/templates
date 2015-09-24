@@ -32,6 +32,7 @@ type InitOptions =
     {
         Directory : string
         ProjectName : string
+        ProjectFileName : string
         TemplatesPackage: byte[]
     }
 
@@ -44,7 +45,7 @@ module Implementation =
     let UnsafeChars =
         Regex("[^_0-9a-zA-Z.]")
 
-    let Clean str =
+    let CleanIdentifier str =
         match str with
         | null | "" -> "MyProject"
         | str ->
@@ -53,10 +54,6 @@ module Implementation =
                 "_" + str
             else
                 str
-
-    let Prepare opts =
-        EnsureDir opts.Directory
-        { opts with ProjectName = Clean opts.ProjectName }
 
     let IsTextFile path =
         match Path.GetExtension(path) with
@@ -85,9 +82,6 @@ module Implementation =
         for f in Directory.EnumerateFiles(src) do
             CopyFile f (Path.Combine(tgt, Path.GetFileName(f)))
 
-    let Replace (a: string) (b: string) (main: string) =
-        main.Replace(a, b)
-
     let IsProjectFile path =
         match Path.GetExtension(path) with
         | ".csproj" | ".fsproj" -> true
@@ -96,7 +90,7 @@ module Implementation =
     let MoveProjectFile opts path =
         if IsProjectFile path then
             let ext = Path.GetExtension(path)
-            let tgt = Path.Combine(Path.GetDirectoryName(path), opts.ProjectName + ext)
+            let tgt = Path.Combine(Path.GetDirectoryName(path), opts.ProjectFileName + ext)
             File.Move(path, tgt)
 
     let All opts =
@@ -114,9 +108,9 @@ module Implementation =
         if IsTextFile path then
             let t =
                 File.ReadAllText(path)
-                |> Replace "$guid1$" (FreshGuid ())
-                |> Replace "$guid2$" (FreshGuid ())
-                |> Replace "$safeprojectname$" opts.ProjectName
+                    .Replace("$guid1$", FreshGuid ())
+                    .Replace("$guid2$", FreshGuid ())
+                    .Replace("$safeprojectname$", opts.ProjectName)
             File.WriteAllText(path, t, NeutralEncoding)
 
     let ExpandAllVariables opts =
@@ -147,7 +141,7 @@ module Implementation =
 
 
     let Init id opts =
-        let opts = Prepare opts
+        EnsureDir opts.Directory
         use stream = new MemoryStream(opts.TemplatesPackage)
         let fileset = FileSet.FromZip(stream, "templates")
         fileset.[id].Populate(opts.Directory)
@@ -183,3 +177,16 @@ type Template with
     static member BundleUINext = T("bundle-uinext")
     static member SiteletsUINext = T("sitelets-uinext")
 
+type InitOptions with
+
+    static member Create(directory: string, projectName: string, templatesPackage: byte[]) =
+        let projectFileName =
+            (projectName, Path.GetInvalidFileNameChars())
+            ||> Array.fold (fun s c -> s.Replace(c, '_'))
+        let projectNameAsIdent = CleanIdentifier projectName
+        {
+            Directory = directory
+            ProjectName = projectNameAsIdent
+            ProjectFileName = projectFileName
+            TemplatesPackage = templatesPackage
+        }
