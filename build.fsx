@@ -5,17 +5,18 @@ open System.IO
 let bt =
     BuildTool().PackageId("WebSharper.Templates")
         .VersionFrom("WebSharper")
+        .WithFSharpVersion(FSharpVersion.FSharp30)
+        .WithFramework(fun fw -> fw.Net40)
 
 let templates =
-    bt.WithFramework(bt.Framework.Net40)
-        .FSharp.Library("WebSharper.Templates")
+    bt.FSharp.Library("WebSharper.Templates")
         .SourcesFromProject()
         .References(fun r ->
             [
                 r.Assembly("System.Xml")
                 r.Assembly("System.Xml.Linq")
-                r.NuGet("FsNuget").Reference()
-                r.NuGet("SharpCompress").Reference()
+                r.NuGet("FsNuget").ForceFoundVersion().Reference()
+                r.NuGet("SharpCompress").ForceFoundVersion().Reference()
             ])
 
 bt.Solution [
