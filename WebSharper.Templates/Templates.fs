@@ -165,6 +165,7 @@ type Template with
             Template.OwinSelfHost
             Template.BundleUINext
             Template.SiteletsUINext
+            Template.SiteletsUINextSuave
         ]
 
     static member BundleWebsite = T("bundle-website")
@@ -176,6 +177,7 @@ type Template with
     static member OwinSelfHost = T("owin-selfhost")
     static member BundleUINext = T("bundle-uinext")
     static member SiteletsUINext = T("sitelets-uinext")
+    static member SiteletsUINextSuave = T("sitelets-uinext-suave")
 
 type InitOptions with
 

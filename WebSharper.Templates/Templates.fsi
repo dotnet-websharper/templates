@@ -77,3 +77,6 @@ type Template =
     /// The sitelets-uinext template.
     static member SiteletsUINext : Template
 
+    /// The sitelets-uinext-suave template.
+    static member SiteletsUINextSuave : Template
+

@@ -20,6 +20,6 @@ module Client =
                 output.Text <- DoSomething input.Value
             )
             HR []
-            H4 [Attr.Class "text-muted"] -< [Text "The server responded:"]
+            H4 [Attr.Class "text-muted"] -< [Text "The client responded:"]
             Div [Attr.Class "jumbotron"] -< [output]
         ]
