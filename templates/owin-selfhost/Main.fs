@@ -75,17 +75,19 @@ module SelfHostedServer =
     open WebSharper.Owin
 
     [<EntryPoint>]
-    let Main = function
-        | [| rootDirectory; url |] ->
-            use server = WebApp.Start(url, fun appB ->
-                appB.UseStaticFiles(
-                        StaticFileOptions(
-                            FileSystem = PhysicalFileSystem(rootDirectory)))
-                    .UseSitelet(rootDirectory, Site.Main)
-                |> ignore)
-            stdout.WriteLine("Serving {0}", url)
-            stdin.ReadLine() |> ignore
-            0
-        | _ ->
-            eprintfn "Usage: $safeprojectname$ ROOT_DIRECTORY URL"
-            1
+    let Main args =
+        let rootDirectory, url =
+            match args with
+            | [| rootDirectory; url |] -> rootDirectory, url
+            | [| url |] -> "..", url
+            | [| |] -> "..", "http://localhost:9000/"
+            | _ -> eprintfn "Usage: $safeprojectname$ ROOT_DIRECTORY URL"; exit 1
+        use server = WebApp.Start(url, fun appB ->
+            appB.UseStaticFiles(
+                    StaticFileOptions(
+                        FileSystem = PhysicalFileSystem(rootDirectory)))
+                .UseSitelet(rootDirectory, Site.Main)
+            |> ignore)
+        stdout.WriteLine("Serving {0}", url)
+        stdin.ReadLine() |> ignore
+        0
