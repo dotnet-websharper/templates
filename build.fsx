@@ -5,7 +5,7 @@ open System.IO
 let bt =
     BuildTool().PackageId("WebSharper.Templates")
         .VersionFrom("WebSharper")
-        .WithFSharpVersion(FSharpVersion.FSharp30)
+        .WithFSharpVersion(FSharpVersion.FSharp31)
         .WithFramework(fun fw -> fw.Net40)
 
 let templates =
