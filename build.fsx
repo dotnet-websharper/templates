@@ -15,7 +15,6 @@ let templates =
             [
                 r.Assembly("System.Xml")
                 r.Assembly("System.Xml.Linq")
-                r.NuGet("FsNuget").ForceFoundVersion().Reference()
                 r.NuGet("SharpCompress").ForceFoundVersion().Reference()
             ])
 
