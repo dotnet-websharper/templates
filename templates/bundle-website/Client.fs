@@ -6,5 +6,6 @@ open WebSharper.JavaScript
 [<JavaScript>]
 module Client =
 
-    let Main =
+    [<SPAEntryPoint>]
+    let Main () =
         Console.Log("Running JavaScript Entry Point..")

@@ -16,7 +16,9 @@ module Client =
             "Paul"
         ]
 
-    let Main =
+
+    [<SPAEntryPoint>]
+    let Main () =
         JQuery.Of("#main").Empty().Ignore
 
         let newName = Var.Create ""
