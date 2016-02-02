@@ -6,6 +6,7 @@ namespace $safeprojectname$
 {
     public class Client
     {
+        [JavaScript]
         [SPAEntryPoint]
         public static void Main()
         {
