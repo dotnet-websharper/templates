@@ -80,3 +80,5 @@ type Template =
     /// The sitelets-uinext-suave template.
     static member SiteletsUINextSuave : Template
 
+    /// The C# bundle-website template.
+    static member CSharpBundleWebsite : Template

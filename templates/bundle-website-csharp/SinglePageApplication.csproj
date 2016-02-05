@@ -41,8 +41,6 @@
     <Compile Include="Client.cs" />
     <Content Include="index.html" />
     <Content Include="Web.config" />
-    <Content Include="Global.asax" />
-    <Compile Include="Global.asax.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
