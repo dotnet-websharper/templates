@@ -1,41 +1,30 @@
-using Microsoft.FSharp.Core;
-using System;
-using WebSharper;
 using WebSharper.UI.Next;
+using WebSharper.UI.Next.Client;
+using WebSharper.UI.Next.CSharp.Extensions;
+using static WebSharper.UI.Next.CSharp.Html;
 using static WebSharper.Core.Attributes;
-using static WebSharper.UI.Next.Client.DocExtensions;
-using Dom = WebSharper.JavaScript.Dom;
-using JSConsole = WebSharper.JavaScript.Console;
+
+using D = WebSharper.UI.Next.Client.Doc;
 
 namespace $safeprojectname$
 {
     [JavaScript]
     public class App
     {
-        [Inline("function (x) { $wsruntime.InvokeDelegate($f, [x]) }")]
-        private static FSharpFunc<T, Unit> ConvertMethod<T>(Action<T> f) => null;
-
-        private static FSharpFunc<T1, FSharpFunc<T2, Unit>> ConvertMethod<T1, T2>(Action<T1, T2> f)
-            => ConvertMethod((T1 x) => ConvertMethod((T2 y) => f(x, y)));
-
-        [Inline("function (x) { return $wsruntime.InvokeDelegate($f, [x]) }")]
-        private static FSharpFunc<T, U> ConvertMethod<T, U>(Func<T, U> f) => null;
-
-        private static FSharpFunc<T1, FSharpFunc<T2, U>> ConvertMethod<T1, T2, U>(Func<T1, T2, U> f)
-            => ConvertMethod((T1 x) => ConvertMethod((T2 y) => f(x, y)));
-
         [SPAEntryPoint]
         public static void Main()
         {
-            var name = Var.Create("...");
+            var people = ListModel.FromSeq(new[] { "John", "Paul" });
+            var newName = Var.Create("");
 
-            WebSharper.UI.Next.Client.Doc.RunById("main",
-                Html.div(new[] {
-                    Html.div( new[] { Html.text("Hello "), Html.textView(name.View) }),
-                    Html.button (new [] { Html.text("Click me!") } )
-                        .OnClick(ConvertMethod((Dom.Element el, Dom.MouseEvent ev) => { name.Value = "world!"; }))
-                })
-            );
+            div(
+                h1("My list of unique people"),
+                ul(people.View.DocSeqCached((string x) => li(x))),
+                div(
+                    D.Input(new[] { attr.placeholder("Name") }, newName),
+                    div(newName.View)
+                )
+            ).RunById("main");
         }
     }
 }
