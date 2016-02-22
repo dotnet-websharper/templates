@@ -82,3 +82,6 @@ type Template =
 
     /// The C# bundle-website template.
     static member CSharpBundleWebsite : Template
+
+    /// The sitelets-uinext-csharp template.
+    static member CSharpSiteletsUINext : Template
