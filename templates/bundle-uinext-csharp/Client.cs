@@ -1,7 +1,7 @@
 using WebSharper.UI.Next;
 using WebSharper.UI.Next.Client;
 using WebSharper.UI.Next.CSharp.Extensions;
-using static WebSharper.UI.Next.CSharp.Html;
+using static WebSharper.UI.Next.CSharp.Client.Html;
 using static WebSharper.Core.Attributes;
 
 using D = WebSharper.UI.Next.Client.Doc;
@@ -21,7 +21,7 @@ namespace $safeprojectname$
                 h1("My list of unique people"),
                 ul(people.View.DocSeqCached((string x) => li(x))),
                 div(
-                    D.Input(new[] { attr.placeholder("Name") }, newName),
+                    D.Input(new[] { attr.placeHolder("Name") }, newName),
                     div(newName.View)
                 )
             ).RunById("main");
