@@ -1,6 +1,5 @@
 using WebSharper;
 using WebSharper.JavaScript;
-using static WebSharper.Core.Attributes;
 
 namespace $safeprojectname$
 {

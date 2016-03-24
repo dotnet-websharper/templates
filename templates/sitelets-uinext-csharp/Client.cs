@@ -8,7 +8,6 @@ using WebSharper.UI.Next.Client;
 using WebSharper.UI.Next.CSharp;
 using WebSharper.UI.Next.CSharp.Client;
 using static WebSharper.UI.Next.CSharp.Client.Html;
-using static WebSharper.Core.Attributes;
 
 namespace $safeprojectname$
 {
@@ -28,7 +27,9 @@ namespace $safeprojectname$
             {
                 var people = ListModel.FromSeq(new[] { "John", "Paul" });
                 var newName = Var.Create(InitName);
+
                 return doc(
+                    h1("My list of unique people"),
                     ul(people.View.DocSeqCached((string x) => li(x))),
                     div(
                         input(newName, attr.placeHolder("Name")),
@@ -37,7 +38,7 @@ namespace $safeprojectname$
                             people.Add(newName.Value);
                             newName.Value = "";
                         }),
-                        div(newName.View)
+                        div("You are about to add: ", newName.View)
                     )
                 );
             }
