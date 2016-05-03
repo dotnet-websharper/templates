@@ -178,8 +178,10 @@ type Template with
     static member BundleUINext = T("bundle-uinext")
     static member SiteletsUINext = T("sitelets-uinext")
     static member SiteletsUINextSuave = T("sitelets-uinext-suave")
+    static member CSharpLibrary = T("library-csharp")
     static member CSharpBundleWebsite = T("bundle-website-csharp")
     static member CSharpSiteletsUINext = T("sitelets-uinext-csharp")
+    static member CSharpBundleUINext = T("bundle-uinext-csharp")
 
 type InitOptions with
 
