@@ -29,7 +29,6 @@ namespace $safeprojectname$
                 var newName = Var.Create(InitName);
 
                 return doc(
-                    h1("My list of unique people"),
                     ul(people.View.DocSeqCached((string x) => li(x))),
                     div(
                         input(newName, attr.placeHolder("Name")),

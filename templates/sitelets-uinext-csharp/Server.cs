@@ -16,7 +16,7 @@ namespace $safeprojectname$
         public static Sitelet<object> Main =>
             new SiteletBuilder()
                 .With<string>((ctx, action) =>
-                    Content.Page<string>(
+                    Content.Page(
                         Body: doc(
                             h1("My list of unique people"),
                             new ClientControl(action)
