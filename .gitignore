@@ -6,3 +6,4 @@ obj/
 *.suo
 *.nupkg
 *.vsix
+/templates-test
