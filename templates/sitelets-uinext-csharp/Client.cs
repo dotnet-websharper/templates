@@ -31,7 +31,7 @@ namespace $safeprojectname$
                 return doc(
                     ul(people.View.DocSeqCached((string x) => li(x))),
                     div(
-                        input(newName, attr.placeHolder("Name")),
+                        input(newName, attr.placeholder("Name")),
                         button("Add", () =>
                         {
                             people.Add(newName.Value);
