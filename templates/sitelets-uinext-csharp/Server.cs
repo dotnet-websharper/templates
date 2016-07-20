@@ -6,6 +6,7 @@ using WebSharper;
 using WebSharper.Sitelets;
 using WebSharper.UI.Next;
 using WebSharper.UI.Next.CSharp;
+using WebSharper.UI.Next.CSharp.Server;
 using static WebSharper.UI.Next.CSharp.Html;
 
 namespace $safeprojectname$
@@ -19,7 +20,8 @@ namespace $safeprojectname$
                     Content.Page(
                         Body: doc(
                             h1("My list of unique people"),
-                            new ClientControl(action)
+                            client(() => Client.Main(action)),
+                            button("Clear list").OnClick((el, ev) => Client.ClearNames())
                         )
                     )
                 )

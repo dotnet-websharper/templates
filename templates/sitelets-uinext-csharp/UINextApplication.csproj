@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Client.cs" />
+    <Compile Include="Remoting.cs" />
     <Compile Include="Server.cs" />
   </ItemGroup>
   <ItemGroup>

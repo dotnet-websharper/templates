@@ -11,36 +11,38 @@ using static WebSharper.UI.Next.CSharp.Client.Html;
 
 namespace $safeprojectname$
 {
-    [Serializable]
-    public class ClientControl : WebSharper.Web.Control
+    [JavaScript]
+    public static class Client
     {
-        string InitName;
+        static ListModel<string, string> People = new ListModel<string, string>(x => x);
+        static Var<string> NewName = Var.Create("");
 
-        public ClientControl(string initName)
+        static async void InitializeNames()
         {
-            InitName = initName;
+            foreach (var n in await Remoting.GetNames())
+                People.Add(n);
         }
 
-        [JavaScript]
-        override public IControlBody Body {
-            get
-            {
-                var people = ListModel.FromSeq(new[] { "John", "Paul" });
-                var newName = Var.Create(InitName);
+        static public IControlBody Main(string initName)
+        {
+            NewName.Value = initName;
+            InitializeNames();
+            return doc(
+                ul(People.View.DocSeqCached((string x) => li(x))),
+                div(
+                    input(NewName, attr.placeholder("Name")),
+                    button("Add", () =>
+                    {
+                        People.Add(NewName.Value);
+                        NewName.Value = "";
+                    }),
+                    div("You are about to add: ", NewName)
+                )
+            );
+        }
 
-                return doc(
-                    ul(people.View.DocSeqCached((string x) => li(x))),
-                    div(
-                        input(newName, attr.placeholder("Name")),
-                        button("Add", () =>
-                        {
-                            people.Add(newName.Value);
-                            newName.Value = "";
-                        }),
-                        div("You are about to add: ", newName.View)
-                    )
-                );
-            }
+        static public void ClearNames() {
+            People.Clear();
         }
     }
 }
