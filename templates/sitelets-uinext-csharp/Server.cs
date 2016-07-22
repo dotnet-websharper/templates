@@ -21,7 +21,7 @@ namespace $safeprojectname$
                         Body: doc(
                             h1("My list of unique people"),
                             client(() => Client.Main(action)),
-                            button("Clear list").OnClick((el, ev) => Client.ClearNames())
+                            button("Clear list", on.click((el, ev) => Client.ClearNames()))
                         )
                     )
                 )
