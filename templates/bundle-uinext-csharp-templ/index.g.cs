@@ -25,7 +25,7 @@ public static class Index
 {
 public static class Main
 {
-public static Doc Doc(Doc LastContainer, IRef<string> Name, Action<DomElement, DomEvent> Add) => SDoc.Concat(new[]{ SDoc.TextNode("\n        "), SDoc.Element("ul", Enumerable.Empty<Attr>(), new[]{ LastContainer }), SDoc.TextNode("\n        "), SDoc.Element("div", Enumerable.Empty<Attr>(), new[]{ SDoc.TextNode("\n            "), CDoc.Input(new[]{ Attr.Create("placeholder", "Name") }, Name), SDoc.TextNode("\n            "), SDoc.Element("button", new[]{ CAttr.Handler("click", FSharpConvert.Fun(Add)) }, new[]{ SDoc.TextNode("Add") }), SDoc.TextNode("\n            "), SDoc.Element("div", Enumerable.Empty<Attr>(), new[]{ SDoc.TextNode("You are about to add: "), CDoc.TextView(Name.View) }), SDoc.TextNode("\n        ") }), SDoc.TextNode("\n    ") });
+public static Doc Doc(Doc ListContainer, IRef<string> Name, Action<DomElement, DomEvent> Add) => SDoc.Concat(new[]{ SDoc.TextNode("\n        "), SDoc.Element("ul", Enumerable.Empty<Attr>(), new[]{ ListContainer }), SDoc.TextNode("\n        "), SDoc.Element("div", Enumerable.Empty<Attr>(), new[]{ SDoc.TextNode("\n            "), CDoc.Input(new[]{ Attr.Create("placeholder", "Name") }, Name), SDoc.TextNode("\n            "), SDoc.Element("button", new[]{ CAttr.Handler("click", FSharpConvert.Fun(Add)) }, new[]{ SDoc.TextNode("Add") }), SDoc.TextNode("\n            "), SDoc.Element("div", Enumerable.Empty<Attr>(), new[]{ SDoc.TextNode("You are about to add: "), CDoc.TextView(Name.View) }), SDoc.TextNode("\n        ") }), SDoc.TextNode("\n    ") });
 }
 public static class ListItem
 {
