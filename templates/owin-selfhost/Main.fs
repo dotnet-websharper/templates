@@ -76,19 +76,17 @@ module SelfHostedServer =
 
     [<EntryPoint>]
     let Main args =
-        let rootDirectory = "httproot"
-        
-        let url =
+        let rootDirectory, url =
             match args with
-            | [| url |] -> url
-            | [| |] -> "http://localhost:9000/"
-            | _ -> eprintfn "Usage: ROOT_DIRECTORY URL"; exit 1
-
+            | [| rootDirectory; url |] -> rootDirectory, url
+            | [| url |] -> "..", url
+            | [| |] -> "..", "http://localhost:9000/"
+            | _ -> eprintfn "Usage: $safeprojectname$ ROOT_DIRECTORY URL"; exit 1
         use server = WebApp.Start(url, fun appB ->
             appB.UseStaticFiles(
                     StaticFileOptions(
                         FileSystem = PhysicalFileSystem(rootDirectory)))
-                .UseSitelet(rootDirectory, Site.Main, ".")
+                .UseSitelet(rootDirectory, Site.Main)
             |> ignore)
         stdout.WriteLine("Serving {0}", url)
         stdin.ReadLine() |> ignore
