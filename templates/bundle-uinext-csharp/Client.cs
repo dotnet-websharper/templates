@@ -25,7 +25,7 @@ namespace $safeprojectname$
                         people.Add(newName.Value);
                         newName.Value = "";
                     }),
-                    div("You are about to add: ", newName.View)
+                    div("You are about to add: ", newName)
                 )
             ).RunById("main");
         }
