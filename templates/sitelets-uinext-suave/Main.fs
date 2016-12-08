@@ -59,4 +59,7 @@ module Site =
     open WebSharper.Suave
     open Suave.Web
 
-    do startWebServer defaultConfig (WebSharperAdapter.ToWebPart Main)
+    do
+        startWebServer
+            defaultConfig
+            (WebSharperAdapter.ToWebPart(Main, RootDirectory = @"../.."))
