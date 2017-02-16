@@ -59,7 +59,7 @@ else
             text.Replace(
                 """    type IndexTemplate = Templating.Template<"index.html">""",
                 """    let [<Literal>] ind = __SOURCE_DIRECTORY__ + "/index.html" 
-        type IndexTemplate = Templating.Template<ind>"""
+    type IndexTemplate = Templating.Template<ind>"""
             )
     
     // TODO: testing would require inserting an Include for the generated .proj file
