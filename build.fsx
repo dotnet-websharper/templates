@@ -48,12 +48,21 @@ else
     let xnm n = XName.Get(n, "http://schemas.microsoft.com/developer/msbuild/2003")
     let xn n = XName.Get(n)
 
+    let guid1 = Guid.NewGuid().ToString()
+    let guid2 = Guid.NewGuid().ToString()
     dirCopy (__SOURCE_DIRECTORY__ +/ "templates") testDir <| fun fn s ->
-        let text = s.Replace("$guid1$", Guid.NewGuid().ToString()).Replace("$safeprojectname$", "TemplateTest")
+        let text = s.Replace("$guid1$", guid1).Replace("$guid2$", guid2).Replace("$safeprojectname$", "TemplateTest")
         if fn.EndsWith "proj" then
             let dir = Path.GetFileName(Path.GetDirectoryName(fn))
             let proj = XDocument.Parse(text)
-            proj.Root.Add(XElement (xnm"Import", XAttribute(xn"Project", "../../build/net40/templates-test/" + dir + ".proj")))
+            let p1 = "../../build/net40/templates-test/" + dir + ".proj"
+            proj.Root.Add(XElement (xnm"Import",
+                                    XAttribute(xn"Project", p1),
+                                    XAttribute(xn"Condition", "Exists('" + p1 + "')")))
+            let p2 = "bin/" + dir + ".proj"
+            proj.Root.Add(XElement (xnm"Import",
+                                    XAttribute(xn"Project", p2),
+                                    XAttribute(xn"Condition", "Exists('" + p2 + "')")))
             string proj.Declaration + string proj
         else 
             text.Replace(
@@ -120,6 +129,10 @@ else
 
         bt.Zafir.HtmlWebsite("templates-test/sitelets-html")
             .SourcesFromProject("HtmlApplication.fsproj")
+            .References(fun r ->
+                [
+                    r.NuGet("Zafir.Html").Latest(true).Reference() 
+                ])
 
         bt.Zafir.SiteletWebsite("templates-test/sitelets-uinext")
             .SourcesFromProject("UI.Next.Application.fsproj")

@@ -10,11 +10,10 @@ module Definition =
         Interface "I1"
         |+> [
                 "test1" => T<string> ^-> T<string>
-                "radius1" =@ T<float>
             ]
 
     let I2 =
-        Generic - fun t1 t2 ->
+        Generic -- fun t1 t2 ->
             Interface "I2"
             |+> [
                     Generic - fun m1 -> "foo" => m1 * t1 ^-> t2
