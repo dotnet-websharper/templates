@@ -25,13 +25,13 @@ module Templating =
             li ["About" => EndPoint.About]
         ]
 
-    let Main ctx action title body =
+    let Main ctx action (title: string) (body: Doc list) =
         Content.Page(
-            MainTemplate.Doc(
-                title = title,
-                menubar = MenuBar ctx action,
-                body = body
-            )
+            MainTemplate()
+                .Title(title)
+                .MenuBar(MenuBar ctx action)
+                .Body(body)
+                .Doc()
         )
 
 module Site =
