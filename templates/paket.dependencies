@@ -1,0 +1,15 @@
+source ../packages/
+
+framework: net40, net45
+
+nuget HtmlAgilityPack
+nuget Microsoft.Owin.StaticFiles
+nuget Microsoft.Owin.Hosting
+nuget Microsoft.Owin.Host.HttpListener
+nuget Zafir
+nuget Zafir.CSharp
+nuget Zafir.FSharp
+nuget Zafir.Html
+nuget Zafir.Owin
+nuget Zafir.Suave
+nuget Zafir.UI.Next

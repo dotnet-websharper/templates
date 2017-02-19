@@ -9,6 +9,8 @@ let bt =
         .WithFSharpVersion(FSharpVersion.FSharp31)
         .WithFramework(fun fw -> fw.Net40)
 
+let skiptests = fsi.CommandLineArgs |> Array.contains "skiptests"
+
 let templates =
     bt.FSharp.Library("WebSharper.Templates")
         .SourcesFromProject()
@@ -17,6 +19,29 @@ let templates =
                 r.Assembly("System.Xml")
                 r.Assembly("System.Xml.Linq")
                 r.NuGet("SharpCompress").Version("[0.11.6]").ForceFoundVersion().Reference()
+            ])
+        .References(fun r ->
+            if skiptests then [] else
+            [
+                r.NuGet("FSharp.Core").BuildTimeOnly().Version("[4.0.0.1]").Reference()
+                r.NuGet("IntelliFactory.Xml").BuildTimeOnly().Reference()
+                r.NuGet("Owin").BuildTimeOnly().Reference()
+                r.NuGet("Paket").BuildTimeOnly().Version("[3.35.3]").Reference()
+                r.NuGet("Microsoft.Owin").BuildTimeOnly().Reference()
+                r.NuGet("Microsoft.Owin.Diagnostics").BuildTimeOnly().Reference()
+                r.NuGet("Microsoft.Owin.FileSystems").BuildTimeOnly().Reference()
+                r.NuGet("Microsoft.Owin.Host.HttpListener").BuildTimeOnly().Reference()
+                r.NuGet("Microsoft.Owin.Hosting").BuildTimeOnly().Reference()
+                r.NuGet("Microsoft.Owin.StaticFiles").BuildTimeOnly().Reference()
+                r.NuGet("Mono.Cecil").BuildTimeOnly().Reference()
+                r.NuGet("Suave").BuildTimeOnly().Reference()
+                r.NuGet("Zafir").Latest(true).BuildTimeOnly().Reference()
+                r.NuGet("Zafir.CSharp").Latest(true).BuildTimeOnly().Reference()
+                r.NuGet("Zafir.FSharp").Latest(true).BuildTimeOnly().Reference()
+                r.NuGet("Zafir.Html").Latest(true).BuildTimeOnly().Reference()
+                r.NuGet("Zafir.Owin").Latest(true).BuildTimeOnly().Reference()
+                r.NuGet("Zafir.Suave").Latest(true).BuildTimeOnly().Reference()
+                r.NuGet("Zafir.UI.Next").Latest(true).BuildTimeOnly().Reference()
             ])
 
 bt.Solution [
@@ -27,7 +52,26 @@ bt.Solution [
 #r "System.Xml.Linq"
 open System.Xml.Linq
 
-if fsi.CommandLineArgs |> Array.contains "skiptests" then
+let tests =
+    [
+        "bundle-uinext", "UINextApplication.fsproj"
+        "bundle-uinext-csharp", "UINextApplication.csproj"
+        "bundle-uinext-csharp-templ", "UINextApplication.csproj"
+        "bundle-website", "SinglePageApplication.fsproj"
+        "bundle-website-csharp", "SinglePageApplication.csproj"
+        "extension", "Extension.fsproj"
+        "library", "Library.fsproj"
+        "library-csharp", "Library.csproj"
+        "owin-selfhost", "SelfHostApplication.fsproj"
+        "sitelets-host", "Web.csproj"
+        "sitelets-html", "HtmlApplication.fsproj"
+        "sitelets-uinext", "UI.Next.Application.fsproj"
+        "sitelets-uinext-csharp", "UINextApplication.csproj"
+        "sitelets-uinext-suave", "UI.Next.Application.Suave.fsproj"
+        "sitelets-website", "Application.fsproj"
+    ]
+
+if skiptests then
     printfn "Skipping tests."
 else
     let ( +/ ) a b = Path.Combine(a, b)
@@ -43,129 +87,52 @@ else
         for d in dir.GetDirectories() do
             dirCopy d.FullName (toDir +/ d.Name) mapFile
 
+    let tplDir = __SOURCE_DIRECTORY__ +/ "templates"
     let testDir = __SOURCE_DIRECTORY__ +/ "templates-test"
-
-    let xnm n = XName.Get(n, "http://schemas.microsoft.com/developer/msbuild/2003")
-    let xn n = XName.Get(n)
+    if Directory.Exists(testDir) then Directory.Delete(testDir, true)
+    Directory.CreateDirectory(testDir) |> ignore
+    File.Copy(tplDir +/ "paket.dependencies", testDir +/ "paket.dependencies")
 
     let guid1 = Guid.NewGuid().ToString()
     let guid2 = Guid.NewGuid().ToString()
-    dirCopy (__SOURCE_DIRECTORY__ +/ "templates") testDir <| fun fn s ->
-        let text = s.Replace("$guid1$", guid1).Replace("$guid2$", guid2).Replace("$safeprojectname$", "TemplateTest")
-        if fn.EndsWith "proj" then
-            let dir = Path.GetFileName(Path.GetDirectoryName(fn))
-            let proj = XDocument.Parse(text)
-            let p1 = "../../build/net40/templates-test/" + dir + ".proj"
-            proj.Root.Add(XElement (xnm"Import",
-                                    XAttribute(xn"Project", p1),
-                                    XAttribute(xn"Condition", "Exists('" + p1 + "')")))
-            let p2 = "bin/" + dir + ".proj"
-            proj.Root.Add(XElement (xnm"Import",
-                                    XAttribute(xn"Project", p2),
-                                    XAttribute(xn"Condition", "Exists('" + p2 + "')")))
-            string proj.Declaration + string proj
-        else 
-            text.Replace(
-                """    type IndexTemplate = Templating.Template<"index.html">""",
-                """    let [<Literal>] ind = __SOURCE_DIRECTORY__ + "/index.html" 
-    type IndexTemplate = Templating.Template<ind>"""
-            )
-    
-    // TODO: testing would require inserting an Include for the generated .proj file
+    tests |> List.iter (fun (dir, proj) ->
+        dirCopy (tplDir +/ dir) (testDir +/ dir) <| fun fn s ->
+            s.Replace("$guid1$", guid1).Replace("$guid2$", guid2)
+                .Replace("$safeprojectname$", Path.GetFileNameWithoutExtension proj)
+    )
 
-    bt.Solution [
-        bt.Zafir.BundleWebsite("templates-test/bundle-uinext")
-            .SourcesFromProject("UINextApplication.fsproj")
-            .References(fun r ->
-                [
-                    r.NuGet("Zafir.UI.Next").Latest(true).Reference() 
-                ])
+    let runInTestDir exe args =
+        let pi =
+            System.Diagnostics.ProcessStartInfo(
+                FileName = (__SOURCE_DIRECTORY__ +/ exe),
+                Arguments = args,
+                WorkingDirectory = testDir,
+                CreateNoWindow = true,
+                UseShellExecute = false,
+                RedirectStandardOutput = true,
+                RedirectStandardError = true)
+        let p = System.Diagnostics.Process.Start(pi)
+        Console.Write(p.StandardOutput.ReadToEnd())
+        Console.Write(p.StandardError.ReadToEnd())
+        p.WaitForExit()
+        if p.ExitCode <> 0 then
+            failwithf "Tests: %s exited with code %i" (Path.GetFileNameWithoutExtension exe) p.ExitCode
 
-        bt.Zafir.CSharp.BundleWebsite("templates-test/bundle-uinext-csharp")
-            .SourcesFromProject("UINextApplication.csproj")
-            .References(fun r ->
-                [
-                    r.NuGet("Zafir.UI.Next").Latest(true).Reference() 
-                ])
+    let msbuild =
+        [
+            match System.Environment.GetEnvironmentVariable("ProgramFiles") with
+            | null -> ()
+            | f -> yield f +/ "MSBuild/14.0/Bin/MSBuild.exe"
+            match System.Environment.GetEnvironmentVariable("ProgramFiles(x86)") with
+            | null -> ()
+            | f -> yield f +/ "MSBuild/14.0/Bin/MSBuild.exe"
+        ]
+        |> List.find File.Exists
 
-        bt.Zafir.BundleWebsite("templates-test/bundle-website")
-            .SourcesFromProject("SinglePageApplication.fsproj")
-
-        bt.Zafir.CSharp.BundleWebsite("templates-test/bundle-website-csharp")
-            .SourcesFromProject("SinglePageApplication.csproj")
-
-        bt.Zafir.Extension("templates-test/extension")
-            .SourcesFromProject("Extension.fsproj")
-
-        bt.Zafir.Library("templates-test/library")
-            .SourcesFromProject("Library.fsproj")
-
-        bt.Zafir.CSharp.Library("templates-test/library-csharp")
-            .SourcesFromProject("Library.csproj")
-    (*
-        bt.Zafir.Executable("templates-test/owin-selfhost")
-            .SourcesFromProject("SelfHostApplication.fsproj")
-            .WithFramework(fun fw -> fw.Net45)
-            .References(fun r ->
-                [
-                    r.NuGet("Microsoft.Owin").Latest(true).Reference() 
-                    r.NuGet("Microsoft.Owin.Diagnostics").Latest(true).Reference() 
-                    r.NuGet("Microsoft.Owin.FileSystems").Latest(true).Reference() 
-                    r.NuGet("Microsoft.Owin.Host.HttpListener").Latest(true).Reference() 
-                    r.NuGet("Microsoft.Owin.Hosting").Latest(true).Reference() 
-                    r.NuGet("Microsoft.Owin.StaticFiles").Latest(true).Reference() 
-                    r.NuGet("Mono.Cecil").Latest(true).Reference() 
-                    r.NuGet("Owin").Latest(true).Reference() 
-                    r.NuGet("Zafir.Owin").Latest(true).Reference() 
-                    r.NuGet("Zafir.Html").Latest(true).Reference() 
-                    r.NuGet("IntelliFactory.Xml").Latest(true).Reference() 
-                ])
-    *)
-        bt.Zafir.CSharp.SiteletWebsite("templates-test/sitelets-host")
-            .SourcesFromProject("Web.csproj")
-            .References(fun r ->
-                [
-                ])
-
-        bt.Zafir.HtmlWebsite("templates-test/sitelets-html")
-            .SourcesFromProject("HtmlApplication.fsproj")
-            .References(fun r ->
-                [
-                    r.NuGet("Zafir.Html").Latest(true).Reference() 
-                ])
-
-        bt.Zafir.SiteletWebsite("templates-test/sitelets-uinext")
-            .SourcesFromProject("UI.Next.Application.fsproj")
-            .References(fun r ->
-                [
-                    r.NuGet("Zafir.UI.Next").Latest(true).Reference() 
-                ])
-
-        bt.Zafir.CSharp.SiteletWebsite("templates-test/sitelets-uinext-csharp")
-            .SourcesFromProject("UINextApplication.csproj")
-            .References(fun r ->
-                [
-                    r.NuGet("Zafir.UI.Next").Latest(true).Reference() 
-                ])
-
-        bt.Zafir.Executable("templates-test/sitelets-uinext-suave")
-            .SourcesFromProject("UI.Next.Application.Suave.fsproj")
-            .References(fun r ->
-                [
-                    r.NuGet("Mono.Cecil").Latest(true).Reference() 
-                    r.NuGet("Zafir.UI.Next").Latest(true).Reference() 
-                    r.NuGet("Zafir.Suave").Latest(true).Reference() 
-                    r.NuGet("Suave").Latest(true).Reference() 
-                    r.NuGet("Zafir.Owin").Latest(true).Reference() 
-                    r.NuGet("Owin").Latest(true).Reference() 
-                    r.NuGet("Microsoft.Owin").Latest(true).Reference() 
-                ])
-
-        bt.Zafir.CSharp.SiteletWebsite("templates-test/sitelets-website")
-            .SourcesFromProject("Application.fsproj")
-
-    ]
-    |> bt.Dispatch
+    runInTestDir "packages/Paket.3.35.3/tools/paket.exe" "update" // Create paket.lock with latest versions
+    runInTestDir "packages/Paket.3.35.3/tools/paket.exe" "install" // Write references to .[fc]sproj files
+    tests |> List.iter (fun (dir, proj) -> runInTestDir msbuild (dir +/ proj))
+    printfn "Compilation tests successful."
 
 bt.Solution [
     bt.NuGet.CreatePackage()
@@ -180,8 +147,9 @@ bt.Solution [
     |> Array.foldBack (fun f n -> n.AddFile(f)) (
         let templatesDir = DirectoryInfo("templates").FullName
         Directory.GetFiles(templatesDir, "*", SearchOption.AllDirectories)
-        |> Array.map (fun fullPath ->
-            fullPath, "templates/" + fullPath.[templatesDir.Length + 1 ..].Replace('\\', '/'))
+        |> Array.choose (fun fullPath ->
+            if fullPath.Contains("paket") then None else
+            Some (fullPath, "templates/" + fullPath.[templatesDir.Length + 1 ..].Replace('\\', '/')))
     )
 ]
 |> bt.Dispatch
