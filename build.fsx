@@ -102,6 +102,7 @@ else
     )
 
     let runInTestDir exe args =
+        printfn "%s %s" exe args
         let pi =
             System.Diagnostics.ProcessStartInfo(
                 FileName = (__SOURCE_DIRECTORY__ +/ exe),
@@ -129,6 +130,8 @@ else
         ]
         |> List.find File.Exists
 
+    if File.Exists("packages/Owin.1.0/Owin.1.0.nupkg") then
+        File.Move("packages/Owin.1.0/Owin.1.0.nupkg", "packages/Owin.1.0/Owin.1.0.0.nupkg")
     runInTestDir "packages/Paket.3.35.3/tools/paket.exe" "update" // Create paket.lock with latest versions
     runInTestDir "packages/Paket.3.35.3/tools/paket.exe" "install" // Write references to .[fc]sproj files
     tests |> List.iter (fun (dir, proj) -> runInTestDir msbuild (dir +/ proj))
