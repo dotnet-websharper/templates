@@ -1,6 +1,6 @@
 source ../packages/
 
-framework: net40, net45
+framework: net40, net45, net46
 
 nuget HtmlAgilityPack
 nuget Microsoft.Owin.StaticFiles
