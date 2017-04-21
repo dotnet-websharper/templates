@@ -15,7 +15,7 @@ let templates =
             [
                 r.Assembly("System.Xml")
                 r.Assembly("System.Xml.Linq")
-                r.NuGet("SharpCompress").ForceFoundVersion().Reference()
+                r.NuGet("SharpCompress").Version("[0.11.6]").ForceFoundVersion().Reference()
             ])
 
 bt.Solution [
