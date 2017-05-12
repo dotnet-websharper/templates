@@ -1,6 +1,6 @@
 ﻿namespace $safeprojectname$
 
-open WebShaper
+open WebSharper
 
 [<JavaScript>]
 type Class1() = 

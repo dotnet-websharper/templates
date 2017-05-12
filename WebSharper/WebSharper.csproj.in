@@ -56,6 +56,12 @@
     <Content Include="Packages\Zafir.FSharp.nupkg">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
+    <Content Include="Packages\HtmlAgilityPack.nupkg">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Packages\Zafir.UI.Next.nupkg">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>
     </None>
@@ -68,9 +74,30 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
     </ProjectReference>
-    <ProjectReference Include="..\FSharp\Library\FSharp.Library.csproj">
+    <ProjectReference Include="..\FSharp\WebSharper\Extension\FSharp.Extension.csproj">
+      <Project>{cdef4f7f-2c67-49bf-b41c-138d16408dfa}</Project>
+      <Name>FSharp.Extension</Name>
+      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
+        <ProjectReference Include="..\FSharp\WebSharper\ClientServer\FSharp.ClientServer.csproj">
+      <Project>{0dd48c1a-d128-41b7-adf3-399cd3db31cb}</Project>
+      <Name>FSharp.ClientServer</Name>
+      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
+    <ProjectReference Include="..\FSharp\WebSharper\Library\FSharp.Library.csproj">
       <Project>{CA7FAE8E-95DE-4692-9E12-192C4408CBB9}</Project>
       <Name>FSharp.Library</Name>
+      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
+        <ProjectReference Include="..\FSharp\WebSharper\SPA\FSharp.SPA.csproj">
+      <Project>{f51e4172-0f4c-4635-bddf-c82a6e2aeb93}</Project>
+      <Name>FSharp.SPA</Name>
       <VSIXSubPath>ProjectTemplates</VSIXSubPath>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>

@@ -6,6 +6,7 @@
     <Icon>Library.ico</Icon>
     <ProjectType>FSharp</ProjectType>
     <ProjectSubType>WebSharper</ProjectSubType>
+    <OutputSubPath>WebSharper</OutputSubPath>
     <RequiredFrameworkVersion>4.5</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>
     <TemplateID>7aba2767-6f37-4dc2-b0f4-5b4feab037a0</TemplateID>
