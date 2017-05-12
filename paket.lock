@@ -1,0 +1,13 @@
+FRAMEWORK: NET45
+NUGET
+  remote: https://api.nuget.org/v3/index.json
+    HtmlAgilityPack (1.4.9.5)
+    System.ValueTuple (4.3)
+    Zafir (4.0.160.40-beta6)
+    Zafir.CSharp (4.0.160.40-beta6)
+      Zafir (>= 4.0.160.40-beta6)
+    Zafir.FSharp (4.0.160.40-beta6)
+      Zafir (>= 4.0.160.40-beta6)
+    Zafir.UI.Next (4.0.132.34-beta6)
+      HtmlAgilityPack (>= 1.4.9.5)
+      Zafir (>= 4.0.160.40-beta6)

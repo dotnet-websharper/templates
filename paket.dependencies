@@ -1,0 +1,9 @@
+source https://api.nuget.org/v3/index.json
+
+framework = net45
+
+nuget System.ValueTuple 4.3.0
+nuget Zafir
+nuget Zafir.FSharp
+nuget Zafir.CSharp
+nuget Zafir.UI.Next

@@ -7,3 +7,7 @@ obj/
 *.nupkg
 *.vsix
 /templates-test
+.paket/paket.exe
+*.vstemplate
+*.user
+WebSharper/WebSharper.csproj
