@@ -29,21 +29,45 @@ let packageVersions =
             None
     ) |> List.ofSeq
 
-let replaces =
+let replacesInFile replaces p =
+    let inp = File.ReadAllText(p)
+    let res = (inp, replaces) ||> List.fold (fun s (i: string, o) -> s.Replace(i, o)) 
+    File.WriteAllText(p.[.. p.Length - 4], res)
+
+let vstemplateReplaces =
     [   
         for p, v in packageVersions do
             yield 
                 sprintf "package id=\"%s\"" p, 
                 sprintf "package id=\"%s\" version=\"%s\"" p v
+    ]
+
+Directory.EnumerateFiles(__SOURCE_DIRECTORY__, "*.vstemplate.in", SearchOption.AllDirectories)
+|> Seq.iter (replacesInFile vstemplateReplaces)
+
+let revision =
+    match Environment.GetEnvironmentVariable("BUILD_NUMBER") with
+    | null | "" -> "0"
+    | r -> r
+
+let version, tag = 
+    let wsVersion =
+        packageVersions |> List.pick (function "Zafir", v -> Some v | _ -> None)
+    let withoutTag, tag =
+        match wsVersion.IndexOf('-') with
+        | -1 -> wsVersion, ""
+        | i -> wsVersion.[.. i - 1], wsVersion.[i ..]
+    let nums = withoutTag.Split('.')
+    (nums.[0 .. 2] |> String.concat ".") + "." + revision, tag
+
+__SOURCE_DIRECTORY__ +/ "WebSharper/WebSharper.csproj.in" |> replacesInFile [   
+        for p, v in packageVersions do
             yield
                 sprintf "Include=\"Packages\\%s.nupkg\"" p, 
                 sprintf "Include=\"Packages\\%s.%s.nupkg\"" p v
+        yield "{vsixversion}", version + tag
     ]
 
-Directory.EnumerateFiles(__SOURCE_DIRECTORY__, "*.in", SearchOption.AllDirectories)
-|> Seq.iter (fun p ->
-    let inp = File.ReadAllText(p)
-    let res =
-        (inp, replaces) ||> List.fold (fun s (i, o) -> s.Replace(i, o)) 
-    File.WriteAllText(p.[.. p.Length - 4], res)
-)
+__SOURCE_DIRECTORY__ +/ "WebSharper/source.extension.vsixmanifest.in" |> replacesInFile [   
+    "{vsixversion}", version
+]
