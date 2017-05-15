@@ -57,11 +57,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Extension.ico" />
+    <Content Include="WebSharper.ico" />
+    <None Include="Extension.vstemplate.in" />
     <None Include="ProjectTemplate.fsproj" />
   </ItemGroup>
   <ItemGroup>
     <VSTemplate Include="Extension.vstemplate">
+      <SubType>Designer</SubType>
       <OutputSubPath>WebSharper</OutputSubPath>
     </VSTemplate>
   </ItemGroup>

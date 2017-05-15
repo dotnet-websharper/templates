@@ -1,11 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
-    <Name>Extension</Name>
-    <Description>Extension</Description>
-    <Icon>Extension.ico</Icon>
+    <Name>WebSharper 4 Extension</Name>
+    <Description>Creates a new WebSharper extension to existing JavaScript code using the WebSharper Interface Generator (WIG) tool.</Description>
+    <Icon>WebSharper.ico</Icon>
     <ProjectType>FSharp</ProjectType>
-    <ProjectSubType>WebSharper</ProjectSubType>
     <RequiredFrameworkVersion>4.5</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>
     <TemplateID>7aba2767-6f37-4dc2-b0f4-5b4feab037a0</TemplateID>

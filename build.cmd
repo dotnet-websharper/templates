@@ -15,4 +15,6 @@ set PATH=%PATH%;%ProgramFiles%\Microsoft SDKs\F#\4.0\Framework\v4.0
 
 fsi.exe --exec init.fsx
 
+rd /s /q WebSharper.Vsix/bin
+rd /s /q WebSharper.Vsix/obj
 MSBuild.exe WebSharper.Vsix.sln /p:Configuration=Release

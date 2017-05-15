@@ -59,10 +59,11 @@
   <ItemGroup>
     <Content Include="AssemblyInfo.fs" />
     <Content Include="Library1.fs" />
+    <None Include="Library.vstemplate.in" />
     <None Include="ProjectTemplate.fsproj">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Library.ico" />
+    <Content Include="WebSharper.ico" />
   </ItemGroup>
   <ItemGroup>
     <VSTemplate Include="Library.vstemplate">

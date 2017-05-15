@@ -1,11 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
-    <Name>Single Page Application</Name>
-    <Description>Single Page Application</Description>
-    <Icon>SPA.ico</Icon>
+    <Name>WebSharper 4 Single Page Application</Name>
+    <Description>Creates a single-page HTML application using WebSharper UI.Next.</Description>
+    <Icon>WebSharper.ico</Icon>
     <ProjectType>FSharp</ProjectType>
-    <ProjectSubType>WebSharper</ProjectSubType>
     <RequiredFrameworkVersion>4.5</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>
     <TemplateID>5755a2e0-8b93-4315-a510-2f92eb056670</TemplateID>
@@ -20,7 +19,6 @@
       <ProjectItem ReplaceParameters="true">Global.asax</ProjectItem>
       <ProjectItem ReplaceParameters="true">Global.asax.fs</ProjectItem>
       <ProjectItem ReplaceParameters="true">index.html</ProjectItem>
-      <ProjectItem ReplaceParameters="true">Setup.fsx</ProjectItem>
       <ProjectItem ReplaceParameters="true">Web.config</ProjectItem>
     </Project>
   </TemplateContent>

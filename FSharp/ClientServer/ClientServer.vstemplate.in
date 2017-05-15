@@ -1,11 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
-    <Name>Client-Server Application</Name>
-    <Description>Client-Server Application</Description>
-    <Icon>ClientServer.ico</Icon>
+    <Name>WebSharper 4 Client-Server Application</Name>
+    <Description>Creates a starter client-server web application based on sitelets.</Description>
+    <Icon>WebSharper.ico</Icon>
     <ProjectType>FSharp</ProjectType>
-    <ProjectSubType>WebSharper</ProjectSubType>
     <RequiredFrameworkVersion>4.5</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>
     <TemplateID>5755a2e0-8b93-4315-a510-2f92eb056670</TemplateID>

@@ -8,3 +8,5 @@ nuget Zafir
 nuget Zafir.FSharp
 nuget Zafir.CSharp
 nuget Zafir.UI.Next
+nuget Zafir.Owin
+nuget Zafir.Suave

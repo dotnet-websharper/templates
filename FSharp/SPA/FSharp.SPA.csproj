@@ -60,12 +60,14 @@
     <None Include="ProjectTemplate.fsproj">
       <SubType>Designer</SubType>
     </None>
-    <None Include="SPA.ico" />
-    <None Include="Web.config" />
+    <Content Include="WebSharper.ico" />
+    <None Include="SPA.vstemplate.in" />
+    <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <VSTemplate Include="SPA.vstemplate">
       <SubType>Designer</SubType>
+      <OutputSubPath>WebSharper</OutputSubPath>
     </VSTemplate>
   </ItemGroup>
   <ItemGroup>

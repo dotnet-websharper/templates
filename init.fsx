@@ -5,26 +5,34 @@ open System.Text.RegularExpressions
 
 let (+/) a b = Path.Combine(a, b)
 
-let pkgFolder = __SOURCE_DIRECTORY__ +/ "WebSharper/Packages"
+let pkgFolder = __SOURCE_DIRECTORY__ +/ "WebSharper.Vsix/Packages"
 if not <| Directory.Exists pkgFolder then
     Directory.CreateDirectory pkgFolder |> ignore
 
-Directory.EnumerateFiles(__SOURCE_DIRECTORY__ +/ "packages", "*.nupkg", SearchOption.AllDirectories)
+let nupkgFiles =
+    Directory.EnumerateFiles(__SOURCE_DIRECTORY__ +/ "packages", "*.nupkg", SearchOption.AllDirectories)
+    |> Array.ofSeq
+
+nupkgFiles
 |> Seq.iter (fun p ->
     File.Copy(p, pkgFolder +/ Path.GetFileName(p), true) 
-)
+) 
 
 let packageVersions =
+    let nupkgFileNames =
+        nupkgFiles |> Seq.map (fun p -> Path.GetFileNameWithoutExtension(p)) |> Set
+
     let packageRegex = Regex "([^ ]+) \(([^\)>=]+)\)"
     File.ReadAllLines("paket.lock") |> Seq.choose (fun l ->
         let c = packageRegex.Match l
         if c.Success then
             let p = c.Groups.[1].Value
             let v = c.Groups.[2].Value
-            if p = "System.ValueTuple" then
-                Some (p, "4.3.0")
-            else
+            // hack to include truncated .0
+            if nupkgFileNames.Contains(p + "." + v) then 
                 Some (p, v)
+            else
+                Some (p, v + ".0")
         else
             None
     ) |> List.ofSeq

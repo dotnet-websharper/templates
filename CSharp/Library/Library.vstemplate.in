@@ -1,11 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
-    <Name>Library</Name>
-    <Description>Library</Description>
-    <Icon>Library.ico</Icon>
+    <Name>WebSharper 4 Library</Name>
+    <Description>Creates a C# library capable of containing WebSharper-compiled code.</Description>
+    <Icon>WebSharper.ico</Icon>
     <ProjectType>CSharp</ProjectType>
-    <ProjectSubType>WebSharper</ProjectSubType>
     <RequiredFrameworkVersion>4.5</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>
     <TemplateID>6ba7565f-dfca-4959-8789-e5727a96d53a</TemplateID>
