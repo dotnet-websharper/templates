@@ -20,7 +20,7 @@ nupkgFiles
 
 let packageVersions =
     let nupkgFileNames =
-        nupkgFiles |> Seq.map (fun p -> Path.GetFileNameWithoutExtension(p)) |> Set
+        nupkgFiles |> Seq.map (fun p -> Path.GetFileNameWithoutExtension(p)) |> Set.ofSeq
 
     let packageRegex = Regex "([^ ]+) \(([^\)>=]+)\)"
     File.ReadAllLines("paket.lock") |> Seq.choose (fun l ->
