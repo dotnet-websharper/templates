@@ -3,7 +3,7 @@
   <TemplateData>
     <Name>WebSharper 4 Library</Name>
     <Description>Creates an F# library capable of containing WebSharper-compiled code.</Description>
-    <Icon>WebSharper.ico</Icon>
+    <Icon>WebSharper.png</Icon>
     <ProjectType>FSharp</ProjectType>
     <RequiredFrameworkVersion>4.5</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>

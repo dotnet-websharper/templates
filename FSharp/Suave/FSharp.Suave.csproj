@@ -63,7 +63,7 @@
     <Content Include="Main.html" />
     <Content Include="Remoting.fs" />
     <None Include="ProjectTemplate.fsproj" />
-    <Content Include="WebSharper.ico" />
+    <Content Include="WebSharper.png" />
     <None Include="Suave.vstemplate.in">
       <SubType>Designer</SubType>
     </None>

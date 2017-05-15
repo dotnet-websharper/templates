@@ -62,7 +62,7 @@
     <None Include="ProjectTemplate.csproj">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="WebSharper.ico" />
+    <Content Include="WebSharper.png" />
     <None Include="SPA.vstemplate.in">
       <SubType>Designer</SubType>
     </None>

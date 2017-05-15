@@ -57,7 +57,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="WebSharper.ico" />
+    <Content Include="WebSharper.png" />
     <None Include="ClientServer.vstemplate.in" />
     <None Include="ProjectTemplate.fsproj" />
   </ItemGroup>

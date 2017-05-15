@@ -21,4 +21,4 @@ fsi.exe --exec init.fsx
 
 rd /s /q WebSharper.Vsix/bin
 rd /s /q WebSharper.Vsix/obj
-MSBuild.exe WebSharper.Vsix.sln /p:Configuration=Release
+MSBuild.exe WebSharper.Vsix.sln /p:Configuration=Release /t:Rebuild

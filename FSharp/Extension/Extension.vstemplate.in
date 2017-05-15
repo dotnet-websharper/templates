@@ -3,7 +3,7 @@
   <TemplateData>
     <Name>WebSharper 4 Extension</Name>
     <Description>Creates a new WebSharper extension to existing JavaScript code using the WebSharper Interface Generator (WIG) tool.</Description>
-    <Icon>WebSharper.ico</Icon>
+    <Icon>WebSharper.png</Icon>
     <ProjectType>FSharp</ProjectType>
     <RequiredFrameworkVersion>4.5</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>

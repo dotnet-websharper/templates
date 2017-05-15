@@ -65,7 +65,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="ProjectTemplate.csproj" />
-    <Content Include="WebSharper.ico" />
+    <Content Include="WebSharper.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

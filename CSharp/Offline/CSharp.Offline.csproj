@@ -63,7 +63,7 @@
     <None Include="ProjectTemplate.csproj">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="WebSharper.ico" />
+    <Content Include="WebSharper.png" />
   </ItemGroup>
   <ItemGroup>
     <VSTemplate Include="Offline.vstemplate">

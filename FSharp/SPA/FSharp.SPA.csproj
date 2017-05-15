@@ -60,7 +60,7 @@
     <None Include="ProjectTemplate.fsproj">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="WebSharper.ico" />
+    <Content Include="WebSharper.png" />
     <None Include="SPA.vstemplate.in" />
     <Content Include="Web.config" />
   </ItemGroup>

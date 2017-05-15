@@ -3,7 +3,7 @@
   <TemplateData>
     <Name>WebSharper 4 Client-Server Application</Name>
     <Description>Creates a starter client-server web application based on sitelets.</Description>
-    <Icon>WebSharper.ico</Icon>
+    <Icon>WebSharper.png</Icon>
     <ProjectType>CSharp</ProjectType>
     <ProjectSubType>WebSharper</ProjectSubType>
     <RequiredFrameworkVersion>4.5</RequiredFrameworkVersion>
