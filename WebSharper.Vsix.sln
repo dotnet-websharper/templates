@@ -3,22 +3,22 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.4
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSharper", "WebSharper\WebSharper.csproj", "{67A7B7FF-7BF8-405E-8756-DDCD30C08D19}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSharper.Vsix", "WebSharper.Vsix\WebSharper.Vsix.csproj", "{67A7B7FF-7BF8-405E-8756-DDCD30C08D19}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.Library", "CSharp\Library\CSharp.Library.csproj", "{62BA5E9A-050E-4B4F-9DCF-C1CE3C9B33B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSharp.Library", "FSharp\WebSharper\Library\FSharp.Library.csproj", "{CA7FAE8E-95DE-4692-9E12-192C4408CBB9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSharp.Library", "FSharp\Library\FSharp.Library.csproj", "{CA7FAE8E-95DE-4692-9E12-192C4408CBB9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{13B25483-9824-48EC-B585-C377CEE8E3C0}"
 	ProjectSection(SolutionItems) = preProject
 		init.fsx = init.fsx
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSharp.Extension", "FSharp\WebSharper\Extension\FSharp.Extension.csproj", "{CDEF4F7F-2C67-49BF-B41C-138D16408DFA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSharp.Extension", "FSharp\Extension\FSharp.Extension.csproj", "{CDEF4F7F-2C67-49BF-B41C-138D16408DFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSharp.ClientServer", "FSharp\WebSharper\ClientServer\FSharp.ClientServer.csproj", "{0DD48C1A-D128-41B7-ADF3-399CD3DB31CB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSharp.ClientServer", "FSharp\ClientServer\FSharp.ClientServer.csproj", "{0DD48C1A-D128-41B7-ADF3-399CD3DB31CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSharp.SPA", "FSharp\WebSharper\SPA\FSharp.SPA.csproj", "{F51E4172-0F4C-4635-BDDF-C82A6E2AEB93}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSharp.SPA", "FSharp\SPA\FSharp.SPA.csproj", "{F51E4172-0F4C-4635-BDDF-C82A6E2AEB93}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

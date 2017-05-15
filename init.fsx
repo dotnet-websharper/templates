@@ -60,7 +60,7 @@ let version, tag =
     let nums = withoutTag.Split('.')
     (nums.[0 .. 2] |> String.concat ".") + "." + revision, tag
 
-__SOURCE_DIRECTORY__ +/ "WebSharper/WebSharper.csproj.in" |> replacesInFile [   
+__SOURCE_DIRECTORY__ +/ "WebSharper.Vsix/WebSharper.Vsix.csproj.in" |> replacesInFile [   
         for p, v in packageVersions do
             yield
                 sprintf "Include=\"Packages\\%s.nupkg\"" p, 
@@ -68,6 +68,6 @@ __SOURCE_DIRECTORY__ +/ "WebSharper/WebSharper.csproj.in" |> replacesInFile [
         yield "{vsixversion}", version + tag
     ]
 
-__SOURCE_DIRECTORY__ +/ "WebSharper/source.extension.vsixmanifest.in" |> replacesInFile [   
+__SOURCE_DIRECTORY__ +/ "WebSharper.Vsix/source.extension.vsixmanifest.in" |> replacesInFile [   
     "{vsixversion}", version
 ]
