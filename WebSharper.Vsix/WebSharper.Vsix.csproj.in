@@ -69,6 +69,21 @@
     <Content Include="Packages\Microsoft.Owin.nupkg">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
+    <Content Include="Packages\Microsoft.Owin.Diagnostics.nupkg">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Packages\Microsoft.Owin.FileSystems.nupkg">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Packages\Microsoft.Owin.Host.HttpListener.nupkg">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Packages\Microsoft.Owin.Hosting.nupkg">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Packages\Microsoft.Owin.StaticFiles.nupkg">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <Content Include="Packages\Mono.Cecil.nupkg">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
