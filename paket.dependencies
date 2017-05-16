@@ -10,3 +10,8 @@ nuget Zafir.CSharp
 nuget Zafir.UI.Next
 nuget Zafir.Owin
 nuget Zafir.Suave
+nuget Microsoft.Owin.Diagnostics
+nuget Microsoft.Owin.FileSystems
+nuget Microsoft.Owin.Host.HttpListener
+nuget Microsoft.Owin.Hosting
+nuget Microsoft.Owin.StaticFiles

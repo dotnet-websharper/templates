@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-	<PropertyGroup>
-		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-		<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-		<SchemaVersion>2.0</SchemaVersion>
-		<ProjectGuid>$guid1$</ProjectGuid>
-		<OutputType>Library</OutputType>
-		<RootNamespace>$safeprojectname$</RootNamespace>
-		<AssemblyName>$safeprojectname$</AssemblyName>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>$guid1$</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>$safeprojectname$</RootNamespace>
+    <AssemblyName>$safeprojectname$</AssemblyName>
     <WebSharperProject>Html</WebSharperProject>
     <WebSharperHtmlDirectory>$(MSBuildThisFileDirectory)bin\html</WebSharperHtmlDirectory>
     <TargetFrameworkVersion>v$targetframeworkversion$</TargetFrameworkVersion>
     <TargetFSharpCoreVersion>4.4.0.0</TargetFSharpCoreVersion>
-    <WebSharperProject>Site</WebSharperProject>
-    <WebProjectOutputDir>$(MSBuildThisFileDirectory)</WebProjectOutputDir>
-    <StartArguments>.. http://localhost:9000/</StartArguments>
-	</PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <StartAction>Program</StartAction>
+    <StartProgram>$([System.Environment]::GetEnvironmentVariable(`WinDir`))\explorer.exe</StartProgram>
+    <StartArguments>$(WebSharperHtmlDirectory)</StartArguments>
+  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
@@ -47,13 +48,13 @@
     <Reference Include="System.Numerics"/>
     <Reference Include="System.Web"/>
   </ItemGroup>
-	<ItemGroup>
+    <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Client.fs" />
     <Compile Include="Main.fs" />
     <None Include="extra.files" />
     <Content Include="Main.html" />
-	</ItemGroup>
+    </ItemGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
   </PropertyGroup>

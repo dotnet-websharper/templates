@@ -14,7 +14,7 @@
   </TemplateData>
   <TemplateContent>
     <Project File="ProjectTemplate.fsproj" ReplaceParameters="true">
-      <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.fs">AssemblyInfo.fs</ProjectItem>
+      <ProjectItem ReplaceParameters="true">AssemblyInfo.fs</ProjectItem>
       <ProjectItem ReplaceParameters="true" OpenInEditor="true">Client.fs</ProjectItem>
       <ProjectItem ReplaceParameters="true">Global.asax</ProjectItem>
       <ProjectItem ReplaceParameters="true">Global.asax.fs</ProjectItem>

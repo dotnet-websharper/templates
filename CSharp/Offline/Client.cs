@@ -14,19 +14,13 @@ namespace $safeprojectname$
     [JavaScript]
     public static class Client
     {
-        static ListModel<string, string> People = new ListModel<string, string>(x => x);
+        static ListModel<string, string> People = 
+            new ListModel<string, string>(x => x) { "John", "Paul" };
+
         static Var<string> NewName = Var.Create("");
 
-        static async void InitializeNames()
+        static public IControlBody Main()
         {
-            foreach (var n in await Remoting.GetNames())
-                People.Add(n);
-        }
-
-        static public IControlBody Main(string initName)
-        {
-            NewName.Value = initName;
-            InitializeNames();
             return doc(
                 ul(People.View.DocSeqCached((string x) => li(x))),
                 div(

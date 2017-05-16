@@ -14,7 +14,7 @@
   </TemplateData>
   <TemplateContent>
     <Project File="ProjectTemplate.fsproj" ReplaceParameters="true">
-      <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.fs">AssemblyInfo.fs</ProjectItem>
+      <ProjectItem ReplaceParameters="true">AssemblyInfo.fs</ProjectItem>
       <ProjectItem ReplaceParameters="true" OpenInEditor="true">Main.fs</ProjectItem>
       <ProjectItem ReplaceParameters="true">Client.fs</ProjectItem>
       <ProjectItem ReplaceParameters="true">Remoting.fs</ProjectItem>
@@ -27,16 +27,16 @@
   </WizardExtension>
   <WizardData>
     <packages repository="extension" repositoryId="IntelliFactory.WebSharper.371cf828-9e17-41cb-b014-496f3e9e7171">
-      <package id="Zafir" targetFramework="net45" />
-      <package id="Zafir.FSharp" targetFramework="net45" />
-      <package id="HtmlAgilityPack" targetFramework="net45" />
-      <package id="Zafir.UI.Next" targetFramework="net45" />
-      <package id="Mono.Cecil" targetFramework="net45" />
-      <package id="Suave" targetFramework="net45" />
-      <package id="Owin" targetFramework="net45" />
-      <package id="Zafir.Owin" targetFramework="net45" />
-      <package id="Microsoft.Owin" targetFramework="net45" />
-      <package id="Zafir.Suave" targetFramework="net45" />
+      <package id="Zafir" targetFramework="net46" />
+      <package id="Zafir.FSharp" targetFramework="net46" />
+      <package id="HtmlAgilityPack" targetFramework="net46" />
+      <package id="Zafir.UI.Next" targetFramework="net46" />
+      <package id="Mono.Cecil" targetFramework="net46" />
+      <package id="Suave" targetFramework="net46" />
+      <package id="Owin" targetFramework="net46" />
+      <package id="Zafir.Owin" targetFramework="net46" />
+      <package id="Microsoft.Owin" targetFramework="net46" />
+      <package id="Zafir.Suave" targetFramework="net46" />
     </packages>
   </WizardData>
 </VSTemplate>

@@ -14,7 +14,7 @@
   </TemplateData>
   <TemplateContent>
     <Project File="ProjectTemplate.fsproj" ReplaceParameters="true">
-      <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.fs">AssemblyInfo.fs</ProjectItem>
+      <ProjectItem ReplaceParameters="true">AssemblyInfo.fs</ProjectItem>
       <ProjectItem ReplaceParameters="true" OpenInEditor="true">Main.fs</ProjectItem>
       <ProjectItem ReplaceParameters="true">Client.fs</ProjectItem>
       <ProjectItem ReplaceParameters="true">Main.html</ProjectItem>
@@ -34,6 +34,11 @@
       <package id="Mono.Cecil" targetFramework="net45" />
       <package id="Owin" targetFramework="net45" />
       <package id="Zafir.Owin" targetFramework="net45" />
+      <package id="Microsoft.Owin.Diagnostics" targetFramework="net45" />
+      <package id="Microsoft.Owin.FileSystems" targetFramework="net45" />
+      <package id="Microsoft.Owin.Host.HttpListener" targetFramework="net45" />
+      <package id="Microsoft.Owin.Hosting" targetFramework="net45" />
+      <package id="Microsoft.Owin.StaticFiles" targetFramework="net45" />
       <package id="Microsoft.Owin" targetFramework="net45" />
     </packages>
   </WizardData>

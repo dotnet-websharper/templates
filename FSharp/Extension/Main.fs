@@ -34,7 +34,7 @@ module Definition =
 
     let Assembly =
         Assembly [
-            Namespace "Extension1" [
+            Namespace "$safeprojectname$" [
                  I1
                  I2
                  C1

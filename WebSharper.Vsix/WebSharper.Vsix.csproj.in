@@ -105,13 +105,13 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
     </ProjectReference>
-    <!--<ProjectReference Include="..\CSharp\Offline\CSharp.Offline.csproj">
+    <ProjectReference Include="..\CSharp\Offline\CSharp.Offline.csproj">
       <Project>{c8efca00-69ea-463a-bc71-b050d8f32c4d}</Project>
       <Name>CSharp.Offline</Name>
       <VSIXSubPath>ProjectTemplates</VSIXSubPath>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
-    </ProjectReference>-->
+    </ProjectReference>
     <ProjectReference Include="..\CSharp\SPA\CSharp.SPA.csproj">
       <Project>{527df100-65a4-41fa-91e1-411a0481f008}</Project>
       <Name>CSharp.SPA</Name>

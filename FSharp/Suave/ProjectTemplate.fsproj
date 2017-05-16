@@ -46,6 +46,7 @@
     <Reference Include="System.Web"/>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Remoting.fs" />
     <Compile Include="Client.fs" />
     <Compile Include="Main.fs" />

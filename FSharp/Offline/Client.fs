@@ -2,7 +2,9 @@
 
 open WebSharper
 open WebSharper.JavaScript
-open WebSharper.Html.Client
+open WebSharper.UI.Next
+open WebSharper.UI.Next.Client
+open WebSharper.UI.Next.Html
 
 [<JavaScript>]
 module Client =
@@ -11,15 +13,17 @@ module Client =
         System.String(Array.rev(input.ToCharArray()))
 
     let Main () =
-        let input = Input [Attr.Value ""] -< []
-        let output = H1 []
-        Div [
-            input
-            Button [Text "Send"]
-            |>! OnClick (fun _ _ ->
-                output.Text <- DoSomething input.Value
+        let rvInput = Var.Create ""
+        let submit = Submitter.CreateOption rvInput.View
+        let vReversed =
+            submit.View.Map(function
+                | None -> ""
+                | Some input -> DoSomething input
             )
-            HR []
-            H4 [Attr.Class "text-muted"] -< [Text "The client responded:"]
-            Div [Attr.Class "jumbotron"] -< [output]
+        div [
+            Doc.Input [] rvInput
+            Doc.Button "Send" [] submit.Trigger
+            hr []
+            h4Attr [attr.``class`` "text-muted"] [text "The server responded:"]
+            divAttr [attr.``class`` "jumbotron"] [h1 [textView vReversed]]
         ]

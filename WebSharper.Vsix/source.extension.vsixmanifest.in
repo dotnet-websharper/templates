@@ -23,7 +23,7 @@
     <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="FSharp.Owin" d:TargetPath="|FSharp.Owin;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
     <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="FSharp.Suave" d:TargetPath="|FSharp.Suave;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
     <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="CSharp.ClientServer" d:TargetPath="|CSharp.ClientServer;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
-    <!--<Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="CSharp.Offline" d:TargetPath="|CSharp.Offline;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />-->
+    <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="CSharp.Offline" d:TargetPath="|CSharp.Offline;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
     <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="CSharp.SPA" d:TargetPath="|CSharp.SPA;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
   </Assets>
   <Prerequisites>

@@ -5,7 +5,7 @@
     <Description>Creates a starter sitelet-based HTML application.</Description>
     <Icon>WebSharper.png</Icon>
     <ProjectType>CSharp</ProjectType>
-    <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
+    <RequiredFrameworkVersion>4.5</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>
     <TemplateID>ed4df9f7-da0e-405c-ac05-a5361c4ab6fb</TemplateID>
     <CreateNewFolder>true</CreateNewFolder>
@@ -15,7 +15,8 @@
   <TemplateContent>
     <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
       <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true" OpenInEditor="true">Class1.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true">Main.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true">Client.cs</ProjectItem>
     </Project>
   </TemplateContent>
   <WizardExtension>
