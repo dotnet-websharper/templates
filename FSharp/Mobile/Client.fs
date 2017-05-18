@@ -13,23 +13,16 @@ module Client =
     // and refresh your browser, no need to recompile unless you add or remove holes.
     type IndexTemplate = Template<"index.html", ClientLoad.FromDocument>
 
-    let People = ListModel.Create id []
+    let People =
+        ListModel.FromSeq [
+            "John"
+            "Paul"
+        ]
+
 
     [<SPAEntryPoint>]
     let Main () =
-        // Replace the URL to where the server is running.
-        // Look at for "Project Url" setting on the Web tab of the Properties page of this project.
-		WebSharper.Remoting.EndPoint <- "http://localhost:10000/"
-
         let newName = Var.Create ""
-
-        async {
-            try
-                let! names = Server.GetNames()    
-                names |> List.iter People.Add
-            with _ ->
-                JS.Alert "Cannot reach server"
-        }
 
         IndexTemplate.Main()
             .ListContainer(

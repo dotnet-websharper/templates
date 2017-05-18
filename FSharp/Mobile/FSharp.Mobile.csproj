@@ -66,11 +66,7 @@
   <ItemGroup>
     <Content Include="AssemblyInfo.fs" />
     <Content Include="Client.fs" />
-    <Content Include="Server.fs" />
-    <Content Include="Global.asax" />
-    <Content Include="Global.asax.fs" />
     <Content Include="index.html" />
-    <Content Include="Web.config" />
     <Content Include="readme.txt" />
   </ItemGroup>
   <ItemGroup>
