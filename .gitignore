@@ -14,3 +14,4 @@ obj/
 WebSharper.Vsix/WebSharper.Vsix.csproj
 WebSharper.Vsix/source.extension.vsixmanifest
 paket.lock
+.vs/

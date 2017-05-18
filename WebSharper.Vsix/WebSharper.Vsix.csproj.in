@@ -155,6 +155,13 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
     </ProjectReference>
+    <ProjectReference Include="..\FSharp\Mobile\FSharp.Mobile.csproj">
+      <Project>{2154cf20-4cff-4c71-9365-c047153ee5d1}</Project>
+      <Name>FSharp.Mobile</Name>
+      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
     <ProjectReference Include="..\FSharp\Offline\FSharp.Offline.csproj">
       <Project>{bc5b3339-827f-491d-bfe4-763a722cce5c}</Project>
       <Name>FSharp.Offline</Name>

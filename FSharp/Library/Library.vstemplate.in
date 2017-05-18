@@ -7,7 +7,7 @@
     <ProjectType>FSharp</ProjectType>
     <RequiredFrameworkVersion>4.5</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>
-    <TemplateID>7aba2767-6f37-4dc2-b0f4-5b4feab037a0</TemplateID>
+    <TemplateID>18106621-0b3e-42ed-ae96-2c8c3f8e1716</TemplateID>
     <CreateNewFolder>true</CreateNewFolder>
     <DefaultName>Library</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>

@@ -32,6 +32,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.Offline", "CSharp\Of
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.SPA", "CSharp\SPA\CSharp.SPA.csproj", "{527DF100-65A4-41FA-91E1-411A0481F008}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSharp.Mobile", "FSharp\Mobile\FSharp.Mobile.csproj", "{2154CF20-4CFF-4C71-9365-C047153EE5D1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -86,6 +88,10 @@ Global
 		{527DF100-65A4-41FA-91E1-411A0481F008}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{527DF100-65A4-41FA-91E1-411A0481F008}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{527DF100-65A4-41FA-91E1-411A0481F008}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2154CF20-4CFF-4C71-9365-C047153EE5D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2154CF20-4CFF-4C71-9365-C047153EE5D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2154CF20-4CFF-4C71-9365-C047153EE5D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2154CF20-4CFF-4C71-9365-C047153EE5D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

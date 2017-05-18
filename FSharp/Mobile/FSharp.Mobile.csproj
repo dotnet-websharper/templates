@@ -9,12 +9,12 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectTypeGuids>{82b43b9b-a64c-4715-b499-d71e9ca2bd60};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ProjectGuid>{F51E4172-0F4C-4635-BDDF-C82A6E2AEB93}</ProjectGuid>
+    <ProjectGuid>{2154CF20-4CFF-4C71-9365-C047153EE5D1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SPA</RootNamespace>
-    <AssemblyName>SPA</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <RootNamespace>Mobile</RootNamespace>
+    <AssemblyName>Mobile</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <GeneratePkgDefFile>false</GeneratePkgDefFile>
     <IncludeAssemblyInVSIXContainer>false</IncludeAssemblyInVSIXContainer>
@@ -61,21 +61,23 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="WebSharper.png" />
-    <None Include="SPA.vstemplate.in" />
-  </ItemGroup>
-  <ItemGroup>
-    <VSTemplate Include="SPA.vstemplate">
-      <SubType>Designer</SubType>
-      <OutputSubPath>WebSharper</OutputSubPath>
-    </VSTemplate>
+    <None Include="Mobile.vstemplate.in" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AssemblyInfo.fs" />
     <Content Include="Client.fs" />
+    <Content Include="Server.fs" />
     <Content Include="Global.asax" />
     <Content Include="Global.asax.fs" />
     <Content Include="index.html" />
     <Content Include="Web.config" />
+    <Content Include="readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <VSTemplate Include="Mobile.vstemplate">
+      <SubType>Designer</SubType>
+      <OutputSubPath>WebSharper</OutputSubPath>
+    </VSTemplate>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
