@@ -54,11 +54,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Client.cs" />
+    <Content Include="Main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AssemblyInfo.cs" />
-    <Content Include="Class1.cs" />
     <None Include="Offline.vstemplate.in" />
     <None Include="ProjectTemplate.csproj">
       <SubType>Designer</SubType>

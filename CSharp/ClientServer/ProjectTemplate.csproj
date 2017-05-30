@@ -65,6 +65,19 @@
     <Compile Include="Client.cs" />
     <Compile Include="Remoting.cs" />
     <Compile Include="Server.cs" />
+    <Content Include="Main.html">
+      <RunCustomToolOn>Main.tt</RunCustomToolOn>
+    </Content>
+    <Content Include="Main.tt">
+      <DependentUpon>Main.html</DependentUpon>
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Main.g.cs</LastGenOutput>
+    </Content>
+    <Compile Include="Main.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Main.tt</DependentUpon>
+    </Compile>
     <Content Include="Web.config" />
   </ItemGroup>
   <Target Name="IncludeContent" BeforeTargets="Compile">
