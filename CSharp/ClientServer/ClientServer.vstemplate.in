@@ -21,6 +21,7 @@
       <ProjectItem ReplaceParameters="true">Remoting.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true">Main.html</ProjectItem>
       <ProjectItem ReplaceParameters="true">Main.tt</ProjectItem>
+      <ProjectItem ReplaceParameters="true">Main.g.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true">Web.config</ProjectItem>
     </Project>
   </TemplateContent>
