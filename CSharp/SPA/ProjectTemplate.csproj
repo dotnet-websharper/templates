@@ -61,8 +61,16 @@
   <ItemGroup>
     <Compile Include="Client.cs" />
     <Content Include="index.html" />
+    <Compile Include="index.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>index.html</DependentUpon>
+    </Compile>
     <Content Include="Web.config" />
   </ItemGroup>
+  <PropertyGroup>
+    <AdditionalFileItemNames>$(AdditionalFileItemNames);Content</AdditionalFileItemNames>
+  </PropertyGroup>
   <Target Name="IncludeContent" BeforeTargets="Compile">
     <ItemGroup>
       <Content Include="Content/*.*" />

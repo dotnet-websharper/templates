@@ -60,7 +60,6 @@
   <ItemGroup>
     <Content Include="Client.cs" />
     <Content Include="Main.html" />
-    <Content Include="Main.tt" />
     <Content Include="Main.g.cs" />
     <Content Include="Remoting.cs" />
     <Content Include="Server.cs" />

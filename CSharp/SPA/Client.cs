@@ -15,19 +15,20 @@ namespace $safeprojectname$
             var people = ListModel.FromSeq(new[] { "John", "Paul" });
             var newName = Var.Create("");
 
-            div(
-                h1("My list of unique people"),
-                ul(people.View.DocSeqCached((string x) => li(x))),
-                div(
-                    input(newName, attr.placeholder("Name")),
-                    button("Add", () =>
-                    {
-                        people.Add(newName.Value);
-                        newName.Value = "";
-                    }),
-                    div("You are about to add: ", newName)
+            new Template.Index.Main()
+                .ListContainer(
+                    people.View.DocSeqCached((string x) =>
+                        new Template.Index.ListItem().Name(x).Doc()
+                    )
                 )
-            ).RunById("main");
+                .Name(newName)
+                .Add(() =>
+                {
+                    people.Add(newName.Value);
+                    newName.Value = "";
+                })
+                .Doc()
+                .RunById("main");
         }
     }
 }
