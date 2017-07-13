@@ -1,0 +1,18 @@
+source https://nuget.intellifactory.com/nuget username: "%IF_USER%" password: "%IF_PASS%"
+source https://api.nuget.org/v3/index.json
+
+framework = net45
+
+nuget FSharp.Core 4.0.0.1
+nuget System.ValueTuple 4.3.0
+nuget Zafir
+nuget Zafir.FSharp
+nuget Zafir.CSharp
+nuget Zafir.UI.Next
+nuget Zafir.Owin
+nuget Zafir.Suave
+nuget Microsoft.Owin.Diagnostics
+nuget Microsoft.Owin.FileSystems
+nuget Microsoft.Owin.Host.HttpListener
+nuget Microsoft.Owin.Hosting
+nuget Microsoft.Owin.StaticFiles

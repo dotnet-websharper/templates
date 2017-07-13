@@ -6,4 +6,12 @@ obj/
 *.suo
 *.nupkg
 *.vsix
+!WebSharper.Vsix/
 /templates-test
+.paket/paket.exe
+*.vstemplate
+*.user
+WebSharper.Vsix/WebSharper.Vsix.csproj
+WebSharper.Vsix/source.extension.vsixmanifest
+paket.lock
+.vs/

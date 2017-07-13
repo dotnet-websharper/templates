@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+  <TemplateData>
+    <Name>WebSharper 4 Owin-hosted Site</Name>
+    <Description>Creates a starter client-server web application based on sitelets, running as a dedicated executable using an OWIN host.</Description>
+    <Icon>WebSharper.png</Icon>
+    <ProjectType>FSharp</ProjectType>
+    <RequiredFrameworkVersion>4.5</RequiredFrameworkVersion>
+    <SortOrder>1000</SortOrder>
+    <TemplateID>cb1be577-8701-4f1b-b86d-95e97b02f2df</TemplateID>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>Owin</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+  </TemplateData>
+  <TemplateContent>
+    <Project File="ProjectTemplate.fsproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true">AssemblyInfo.fs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true">Main.fs</ProjectItem>
+      <ProjectItem ReplaceParameters="true">Client.fs</ProjectItem>
+      <ProjectItem ReplaceParameters="true">Main.html</ProjectItem>
+      <ProjectItem ReplaceParameters="true">Remoting.fs</ProjectItem>
+    </Project>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>NuGet.VisualStudio.Interop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</Assembly>
+    <FullClassName>NuGet.VisualStudio.TemplateWizard</FullClassName>
+  </WizardExtension>
+  <WizardData>
+    <packages repository="extension" repositoryId="IntelliFactory.WebSharper.371cf828-9e17-41cb-b014-496f3e9e7171">
+      <package id="Zafir" targetFramework="net45" />
+      <package id="Zafir.FSharp" targetFramework="net45" />
+      <package id="HtmlAgilityPack" targetFramework="net45" />
+      <package id="Zafir.UI.Next" targetFramework="net45" />
+      <package id="Owin" targetFramework="net45" />
+      <package id="Zafir.Owin" targetFramework="net45" />
+      <package id="Microsoft.Owin.Diagnostics" targetFramework="net45" />
+      <package id="Microsoft.Owin.FileSystems" targetFramework="net45" />
+      <package id="Microsoft.Owin.Host.HttpListener" targetFramework="net45" />
+      <package id="Microsoft.Owin.Hosting" targetFramework="net45" />
+      <package id="Microsoft.Owin.StaticFiles" targetFramework="net45" />
+      <package id="Microsoft.Owin" targetFramework="net45" />
+    </packages>
+  </WizardData>
+</VSTemplate>

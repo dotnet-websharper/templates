@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+  <TemplateData>
+    <Name>WebSharper 4 Library</Name>
+    <Description>Creates a C# library capable of containing WebSharper-compiled code.</Description>
+    <Icon>WebSharper.png</Icon>
+    <ProjectType>CSharp</ProjectType>
+    <RequiredFrameworkVersion>4.5</RequiredFrameworkVersion>
+    <SortOrder>1000</SortOrder>
+    <TemplateID>6ba7565f-dfca-4959-8789-e5727a96d53a</TemplateID>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>Library</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+  </TemplateData>
+  <TemplateContent>
+    <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true">Class1.cs</ProjectItem>
+    </Project>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>NuGet.VisualStudio.Interop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</Assembly>
+    <FullClassName>NuGet.VisualStudio.TemplateWizard</FullClassName>
+  </WizardExtension>
+  <WizardData>
+    <packages repository="extension" repositoryId="IntelliFactory.WebSharper.371cf828-9e17-41cb-b014-496f3e9e7171">
+      <package id="System.ValueTuple" targetFramework="net40" />
+      <package id="FSharp.Core" targetFramework="net45" />
+      <package id="Zafir" targetFramework="net45" />
+      <package id="Zafir.CSharp" targetFramework="net45" />
+    </packages>
+  </WizardData>
+</VSTemplate>

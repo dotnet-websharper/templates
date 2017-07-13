@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+  <TemplateData>
+    <Name>WebSharper 4 Single Page Application</Name>
+    <Description>Creates a single-page HTML application using WebSharper UI.Next.</Description>
+    <Icon>WebSharper.png</Icon>
+    <ProjectType>CSharp</ProjectType>
+    <RequiredFrameworkVersion>4.5</RequiredFrameworkVersion>
+    <SortOrder>1000</SortOrder>
+    <TemplateID>c5a76015-bae7-44db-bebb-12182fe2e18c</TemplateID>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>SPA</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+  </TemplateData>
+  <TemplateContent>
+    <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true">Client.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true">index.html</ProjectItem>
+      <ProjectItem ReplaceParameters="true">index.g.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true">Web.config</ProjectItem>
+    </Project>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>NuGet.VisualStudio.Interop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</Assembly>
+    <FullClassName>NuGet.VisualStudio.TemplateWizard</FullClassName>
+  </WizardExtension>
+  <WizardData>
+    <packages repository="extension" repositoryId="IntelliFactory.WebSharper.371cf828-9e17-41cb-b014-496f3e9e7171">
+      <package id="System.ValueTuple" targetFramework="net40" />
+      <package id="FSharp.Core" targetFramework="net45" />
+      <package id="Zafir" targetFramework="net45" />
+      <package id="Zafir.CSharp" targetFramework="net45" />
+      <package id="HtmlAgilityPack" targetFramework="net45" />
+      <package id="Zafir.UI.Next" targetFramework="net45" />
+    </packages>
+  </WizardData>
+</VSTemplate>
