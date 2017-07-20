@@ -16,3 +16,4 @@ nuget Microsoft.Owin.FileSystems
 nuget Microsoft.Owin.Host.HttpListener
 nuget Microsoft.Owin.Hosting
 nuget Microsoft.Owin.StaticFiles
+nuget HtmlAgilityPack 1.5.0
