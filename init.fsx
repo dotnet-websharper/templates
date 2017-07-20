@@ -35,7 +35,7 @@ let packageVersions =
                 Some (p, v + ".0")
         else
             None
-    ) |> List.ofSeq
+    ) |> List.ofSeq |> List.distinctBy fst
 
 let replacesInFile replaces p =
     let inp = File.ReadAllText(p)
