@@ -20,17 +20,17 @@ namespace $safeprojectname$
         [EndPoint("GET /about")]
         public class About { }
 
-        public static Doc Link(Context<object> ctx, object endpoint, string txt, object act) =>
-            li(
-                (endpoint == act) ? attr.@class("active") : null,
-                a(attr.href(ctx.Link(act)), txt)
+        public static Doc MenuBar(Context<object> ctx, object endpoint)
+        {
+            Doc link(string txt, object act) =>
+                li(
+                    (endpoint == act) ? attr.@class("active") : null,
+                    a(attr.href(ctx.Link(act)), txt)
+                );
+            return doc(
+                li(link("Home", new Home()))
             );
-
-        public static Doc MenuBar(Context<object> ctx, object endpoint) =>
-            doc(
-                li(Link(ctx, endpoint, "Home", new Home())),
-                li(Link(ctx, endpoint, "About", new About()))
-            );
+        }
 
         public static Task<Content> Page(Context<object> ctx, object endpoint, string title, Doc body) =>
             Content.Page(
