@@ -34,7 +34,6 @@
       <package id="FSharp.Core" targetFramework="net45" />
       <package id="Zafir" targetFramework="net45" />
       <package id="Zafir.CSharp" targetFramework="net45" />
-      <package id="HtmlAgilityPack" targetFramework="net45" />
       <package id="Zafir.UI.Next" targetFramework="net45" />
     </packages>
   </WizardData>

@@ -30,7 +30,6 @@
       <package id="System.ValueTuple" targetFramework="net40" />
       <package id="Zafir" targetFramework="net46" />
       <package id="Zafir.FSharp" targetFramework="net46" />
-      <package id="HtmlAgilityPack" targetFramework="net46" />
       <package id="Zafir.UI.Next" targetFramework="net46" />
       <package id="Suave" targetFramework="net46" />
       <package id="Owin" targetFramework="net46" />
