@@ -57,9 +57,6 @@
     <Content Include="Packages\Zafir.FSharp.nupkg">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="Packages\HtmlAgilityPack.nupkg">
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
     <Content Include="Packages\Zafir.UI.Next.nupkg">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
