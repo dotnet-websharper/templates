@@ -4,7 +4,7 @@ source https://api.nuget.org/v3/index.json
 framework = net45
 
 nuget FSharp.Core 4.1.18
-nuget System.ValueTuple 4.3.0
+nuget System.ValueTuple 4.3.0
 nuget Zafir
 nuget Zafir.FSharp
 nuget Zafir.CSharp
