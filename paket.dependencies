@@ -1,5 +1,5 @@
-source https://api.nuget.org/v3/index.json
 source https://nuget.intellifactory.com/nuget username: "%IF_USER%" password: "%IF_PASS%"
+source https://api.nuget.org/v3/index.json
 
 framework = net45
 
@@ -16,3 +16,4 @@ nuget Microsoft.Owin.FileSystems
 nuget Microsoft.Owin.Host.HttpListener
 nuget Microsoft.Owin.Hosting
 nuget Microsoft.Owin.StaticFiles
+nuget HtmlAgilityPack 1.5.0

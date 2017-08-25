@@ -84,9 +84,6 @@
     <Content Include="Packages\Microsoft.Owin.StaticFiles.nupkg">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="Packages\Mono.Cecil.nupkg">
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
     <Content Include="Packages\Owin.nupkg">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>

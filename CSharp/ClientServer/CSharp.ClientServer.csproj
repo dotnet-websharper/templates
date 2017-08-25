@@ -59,13 +59,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Client.cs" />
+    <Content Include="Main.html" />
+    <Content Include="Main.g.cs" />
     <Content Include="Remoting.cs" />
     <Content Include="Server.cs" />
     <Content Include="AssemblyInfo.cs" />
     <None Include="ClientServer.vstemplate.in">
       <SubType>Designer</SubType>
     </None>
-    <None Include="ProjectTemplate.csproj" />
+    <None Include="ProjectTemplate.csproj">
+      <SubType>Designer</SubType>
+    </None>
     <Content Include="WebSharper.png" />
     <Content Include="Web.config" />
   </ItemGroup>

@@ -31,7 +31,6 @@
       <package id="Zafir.FSharp" targetFramework="net45" />
       <package id="HtmlAgilityPack" targetFramework="net45" />
       <package id="Zafir.UI.Next" targetFramework="net45" />
-      <package id="Mono.Cecil" targetFramework="net45" />
       <package id="Owin" targetFramework="net45" />
       <package id="Zafir.Owin" targetFramework="net45" />
       <package id="Microsoft.Owin.Diagnostics" targetFramework="net45" />
