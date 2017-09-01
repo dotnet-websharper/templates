@@ -23,7 +23,7 @@ namespace $safeprojectname$
             var vReversed =
                 submit.View.MapAsync(input =>
                 {
-                    if (input is null)
+                    if (input == null)
                         return Task.FromResult("");
                     return Remoting.DoSomething(input.Value);
                 });
