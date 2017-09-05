@@ -4,7 +4,7 @@ open System.IO
 
 let bt =
     BuildTool().PackageId("WebSharper.Templates")
-        .VersionFrom("WebSharper")
+        .VersionFrom("WebSharper", versionSpec = "(,4.0)")
         .WithFSharpVersion(FSharpVersion.FSharp31)
         .WithFramework(fun fw -> fw.Net40)
 
