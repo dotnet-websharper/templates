@@ -14,7 +14,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WebSharper</RootNamespace>
-    <AssemblyName>Zafir.{vsixversion}</AssemblyName>
+    <AssemblyName>WebSharper.{vsixversion}</AssemblyName>
 	<TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <GeneratePkgDefFile>false</GeneratePkgDefFile>
     <IncludeAssemblyInVSIXContainer>true</IncludeAssemblyInVSIXContainer>
@@ -54,16 +54,16 @@
     <Content Include="Packages\System.ValueTuple.nupkg">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="Packages\Zafir.nupkg">
+    <Content Include="Packages\WebSharper.nupkg">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="Packages\Zafir.CSharp.nupkg">
+    <Content Include="Packages\WebSharper.CSharp.nupkg">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="Packages\Zafir.FSharp.nupkg">
+    <Content Include="Packages\WebSharper.FSharp.nupkg">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="Packages\Zafir.UI.Next.nupkg">
+    <Content Include="Packages\WebSharper.UI.Next.nupkg">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <Content Include="Packages\FSharp.Core.nupkg">
@@ -93,10 +93,10 @@
     <Content Include="Packages\Suave.nupkg">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="Packages\Zafir.Owin.nupkg">
+    <Content Include="Packages\WebSharper.Owin.nupkg">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="Packages\Zafir.Suave.nupkg">
+    <Content Include="Packages\WebSharper.Suave.nupkg">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <None Include="source.extension.vsixmanifest">

@@ -36,9 +36,9 @@
     <packages repository="extension" repositoryId="IntelliFactory.WebSharper.371cf828-9e17-41cb-b014-496f3e9e7171">
       <package id="System.ValueTuple" targetFramework="net40" />
       <package id="FSharp.Core" targetFramework="net45" />
-      <package id="Zafir" targetFramework="net45" />
-      <package id="Zafir.CSharp" targetFramework="net45" />
-      <package id="Zafir.UI.Next" targetFramework="net45" />
+      <package id="WebSharper" targetFramework="net45" />
+      <package id="WebSharper.CSharp" targetFramework="net45" />
+      <package id="WebSharper.UI.Next" targetFramework="net45" />
     </packages>
   </WizardData>
 </VSTemplate>

@@ -49,7 +49,7 @@ let revision =
 
 let version, tag = 
     let wsVersion =
-        packageVersions |> List.pick (function "Zafir", v -> Some v | _ -> None)
+        packageVersions |> List.pick (function "WebSharper", v -> Some v | _ -> None)
     let withoutTag, tag =
         match wsVersion.IndexOf('-') with
         | -1 -> wsVersion, ""
@@ -63,7 +63,7 @@ let replacesInFile replaces p =
     File.WriteAllText(p.[.. p.Length - 4], res)
 
 let vsixAssembly =
-    "Zafir." + version + tag + ", Version=1.0.0.0, Culture=neutral, PublicKeyToken=" + publicKeyToken
+    "WebSharper." + version + tag + ", Version=1.0.0.0, Culture=neutral, PublicKeyToken=" + publicKeyToken
 
 let vstemplateReplaces =
     [   

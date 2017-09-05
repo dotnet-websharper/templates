@@ -5,12 +5,12 @@ framework: net45
 
 nuget FSharp.Core 4.1.18
 nuget System.ValueTuple 4.3.0
-nuget Zafir
-nuget Zafir.FSharp
-nuget Zafir.CSharp
-nuget Zafir.UI.Next
-nuget Zafir.Owin
-nuget Zafir.Suave
+nuget WebSharper
+nuget WebSharper.FSharp
+nuget WebSharper.CSharp
+nuget WebSharper.UI.Next
+nuget WebSharper.Owin
+nuget WebSharper.Suave
 nuget Microsoft.Owin.Diagnostics
 nuget Microsoft.Owin.FileSystems
 nuget Microsoft.Owin.Host.HttpListener
