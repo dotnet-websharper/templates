@@ -15,14 +15,14 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WebSharper</RootNamespace>
     <AssemblyName>WebSharper.{vsixversion}</AssemblyName>
-	<TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <GeneratePkgDefFile>false</GeneratePkgDefFile>
     <IncludeAssemblyInVSIXContainer>true</IncludeAssemblyInVSIXContainer>
     <IncludeDebugSymbolsInVSIXContainer>true</IncludeDebugSymbolsInVSIXContainer>
     <IncludeDebugSymbolsInLocalVSIXDeployment>true</IncludeDebugSymbolsInLocalVSIXDeployment>
     <CopyBuildOutputToOutputDirectory>false</CopyBuildOutputToOutputDirectory>
     <CopyOutputSymbolsToOutputDirectory>false</CopyOutputSymbolsToOutputDirectory>
-	<OutputPath Condition=" '$(NuGetPackageOutputPath)' != '' ">$(NuGetPackageOutputPath)</OutputPath>
+    <OutputPath Condition=" '$(NuGetPackageOutputPath)' != '' ">$(NuGetPackageOutputPath)</OutputPath>
     <StartAction>Program</StartAction>
     <StartProgram Condition="'$(DevEnvDir)' != ''">$(DevEnvDir)devenv.exe</StartProgram>
     <StartArguments>/rootsuffix Exp</StartArguments>
@@ -99,6 +99,7 @@
     <Content Include="Packages\WebSharper.Suave.nupkg">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
+    <Content Include="WebSharper.png" />
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>
     </None>
