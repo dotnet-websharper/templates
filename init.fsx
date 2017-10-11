@@ -20,7 +20,7 @@ nupkgFiles
 
 let packageVersions =
     let nupkgFileNames =
-        nupkgFiles |> Seq.map (fun p -> Path.GetFileNameWithoutExtension(p)) |> Set.ofSeq
+        nupkgFiles |> Seq.map (fun p -> Path.GetFileNameWithoutExtension(p).ToLower()) |> Set.ofSeq
 
     let packageRegex = Regex "([^ ]+) \(([^\)>=]+)\)"
     File.ReadAllLines("paket.lock") |> Seq.choose (fun l ->
@@ -29,13 +29,23 @@ let packageVersions =
             let p = c.Groups.[1].Value
             let v = c.Groups.[2].Value
             // hack to include truncated .0
-            if nupkgFileNames.Contains(p + "." + v) then 
+            let checkExists (p: string) v =
+                nupkgFileNames.Contains(p.ToLower() + "." + v)
+            if checkExists p v then 
                 Some (p, v)
             else
-                Some (p, v + ".0")
+                let v0 = v + ".0"
+                if checkExists p v0 then 
+                    Some (p, v0)
+                else
+                    failwithf "Could not find nupkg file for %s.%s" p v
         else
             None
     ) |> List.ofSeq |> List.distinctBy fst
+
+printfn "Using packages:"
+for p, v in packageVersions do
+    printfn "  %s.%s" p v
 
 let snk, publicKeyToken =
     match Environment.GetEnvironmentVariable "INTELLIFACTORY" with
