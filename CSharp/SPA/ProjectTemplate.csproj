@@ -68,9 +68,6 @@
     </Compile>
     <Content Include="Web.config" />
   </ItemGroup>
-  <PropertyGroup>
-    <AdditionalFileItemNames>$(AdditionalFileItemNames);Content</AdditionalFileItemNames>
-  </PropertyGroup>
   <Target Name="IncludeContent" BeforeTargets="Compile">
     <ItemGroup>
       <Content Include="Content/*.*" />
