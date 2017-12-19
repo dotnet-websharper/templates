@@ -39,14 +39,14 @@ module Site =
 
     let HomePage ctx =
         Templating.Main ctx EndPoint.Home "Home" [
-            h1 [text "Say Hi to the server!"]
-            div [client <@ Client.Main() @>]
+            h1 [] [text "Say Hi to the server!"]
+            div [] [client <@ Client.Main() @>]
         ]
 
     let AboutPage ctx =
         Templating.Main ctx EndPoint.About "About" [
-            h1 [text "About"]
-            p [text "This is a template WebSharper client-server application."]
+            h1 [] [text "About"]
+            p [] [text "This is a template WebSharper client-server application."]
         ]
 
     [<Website>]

@@ -6,7 +6,6 @@ using Microsoft.FSharp.Collections;
 using WebSharper;
 using WebSharper.Sitelets;
 using WebSharper.UI;
-using WebSharper.UI.Server;
 using static WebSharper.UI.Html;
 
 [assembly: Website(typeof($safeprojectname$.Website))]
