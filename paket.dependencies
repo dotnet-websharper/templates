@@ -8,7 +8,7 @@ nuget System.ValueTuple 4.3.0
 nuget WebSharper
 nuget WebSharper.FSharp
 nuget WebSharper.CSharp
-nuget WebSharper.UI.Next
+nuget WebSharper.UI
 nuget WebSharper.Owin
 nuget WebSharper.Suave
 nuget Microsoft.Owin.Diagnostics

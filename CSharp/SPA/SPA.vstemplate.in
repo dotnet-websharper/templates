@@ -2,7 +2,7 @@
 <VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
     <Name>WebSharper 4 Single Page Application</Name>
-    <Description>Creates a single-page HTML application using WebSharper UI.Next.</Description>
+    <Description>Creates a single-page HTML application using WebSharper UI.</Description>
     <Icon>WebSharper.png</Icon>
     <ProjectType>CSharp</ProjectType>
     <RequiredFrameworkVersion>4.5</RequiredFrameworkVersion>
@@ -35,7 +35,7 @@
       <package id="FSharp.Core" targetFramework="net45" />
       <package id="WebSharper" targetFramework="net45" />
       <package id="WebSharper.CSharp" targetFramework="net45" />
-      <package id="WebSharper.UI.Next" targetFramework="net45" />
+      <package id="WebSharper.UI" targetFramework="net45" />
     </packages>
   </WizardData>
 </VSTemplate>

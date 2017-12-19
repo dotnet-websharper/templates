@@ -63,7 +63,7 @@
     <Content Include="Packages\WebSharper.FSharp.nupkg">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="Packages\WebSharper.UI.Next.nupkg">
+    <Content Include="Packages\WebSharper.UI.nupkg">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <Content Include="Packages\FSharp.Core.nupkg">

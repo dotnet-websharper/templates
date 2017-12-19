@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 using System.Web;
 using WebSharper;
 using WebSharper.Sitelets;
-using WebSharper.UI.Next;
-using WebSharper.UI.Next.CSharp;
-using WebSharper.UI.Next.CSharp.Server;
-using static WebSharper.UI.Next.CSharp.Html;
+using WebSharper.UI;
+using WebSharper.UI.CSharp;
+using WebSharper.UI.CSharp.Server;
+using static WebSharper.UI.CSharp.Html;
 
 namespace $safeprojectname$
 {

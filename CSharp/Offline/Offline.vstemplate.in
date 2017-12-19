@@ -33,7 +33,7 @@
       <package id="FSharp.Core" targetFramework="net45" />
       <package id="WebSharper" targetFramework="net45" />
       <package id="WebSharper.CSharp" targetFramework="net45" />
-      <package id="WebSharper.UI.Next" targetFramework="net45" />
+      <package id="WebSharper.UI" targetFramework="net45" />
     </packages>
   </WizardData>
 </VSTemplate>

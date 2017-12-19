@@ -34,7 +34,7 @@
       <package id="System.ValueTuple" targetFramework="net40" />
       <package id="WebSharper" targetFramework="net45" />
       <package id="WebSharper.FSharp" targetFramework="net45" />
-      <package id="WebSharper.UI.Next" targetFramework="net45" />
+      <package id="WebSharper.UI" targetFramework="net45" />
     </packages>
   </WizardData>
 </VSTemplate>

@@ -12,10 +12,10 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.FSharp.Core;
 using WebSharper;
-using WebSharper.UI.Next;
-using WebSharper.UI.Next.Templating;
-using WebSharper.UI.Next.CSharp.Client;
-using SDoc = WebSharper.UI.Next.Doc;
+using WebSharper.UI;
+using WebSharper.UI.Templating;
+using WebSharper.UI.CSharp.Client;
+using SDoc = WebSharper.UI.Doc;
 using DomElement = WebSharper.JavaScript.Dom.Element;
 using DomEvent = WebSharper.JavaScript.Dom.Event;
 namespace $safeprojectname$.Template

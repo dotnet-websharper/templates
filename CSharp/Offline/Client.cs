@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using WebSharper;
-using WebSharper.UI.Next;
-using WebSharper.UI.Next.Client;
-using WebSharper.UI.Next.CSharp;
-using WebSharper.UI.Next.CSharp.Client;
-using static WebSharper.UI.Next.CSharp.Client.Html;
+using WebSharper.UI;
+using WebSharper.UI.Client;
+using WebSharper.UI.CSharp;
+using WebSharper.UI.CSharp.Client;
+using static WebSharper.UI.CSharp.Client.Html;
 
 namespace $safeprojectname$
 {

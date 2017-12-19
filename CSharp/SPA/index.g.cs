@@ -12,10 +12,10 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.FSharp.Core;
 using WebSharper;
-using WebSharper.UI.Next;
-using WebSharper.UI.Next.Templating;
-using WebSharper.UI.Next.CSharp.Client;
-using SDoc = WebSharper.UI.Next.Doc;
+using WebSharper.UI;
+using WebSharper.UI.Templating;
+using WebSharper.UI.CSharp.Client;
+using SDoc = WebSharper.UI.Doc;
 using DomElement = WebSharper.JavaScript.Dom.Element;
 using DomEvent = WebSharper.JavaScript.Dom.Event;
 namespace $safeprojectname$.Template
@@ -40,7 +40,7 @@ namespace $safeprojectname$.Template
             public Main ListContainer(IEnumerable<Doc> x) { holes.Add(TemplateHole.NewElt("listcontainer", SDoc.Concat(x))); return this; }
             public Main ListContainer(string x) { holes.Add(TemplateHole.NewText("listcontainer", x)); return this; }
             public Main ListContainer(View<string> x) { holes.Add(TemplateHole.NewTextView("listcontainer", x)); return this; }
-            public Main Name(IRef<string> x) { holes.Add(TemplateHole.NewVarStr("name", x)); return this; }
+            public Main Name(Var<string> x) { holes.Add(TemplateHole.NewVarStr("name", x)); return this; }
             public Main Add(Action<DomElement, DomEvent> x) { holes.Add(TemplateHole.NewEvent("add", FSharpConvert.Fun<DomElement, DomEvent>(x))); return this; }
             public Main Add(Action x) { holes.Add(TemplateHole.NewEvent("add", FSharpConvert.Fun<DomElement, DomEvent>((a, b) => x()))); return this; }
             public Doc Doc() => Runtime.GetOrLoadTemplate("index", FSharpOption<string>.Some("main"), FSharpOption<string>.Some("index.html"), "\r\n        <ul ws-hole=\"ListContainer\">\r\n            <li ws-template=\"ListItem\">${Name}</li>\r\n        </ul>\r\n        <div>\r\n            <input ws-var=\"Name\" placeholder=\"Name\">\r\n            <button ws-onclick=\"Add\">Add</button>\r\n            <div>You are about to add: ${Name}</div>\r\n        </div>\r\n    ", holes, FSharpOption<string>.Some("index"), ServerLoad.WhenChanged, new Tuple<string, FSharpOption<string>, string>[] { }, false);

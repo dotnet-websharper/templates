@@ -2,9 +2,9 @@
 
 open WebSharper
 open WebSharper.JavaScript
-open WebSharper.UI.Next
-open WebSharper.UI.Next.Client
-open WebSharper.UI.Next.Html
+open WebSharper.UI
+open WebSharper.UI.Client
+open WebSharper.UI.Html
 
 [<JavaScript>]
 module Client =
@@ -20,10 +20,10 @@ module Client =
                 | None -> ""
                 | Some input -> DoSomething input
             )
-        div [
+        div [] [
             Doc.Input [] rvInput
             Doc.Button "Send" [] submit.Trigger
-            hr []
-            h4Attr [attr.``class`` "text-muted"] [text "The server responded:"]
-            divAttr [attr.``class`` "jumbotron"] [h1 [textView vReversed]]
+            hr [] []
+            h4 [attr.``class`` "text-muted"] [text "The server responded:"]
+            div [attr.``class`` "jumbotron"] [h1 [] [textView vReversed]]
         ]

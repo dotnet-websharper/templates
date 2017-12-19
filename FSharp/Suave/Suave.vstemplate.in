@@ -2,7 +2,7 @@
 <VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
     <Name>WebSharper 4 Suave-hosted Site</Name>
-    <Description>Creates a starter client-server application based on sitelets and UI.Next running on Suave.</Description>
+    <Description>Creates a starter client-server application based on sitelets and UI running on Suave.</Description>
     <Icon>WebSharper.png</Icon>
     <ProjectType>FSharp</ProjectType>
     <RequiredFrameworkVersion>4.6</RequiredFrameworkVersion>
@@ -34,7 +34,7 @@
       <package id="System.ValueTuple" targetFramework="net40" />
       <package id="WebSharper" targetFramework="net46" />
       <package id="WebSharper.FSharp" targetFramework="net46" />
-      <package id="WebSharper.UI.Next" targetFramework="net46" />
+      <package id="WebSharper.UI" targetFramework="net46" />
       <package id="Suave" targetFramework="net46" />
       <package id="Owin" targetFramework="net46" />
       <package id="WebSharper.Owin" targetFramework="net46" />

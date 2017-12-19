@@ -1,8 +1,8 @@
 using WebSharper;
-using WebSharper.UI.Next;
-using WebSharper.UI.Next.Client;
-using WebSharper.UI.Next.CSharp;
-using static WebSharper.UI.Next.CSharp.Client.Html;
+using WebSharper.UI;
+using WebSharper.UI.Client;
+using WebSharper.UI.CSharp;
+using static WebSharper.UI.CSharp.Client.Html;
 
 namespace $safeprojectname$
 {
