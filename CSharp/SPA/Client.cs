@@ -1,8 +1,7 @@
 using WebSharper;
 using WebSharper.UI;
 using WebSharper.UI.Client;
-using WebSharper.UI.CSharp;
-using static WebSharper.UI.CSharp.Client.Html;
+using static WebSharper.UI.Client.Html;
 
 namespace $safeprojectname$
 {

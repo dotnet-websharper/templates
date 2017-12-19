@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
+using Microsoft.FSharp.Core;
 using WebSharper;
 using WebSharper.UI;
 using WebSharper.UI.Client;
-using WebSharper.UI.CSharp;
-using WebSharper.UI.CSharp.Client;
-using Microsoft.FSharp.Core;
-using static WebSharper.UI.CSharp.Client.Html;
+using static WebSharper.UI.Client.Html;
 
 namespace $safeprojectname$
 {

@@ -5,9 +5,7 @@ using System.Web;
 using WebSharper;
 using WebSharper.UI;
 using WebSharper.UI.Client;
-using WebSharper.UI.CSharp;
-using WebSharper.UI.CSharp.Client;
-using static WebSharper.UI.CSharp.Client.Html;
+using static WebSharper.UI.Client.Html;
 
 namespace $safeprojectname$
 {

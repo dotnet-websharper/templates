@@ -6,9 +6,8 @@ using System.Web;
 using WebSharper;
 using WebSharper.Sitelets;
 using WebSharper.UI;
-using WebSharper.UI.CSharp;
-using WebSharper.UI.CSharp.Server;
-using static WebSharper.UI.CSharp.Html;
+using WebSharper.UI.Server;
+using static WebSharper.UI.Html;
 
 namespace $safeprojectname$
 {

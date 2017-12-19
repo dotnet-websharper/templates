@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Microsoft.FSharp.Collections;
 using WebSharper;
 using WebSharper.Sitelets;
 using WebSharper.UI;
-using WebSharper.UI.CSharp;
-using WebSharper.UI.CSharp.Server;
-using Microsoft.FSharp.Collections;
-using static WebSharper.UI.CSharp.Html;
+using WebSharper.UI.Server;
+using static WebSharper.UI.Html;
 
 [assembly: Website(typeof($safeprojectname$.Website))]
 namespace $safeprojectname$
