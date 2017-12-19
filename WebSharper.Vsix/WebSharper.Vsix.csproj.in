@@ -66,6 +66,9 @@
     <Content Include="Packages\WebSharper.UI.nupkg">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
+    <Content Include="Packages\WebSharper.UI.CSharp.nupkg">
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <Content Include="Packages\FSharp.Core.nupkg">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
