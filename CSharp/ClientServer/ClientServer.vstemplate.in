@@ -39,6 +39,7 @@
       <package id="WebSharper" targetFramework="net45" />
       <package id="WebSharper.CSharp" targetFramework="net45" />
       <package id="WebSharper.UI" targetFramework="net45" />
+      <package id="WebSharper.UI.CSharp" targetFramework="net45" />
     </packages>
   </WizardData>
 </VSTemplate>
