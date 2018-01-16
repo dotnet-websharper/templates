@@ -17,3 +17,10 @@ nuget Microsoft.Owin.FileSystems
 nuget Microsoft.Owin.Host.HttpListener
 nuget Microsoft.Owin.Hosting
 nuget Microsoft.Owin.StaticFiles
+
+group build
+    framework: net40
+    source https://api.nuget.org/v3/index.json
+    
+    nuget FAKE
+    nuget Paket.Core 5.122.3

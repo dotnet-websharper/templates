@@ -1,0 +1,14 @@
+{
+  "author": "IntelliFactory",
+  "classifications": [ "WebSharper", "Web" ],
+  "name": "WebSharper 4 Client-Server Application",
+  "tags": {
+    "language": "F#",
+    "type": "project"
+  },
+  "identity": "WebSharper.ClientServer.FSharp.Template",
+  "groupIdentity": "WebSharper.ClientServer.Template",
+  "shortName": "websharper-web",
+  "sourceName": "WebSharper.ClientServer.FSharp",
+  "preferNameDirectory": true
+}

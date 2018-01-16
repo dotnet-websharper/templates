@@ -1,3 +1,6 @@
+#r "packages/build/FAKE/tools/FakeLib.dll"
+#r "packages/build/Paket.Core/lib/net45/Paket.Core.dll"
+
 open System
 open System.Collections.Generic
 open System.IO
@@ -99,3 +102,17 @@ __SOURCE_DIRECTORY__ +/ "WebSharper.Vsix/WebSharper.Vsix.csproj.in" |> replacesI
 __SOURCE_DIRECTORY__ +/ "WebSharper.Vsix/source.extension.vsixmanifest.in" |> replacesInFile [   
     "{vsixversion}", version
 ]
+
+open Fake
+
+!! "NetCore/**/wwwroot/**" 
+++ "NetCore/**/bin/**" 
+++ "NetCore/**/obj/**" 
+++ "NetCore/**/*.user" 
+++ "NetCore/**/Properties/launchSettings.json"
+|> DeleteFiles
+
+Shell.Exec(
+    "tools/nuget/NuGet.exe",
+    sprintf "pack -Version %s -OutputDirectory build WebSharper.Templates.nuspec" version
+)
