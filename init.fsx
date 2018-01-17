@@ -106,3 +106,14 @@ Shell.Exec(
     "tools/nuget/NuGet.exe",
     sprintf "pack -Version %s -OutputDirectory build WebSharper.Templates.nuspec" taggedVersion
 )
+
+match environVarOrNone "NugetPublishUrl", environVarOrNone "NugetApiKey" with
+| Some nugetPublishUrl, Some nugetApiKey ->
+    tracefn "[NUGET] Publishing to %s" nugetPublishUrl 
+    Paket.Push <| fun p ->
+        { p with
+            PublishUrl = nugetPublishUrl
+            ApiKey = nugetApiKey
+            WorkingDir = "build"
+        }
+| _ -> traceError "[NUGET] Not publishing: NugetPublishUrl and/or NugetApiKey are not set"
