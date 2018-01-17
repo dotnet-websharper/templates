@@ -8,7 +8,6 @@ obj/
 *.vsix
 !WebSharper.Vsix/
 /templates-test
-.paket/paket.exe
 *.vstemplate
 *.user
 WebSharper.Vsix/WebSharper.Vsix.csproj
