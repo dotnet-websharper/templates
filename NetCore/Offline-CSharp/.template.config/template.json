@@ -1,0 +1,14 @@
+{
+  "author": "IntelliFactory",
+  "classifications": [ "WebSharper", "Web" ],
+  "name": "WebSharper 4 Html Site",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "identity": "WebSharper.Offline.CSharp.Template",
+  "groupIdentity": "WebSharper.Offline.Template",
+  "shortName": "websharper-html",
+  "sourceName": "WebSharper.Offline.CSharp",
+  "preferNameDirectory": true
+}

@@ -2,15 +2,17 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
-    <WebSharperProject>Bundle</WebSharperProject>
+    <WebSharperProject>Website</WebSharperProject>
     <WebProjectOutputDir>$(MSBuildThisFileDirectory)/wwwroot</WebProjectOutputDir>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
-    <PackageReference Include="WebSharper" Version="4.0.195.128-staging" />    
-    <PackageReference Include="WebSharper.CSharp" Version="4.0.195.128-staging" />
-    <PackageReference Include="WebSharper.UI.Next" Version="4.0.13.107-staging" />
+    <PackageReference Include="FSharp.Core" />    
+    <PackageReference Include="WebSharper" />    
+    <PackageReference Include="WebSharper.CSharp" />
+    <PackageReference Include="WebSharper.UI" />
+    <PackageReference Include="WebSharper.AspNetCore" />
   </ItemGroup>
 
 </Project>

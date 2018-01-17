@@ -1,17 +1,16 @@
 source https://nuget.intellifactory.com/nuget username: "%IF_USER%" password: "%IF_PASS%"
 source https://api.nuget.org/v3/index.json
 
-framework: net45
-
-nuget FSharp.Core 4.1.18
-nuget System.ValueTuple 4.3.0
-nuget WebSharper
-nuget WebSharper.FSharp
-nuget WebSharper.CSharp
-nuget WebSharper.UI
-nuget WebSharper.UI.CSharp
-nuget WebSharper.Owin
-nuget WebSharper.Suave
+nuget FSharp.Core ~> 4.2.0
+// nuget System.ValueTuple 4.3.0
+nuget WebSharper ~> 4.2.0-alpha
+nuget WebSharper.FSharp ~> 4.2.0-alpha
+nuget WebSharper.CSharp ~> 4.2.0-alpha
+nuget WebSharper.UI ~> 4.2.0-alpha
+nuget WebSharper.UI.CSharp ~> 4.2.0-alpha
+nuget WebSharper.AspNetCore ~> 4.2.0-alpha
+// nuget WebSharper.Owin
+// nuget WebSharper.Suave
 nuget Microsoft.Owin.Diagnostics
 nuget Microsoft.Owin.FileSystems
 nuget Microsoft.Owin.Host.HttpListener

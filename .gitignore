@@ -16,3 +16,5 @@ WebSharper.Vsix/source.extension.vsixmanifest
 paket.lock
 .vs/
 /.vscode
+*.CSharp.csproj
+*.FSharp.fsproj

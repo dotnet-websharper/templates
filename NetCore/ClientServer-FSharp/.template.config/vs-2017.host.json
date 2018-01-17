@@ -1,0 +1,11 @@
+{
+  "name": {
+    "text": "WebSharper 4 Client-Server Application (.NET Core)"
+  },
+  "description": {
+    "text": "Creates a starter client-server web application based on sitelets."
+  },
+  "order": 1000,
+  "defaultName": "ClientServer",
+  "provideDefaultName": true
+}

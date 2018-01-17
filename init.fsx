@@ -103,6 +103,20 @@ __SOURCE_DIRECTORY__ +/ "WebSharper.Vsix/source.extension.vsixmanifest.in" |> re
     "{vsixversion}", version
 ]
 
+let dotnetProjReplaces =
+    [   
+        for p, v in packageVersions do
+            yield 
+                sprintf "Include=\"%s\"" p, 
+                sprintf "Include=\"%s\" Version=\"%s\"" p v
+    ]
+
+Directory.EnumerateFiles(__SOURCE_DIRECTORY__, "*.FSharp.fsproj.in", SearchOption.AllDirectories)
+|> Seq.iter (replacesInFile dotnetProjReplaces)
+
+Directory.EnumerateFiles(__SOURCE_DIRECTORY__, "*.CSharp.csproj.in", SearchOption.AllDirectories)
+|> Seq.iter (replacesInFile dotnetProjReplaces)
+
 open Fake
 
 !! "NetCore/**/wwwroot/**" 

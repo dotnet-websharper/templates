@@ -1,4 +1,4 @@
-﻿namespace WebSharper.ClientServer.FSharp
+﻿namespace WebSharper.Offline.FSharp
 
 open WebSharper
 open WebSharper.JavaScript
@@ -9,13 +9,16 @@ open WebSharper.UI.Html
 [<JavaScript>]
 module Client =
 
+    let DoSomething (input: string) =
+        System.String(Array.rev(input.ToCharArray()))
+
     let Main () =
         let rvInput = Var.Create ""
         let submit = Submitter.CreateOption rvInput.View
         let vReversed =
-            submit.View.MapAsync(function
-                | None -> async { return "" }
-                | Some input -> Server.DoSomething input
+            submit.View.Map(function
+                | None -> ""
+                | Some input -> DoSomething input
             )
         div [] [
             Doc.Input [] rvInput

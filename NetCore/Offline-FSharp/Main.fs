@@ -1,4 +1,4 @@
-namespace WebSharper.ClientServer.FSharp
+namespace WebSharper.Offline.FSharp
 
 open WebSharper
 open WebSharper.Sitelets
@@ -6,8 +6,8 @@ open WebSharper.UI
 open WebSharper.UI.Server
 
 type EndPoint =
-    | [<EndPoint "/">] Home
-    | [<EndPoint "/about">] About
+    | [<EndPoint "GET /">] Home
+    | [<EndPoint "GET /about">] About
 
 module Templating =
     open WebSharper.UI.Html
@@ -34,12 +34,13 @@ module Templating =
                 .Doc()
         )
 
+
 module Site =
     open WebSharper.UI.Html
 
     let HomePage ctx =
         Templating.Main ctx EndPoint.Home "Home" [
-            h1 [] [text "Say Hi to the server!"]
+            h1 [] [text "Say Hi to JavaScript!"]
             div [] [client <@ Client.Main() @>]
         ]
 
@@ -51,8 +52,17 @@ module Site =
 
     [<Website>]
     let Main =
-        Application.MultiPage (fun ctx endpoint ->
-            match endpoint with
-            | EndPoint.Home -> HomePage ctx
-            | EndPoint.About -> AboutPage ctx
+        Application.MultiPage (fun ctx action ->
+            match action with
+            | Home -> HomePage ctx
+            | About -> AboutPage ctx
         )
+
+[<Sealed>]
+type Website() =
+    interface IWebsite<EndPoint> with
+        member this.Sitelet = Site.Main
+        member this.Actions = [Home; About]
+
+[<assembly: Website(typeof<Website>)>]
+do ()

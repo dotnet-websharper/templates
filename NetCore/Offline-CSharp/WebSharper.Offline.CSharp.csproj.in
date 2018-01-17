@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <WebSharperProject>Html</WebSharperProject>
+    <WebSharperHtmlDirectory>$(MSBuildThisFileDirectory)bin\html</WebSharperHtmlDirectory>
+    <StartAction>Program</StartAction>
+    <StartProgram>$([System.Environment]::GetEnvironmentVariable(`WinDir`))\explorer.exe</StartProgram>
+    <StartArguments>$(WebSharperHtmlDirectory)</StartArguments>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FSharp.Core" />    
+    <PackageReference Include="WebSharper" />    
+    <PackageReference Include="WebSharper.CSharp" />
+    <PackageReference Include="WebSharper.UI" />
+  </ItemGroup>
+
+</Project>
