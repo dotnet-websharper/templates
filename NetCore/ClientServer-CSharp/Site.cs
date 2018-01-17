@@ -46,7 +46,7 @@ namespace WebSharper.ClientServer.CSharp
                     Page(ctx, action, "Home",
                         doc(
                             h1("Say Hi to the server!"),
-                            div(client(() => Client.Main()))
+                            div(client(() => Client.ClientMain()))
                         )
                     )
                 )

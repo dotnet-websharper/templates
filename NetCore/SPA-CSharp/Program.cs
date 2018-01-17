@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
-namespace WebSharper.ClientServer.CSharp
+namespace WebSharper.SPA.CSharp
 {
     class Program
     {

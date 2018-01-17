@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace WebSharper.ClientServer.CSharp
+namespace WebSharper.SPA.CSharp
 {
     public class Startup
     {

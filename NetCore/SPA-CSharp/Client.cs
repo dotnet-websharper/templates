@@ -3,13 +3,13 @@ using WebSharper.UI;
 using WebSharper.UI.Client;
 using static WebSharper.UI.Client.Html;
 
-namespace $safeprojectname$
+namespace WebSharper.SPA.CSharp
 {
     [JavaScript]
     public class App
     {
         [SPAEntryPoint]
-        public static void Main()
+        public static void ClientMain()
         {
             var people = ListModel.FromSeq(new[] { "John", "Paul" });
             var newName = Var.Create("");

@@ -14,7 +14,7 @@ namespace WebSharper.ClientServer.CSharp
     [JavaScript]
     public static class Client
     {
-        static public IControlBody Main()
+        static public IControlBody ClientMain()
         {
             var rvInput = Var.Create("");
             var submit = Submitter.CreateOption(rvInput.View);

@@ -14,36 +14,94 @@ using Microsoft.FSharp.Core;
 using WebSharper;
 using WebSharper.UI;
 using WebSharper.UI.Templating;
-using WebSharper.UI.CSharp.Client;
 using SDoc = WebSharper.UI.Doc;
 using DomElement = WebSharper.JavaScript.Dom.Element;
 using DomEvent = WebSharper.JavaScript.Dom.Event;
-namespace $safeprojectname$.Template
+namespace WebSharper.SPA.CSharp.Template
 {
     [JavaScript]
     public class Index
     {
+        string key = System.Guid.NewGuid().ToString();
         List<TemplateHole> holes = new List<TemplateHole>();
-        public Doc Doc() => Runtime.GetOrLoadTemplate("index", null, FSharpOption<string>.Some("index.html"), "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <title>SPA10</title>\r\n    <meta charset=\"utf-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"Content/SPA10.css\">\r\n    <style>\r\n        /* Don't show the not-yet-loaded templates */\r\n        [ws-template], [ws-children-template] {\r\n            display: none;\r\n        }\r\n    </style>\r\n    <script type=\"text/javascript\" src=\"Content/SPA10.head.js\"></script>\r\n</head>\r\n<body>\r\n    <h1>My list of unique people</h1>\r\n    <div id=\"main\" ws-children-template=\"Main\">\r\n        <ul ws-hole=\"ListContainer\">\r\n            <li ws-template=\"ListItem\">${Name}</li>\r\n        </ul>\r\n        <div>\r\n            <input ws-var=\"Name\" placeholder=\"Name\">\r\n            <button ws-onclick=\"Add\">Add</button>\r\n            <div>You are about to add: ${Name}</div>\r\n        </div>\r\n    </div>\r\n    <script type=\"text/javascript\" src=\"Content/SPA10.min.js\"></script>\r\n</body>\r\n</html>\r\n", holes, FSharpOption<string>.Some("index"), ServerLoad.WhenChanged, new Tuple<string, FSharpOption<string>, string>[] { }, false);
+        Instance instance;
+        public struct Vars
+        {
+            public Vars(Instance i) { instance = i; }
+            readonly Instance instance;
+        }
+        public class Instance : WebSharper.UI.Templating.Runtime.Server.TemplateInstance
+        {
+            public Instance(WebSharper.UI.Templating.Runtime.Server.CompletedHoles v, Doc d) : base(v, d) { }
+            public Vars Vars => new Vars(this);
+        }
+        public Instance Create()
+        {
+            var completed = WebSharper.UI.Templating.Runtime.Server.Handler.CompleteHoles(key, holes, new Tuple<string, WebSharper.UI.Templating.Runtime.Server.ValTy>[] { });
+            var doc = WebSharper.UI.Templating.Runtime.Server.Runtime.GetOrLoadTemplate("index", null, FSharpOption<string>.Some("index.html"), "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <title>SPA4</title>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"Content/SPA4.css\">\n    <style>\n        /* Don't show the not-yet-loaded templates */\n        [ws-template], [ws-children-template] {\n            display: none;\n        }\n    </style>\n    <script type=\"text/javascript\" src=\"Content/SPA4.head.js\"></script>\n</head>\n<body>\n    <h1>My list of unique people</h1>\n    <div id=\"main\" ws-children-template=\"Main\">\n        <ul ws-hole=\"ListContainer\">\n            <li ws-template=\"ListItem\">${Name}</li>\n        </ul>\n        <div>\n            <input ws-var=\"Name\" placeholder=\"Name\">\n            <button ws-onclick=\"Add\">Add</button>\n            <div>You are about to add: ${Name}</div>\n        </div>\n    </div>\n    <script type=\"text/javascript\" src=\"Content/SPA4.min.js\"></script>\n</body>\n</html>\n", completed.Item1, FSharpOption<string>.Some("index"), ServerLoad.WhenChanged, new Tuple<string, FSharpOption<string>, string>[] { }, false);
+            instance = new Instance(completed.Item2, doc);
+            return instance;
+        }
+        public Doc Doc() => Create().Doc;
         public class ListItem
         {
+            string key = System.Guid.NewGuid().ToString();
             List<TemplateHole> holes = new List<TemplateHole>();
+            Instance instance;
             public ListItem Name(string x) { holes.Add(TemplateHole.NewText("name", x)); return this; }
             public ListItem Name(View<string> x) { holes.Add(TemplateHole.NewTextView("name", x)); return this; }
-            public Doc Doc() => Runtime.GetOrLoadTemplate("index", FSharpOption<string>.Some("listitem"), FSharpOption<string>.Some("index.html"), "<li>${Name}</li>", holes, FSharpOption<string>.Some("index"), ServerLoad.WhenChanged, new Tuple<string, FSharpOption<string>, string>[] { }, true);
-            public Elt Elt() => (Elt)Doc();
+            public struct Vars
+            {
+                public Vars(Instance i) { instance = i; }
+                readonly Instance instance;
+            }
+            public class Instance : WebSharper.UI.Templating.Runtime.Server.TemplateInstance
+            {
+                public Instance(WebSharper.UI.Templating.Runtime.Server.CompletedHoles v, Doc d) : base(v, d) { }
+                public Vars Vars => new Vars(this);
+            }
+            public Instance Create()
+            {
+                var completed = WebSharper.UI.Templating.Runtime.Server.Handler.CompleteHoles(key, holes, new Tuple<string, WebSharper.UI.Templating.Runtime.Server.ValTy>[] { });
+                var doc = WebSharper.UI.Templating.Runtime.Server.Runtime.GetOrLoadTemplate("index", FSharpOption<string>.Some("listitem"), FSharpOption<string>.Some("index.html"), "<li>${Name}</li>", completed.Item1, FSharpOption<string>.Some("index"), ServerLoad.WhenChanged, new Tuple<string, FSharpOption<string>, string>[] { }, true);
+                instance = new Instance(completed.Item2, doc);
+                return instance;
+            }
+            public Doc Doc() => Create().Doc;
+            [Inline] public Elt Elt() => (Elt)Doc();
         }
         public class Main
         {
+            string key = System.Guid.NewGuid().ToString();
             List<TemplateHole> holes = new List<TemplateHole>();
+            Instance instance;
             public Main ListContainer(Doc x) { holes.Add(TemplateHole.NewElt("listcontainer", x)); return this; }
             public Main ListContainer(IEnumerable<Doc> x) { holes.Add(TemplateHole.NewElt("listcontainer", SDoc.Concat(x))); return this; }
             public Main ListContainer(string x) { holes.Add(TemplateHole.NewText("listcontainer", x)); return this; }
             public Main ListContainer(View<string> x) { holes.Add(TemplateHole.NewTextView("listcontainer", x)); return this; }
             public Main Name(Var<string> x) { holes.Add(TemplateHole.NewVarStr("name", x)); return this; }
-            public Main Add(Action<DomElement, DomEvent> x) { holes.Add(TemplateHole.NewEvent("add", FSharpConvert.Fun<DomElement, DomEvent>(x))); return this; }
+            public Main Add(Action<DomElement, WebSharper.JavaScript.Dom.MouseEvent> x) { holes.Add(TemplateHole.NewActionEvent("add", x)); return this; }
             public Main Add(Action x) { holes.Add(TemplateHole.NewEvent("add", FSharpConvert.Fun<DomElement, DomEvent>((a, b) => x()))); return this; }
-            public Doc Doc() => Runtime.GetOrLoadTemplate("index", FSharpOption<string>.Some("main"), FSharpOption<string>.Some("index.html"), "\r\n        <ul ws-hole=\"ListContainer\">\r\n            <li ws-template=\"ListItem\">${Name}</li>\r\n        </ul>\r\n        <div>\r\n            <input ws-var=\"Name\" placeholder=\"Name\">\r\n            <button ws-onclick=\"Add\">Add</button>\r\n            <div>You are about to add: ${Name}</div>\r\n        </div>\r\n    ", holes, FSharpOption<string>.Some("index"), ServerLoad.WhenChanged, new Tuple<string, FSharpOption<string>, string>[] { }, false);
+            public Main Add(Action<WebSharper.UI.Templating.Runtime.Server.TemplateEvent<Vars, WebSharper.JavaScript.Dom.MouseEvent>> x) { holes.Add(TemplateHole.NewEvent("add", FSharpConvert.Fun<DomElement, DomEvent>((a, b) => x(new WebSharper.UI.Templating.Runtime.Server.TemplateEvent<Vars, WebSharper.JavaScript.Dom.MouseEvent>(new Vars(instance), a, (WebSharper.JavaScript.Dom.MouseEvent)b))))); return this; }
+            public struct Vars
+            {
+                public Vars(Instance i) { instance = i; }
+                readonly Instance instance;
+                [Inline] public Var<string> Name => (Var<string>)instance.Hole("name");
+            }
+            public class Instance : WebSharper.UI.Templating.Runtime.Server.TemplateInstance
+            {
+                public Instance(WebSharper.UI.Templating.Runtime.Server.CompletedHoles v, Doc d) : base(v, d) { }
+                public Vars Vars => new Vars(this);
+            }
+            public Instance Create()
+            {
+                var completed = WebSharper.UI.Templating.Runtime.Server.Handler.CompleteHoles(key, holes, new Tuple<string, WebSharper.UI.Templating.Runtime.Server.ValTy>[] { Tuple.Create("name", WebSharper.UI.Templating.Runtime.Server.ValTy.String) });
+                var doc = WebSharper.UI.Templating.Runtime.Server.Runtime.GetOrLoadTemplate("index", FSharpOption<string>.Some("main"), FSharpOption<string>.Some("index.html"), "\n        <ul ws-hole=\"ListContainer\">\n            <li ws-template=\"ListItem\">${Name}</li>\n        </ul>\n        <div>\n            <input ws-var=\"Name\" placeholder=\"Name\">\n            <button ws-onclick=\"Add\">Add</button>\n            <div>You are about to add: ${Name}</div>\n        </div>\n    ", completed.Item1, FSharpOption<string>.Some("index"), ServerLoad.WhenChanged, new Tuple<string, FSharpOption<string>, string>[] { }, false);
+                instance = new Instance(completed.Item2, doc);
+                return instance;
+            }
+            public Doc Doc() => Create().Doc;
         }
     }
 }
