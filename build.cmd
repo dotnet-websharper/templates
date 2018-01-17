@@ -14,7 +14,7 @@ set PATH=%PATH%;%ProgramFiles%\Microsoft SDKs\F#\4.0\Framework\v4.0
 set PATH=%PATH%;%ProgramFiles%\Microsoft SDKs\F#\3.1\Framework\v4.0
 set PATH=%PATH%;%ProgramFiles%\Microsoft SDKs\F#\3.0\Framework\v4.0
 
-rem .paket\paket update
+.paket\paket update
 
 fsi.exe --exec init.fsx
 
