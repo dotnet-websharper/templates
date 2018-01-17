@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <WebSharperProject>Bundle</WebSharperProject>
+    <WebProjectOutputDir>$(MSBuildThisFileDirectory)/wwwroot</WebProjectOutputDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Client.fs" />
+    <Compile Include="Startup.fs" />
+    <Compile Include="Program.fs" />
+    <Content Include="Main.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
+    <PackageReference Include="WebSharper" Version="4.0.195.128-staging" />    
+    <PackageReference Include="WebSharper.FSharp" Version="4.0.195.128-staging" />
+    <PackageReference Include="WebSharper.UI.Next" Version="4.0.13.107-staging" />
+  </ItemGroup>
+
+</Project>

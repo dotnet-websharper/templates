@@ -1,0 +1,14 @@
+{
+  "author": "IntelliFactory",
+  "classifications": [ "WebSharper", "Web" ],
+  "name": "WebSharper 4 Library",
+  "tags": {
+    "language": "F#",
+    "type": "project"
+  },
+  "identity": "WebSharper.Library.FSharp.Template",
+  "groupIdentity": "WebSharper.Library.Template",
+  "shortName": "websharper-lib",
+  "sourceName": "WebSharper.Library.FSharp",
+  "preferNameDirectory": true
+}

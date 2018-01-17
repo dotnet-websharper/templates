@@ -1,0 +1,14 @@
+{
+  "author": "IntelliFactory",
+  "classifications": [ "WebSharper", "Web" ],
+  "name": "WebSharper 4 Single Page Application",
+  "tags": {
+    "language": "F#",
+    "type": "project"
+  },
+  "identity": "WebSharper.SPA.FSharp.Template",
+  "groupIdentity": "WebSharper.SPA.Template",
+  "shortName": "websharper-spa",
+  "sourceName": "WebSharper.SPA.FSharp",
+  "preferNameDirectory": true
+}
