@@ -11,7 +11,7 @@ open WebSharper.UI.Templating
 module Client =
     // The templates are loaded from the DOM, so you just can edit index.html
     // and refresh your browser, no need to recompile unless you add or remove holes.
-    type IndexTemplate = Template<"index.html", ClientLoad.FromDocument>
+    type IndexTemplate = Template<"wwwroot/index.html", ClientLoad.FromDocument>
 
     let People =
         ListModel.FromSeq [

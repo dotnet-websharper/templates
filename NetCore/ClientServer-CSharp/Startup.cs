@@ -30,8 +30,8 @@ namespace WebSharper.ClientServer.CSharp
                     .Build();
 
             app.UseAuthentication()
-                .UseWebSharper(env, Site.Main, config.GetSection("websharper"))
                 .UseStaticFiles()
+                .UseWebSharper(env, Site.Main, config.GetSection("websharper"))
                 .Run(context => {
                     context.Response.StatusCode = 404;
                     return context.Response.WriteAsync("Page not found");

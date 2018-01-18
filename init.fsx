@@ -98,13 +98,6 @@ Directory.EnumerateFiles(__SOURCE_DIRECTORY__, "*.FSharp.fsproj.in", SearchOptio
 Directory.EnumerateFiles(__SOURCE_DIRECTORY__, "*.CSharp.csproj.in", SearchOption.AllDirectories)
 |> Seq.iter (replacesInFile dotnetProjReplaces)
 
-!! "NetCore/**/wwwroot/**" 
-++ "NetCore/**/bin/**" 
-++ "NetCore/**/obj/**" 
-++ "NetCore/**/*.user" 
-++ "NetCore/**/Properties/launchSettings.json"
-|> DeleteFiles
-
 Shell.Exec(
     "tools/nuget/NuGet.exe",
     sprintf "pack -Version %s -OutputDirectory build WebSharper.Templates.nuspec" taggedVersion

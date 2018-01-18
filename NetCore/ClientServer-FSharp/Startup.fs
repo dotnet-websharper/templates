@@ -25,8 +25,8 @@ type Startup() =
                 .Build()
 
         app.UseAuthentication()
-            .UseWebSharper(env, Site.Main, config.GetSection("websharper"))
             .UseStaticFiles()
+            .UseWebSharper(env, Site.Main, config.GetSection("websharper"))
             .Run(fun context ->
                 context.Response.StatusCode <- 404
                 context.Response.WriteAsync("Page not found"))
