@@ -1,6 +1,9 @@
-#r "packages/build/FAKE/tools/FakeLib.dll"
-#r "packages/build/Chessie/lib/net40/Chessie.dll"
-#r "packages/build/Paket.Core/lib/net45/Paket.Core.dll"
+#I "packages/build/FAKE/tools"
+#r "FakeLib.dll"
+#I "packages/build/Chessie/lib/net40"
+#r "Chessie.dll"
+#I "packages/build/Paket.Core/lib/net45"
+#r "Paket.Core.dll"
 
 open Fake
 open System.IO

@@ -20,3 +20,4 @@ paket.lock
 Content/
 Scripts/
 launchSettings.json
+.fake/
