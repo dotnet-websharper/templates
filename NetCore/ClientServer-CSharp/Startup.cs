@@ -35,7 +35,7 @@ namespace WebSharper.ClientServer.CSharp
                 .Run(context => {
                     context.Response.StatusCode = 404;
                     return context.Response.WriteAsync("Page not found");
-                   });
+                });
         }
     }
 }
