@@ -15,7 +15,8 @@ type Startup() =
     member this.Configure(app: IApplicationBuilder, env: IHostingEnvironment) =
         if env.IsDevelopment() then app.UseDeveloperExceptionPage() |> ignore
 
-        app.UseStaticFiles()
+        app.UseDefaultFiles()
+            .UseStaticFiles()
             .Run(fun context ->
                 context.Response.StatusCode <- 404
                 context.Response.WriteAsync("Page not found"))

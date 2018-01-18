@@ -4,13 +4,13 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <WebSharperProject>Bundle</WebSharperProject>
     <WebSharperBundleOutputDir>wwwroot/Content</WebSharperBundleOutputDir>
+    <WebProjectOutputDir>$(MSBuildThisFileDirectory)/wwwroot</WebProjectOutputDir>
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Include="Client.fs" />
     <Compile Include="Startup.fs" />
     <Compile Include="Program.fs" />
-    <Content Include="index.html" />
   </ItemGroup>
 
   <ItemGroup>
