@@ -18,6 +18,6 @@
     </dependencies>-->
   </metadata>
   <files>
-    <file src="NetCore/**" target="content" exclude="**/*.in" />
+    <file src="NetCore/**" target="content" exclude="**/*.in;**/wwwroot/Content/**;**/wwwroot/Scripts/**;**/bin/**;**/obj/**;**/*.user;**/Properties/launchSettings.json" />
   </files>
 </package>
