@@ -9,6 +9,6 @@ set PATH=%ProgramFiles(x86)%\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.
 
 packages\build\FAKE\tools\FAKE.exe init.fsx %*
 
-rem rd /s /q WebSharper.Vsix/bin
-rem rd /s /q WebSharper.Vsix/obj
-rem MSBuild.exe WebSharper.Vsix.sln /p:Configuration=Release /t:Rebuild
+rd /s /q WebSharper.Vsix/bin
+rd /s /q WebSharper.Vsix/obj
+MSBuild.exe WebSharper.Vsix.sln /p:Configuration=Release /t:Rebuild

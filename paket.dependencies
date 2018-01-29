@@ -6,14 +6,14 @@ source https://api.nuget.org/v3/index.json
 
 nuget FSharp.Core ~> 4.2.0
 nuget System.ValueTuple ~> 4.4.0
-nuget WebSharper ~> 4.2.0-alpha
-nuget WebSharper.FSharp ~> 4.2.0-alpha
-nuget WebSharper.CSharp ~> 4.2.0-alpha
-nuget WebSharper.UI ~> 4.2.0-alpha
-nuget WebSharper.UI.CSharp ~> 4.2.0-alpha
-nuget WebSharper.AspNetCore ~> 4.2.0-alpha
-// nuget WebSharper.Owin
-// nuget WebSharper.Suave
+nuget WebSharper prerelease
+nuget WebSharper.FSharp prerelease
+nuget WebSharper.CSharp prerelease
+nuget WebSharper.UI prerelease
+nuget WebSharper.UI.CSharp prerelease
+nuget WebSharper.AspNetCore prerelease
+nuget WebSharper.Owin prerelease
+nuget WebSharper.Suave prerelease
 nuget Microsoft.Owin.Diagnostics
 nuget Microsoft.Owin.FileSystems
 nuget Microsoft.Owin.Host.HttpListener
