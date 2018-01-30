@@ -27,8 +27,8 @@ let packageVersions =
         let version = 
             // version in lock file might not be the full one in the file name
             let v = p.Version.AsString
-            let n = nupkgPath n v
-            if fileExists n then v else
+            let n' = nupkgPath n v
+            if fileExists n' then v else
             let v = v + ".0"
             let n = nupkgPath n v
             if fileExists n then v else
@@ -91,10 +91,6 @@ Directory.EnumerateFiles(__SOURCE_DIRECTORY__, "*.vstemplate.in", SearchOption.A
 |> Seq.iter (replacesInFile vstemplateReplaces)
 
 __SOURCE_DIRECTORY__ </> "WebSharper.Vsix/WebSharper.Vsix.csproj.in" |> replacesInFile [   
-        for p, v in packageVersions do
-            yield
-                sprintf "Include=\"Packages\\%s.nupkg\"" p, 
-                sprintf "Include=\"Packages\\%s.%s.nupkg\"" p v
         yield "{vsixversion}", taggedVersion
         yield "{keyfilepath}", snk
     ]
