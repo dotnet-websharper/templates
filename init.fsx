@@ -7,26 +7,45 @@
 
 open Fake
 open System.IO
+open Paket.Constants
 
-let parsedLock = 
+let lockFile = 
     __SOURCE_DIRECTORY__ </> "paket.lock"
-    |> File.ReadAllLines 
-    |> Paket.LockFileParser.Parse |> List.last
+    |> Paket.LockFile.LoadFrom 
+
+let mainGroup =
+    lockFile.GetGroup(MainDependencyGroup)
     
+let packages = __SOURCE_DIRECTORY__ </> "packages"
+let nupkgPath n v = packages </> n </> (n + "." + v + ".nupkg") 
+
 let packageVersions = 
-    parsedLock.Packages |> List.map (fun p ->
-        let packageName = p.Name.Name
-        packageName, p.Version.AsString
+    mainGroup.Resolution 
+    |> Map.toSeq
+    |> Seq.map (fun (i, p) ->
+        let n = i.Name
+        let version = 
+            // version in lock file might not be the full one in the file name
+            let v = p.Version.AsString
+            let n = nupkgPath n v
+            if fileExists n then v else
+            let v = v + ".0"
+            let n = nupkgPath n v
+            if fileExists n then v else
+            v + ".0"
+        n, version
     )
+    |> List.ofSeq
 
 let pkgFolder = __SOURCE_DIRECTORY__ </> "WebSharper.Vsix/Packages"
 CreateDir pkgFolder
+CleanDir pkgFolder
 
-let nupkgFiles = !! "packages/**/*.nupkg"
-
-nupkgFiles
-|> Seq.iter (fun p ->
-    File.Copy(p, pkgFolder </> Path.GetFileName(p), true) 
+packageVersions
+|> Seq.iter (fun (n, v) ->
+    let nupkgFrom = nupkgPath n v
+    let nupkgTo = pkgFolder </> (n + ".nupkg")
+    nupkgFrom |> CopyFile nupkgTo
 ) 
 
 let snk, publicKeyToken =
