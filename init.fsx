@@ -44,7 +44,7 @@ CleanDir pkgFolder
 packageVersions
 |> Seq.iter (fun (n, v) ->
     let nupkgFrom = nupkgPath n v
-    let nupkgTo = pkgFolder </> (n + ".nupkg")
+    let nupkgTo = pkgFolder </> Path.GetFileName nupkgFrom
     nupkgFrom |> CopyFile nupkgTo
 ) 
 
@@ -91,6 +91,10 @@ Directory.EnumerateFiles(__SOURCE_DIRECTORY__, "*.vstemplate.in", SearchOption.A
 |> Seq.iter (replacesInFile vstemplateReplaces)
 
 __SOURCE_DIRECTORY__ </> "WebSharper.Vsix/WebSharper.Vsix.csproj.in" |> replacesInFile [   
+        for p, v in packageVersions do
+            yield
+                sprintf "Include=\"Packages\\%s.nupkg\"" p, 
+                sprintf "Include=\"Packages\\%s.%s.nupkg\"" p v
         yield "{vsixversion}", taggedVersion
         yield "{keyfilepath}", snk
     ]
