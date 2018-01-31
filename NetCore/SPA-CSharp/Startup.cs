@@ -20,7 +20,8 @@ namespace WebSharper.SPA.CSharp
         {
             if (env.IsDevelopment()) { app.UseDeveloperExceptionPage(); }
 
-            app.UseStaticFiles()
+            app.UseDefaultFiles()
+                .UseStaticFiles()
                 .Run(context => {
                     context.Response.StatusCode = 404;
                     return context.Response.WriteAsync("Page not found");

@@ -3,7 +3,8 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <WebSharperProject>Bundle</WebSharperProject>
-    <WebSharperBundleOutputDir>Content</WebSharperBundleOutputDir>
+    <WebSharperBundleOutputDir>wwwroot/Content</WebSharperBundleOutputDir>
+    <WebProjectOutputDir>$(MSBuildThisFileDirectory)/wwwroot</WebProjectOutputDir>
   </PropertyGroup>
 
   <ItemGroup>
