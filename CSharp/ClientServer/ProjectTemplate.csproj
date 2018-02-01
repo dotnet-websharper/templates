@@ -66,7 +66,7 @@
     <Compile Include="Remoting.cs" />
     <Compile Include="Server.cs" />
     <Content Include="Main.html" />
-    <Compile Include="Main.g.cs">
+    <Compile Include="WebSharper.UI.Templates\Main.g.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Main.html</DependentUpon>
