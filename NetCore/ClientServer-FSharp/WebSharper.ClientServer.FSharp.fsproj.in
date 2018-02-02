@@ -12,7 +12,7 @@
     <Compile Include="Site.fs" />
     <Compile Include="Startup.fs" />
     <Compile Include="Program.fs" />
-    <Content Include="Main.html" />
+    <Content Include="Main.html" CopyToPublishDirectory="Always" />
   </ItemGroup>
 
   <ItemGroup>
