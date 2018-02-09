@@ -119,7 +119,7 @@ Directory.EnumerateFiles(__SOURCE_DIRECTORY__, "*.CSharp.csproj.in", SearchOptio
 
 Shell.Exec(
     "tools/nuget/NuGet.exe",
-    sprintf "pack -Version %s -OutputDirectory build WebSharper.Templates.nuspec" taggedVersion
+    sprintf "pack -Version %s -OutputDirectory build WebSharper.Templates.nuspec" version
 )
 
 match environVarOrNone "NugetPublishUrl", environVarOrNone "NugetApiKey" with
