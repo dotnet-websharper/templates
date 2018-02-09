@@ -20,8 +20,9 @@
       <ProjectItem ReplaceParameters="true">Client.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true">Remoting.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true">Main.html</ProjectItem>
-      <ProjectItem ReplaceParameters="true">Main.g.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true">WebSharper.UI.Templates\Main.g.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true">Web.config</ProjectItem>
+      <ProjectItem>wsconfig.json</ProjectItem>
     </Project>
   </TemplateContent>
   <WizardExtension>

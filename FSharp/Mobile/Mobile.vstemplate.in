@@ -18,6 +18,7 @@
       <ProjectItem ReplaceParameters="true">Client.fs</ProjectItem>
       <ProjectItem ReplaceParameters="true">index.html</ProjectItem>
       <ProjectItem ReplaceParameters="true" OpenInEditor="true">readme.txt</ProjectItem>
+      <ProjectItem>wsconfig.json</ProjectItem>
     </Project>
   </TemplateContent>
   <WizardExtension>

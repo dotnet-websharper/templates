@@ -16,6 +16,7 @@
     <Project File="ProjectTemplate.fsproj" ReplaceParameters="true">
       <ProjectItem ReplaceParameters="true">AssemblyInfo.fs</ProjectItem>
       <ProjectItem ReplaceParameters="true" OpenInEditor="true">Library1.fs</ProjectItem>
+      <ProjectItem>wsconfig.json</ProjectItem>
     </Project>
     <CustomParameters>
       <CustomParameter Name="%visualstudioversion%" Value="14.0" />

@@ -16,6 +16,7 @@
     <Project File="ProjectTemplate.fsproj" ReplaceParameters="true">
       <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.fs">AssemblyInfo.fs</ProjectItem>
       <ProjectItem ReplaceParameters="true" OpenInEditor="true">Main.fs</ProjectItem>
+      <ProjectItem>wsconfig.json</ProjectItem>
     </Project>
   </TemplateContent>
   <WizardExtension>

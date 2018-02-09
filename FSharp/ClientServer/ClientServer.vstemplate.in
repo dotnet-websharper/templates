@@ -21,8 +21,8 @@
       <ProjectItem ReplaceParameters="true">Global.asax</ProjectItem>
       <ProjectItem ReplaceParameters="true">Global.asax.fs</ProjectItem>
       <ProjectItem ReplaceParameters="true">Main.html</ProjectItem>
-      <ProjectItem ReplaceParameters="true">Setup.fsx</ProjectItem>
       <ProjectItem ReplaceParameters="true">Web.config</ProjectItem>
+      <ProjectItem>wsconfig.json</ProjectItem>
     </Project>
   </TemplateContent>
   <WizardExtension>

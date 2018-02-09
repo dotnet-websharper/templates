@@ -17,6 +17,7 @@
       <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" OpenInEditor="true">Main.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true">Client.cs</ProjectItem>
+      <ProjectItem>wsconfig.json</ProjectItem>
     </Project>
   </TemplateContent>
   <WizardExtension>

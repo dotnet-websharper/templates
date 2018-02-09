@@ -17,8 +17,9 @@
       <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true" OpenInEditor="true">Client.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true">index.html</ProjectItem>
-      <ProjectItem ReplaceParameters="true">index.g.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true">WebSharper.UI.Templates\index.g.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true">Web.config</ProjectItem>
+      <ProjectItem>wsconfig.json</ProjectItem>
     </Project>
   </TemplateContent>
   <WizardExtension>

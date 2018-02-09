@@ -19,6 +19,7 @@
       <ProjectItem ReplaceParameters="true">Client.fs</ProjectItem>
       <ProjectItem ReplaceParameters="true">Remoting.fs</ProjectItem>
       <ProjectItem ReplaceParameters="true">Main.html</ProjectItem>
+      <ProjectItem>wsconfig.json</ProjectItem>
     </Project>
   </TemplateContent>
   <WizardExtension>
