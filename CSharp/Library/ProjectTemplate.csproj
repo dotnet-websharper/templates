@@ -40,6 +40,7 @@
     <Reference Include="Microsoft.CSharp"/>
     <Reference Include="System.Data"/>
     <Reference Include="System.Xml"/>
+    <None Include="wsconfig.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />

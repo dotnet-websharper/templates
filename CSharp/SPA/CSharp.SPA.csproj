@@ -69,6 +69,7 @@
     <Content Include="Web.config" />
     <Content Include="index.html" />
     <Content Include="index.g.cs" />
+    <None Include="wsconfig.json" />
   </ItemGroup>
   <ItemGroup>
     <VSTemplate Include="SPA.vstemplate">

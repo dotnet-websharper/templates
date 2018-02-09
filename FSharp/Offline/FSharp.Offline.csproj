@@ -65,6 +65,7 @@
     <None Include="Offline.vstemplate.in" />
     <None Include="ProjectTemplate.fsproj" />
     <Content Include="WebSharper.png" />
+    <None Include="wsconfig.json" />
   </ItemGroup>
   <ItemGroup>
     <VSTemplate Include="Offline.vstemplate">

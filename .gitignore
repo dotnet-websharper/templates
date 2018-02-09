@@ -21,3 +21,4 @@ Content/
 Scripts/
 launchSettings.json
 .fake/
+/paket-files

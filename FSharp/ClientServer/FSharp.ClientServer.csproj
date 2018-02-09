@@ -60,6 +60,7 @@
     <Content Include="WebSharper.png" />
     <None Include="ClientServer.vstemplate.in" />
     <None Include="ProjectTemplate.fsproj" />
+    <None Include="wsconfig.json" />
   </ItemGroup>
   <ItemGroup>
     <VSTemplate Include="ClientServer.vstemplate">
@@ -75,7 +76,6 @@
     <Content Include="Main.fs" />
     <Content Include="Main.html" />
     <Content Include="Remoting.fs" />
-    <Content Include="Setup.fsx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -72,6 +72,7 @@
     </None>
     <Content Include="WebSharper.png" />
     <Content Include="Web.config" />
+    <None Include="wsconfig.json" />
   </ItemGroup>
   <ItemGroup>
     <VSTemplate Include="ClientServer.vstemplate">

@@ -54,7 +54,8 @@
     <Compile Include="Main.fs" />
     <None Include="extra.files" />
     <Content Include="Main.html" />
-    </ItemGroup>
+    <None Include="wsconfig.json" />
+  </ItemGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
   </PropertyGroup>

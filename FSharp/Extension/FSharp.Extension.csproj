@@ -59,7 +59,10 @@
   <ItemGroup>
     <Content Include="WebSharper.png" />
     <None Include="Extension.vstemplate.in" />
-    <None Include="ProjectTemplate.fsproj" />
+    <None Include="ProjectTemplate.fsproj">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="wsconfig.json" />
   </ItemGroup>
   <ItemGroup>
     <VSTemplate Include="Extension.vstemplate">

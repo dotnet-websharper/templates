@@ -67,6 +67,7 @@
     <None Include="Suave.vstemplate.in">
       <SubType>Designer</SubType>
     </None>
+    <None Include="wsconfig.json" />
   </ItemGroup>
   <ItemGroup>
     <VSTemplate Include="Suave.vstemplate">

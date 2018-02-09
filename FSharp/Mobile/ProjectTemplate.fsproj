@@ -49,6 +49,7 @@
     <Compile Include="Client.fs" />
     <Content Include="index.html" />
     <None Include="readme.txt" />
+    <None Include="wsconfig.json" />
   </ItemGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>

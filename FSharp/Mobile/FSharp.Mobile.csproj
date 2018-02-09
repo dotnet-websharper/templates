@@ -62,6 +62,7 @@
     </None>
     <Content Include="WebSharper.png" />
     <None Include="Mobile.vstemplate.in" />
+    <None Include="wsconfig.json" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AssemblyInfo.fs" />
