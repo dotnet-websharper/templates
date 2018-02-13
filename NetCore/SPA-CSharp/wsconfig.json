@@ -1,4 +1,4 @@
 ﻿{
   "Project": "Bundle",
-  "OutputDir": "Content"
+  "OutputDir": "wwwroot/Content"
 }
