@@ -5,7 +5,7 @@
     <Description>Creates a C# library capable of containing WebSharper-compiled code.</Description>
     <Icon>WebSharper.png</Icon>
     <ProjectType>CSharp</ProjectType>
-    <RequiredFrameworkVersion>4.5</RequiredFrameworkVersion>
+    <RequiredFrameworkVersion>4.6.1</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>
     <TemplateID>6ba7565f-dfca-4959-8789-e5727a96d53a</TemplateID>
     <CreateNewFolder>true</CreateNewFolder>

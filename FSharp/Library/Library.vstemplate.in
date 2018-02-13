@@ -5,7 +5,7 @@
     <Description>Creates an F# library capable of containing WebSharper-compiled code.</Description>
     <Icon>WebSharper.png</Icon>
     <ProjectType>FSharp</ProjectType>
-    <RequiredFrameworkVersion>4.5</RequiredFrameworkVersion>
+    <RequiredFrameworkVersion>4.6.1</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>
     <TemplateID>18106621-0b3e-42ed-ae96-2c8c3f8e1716</TemplateID>
     <CreateNewFolder>true</CreateNewFolder>

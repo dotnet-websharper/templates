@@ -5,7 +5,7 @@
     <Description>Creates a starter sitelet-based HTML application.</Description>
     <Icon>WebSharper.png</Icon>
     <ProjectType>CSharp</ProjectType>
-    <RequiredFrameworkVersion>4.5</RequiredFrameworkVersion>
+    <RequiredFrameworkVersion>4.6.1</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>
     <TemplateID>ed4df9f7-da0e-405c-ac05-a5361c4ab6fb</TemplateID>
     <CreateNewFolder>true</CreateNewFolder>

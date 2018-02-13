@@ -5,7 +5,7 @@
     <Description>Creates a single-page HTML application using WebSharper UI.</Description>
     <Icon>WebSharper.png</Icon>
     <ProjectType>CSharp</ProjectType>
-    <RequiredFrameworkVersion>4.5</RequiredFrameworkVersion>
+    <RequiredFrameworkVersion>4.6.1</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>
     <TemplateID>c5a76015-bae7-44db-bebb-12182fe2e18c</TemplateID>
     <CreateNewFolder>true</CreateNewFolder>

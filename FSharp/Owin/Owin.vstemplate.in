@@ -5,7 +5,7 @@
     <Description>Creates a starter client-server web application based on sitelets, running as a dedicated executable using an OWIN host.</Description>
     <Icon>WebSharper.png</Icon>
     <ProjectType>FSharp</ProjectType>
-    <RequiredFrameworkVersion>4.5</RequiredFrameworkVersion>
+    <RequiredFrameworkVersion>4.6.1</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>
     <TemplateID>cb1be577-8701-4f1b-b86d-95e97b02f2df</TemplateID>
     <CreateNewFolder>true</CreateNewFolder>

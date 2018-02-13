@@ -5,7 +5,7 @@
     <Description>Creates a single-page HTML application which can be packaged in a Cordova mobile app.</Description>
     <Icon>WebSharper.png</Icon>
     <ProjectType>FSharp</ProjectType>
-    <RequiredFrameworkVersion>4.5</RequiredFrameworkVersion>
+    <RequiredFrameworkVersion>4.6.1</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>
     <TemplateID>91a2cdc9-8ffd-40c6-8b0b-88b48bbf0790</TemplateID>
     <CreateNewFolder>true</CreateNewFolder>
