@@ -13,20 +13,27 @@ namespace WebSharper.ClientServer.CSharp
     public class Site
     {
         [EndPoint("/")]
-        public class Home { }
+        public class Home {
+            public override bool Equals(object obj) => obj is Home;
+            public override int GetHashCode() => 0;
+        }
 
         [EndPoint("GET /about")]
-        public class About { }
+        public class About {
+            public override bool Equals(object obj) => obj is About;
+            public override int GetHashCode() => 1;
+        }
 
         public static Doc MenuBar(Context<object> ctx, object endpoint)
         {
             Doc link(string txt, object act) =>
                 li(
-                    (endpoint == act) ? attr.@class("active") : null,
+                    endpoint.Equals(act) ? attr.@class("active") : null,
                     a(attr.href(ctx.Link(act)), txt)
                 );
             return doc(
-                li(link("Home", new Home()))
+                li(link("Home", new Home())),
+                li(link("About", new About()))  
             );
         }
 
