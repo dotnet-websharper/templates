@@ -1,3 +1,4 @@
 ﻿{
-  "Project": "InterfaceGenerator"
+  "$schema": "https://websharper.com/wsconfig.schema.json",
+  "project": "extension"
 }

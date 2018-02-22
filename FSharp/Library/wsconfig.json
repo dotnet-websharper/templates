@@ -1,3 +1,4 @@
 ﻿{
-  "Project": "Library"
+  "$schema": "https://websharper.com/wsconfig.schema.json",
+  "project": "library"
 }
