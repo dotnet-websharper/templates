@@ -20,7 +20,7 @@ nuget Microsoft.Owin.Hosting
 nuget Microsoft.Owin.StaticFiles
 
 group build
-    framework: net40
+    framework: net45
     source https://api.nuget.org/v3/index.json
     
     nuget FAKE
