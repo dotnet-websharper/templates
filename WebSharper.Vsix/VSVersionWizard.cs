@@ -31,11 +31,11 @@ namespace WebSharper.Vsix
             var dte = (_DTE)automationObject;
             replacementsDictionary.Add("$visualstudioversion$", dte.Version);
             var v = Version.Parse(dte.Version);
-            if (v >= new Version(15, 0)) {
-                replacementsDictionary.Add("$fsharpcoreversion$", "4.4.1.0");
+            if (v >= new Version(15, 6)) {
+                replacementsDictionary.Add("$fsharpcoreversion$", "4.4.3.0");
             }
             else {
-                replacementsDictionary.Add("$fsharpcoreversion$", "4.4.0.0");
+                replacementsDictionary.Add("$fsharpcoreversion$", "4.4.1.0");
             }
         }
 
