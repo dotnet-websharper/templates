@@ -69,7 +69,6 @@
     <Compile Include="WebSharper.UI.Templates\Main.g.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Main.html</DependentUpon>
     </Compile>
     <Content Include="Web.config" />
     <None Include="wsconfig.json" />

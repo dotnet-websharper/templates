@@ -64,7 +64,6 @@
     <Compile Include="WebSharper.UI.Templates\index.g.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>index.html</DependentUpon>
     </Compile>
     <Content Include="Web.config" />
   </ItemGroup>
