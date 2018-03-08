@@ -23,7 +23,7 @@ namespace $safeprojectname$
             public override bool Equals(object obj) => obj is About;
             public override int GetHashCode() => 1;
         }
-$if$ ($visualstudioversion$ >= 15.0)
+
         public static Doc MenuBar(Context<object> ctx, object endpoint)
         {
             Doc link(string txt, object act) =>
@@ -36,19 +36,7 @@ $if$ ($visualstudioversion$ >= 15.0)
                 li(link("About", new About()))
             );
         }
-$else$
-        public static Doc Link(Context<object> ctx, object endpoint, string txt, object act) =>
-            li(
-                endpoint.Equals(act) ? attr.@class("active") : null,
-                a(attr.href(ctx.Link(act)), txt)
-            );
 
-        public static Doc MenuBar(Context<object> ctx, object endpoint) =>
-            doc(
-                li(Link(ctx, endpoint, "Home", new Home())),
-                li(Link(ctx, endpoint, "About", new About()))
-            );
-$endif$
         public static Task<Content> Page(Context<object> ctx, object endpoint, string title, Doc body) =>
             Content.Page(
                 new Template.Main()

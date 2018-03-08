@@ -11,7 +11,6 @@
     <AssemblyName>$safeprojectname$</AssemblyName>
     <WebSharperProject>InterfaceGenerator</WebSharperProject>
     <TargetFrameworkVersion>v$targetframeworkversion$</TargetFrameworkVersion>
-    <TargetFSharpCoreVersion>$fsharpcoreversion$</TargetFSharpCoreVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">

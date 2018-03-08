@@ -13,7 +13,6 @@
     <WebSharperProject>Bundle</WebSharperProject>
     <WebSharperBundleOutputDir>$(CordovaAppPath)\www\ws</WebSharperBundleOutputDir>
     <TargetFrameworkVersion>v$targetframeworkversion$</TargetFrameworkVersion>
-    <TargetFSharpCoreVersion>$fsharpcoreversion$</TargetFSharpCoreVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
