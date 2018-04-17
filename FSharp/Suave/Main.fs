@@ -59,7 +59,11 @@ module Site =
     open WebSharper.Suave
     open Suave.Web
 
+    /// Add here any other Suave WebParts that need to be served, besides WebSharper.
+    let suaveSite = Suave.Files.browseHome
+
     do
+        let rootDir = System.IO.Path.GetFullPath "../.."
         startWebServer
-            defaultConfig
-            (WebSharperAdapter.ToWebPart(Main, RootDirectory = @"../.."))
+            { defaultConfig with homeFolder = Some rootDir }
+            (WebSharperAdapter.ToWebPart(Main, RootDirectory = rootDir, Continuation = suaveSite))
