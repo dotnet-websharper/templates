@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using WebSharper.AspNetCore;
 
 namespace WebSharper.SPA.CSharp
 {
@@ -22,6 +23,7 @@ namespace WebSharper.SPA.CSharp
 
             app.UseDefaultFiles()
                 .UseStaticFiles()
+                .UseWebSharperRemoting(env)
                 .Run(context => {
                     context.Response.StatusCode = 404;
                     return context.Response.WriteAsync("Page not found");
