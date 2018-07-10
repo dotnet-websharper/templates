@@ -2,6 +2,7 @@
   <info organisation="IntelliFactory" module="zafir.templates" revision="3.0" />
   <dependencies>
     <dependency name="zafir" rev="latest.integration"  />
+    <dependency name="zafir.owin" rev="latest.integration"  />
     <dependency name="zafir.ui" rev="latest.integration"  />
     <dependency name="zafir.suave" rev="latest.integration"  />
     <dependency name="zafir.aspnetcore" rev="latest.integration"  />
