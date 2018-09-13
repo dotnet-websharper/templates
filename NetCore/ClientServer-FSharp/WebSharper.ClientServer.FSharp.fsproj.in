@@ -11,7 +11,6 @@
     <Compile Include="Client.fs" />
     <Compile Include="Site.fs" />
     <Compile Include="Startup.fs" />
-    <Compile Include="Program.fs" />
     <Content Include="Main.html" CopyToPublishDirectory="Always" />
   </ItemGroup>
 
