@@ -3,7 +3,7 @@ version 5.142.0
 source https://daily.websharper.com/nuget
 source https://api.nuget.org/v3/index.json
 
-nuget FSharp.Core
+nuget FSharp.Core ~> 4.5.0
 nuget System.ValueTuple ~> 4.4.0
 nuget WebSharper prerelease
 nuget WebSharper.FSharp prerelease
