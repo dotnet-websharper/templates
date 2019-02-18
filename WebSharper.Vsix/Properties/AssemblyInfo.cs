@@ -1,11 +1,6 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using Microsoft.VisualStudio.Shell;
-
-[assembly: ProvideBindingRedirection(AssemblyName = "FSharp.Core",
-    NewVersion = "4.6.0.0", OldVersionLowerBound = "4.0.0.0",
-    OldVersionUpperBound = "4.6.0.0")]
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
