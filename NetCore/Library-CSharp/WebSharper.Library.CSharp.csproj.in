@@ -6,7 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FSharp.Core" />    
     <PackageReference Include="WebSharper" />    
     <PackageReference Include="WebSharper.CSharp" />
   </ItemGroup>
