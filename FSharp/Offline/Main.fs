@@ -47,7 +47,7 @@ module Site =
     let AboutPage ctx =
         Templating.Main ctx EndPoint.About "About" [
             h1 [] [text "About"]
-            p [] [text "This is a template WebSharper client-server application."]
+            p [] [text "This is a template WebSharper generated html application."]
         ]
 
     [<Website>]
