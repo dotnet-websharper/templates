@@ -5,12 +5,14 @@
     <Description>Creates a new WebSharper extension to existing JavaScript code using the WebSharper Interface Generator (WIG) tool.</Description>
     <Icon>WebSharper.png</Icon>
     <ProjectType>FSharp</ProjectType>
+    <ProjectSubType>WebSharper</ProjectSubType>
     <RequiredFrameworkVersion>4.6.1</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>
     <TemplateID>7aba2767-6f37-4dc2-b0f4-5b4feab037a0</TemplateID>
     <CreateNewFolder>true</CreateNewFolder>
     <DefaultName>Extension</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
+    <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
   </TemplateData>
   <TemplateContent>
     <Project File="ProjectTemplate.fsproj" ReplaceParameters="true">

@@ -5,12 +5,14 @@
     <Description>Creates a starter client-server application based on sitelets and UI running on Suave.</Description>
     <Icon>WebSharper.png</Icon>
     <ProjectType>FSharp</ProjectType>
+    <ProjectSubType>WebSharper</ProjectSubType>
     <RequiredFrameworkVersion>4.6</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>
     <TemplateID>82fe23b2-4348-4b36-8447-74255d804b46</TemplateID>
     <CreateNewFolder>true</CreateNewFolder>
     <DefaultName>Suave</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
+    <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
   </TemplateData>
   <TemplateContent>
     <Project File="ProjectTemplate.fsproj" ReplaceParameters="true">

@@ -5,12 +5,14 @@
     <Description>Creates a C# library capable of containing WebSharper-compiled code.</Description>
     <Icon>WebSharper.png</Icon>
     <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>WebSharper</ProjectSubType>
     <RequiredFrameworkVersion>4.6.1</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>
     <TemplateID>6ba7565f-dfca-4959-8789-e5727a96d53a</TemplateID>
     <CreateNewFolder>true</CreateNewFolder>
     <DefaultName>Library</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
+    <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
   </TemplateData>
   <TemplateContent>
     <Project File="ProjectTemplate.csproj" ReplaceParameters="true">

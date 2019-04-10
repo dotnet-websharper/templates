@@ -5,12 +5,14 @@
     <Description>Creates a starter sitelet-based HTML application.</Description>
     <Icon>WebSharper.png</Icon>
     <ProjectType>FSharp</ProjectType>
+    <ProjectSubType>WebSharper</ProjectSubType>
     <RequiredFrameworkVersion>4.6.1</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>
     <TemplateID>70c6cfc2-0ec4-4341-9c68-6364ec71332f</TemplateID>
     <CreateNewFolder>true</CreateNewFolder>
     <DefaultName>Offline</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
+    <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
   </TemplateData>
   <TemplateContent>
     <Project File="ProjectTemplate.fsproj" ReplaceParameters="true">
