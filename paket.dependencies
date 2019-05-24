@@ -26,4 +26,4 @@ group build
     
     nuget FAKE
     nuget Paket.Core 5.141.0
-    nuget Microsoft.VSSDK.BuildTools
+    nuget Microsoft.VSSDK.BuildTools 16.0.2264
