@@ -13,6 +13,10 @@
     <DefaultName>Mobile</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
     <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+    <LanguageTag>FSharp</LanguageTag>
+    <PlatformTag>iOS</PlatformTag>
+    <PlatformTag>Android</PlatformTag>
+    <ProjectTypeTag>Mobile</ProjectTypeTag>
   </TemplateData>
   <TemplateContent>
     <Project File="ProjectTemplate.fsproj" ReplaceParameters="true">
