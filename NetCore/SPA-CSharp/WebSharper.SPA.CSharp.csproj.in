@@ -1,19 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
-    <WebSharperProject>Bundle</WebSharperProject>
-    <WebSharperBundleOutputDir>wwwroot/Content</WebSharperBundleOutputDir>
-    <WebProjectOutputDir>$(MSBuildThisFileDirectory)/wwwroot</WebProjectOutputDir>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
     <PackageReference Include="WebSharper" />    
     <PackageReference Include="WebSharper.CSharp" />
     <PackageReference Include="WebSharper.UI" />
     <PackageReference Include="WebSharper.UI.CSharp" />
     <PackageReference Include="WebSharper.AspNetCore" />
+    <None Include="wsconfig.json" />
   </ItemGroup>
 
 </Project>

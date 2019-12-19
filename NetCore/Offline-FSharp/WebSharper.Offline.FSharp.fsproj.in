@@ -2,17 +2,16 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <WebSharperProject>Html</WebSharperProject>
-    <WebSharperHtmlDirectory>$(MSBuildThisFileDirectory)bin\html</WebSharperHtmlDirectory>
     <StartAction>Program</StartAction>
     <StartProgram>$([System.Environment]::GetEnvironmentVariable(`WinDir`))\explorer.exe</StartProgram>
-    <StartArguments>$(WebSharperHtmlDirectory)</StartArguments>
+    <StartArguments>$(MSBuildThisFileDirectory)bin\html</StartArguments>
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Include="Client.fs" />
     <Compile Include="Main.fs" />
     <Content Include="Main.html" />
+    <None Include="wsconfig.json" />
   </ItemGroup>
 
   <ItemGroup>

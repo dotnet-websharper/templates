@@ -7,6 +7,7 @@ open Microsoft.AspNetCore.Hosting
 open Microsoft.AspNetCore.Http
 open Microsoft.Extensions.Configuration
 open Microsoft.Extensions.DependencyInjection
+open Microsoft.Extensions.Hosting
 open WebSharper.AspNetCore
 
 type Startup() =
@@ -17,7 +18,7 @@ type Startup() =
             .AddCookie("WebSharper", fun options -> ())
         |> ignore
 
-    member this.Configure(app: IApplicationBuilder, env: IHostingEnvironment) =
+    member this.Configure(app: IApplicationBuilder, env: IWebHostEnvironment) =
         if env.IsDevelopment() then app.UseDeveloperExceptionPage() |> ignore
 
         app.UseAuthentication()
