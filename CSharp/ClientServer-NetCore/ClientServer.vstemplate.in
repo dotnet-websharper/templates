@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+  <TemplateData>
+    <Name>WebSharper 4 Client-Server Application (.NET Core)</Name>
+    <Description>Creates a starter client-server web application based on sitelets.</Description>
+    <Icon>WebSharper.png</Icon>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>WebSharper</ProjectSubType>
+    <RequiredFrameworkVersion>4.6.1</RequiredFrameworkVersion>
+    <SortOrder>1000</SortOrder>
+    <TemplateID>901af0ec-cde9-4ba0-900b-582a76fbec18</TemplateID>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>ClientServer</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+    <LanguageTag>CSharp</LanguageTag>
+    <PlatformTag>Windows</PlatformTag>
+    <PlatformTag>Linux</PlatformTag>
+    <PlatformTag>macOS</PlatformTag>
+    <ProjectTypeTag>Web</ProjectTypeTag>
+  </TemplateData>
+  <TemplateContent>
+    <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true">Site.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true">Client.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true">Remoting.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true">Main.html</ProjectItem>
+      <ProjectItem ReplaceParameters="true">WebSharper.UI.Templates\Main.g.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true">Startup.cs</ProjectItem>
+      <ProjectItem>wsconfig.json</ProjectItem>
+    </Project>
+  </TemplateContent>
+</VSTemplate>

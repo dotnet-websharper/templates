@@ -55,12 +55,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Client.cs" />
     <Content Include="Main.html" />
-    <Content Include="Main.g.cs" />
+    <Content Include="WebSharper.UI.Templates\Main.g.cs" />
     <Content Include="Remoting.cs" />
     <Content Include="Server.cs" />
     <Content Include="AssemblyInfo.cs" />
@@ -72,13 +69,16 @@
     </None>
     <Content Include="WebSharper.png" />
     <Content Include="Web.config" />
-    <None Include="wsconfig.json" />
+    <Content Include="wsconfig.json" />
   </ItemGroup>
   <ItemGroup>
     <VSTemplate Include="ClientServer.vstemplate">
       <SubType>Designer</SubType>
       <OutputSubPath>WebSharper</OutputSubPath>
     </VSTemplate>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />

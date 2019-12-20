@@ -13,9 +13,6 @@
     <packageTypes>
       <packageType name="Template" />
     </packageTypes>
-    <!--<dependencies>
-      <dependency id="Microsoft.AspNetCore.All" version="2.0.5"/>
-    </dependencies>-->
   </metadata>
   <files>
     <file src="NetCore/**" target="content" exclude="**/*.in;**/wwwroot/Content/**;**/wwwroot/Scripts/**;**/bin/**;**/obj/**;**/*.user;**/Properties/launchSettings.json" />

@@ -73,7 +73,9 @@ let taggedVersion = version + tag
 let replacesInFile replaces p =
     let inp = File.ReadAllText(p)
     let res = (inp, replaces) ||> List.fold (fun s (i: string, o) -> s.Replace(i, o)) 
-    File.WriteAllText(p.[.. p.Length - 4], res)
+    let fn = p.[.. p.Length - 4]
+    printfn "Created: %s" fn
+    File.WriteAllText(fn, res)
 
 let vsixAssembly =
     "WebSharper." + taggedVersion + ", Version=1.0.0.0, Culture=neutral, PublicKeyToken=" + publicKeyToken
@@ -116,6 +118,28 @@ Directory.EnumerateFiles(__SOURCE_DIRECTORY__, "*.FSharp.fsproj.in", SearchOptio
 
 Directory.EnumerateFiles(__SOURCE_DIRECTORY__, "*.CSharp.csproj.in", SearchOption.AllDirectories)
 |> Seq.iter (replacesInFile dotnetProjReplaces)
+
+Directory.EnumerateDirectories(__SOURCE_DIRECTORY__ </> "NetCore")
+|> Seq.iter (fun ncPath ->
+    match Path.GetFileName(ncPath).Split('-') with
+    | [| name; lang |] ->
+        let vcPath = __SOURCE_DIRECTORY__ </> lang </> (name + "-NetCore")
+        Directory.EnumerateFiles(ncPath, "*.*", SearchOption.AllDirectories)
+        |> Seq.iter (fun f ->
+            if not (f.Contains("\\bin") || f.Contains("\\obj") || f.Contains("\\.template.config") || f.EndsWith(".in") || f.EndsWith(".user")) then
+                let fn =
+                    if f.EndsWith("proj") then 
+                        "ProjectTemplate." + (if lang = "CSharp" then "csproj" else "fsproj")    
+                    else f
+                let copyTo =
+                    vcPath </> Fake.IO.Path.toRelativeFrom ncPath fn
+                printfn "Copied: %s -> %s" f copyTo
+                Directory.CreateDirectory(Path.GetDirectoryName(copyTo)) |> ignore
+                let res = File.ReadAllText(f).Replace(sprintf "WebSharper.%s.%s" name lang, "$safeprojectname$")
+                File.WriteAllText(copyTo, res)
+        )
+    | _ -> ()
+)
 
 Shell.Exec(
     "tools/nuget/NuGet.exe",

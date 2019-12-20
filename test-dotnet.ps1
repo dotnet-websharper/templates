@@ -27,9 +27,13 @@ try {
     dotnet new websharper-lib -o Cs.Lib -lang c#
     dotnet sln add Cs.Lib/Cs.Lib.csproj
 
+    dotnet new websharper-ext -o Fs.Ext -lang f#
+    dotnet sln add Fs.Ext/Fs.Ext.fsproj
+
     dotnet new websharper-web -o Fs.Web -lang f#
     dotnet sln add Fs.Web/Fs.Web.fsproj
     dotnet add Fs.Web/Fs.Web.fsproj reference Fs.Lib/Fs.Lib.fsproj
+    dotnet add Fs.Web/Fs.Web.fsproj reference Fs.Ext/Fs.Ext.fsproj
     dotnet add Fs.Web/Fs.Web.fsproj reference Cs.Lib/Cs.Lib.csproj
 
     dotnet new websharper-web -o Cs.Web -lang c#

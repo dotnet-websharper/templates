@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+  <TemplateData>
+    <Name>WebSharper 4 Single Page Application (.NET Core)</Name>
+    <Description>Creates a single-page HTML application using WebSharper UI.</Description>
+    <Icon>WebSharper.png</Icon>
+    <ProjectType>FSharp</ProjectType>
+    <ProjectSubType>WebSharper</ProjectSubType>
+    <RequiredFrameworkVersion>4.6.1</RequiredFrameworkVersion>
+    <SortOrder>1000</SortOrder>
+    <TemplateID>43ddf237-d475-4ac0-8936-dd7d3a97ed48</TemplateID>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>SPA</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+    <LanguageTag>FSharp</LanguageTag>
+    <PlatformTag>Windows</PlatformTag>
+    <PlatformTag>Linux</PlatformTag>
+    <PlatformTag>macOS</PlatformTag>
+    <ProjectTypeTag>Web</ProjectTypeTag>
+  </TemplateData>
+  <TemplateContent>
+    <Project File="ProjectTemplate.fsproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true">Client.fs</ProjectItem>
+      <ProjectItem ReplaceParameters="true">Startup.fs</ProjectItem>
+      <ProjectItem ReplaceParameters="true">wwwroot\index.html</ProjectItem>
+      <ProjectItem>wsconfig.json</ProjectItem>
+    </Project>
+  </TemplateContent>
+</VSTemplate>
