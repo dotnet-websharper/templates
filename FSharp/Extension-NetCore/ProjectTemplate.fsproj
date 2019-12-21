@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <Compile Include="Main.fs" />
+    <None Include="wsconfig.json" />
   </ItemGroup>
 
   <ItemGroup>

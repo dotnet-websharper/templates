@@ -30,4 +30,8 @@
       <ProjectItem>wsconfig.json</ProjectItem>
     </Project>
   </TemplateContent>
+  <WizardExtension>
+    <Assembly>{vsixassembly}</Assembly>
+    <FullClassName>WebSharper.Vsix.VSVersionWizard</FullClassName>
+  </WizardExtension>
 </VSTemplate>

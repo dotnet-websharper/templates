@@ -119,6 +119,12 @@ Directory.EnumerateFiles(__SOURCE_DIRECTORY__, "*.FSharp.fsproj.in", SearchOptio
 Directory.EnumerateFiles(__SOURCE_DIRECTORY__, "*.CSharp.csproj.in", SearchOption.AllDirectories)
 |> Seq.iter (replacesInFile dotnetProjReplaces)
 
+let wsRef = """    <PackageReference Include="WebSharper" """
+
+let ancNugetRef =
+    """    $if$ ($visualstudioversion$ < 16.0)<PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.8" />
+    $endif$<PackageReference Include="WebSharper" """
+
 Directory.EnumerateDirectories(__SOURCE_DIRECTORY__ </> "NetCore")
 |> Seq.iter (fun ncPath ->
     match Path.GetFileName(ncPath).Split('-') with
@@ -135,7 +141,18 @@ Directory.EnumerateDirectories(__SOURCE_DIRECTORY__ </> "NetCore")
                     vcPath </> Fake.IO.Path.toRelativeFrom ncPath fn
                 printfn "Copied: %s -> %s" f copyTo
                 Directory.CreateDirectory(Path.GetDirectoryName(copyTo)) |> ignore
-                let res = File.ReadAllText(f).Replace(sprintf "WebSharper.%s.%s" name lang, "$safeprojectname$")
+                let res = 
+                    File.ReadAllText(f)
+                        .Replace(sprintf "WebSharper.%s.%s" name lang, "$safeprojectname$")
+                        .Replace("IWebHostEnvironment", "$if$ ($visualstudioversion$ >= 16.0)IWebHostEnvironment$else$IHostingEnvironment$endif$")
+                let res =
+                    if res.Contains("netcoreapp3.1") then
+                        res
+                            .Replace("netcoreapp3.1", "$aspnetcoreversion$")
+                            .Replace(wsRef, ancNugetRef)
+                    else
+                        res
+                
                 File.WriteAllText(copyTo, res)
         )
     | _ -> ()

@@ -30,6 +30,15 @@ namespace WebSharper.Vsix
         {
             var dte = (_DTE)automationObject;
             replacementsDictionary.Add("$visualstudioversion$", dte.Version);
+            var v = Version.Parse(dte.Version);
+            if (v >= new Version(16, 0))
+            {
+                replacementsDictionary.Add("$aspnetcoreversion$", "netcoreapp3.1");
+            }
+            else
+            {
+                replacementsDictionary.Add("$aspnetcoreversion$", "netcoreapp2.0");
+            }
         }
 
         public bool ShouldAddProjectItem(string filePath)

@@ -9,6 +9,7 @@
     <SortOrder>1000</SortOrder>
     <TemplateID>43ddf237-d475-4ac0-8936-dd7d3a97ed48</TemplateID>
     <CreateNewFolder>true</CreateNewFolder>
+    <CreateInPlace>true</CreateInPlace>
     <DefaultName>SPA</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
     <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
@@ -26,4 +27,8 @@
       <ProjectItem>wsconfig.json</ProjectItem>
     </Project>
   </TemplateContent>
+  <WizardExtension>
+    <Assembly>{vsixassembly}</Assembly>
+    <FullClassName>WebSharper.Vsix.VSVersionWizard</FullClassName>
+  </WizardExtension>
 </VSTemplate>
