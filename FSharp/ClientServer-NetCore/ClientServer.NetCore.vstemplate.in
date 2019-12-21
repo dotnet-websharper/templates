@@ -9,6 +9,7 @@
     <SortOrder>1000</SortOrder>
     <TemplateID>3d238332-ab1c-4004-a9db-495a2973d2d0</TemplateID>
     <CreateNewFolder>true</CreateNewFolder>
+    <CreateInPlace>true</CreateInPlace>
     <DefaultName>ClientServer</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
     <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
