@@ -6,7 +6,6 @@
     <Icon>WebSharper.png</Icon>
     <ProjectType>FSharp</ProjectType>
     <ProjectSubType>WebSharper</ProjectSubType>
-    <RequiredFrameworkVersion>4.6.1</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>
     <TemplateID>43ddf237-d475-4ac0-8936-dd7d3a97ed48</TemplateID>
     <CreateNewFolder>true</CreateNewFolder>

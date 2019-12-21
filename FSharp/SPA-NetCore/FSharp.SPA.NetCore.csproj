@@ -12,7 +12,7 @@
     <ProjectGuid>{F992A4BD-B51B-45FA-B2BE-63F5E8919BC5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SPA</RootNamespace>
+    <RootNamespace>SPA.NetCore</RootNamespace>
     <AssemblyName>SPA.NetCore</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -58,11 +58,11 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="WebSharper.png" />
-    <None Include="SPA.vstemplate.in" />
+    <None Include="SPA.NetCore.vstemplate.in" />
     <Content Include="wsconfig.json" />
   </ItemGroup>
   <ItemGroup>
-    <VSTemplate Include="SPA.vstemplate">
+    <VSTemplate Include="SPA.NetCore.vstemplate">
       <SubType>Designer</SubType>
       <OutputSubPath>WebSharper</OutputSubPath>
     </VSTemplate>

@@ -6,10 +6,10 @@
     <Icon>WebSharper.png</Icon>
     <ProjectType>CSharp</ProjectType>
     <ProjectSubType>WebSharper</ProjectSubType>
-    <RequiredFrameworkVersion>4.6.1</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>
     <TemplateID>901af0ec-cde9-4ba0-900b-582a76fbec18</TemplateID>
     <CreateNewFolder>true</CreateNewFolder>
+    <CreateInPlace>true</CreateInPlace>
     <DefaultName>ClientServer</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
     <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>

@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wsconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="WebSharper" Version="4.6.0.356" />    
     <PackageReference Include="WebSharper.CSharp" Version="4.6.0.356" />
   </ItemGroup>

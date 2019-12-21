@@ -12,7 +12,7 @@
     <ProjectGuid>{A8E756F7-4B98-4DBD-9A05-FDDEF2315322}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Extension</RootNamespace>
+    <RootNamespace>Extension.NetCore</RootNamespace>
     <AssemblyName>Extension.NetCore</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -55,14 +55,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="WebSharper.png" />
-    <None Include="Extension.vstemplate.in" />
+    <None Include="Extension.NetCore.vstemplate.in" />
     <None Include="ProjectTemplate.fsproj">
       <SubType>Designer</SubType>
     </None>
     <Content Include="wsconfig.json" />
   </ItemGroup>
   <ItemGroup>
-    <VSTemplate Include="Extension.vstemplate">
+    <VSTemplate Include="Extension.NetCore.vstemplate">
       <SubType>Designer</SubType>
       <OutputSubPath>WebSharper</OutputSubPath>
     </VSTemplate>

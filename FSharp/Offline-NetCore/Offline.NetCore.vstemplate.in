@@ -1,30 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
-    <Name>WebSharper 4 Single Page Application (.NET Core)</Name>
-    <Description>Creates a single-page HTML application using WebSharper UI.</Description>
+    <Name>WebSharper 4 Html Site (.NET Standard)</Name>
+    <Description>Creates a starter sitelet-based HTML application.</Description>
     <Icon>WebSharper.png</Icon>
-    <ProjectType>CSharp</ProjectType>
+    <ProjectType>FSharp</ProjectType>
     <ProjectSubType>WebSharper</ProjectSubType>
-    <RequiredFrameworkVersion>4.6.1</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>
-    <TemplateID>b275cedc-88bc-4277-82a1-4ad4c25bb9eb</TemplateID>
+    <TemplateID>097a3ef3-8485-4b58-bed6-70bb720742e5</TemplateID>
     <CreateNewFolder>true</CreateNewFolder>
-    <DefaultName>SPA</DefaultName>
+    <DefaultName>Offline</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
     <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
-    <LanguageTag>CSharp</LanguageTag>
+    <LanguageTag>FSharp</LanguageTag>
     <PlatformTag>Windows</PlatformTag>
     <PlatformTag>Linux</PlatformTag>
     <PlatformTag>macOS</PlatformTag>
     <ProjectTypeTag>Web</ProjectTypeTag>
   </TemplateData>
   <TemplateContent>
-    <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
-      <ProjectItem ReplaceParameters="true" OpenInEditor="true">Client.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true">wwwroot\index.html</ProjectItem>
-      <ProjectItem ReplaceParameters="true">WebSharper.UI.Templates\index.g.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true">Startup.cs</ProjectItem>
+    <Project File="ProjectTemplate.fsproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true">Main.fs</ProjectItem>
+      <ProjectItem ReplaceParameters="true">Client.fs</ProjectItem>
+      <ProjectItem ReplaceParameters="true">extra.files</ProjectItem>
+      <ProjectItem ReplaceParameters="true">Main.html</ProjectItem>
       <ProjectItem>wsconfig.json</ProjectItem>
     </Project>
   </TemplateContent>

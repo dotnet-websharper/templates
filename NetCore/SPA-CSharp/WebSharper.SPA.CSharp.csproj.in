@@ -5,12 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wsconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="WebSharper" />    
     <PackageReference Include="WebSharper.CSharp" />
     <PackageReference Include="WebSharper.UI" />
     <PackageReference Include="WebSharper.UI.CSharp" />
     <PackageReference Include="WebSharper.AspNetCore" />
-    <None Include="wsconfig.json" />
   </ItemGroup>
 
 </Project>

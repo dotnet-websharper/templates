@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
-    <Name>WebSharper 4 Owin-hosted Site</Name>
+    <Name>WebSharper 4 Owin-hosted Site (.NET Framework)</Name>
     <Description>Creates a starter client-server web application based on sitelets, running as a dedicated executable using an OWIN host.</Description>
     <Icon>WebSharper.png</Icon>
     <ProjectType>FSharp</ProjectType>

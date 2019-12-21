@@ -12,7 +12,7 @@
     <ProjectGuid>{78B875BA-31DD-415C-881E-AB52FC003AAA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Offline</RootNamespace>
+    <RootNamespace>Offline.NetCore</RootNamespace>
     <AssemblyName>Offline.NetCore</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -58,13 +58,13 @@
     <Content Include="Main.fs" />
     <Content Include="Main.html" />
     <Content Include="extra.files" />
-    <None Include="Offline.vstemplate.in" />
+    <None Include="Offline.NetCore.vstemplate.in" />
     <None Include="ProjectTemplate.fsproj" />
     <Content Include="WebSharper.png" />
     <Content Include="wsconfig.json" />
   </ItemGroup>
   <ItemGroup>
-    <VSTemplate Include="Offline.vstemplate">
+    <VSTemplate Include="Offline.NetCore.vstemplate">
       <SubType>Designer</SubType>
       <OutputSubPath>WebSharper</OutputSubPath>
     </VSTemplate>

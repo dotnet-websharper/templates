@@ -1,30 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
-    <Name>WebSharper 4 Html Site (.NET Standard)</Name>
-    <Description>Creates a starter sitelet-based HTML application.</Description>
+    <Name>WebSharper 4 Library (.NET Standard)</Name>
+    <Description>Creates an F# library capable of containing WebSharper-compiled code.</Description>
     <Icon>WebSharper.png</Icon>
     <ProjectType>FSharp</ProjectType>
     <ProjectSubType>WebSharper</ProjectSubType>
-    <RequiredFrameworkVersion>4.6.1</RequiredFrameworkVersion>
     <SortOrder>1000</SortOrder>
-    <TemplateID>097a3ef3-8485-4b58-bed6-70bb720742e5</TemplateID>
+    <TemplateID>7145fa91-f34a-4203-af63-66202355fc90</TemplateID>
     <CreateNewFolder>true</CreateNewFolder>
-    <DefaultName>Offline</DefaultName>
+    <DefaultName>Library</DefaultName>
     <ProvideDefaultName>true</ProvideDefaultName>
     <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
     <LanguageTag>FSharp</LanguageTag>
     <PlatformTag>Windows</PlatformTag>
     <PlatformTag>Linux</PlatformTag>
     <PlatformTag>macOS</PlatformTag>
-    <ProjectTypeTag>Web</ProjectTypeTag>
+    <ProjectTypeTag>Library</ProjectTypeTag>
   </TemplateData>
   <TemplateContent>
     <Project File="ProjectTemplate.fsproj" ReplaceParameters="true">
-      <ProjectItem ReplaceParameters="true" OpenInEditor="true">Main.fs</ProjectItem>
-      <ProjectItem ReplaceParameters="true">Client.fs</ProjectItem>
-      <ProjectItem ReplaceParameters="true">extra.files</ProjectItem>
-      <ProjectItem ReplaceParameters="true">Main.html</ProjectItem>
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true">Library.fs</ProjectItem>
       <ProjectItem>wsconfig.json</ProjectItem>
     </Project>
   </TemplateContent>

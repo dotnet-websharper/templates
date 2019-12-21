@@ -13,7 +13,7 @@
     <OutputType>Library</OutputType>
     <WebSharperProject>Site</WebSharperProject>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ClientServer</RootNamespace>
+    <RootNamespace>ClientServer.NetCore</RootNamespace>
     <AssemblyName>ClientServer.NetCore</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -61,7 +61,7 @@
     <Content Include="Remoting.cs" />
     <Content Include="Site.cs" />
     <Content Include="Startup.cs" />
-    <None Include="ClientServer.vstemplate.in">
+    <None Include="ClientServer.NetCore.vstemplate.in">
       <SubType>Designer</SubType>
     </None>
     <None Include="ProjectTemplate.csproj">
@@ -72,7 +72,7 @@
     <Content Include="wsconfig.json" />
   </ItemGroup>
   <ItemGroup>
-    <VSTemplate Include="ClientServer.vstemplate">
+    <VSTemplate Include="ClientServer.NetCore.vstemplate">
       <SubType>Designer</SubType>
       <OutputSubPath>WebSharper</OutputSubPath>
     </VSTemplate>

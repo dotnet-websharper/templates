@@ -12,7 +12,7 @@
     <ProjectGuid>{87F3AD67-F3FD-4106-9977-FC2EE982B5D2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Library</RootNamespace>
+    <RootNamespace>Library.NetCore</RootNamespace>
     <AssemblyName>Library.NetCore</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -55,7 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Library.fs" />
-    <None Include="Library.vstemplate.in" />
+    <None Include="Library.NetCore.vstemplate.in" />
     <None Include="ProjectTemplate.fsproj">
       <SubType>Designer</SubType>
     </None>
@@ -63,7 +63,7 @@
     <Content Include="wsconfig.json" />
   </ItemGroup>
   <ItemGroup>
-    <VSTemplate Include="Library.vstemplate">
+    <VSTemplate Include="Library.NetCore.vstemplate">
       <SubType>Designer</SubType>
       <OutputSubPath>WebSharper</OutputSubPath>
     </VSTemplate>
