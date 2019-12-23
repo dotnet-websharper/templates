@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <WebSharperProject>Library</WebSharperProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Main.fs" />
+    <None Include="wsconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="WebSharper" />    
+    <PackageReference Include="WebSharper.FSharp" />
+  </ItemGroup>
+
+</Project>
