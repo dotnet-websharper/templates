@@ -52,6 +52,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSharp.Offline.NetCore", "F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSharp.SPA.NetCore", "FSharp\SPA-NetCore\FSharp.SPA.NetCore.csproj", "{F992A4BD-B51B-45FA-B2BE-63F5E8919BC5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharp.Proxy.NetCore", "CSharp\Proxy-NetCore\CSharp.Proxy.NetCore.csproj", "{0DBE5EDC-5B1C-4E72-AA36-4FE4722077A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSharp.Proxy.NetCore", "FSharp\Proxy-NetCore\FSharp.Proxy.NetCore.csproj", "{DA2E5037-9904-40D9-B4EC-936A46EFE453}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -146,6 +150,14 @@ Global
 		{F992A4BD-B51B-45FA-B2BE-63F5E8919BC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F992A4BD-B51B-45FA-B2BE-63F5E8919BC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F992A4BD-B51B-45FA-B2BE-63F5E8919BC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DBE5EDC-5B1C-4E72-AA36-4FE4722077A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DBE5EDC-5B1C-4E72-AA36-4FE4722077A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DBE5EDC-5B1C-4E72-AA36-4FE4722077A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DBE5EDC-5B1C-4E72-AA36-4FE4722077A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA2E5037-9904-40D9-B4EC-936A46EFE453}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA2E5037-9904-40D9-B4EC-936A46EFE453}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA2E5037-9904-40D9-B4EC-936A46EFE453}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA2E5037-9904-40D9-B4EC-936A46EFE453}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

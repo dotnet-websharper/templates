@@ -157,6 +157,13 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
     </ProjectReference>
+    <ProjectReference Include="..\CSharp\Proxy-NetCore\CSharp.Proxy.NetCore.csproj">
+      <Project>{0DBE5EDC-5B1C-4E72-AA36-4FE4722077A3}</Project>
+      <Name>CSharp.Proxy.NetCore</Name>
+      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
     <ProjectReference Include="..\CSharp\SPA-NetCore\CSharp.SPA.NetCore.csproj">
       <Project>{fa4df99c-deb9-4de5-bf9a-802254681b4f}</Project>
       <Name>CSharp.SPA.NetCore</Name>
@@ -237,6 +244,13 @@
     <ProjectReference Include="..\FSharp\Owin\FSharp.Owin.csproj">
       <Project>{79188510-3d1d-4224-995c-3e9aed221d09}</Project>
       <Name>FSharp.Owin</Name>
+      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
+    <ProjectReference Include="..\FSharp\Proxy-NetCore\FSharp.Proxy.NetCore.csproj">
+      <Project>{DA2E5037-9904-40D9-B4EC-936A46EFE453}</Project>
+      <Name>FSharp.Proxy.NetCore</Name>
       <VSIXSubPath>ProjectTemplates</VSIXSubPath>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
