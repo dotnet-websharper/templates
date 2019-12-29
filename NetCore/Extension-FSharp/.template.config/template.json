@@ -1,6 +1,6 @@
 {
   "author": "IntelliFactory",
-  "classifications": [ "WebSharper", "Web" ],
+  "classifications": [ "WebSharper" ],
   "name": "WebSharper 4 Extension",
   "tags": {
     "language": "F#",
