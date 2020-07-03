@@ -22,3 +22,5 @@ Scripts/
 launchSettings.json
 .fake/
 /paket-files
+/.ionide
+/testdotnet
