@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>$aspnetcoreversion$</TargetFramework>
+    <LangVersion>7.3</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -10,7 +11,7 @@
 
   <ItemGroup>
     $if$ ($visualstudioversion$ < 16.0)<PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.8" />
-    $endif$<PackageReference Include="WebSharper" Version="4.6.6.407" />    
+    $endif$<PackageReference Include="WebSharper" Version="4.6.6.407" />
     <PackageReference Include="WebSharper.CSharp" Version="4.6.6.407" />
     <PackageReference Include="WebSharper.UI" Version="4.6.3.219" />
     <PackageReference Include="WebSharper.UI.CSharp" Version="4.6.3.219" />
