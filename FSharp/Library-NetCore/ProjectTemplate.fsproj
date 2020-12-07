@@ -11,8 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="WebSharper" Version="4.6.7.408" />    
-    <PackageReference Include="WebSharper.FSharp" Version="4.6.7.408" />
+    <PackageReference Include="WebSharper" Version="4.7.0.423" />    
+    <PackageReference Include="WebSharper.FSharp" Version="4.7.0.423" />
   </ItemGroup>
 
 </Project>
