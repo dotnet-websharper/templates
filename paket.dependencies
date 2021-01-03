@@ -19,5 +19,9 @@ nuget Microsoft.Owin.Host.HttpListener
 nuget Microsoft.Owin.Hosting
 nuget Microsoft.Owin.StaticFiles
 
+nuget Microsoft.VSSDK.BuildTools
+nuget VSSDK.TemplateWizardInterface 8.0.4
+nuget EnvDTE 8.0.2
+
 group wsbuild
     git https://github.com/dotnet-websharper/build-script dotnettool

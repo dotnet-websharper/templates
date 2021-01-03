@@ -19,7 +19,6 @@ nuget Fake.DotNet.Paket
 nuget Paket.Core //"
 #endif
 
-#load "paket-files/wsbuild/github.com/dotnet-websharper/build-script/WebSharper.Fake.fsx"
 open System.IO
 open Paket.Constants
 open Fake.Core
@@ -27,13 +26,10 @@ open Fake.Core.TargetOperators
 open Fake.DotNet
 open Fake.IO
 open Fake.IO.FileSystemOperators
-open WebSharper.Fake
 
-let targets =
-    WSTargets.Default (fun () -> GetSemVerOf "WebSharper" |> ComputeVersion)
-    |> MakeTargets
+let mutable taggedVersion = ""
 
-Target.create "Set-Versions" <| fun _ ->
+Target.create "SetVersions" <| fun _ ->
 
     let lockFile = 
         __SOURCE_DIRECTORY__ </> "paket.lock"
@@ -95,7 +91,7 @@ Target.create "Set-Versions" <| fun _ ->
         let nums = withoutTag.Split('.')
         (nums.[0 .. 2] |> String.concat ".") + "." + revision, tag
 
-    let taggedVersion = version + tag
+    taggedVersion <- version + tag
 
     let replacesInFile replaces p =
         let inp = File.ReadAllText(p)
@@ -201,8 +197,48 @@ Target.create "Set-Versions" <| fun _ ->
 //        }
 //| _ -> Trace.traceError "[NUGET] Not publishing: NugetPublishUrl and/or NugetApiKey are not set"
 
-targets.AddPrebuild "Set-Versions"
+Target.create "Package" <| fun _ ->
+    Paket.pack <| fun p ->
+        { p with
+            ToolType = ToolType.CreateLocalTool()
+            OutputPath = "build"
+            Version = taggedVersion
+        }
 
-targets.Publish ==> "CI-Release"
+Target.create "Push" <| fun _ ->
+    match Environment.environVarOrNone "NugetPublishUrl", Environment.environVarOrNone "NugetApiKey" with
+    | Some nugetPublishUrl, Some nugetApiKey ->
+        Trace.logfn "[NUGET] Publishing to %s" nugetPublishUrl 
+        Paket.push <| fun p ->
+            { p with
+                PublishUrl = nugetPublishUrl
+                ApiKey = nugetApiKey
+                WorkingDir = "build"
+            }
+    | _ -> Trace.traceError "[NUGET] Not publishing: NugetPublishUrl and/or NugetApiKey are not set"
 
-Target.runOrDefault "Build"
+
+let msbuild o mode =
+    MSBuild.build (fun p ->
+        { p with
+            Properties = ["Configuration", mode]
+        }) "WebSharper.Vsix.sln"
+
+Target.create "BuildDebug" <| fun o ->
+    msbuild o "Debug"
+
+Target.create "BuildRelease" <| fun o ->
+    msbuild o "Release"
+
+Target.create "CI-Release" ignore
+
+"SetVersions" 
+    ==> "BuildDebug"
+
+"SetVersions" 
+    ==> "BuildRelease"
+    ==> "Package"
+    ==> "Push"
+    ==> "CI-Release"
+
+Target.runOrDefault "BuildRelease"

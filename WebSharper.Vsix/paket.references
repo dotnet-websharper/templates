@@ -1,2 +1,3 @@
-group build
-  Microsoft.VSSDK.BuildTools
+Microsoft.VSSDK.BuildTools
+VSSDK.TemplateWizardInterface
+EnvDTE
