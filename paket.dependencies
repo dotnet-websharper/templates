@@ -1,27 +1,19 @@
-
-framework: net461
 source https://daily.websharper.com/nuget
 source https://api.nuget.org/v3/index.json
+framework: netstandard2.0
 
-nuget FSharp.Core 4.7.0
-nuget System.ValueTuple ~> 4.4.0
-nuget WebSharper ~> 4.7
-nuget WebSharper.FSharp ~> 4.7
-nuget WebSharper.CSharp ~> 4.7
-nuget WebSharper.UI ~> 4.7
-nuget WebSharper.UI.CSharp ~> 4.7
-nuget WebSharper.AspNetCore ~> 4.7
-nuget WebSharper.Owin ~> 4.7
-nuget WebSharper.Suave ~> 4.7
-nuget Microsoft.Owin.Diagnostics
-nuget Microsoft.Owin.FileSystems
-nuget Microsoft.Owin.Host.HttpListener
-nuget Microsoft.Owin.Hosting
-nuget Microsoft.Owin.StaticFiles
+nuget FSharp.Core 5.0.0
+nuget WebSharper prerelease
+nuget WebSharper.FSharp prerelease
+nuget WebSharper.CSharp prerelease
+nuget WebSharper.UI prerelease
+nuget WebSharper.UI.CSharp prerelease
+nuget WebSharper.AspNetCore prerelease
+//nuget WebSharper.Suave prerelease
 
-nuget Microsoft.VSSDK.BuildTools
-nuget VSSDK.TemplateWizardInterface 8.0.4
-nuget EnvDTE 8.0.2
+nuget Microsoft.VSSDK.BuildTools framework: net461
+nuget VSSDK.TemplateWizardInterface 8.0.4 framework: net461
+nuget EnvDTE 8.0.2 framework: net461
 
 group wsbuild
     git https://github.com/dotnet-websharper/build-script dotnettool
