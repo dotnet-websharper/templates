@@ -1,7 +1,7 @@
-
-framework: net461
 source https://daily.websharper.com/nuget
 source https://api.nuget.org/v3/index.json
+
+framework: net461
 
 nuget FSharp.Core 4.7.0
 nuget System.ValueTuple ~> 4.4.0
@@ -19,9 +19,9 @@ nuget Microsoft.Owin.Host.HttpListener
 nuget Microsoft.Owin.Hosting
 nuget Microsoft.Owin.StaticFiles
 
-nuget Microsoft.VSSDK.BuildTools
-nuget VSSDK.TemplateWizardInterface 8.0.4
-nuget EnvDTE 8.0.2
-
-group wsbuild
-    git https://github.com/dotnet-websharper/build-script dotnettool
+group build
+    source https://api.nuget.org/v3/index.json
+    
+    framework: net460
+    
+    nuget Microsoft.VSSDK.BuildTools 16.0.2264
