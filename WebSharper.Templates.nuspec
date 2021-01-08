@@ -8,7 +8,7 @@
     <licenseUrl>http://websharper.com/licensing</licenseUrl>
     <projectUrl>https://github.com/intellifactory/websharper.templates</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Templates for WebSharper 4</description>
+    <description>Templates for WebSharper 5</description>
     <tags>Web JavaScript F# C#</tags>
     <packageTypes>
       <packageType name="Template" />
