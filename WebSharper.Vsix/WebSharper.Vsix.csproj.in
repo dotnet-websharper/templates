@@ -96,13 +96,6 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
     </ProjectReference>
-    <ProjectReference Include="..\CSharp\ClientServer\CSharp.ClientServer.csproj">
-      <Project>{c9e5a531-606a-45c0-90b8-e1aaea48cfb7}</Project>
-      <Name>CSharp.ClientServer</Name>
-      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
-    </ProjectReference>
     <ProjectReference Include="..\CSharp\Library-NetCore\CSharp.Library.NetCore.csproj">
       <Project>{ae59834a-7ddf-4ccf-99d4-c8b895e664f1}</Project>
       <Name>CSharp.Library.NetCore</Name>
@@ -110,23 +103,9 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
     </ProjectReference>
-    <ProjectReference Include="..\CSharp\Library\CSharp.Library.csproj">
-      <Project>{62BA5E9A-050E-4B4F-9DCF-C1CE3C9B33B2}</Project>
-      <Name>CSharp.Library</Name>
-      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
-    </ProjectReference>
     <ProjectReference Include="..\CSharp\Offline-NetCore\CSharp.Offline.NetCore.csproj">
       <Project>{7486158b-f132-4b1e-b93f-2af2296f34e8}</Project>
       <Name>CSharp.Offline.NetCore</Name>
-      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
-    </ProjectReference>
-    <ProjectReference Include="..\CSharp\Offline\CSharp.Offline.csproj">
-      <Project>{c8efca00-69ea-463a-bc71-b050d8f32c4d}</Project>
-      <Name>CSharp.Offline</Name>
       <VSIXSubPath>ProjectTemplates</VSIXSubPath>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
@@ -145,13 +124,6 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
     </ProjectReference>
-    <ProjectReference Include="..\CSharp\SPA\CSharp.SPA.csproj">
-      <Project>{527df100-65a4-41fa-91e1-411a0481f008}</Project>
-      <Name>CSharp.SPA</Name>
-      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
-    </ProjectReference>
     <ProjectReference Include="..\FSharp\ClientServer-NetCore\FSharp.ClientServer.NetCore.csproj">
       <Project>{b47b2763-ca6d-4dea-8587-ebeec8f01498}</Project>
       <Name>FSharp.ClientServer.NetCore</Name>
@@ -166,20 +138,6 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
     </ProjectReference>
-    <ProjectReference Include="..\FSharp\Extension\FSharp.Extension.csproj">
-      <Project>{cdef4f7f-2c67-49bf-b41c-138d16408dfa}</Project>
-      <Name>FSharp.Extension</Name>
-      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
-    </ProjectReference>
-    <ProjectReference Include="..\FSharp\ClientServer\FSharp.ClientServer.csproj">
-      <Project>{0dd48c1a-d128-41b7-adf3-399cd3db31cb}</Project>
-      <Name>FSharp.ClientServer</Name>
-      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
-    </ProjectReference>
     <ProjectReference Include="..\FSharp\Library-NetCore\FSharp.Library.NetCore.csproj">
       <Project>{87f3ad67-f3fd-4106-9977-fc2ee982b5d2}</Project>
       <Name>FSharp.Library.NetCore</Name>
@@ -187,37 +145,9 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
     </ProjectReference>
-    <ProjectReference Include="..\FSharp\Library\FSharp.Library.csproj">
-      <Project>{CA7FAE8E-95DE-4692-9E12-192C4408CBB9}</Project>
-      <Name>FSharp.Library</Name>
-      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
-    </ProjectReference>
-    <ProjectReference Include="..\FSharp\Mobile\FSharp.Mobile.csproj">
-      <Project>{2154cf20-4cff-4c71-9365-c047153ee5d1}</Project>
-      <Name>FSharp.Mobile</Name>
-      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
-    </ProjectReference>
     <ProjectReference Include="..\FSharp\Offline-NetCore\FSharp.Offline.NetCore.csproj">
       <Project>{78b875ba-31dd-415c-881e-ab52fc003aaa}</Project>
       <Name>FSharp.Offline.NetCore</Name>
-      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
-    </ProjectReference>
-    <ProjectReference Include="..\FSharp\Offline\FSharp.Offline.csproj">
-      <Project>{bc5b3339-827f-491d-bfe4-763a722cce5c}</Project>
-      <Name>FSharp.Offline</Name>
-      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
-    </ProjectReference>
-    <ProjectReference Include="..\FSharp\Owin\FSharp.Owin.csproj">
-      <Project>{79188510-3d1d-4224-995c-3e9aed221d09}</Project>
-      <Name>FSharp.Owin</Name>
       <VSIXSubPath>ProjectTemplates</VSIXSubPath>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
@@ -232,20 +162,6 @@
     <ProjectReference Include="..\FSharp\SPA-NetCore\FSharp.SPA.NetCore.csproj">
       <Project>{f992a4bd-b51b-45fa-b2be-63f5e8919bc5}</Project>
       <Name>FSharp.SPA.NetCore</Name>
-      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
-    </ProjectReference>
-    <ProjectReference Include="..\FSharp\SPA\FSharp.SPA.csproj">
-      <Project>{f51e4172-0f4c-4635-bddf-c82a6e2aeb93}</Project>
-      <Name>FSharp.SPA</Name>
-      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
-    </ProjectReference>
-    <ProjectReference Include="..\FSharp\Suave\FSharp.Suave.csproj">
-      <Project>{9bf6a4c2-f489-46ca-bcf3-9d58edeec144}</Project>
-      <Name>FSharp.Suave</Name>
       <VSIXSubPath>ProjectTemplates</VSIXSubPath>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
