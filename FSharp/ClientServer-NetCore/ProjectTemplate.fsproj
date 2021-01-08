@@ -15,10 +15,10 @@
 
   <ItemGroup>
     $if$ ($visualstudioversion$ < 16.0)<PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.8" />
-        $endif$<PackageReference Include="WebSharper" Version="4.7.0.423" />    
-    <PackageReference Include="WebSharper.FSharp" Version="4.7.0.423" />
-    <PackageReference Include="WebSharper.UI" Version="4.7.0.231" />
-    <PackageReference Include="WebSharper.AspNetCore" Version="4.7.0.157" />
+        $endif$<PackageReference Include="WebSharper" Version="5.0.0.9-preview1" />    
+    <PackageReference Include="WebSharper.FSharp" Version="5.0.0.9-preview1" />
+    <PackageReference Include="WebSharper.UI" Version="5.0.0.4-preview1" />
+    <PackageReference Include="WebSharper.AspNetCore" Version="5.0.0.9-preview1" />
   </ItemGroup>
 
 </Project>

@@ -16,9 +16,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="WebSharper" Version="4.7.0.423" />    
-    <PackageReference Include="WebSharper.FSharp" Version="4.7.0.423" />
-    <PackageReference Include="WebSharper.UI" Version="4.7.0.231" />
+    <PackageReference Include="WebSharper" Version="5.0.0.9-preview1" />    
+    <PackageReference Include="WebSharper.FSharp" Version="5.0.0.9-preview1" />
+    <PackageReference Include="WebSharper.UI" Version="5.0.0.4-preview1" />
   </ItemGroup>
 
 </Project>

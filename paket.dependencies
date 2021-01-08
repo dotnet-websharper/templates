@@ -11,9 +11,11 @@ nuget WebSharper.UI.CSharp prerelease
 nuget WebSharper.AspNetCore prerelease
 //nuget WebSharper.Suave prerelease
 
-nuget Microsoft.VSSDK.BuildTools framework: net461
-nuget VSSDK.TemplateWizardInterface 8.0.4 framework: net461
-nuget EnvDTE 8.0.2 framework: net461
+framework: net461
+
+nuget Microsoft.VSSDK.BuildTools
+nuget VSSDK.TemplateWizardInterface 8.0.4
+nuget EnvDTE 8.0.2
 
 group wsbuild
     git https://github.com/dotnet-websharper/build-script dotnettool
