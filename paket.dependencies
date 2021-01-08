@@ -1,5 +1,6 @@
 source https://daily.websharper.com/nuget
 source https://api.nuget.org/v3/index.json
+
 framework: netstandard2.0
 
 nuget FSharp.Core 5.0.0
@@ -11,11 +12,9 @@ nuget WebSharper.UI.CSharp prerelease
 nuget WebSharper.AspNetCore prerelease
 //nuget WebSharper.Suave prerelease
 
-framework: net461
-
-nuget Microsoft.VSSDK.BuildTools
-nuget VSSDK.TemplateWizardInterface 8.0.4
-nuget EnvDTE 8.0.2
-
-group wsbuild
-    git https://github.com/dotnet-websharper/build-script dotnettool
+group build
+    source https://api.nuget.org/v3/index.json
+    
+    framework: net460
+    
+    nuget Microsoft.VSSDK.BuildTools 16.0.2264
