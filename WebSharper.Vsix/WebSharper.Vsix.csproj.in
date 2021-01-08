@@ -55,9 +55,6 @@
     <Compile Include="VSVersionWizard.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Packages\System.ValueTuple.nupkg">
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
     <Content Include="Packages\WebSharper.nupkg">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
@@ -76,36 +73,12 @@
     <Content Include="Packages\FSharp.Core.nupkg">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="Packages\Microsoft.Owin.nupkg">
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
-    <Content Include="Packages\Microsoft.Owin.Diagnostics.nupkg">
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
-    <Content Include="Packages\Microsoft.Owin.FileSystems.nupkg">
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
-    <Content Include="Packages\Microsoft.Owin.Host.HttpListener.nupkg">
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
-    <Content Include="Packages\Microsoft.Owin.Hosting.nupkg">
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
-    <Content Include="Packages\Microsoft.Owin.StaticFiles.nupkg">
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
-    <Content Include="Packages\Owin.nupkg">
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
-    <Content Include="Packages\Suave.nupkg">
-      <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
-    <Content Include="Packages\WebSharper.Owin.nupkg">
+    <!--<Content Include="Packages\Suave.nupkg">
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
     <Content Include="Packages\WebSharper.Suave.nupkg">
       <IncludeInVSIX>true</IncludeInVSIX>
-    </Content>
+    </Content>-->
     <Content Include="WebSharper.png" />
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>

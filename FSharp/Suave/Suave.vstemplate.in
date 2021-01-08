@@ -38,9 +38,8 @@
     <Assembly>NuGet.VisualStudio.Interop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</Assembly>
     <FullClassName>NuGet.VisualStudio.TemplateWizard</FullClassName>
   </WizardExtension>
-  <WizardData>
+  <!--<WizardData>
     <packages repository="extension" repositoryId="IntelliFactory.WebSharper.470db229-6bcc-48a4-a41c-fe3c36bb4b2c">
-      <package id="System.ValueTuple" targetFramework="net461" />
       <package id="FSharp.Core" targetFramework="net461" />
       <package id="WebSharper" targetFramework="net46" />
       <package id="WebSharper.FSharp" targetFramework="net46" />
@@ -51,5 +50,5 @@
       <package id="Microsoft.Owin" targetFramework="net46" />
       <package id="WebSharper.Suave" targetFramework="net46" />
     </packages>
-  </WizardData>
+  </WizardData>-->
 </VSTemplate>
