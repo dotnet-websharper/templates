@@ -128,6 +128,10 @@ Target.create "SetVersions" <| fun _ ->
         "{vsixversion}", version
     ]
 
+    __SOURCE_DIRECTORY__ </> "WebSharper.Templates/WebSharper.Templates.csproj.in" |> replacesInFile [   
+        "{vsixversion}", version
+    ]
+
     let dotnetProjReplaces =
         [   
             for p, v in packageVersions do
@@ -148,7 +152,7 @@ Target.create "SetVersions" <| fun _ ->
         """    $if$ ($visualstudioversion$ < 16.0)<PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.8" />
         $endif$<PackageReference Include="WebSharper" """
 
-    Directory.EnumerateDirectories(__SOURCE_DIRECTORY__ </> "NetCore")
+    Directory.EnumerateDirectories(__SOURCE_DIRECTORY__ </> "WebSharper.Templates/templates")
     |> Seq.iter (fun ncPath ->
         match Path.GetFileName(ncPath).Split('-') with
         | [| name; lang |] ->
@@ -198,12 +202,10 @@ Target.create "SetVersions" <| fun _ ->
 //| _ -> Trace.traceError "[NUGET] Not publishing: NugetPublishUrl and/or NugetApiKey are not set"
 
 Target.create "Package" <| fun _ ->
-    Paket.pack <| fun p ->
+    DotNet.pack (fun p ->
         { p with
-            ToolType = ToolType.CreateLocalTool()
-            OutputPath = "build"
-            Version = taggedVersion
-        }
+            OutputPath = Some "build"    
+        }) "WebSharper.Templates/WebSharper.Templates.csproj"
 
 Target.create "Push" <| fun _ ->
     match Environment.environVarOrNone "NugetPublishUrl", Environment.environVarOrNone "NugetApiKey" with
@@ -241,4 +243,4 @@ Target.create "CI-Release" ignore
     ==> "Push"
     ==> "CI-Release"
 
-Target.runOrDefault "BuildRelease"
+Target.runOrDefault "Package"
