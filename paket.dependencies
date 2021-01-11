@@ -17,4 +17,4 @@ group build
     
     framework: net460
     
-    nuget Microsoft.VSSDK.BuildTools 16.0.2264
+    nuget Microsoft.VSSDK.BuildTools 16.8.3038
