@@ -185,22 +185,6 @@ Target.create "SetVersions" <| fun _ ->
         | _ -> ()
 )
 
-//Shell.Exec(
-//    "tools/nuget/NuGet.exe",
-//    sprintf "pack -Version %s -OutputDirectory build WebSharper.Templates.nuspec" version
-//)
-
-//match Environment.environVarOrNone "NugetPublishUrl", Environment.environVarOrNone "NugetApiKey" with
-//| Some nugetPublishUrl, Some nugetApiKey ->
-//    Trace.logfn "[NUGET] Publishing to %s" nugetPublishUrl 
-//    Paket.push <| fun p ->
-//        { p with
-//            PublishUrl = nugetPublishUrl
-//            ApiKey = nugetApiKey
-//            WorkingDir = "build"
-//        }
-//| _ -> Trace.traceError "[NUGET] Not publishing: NugetPublishUrl and/or NugetApiKey are not set"
-
 Target.create "Package" <| fun _ ->
     DotNet.pack (fun p ->
         { p with
@@ -223,6 +207,7 @@ Target.create "Push" <| fun _ ->
 let msbuild o mode =
     MSBuild.build (fun p ->
         { p with
+            Targets = [ "Restore"; "Build" ]
             Properties = ["Configuration", mode]
         }) "WebSharper.Vsix.sln"
 

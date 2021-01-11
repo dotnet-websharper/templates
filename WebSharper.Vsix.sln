@@ -7,7 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSharper.Vsix", "WebSharp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{13B25483-9824-48EC-B585-C377CEE8E3C0}"
 	ProjectSection(SolutionItems) = preProject
+		build.cmd = build.cmd
 		build.fsx = build.fsx
+		paket.dependencies = paket.dependencies
+		README.md = README.md
+		test-dotnet.ps1 = test-dotnet.ps1
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSharp.Suave", "FSharp\Suave\FSharp.Suave.csproj", "{9BF6A4C2-F489-46CA-BCF3-9D58EDEEC144}"
