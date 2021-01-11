@@ -1,0 +1,14 @@
+{
+  "author": "IntelliFactory",
+  "classifications": [ "WebSharper" ],
+  "name": "WebSharper 4 Extension",
+  "tags": {
+    "language": "F#",
+    "type": "project"
+  },
+  "identity": "WebSharper.Extension.FSharp.Template",
+  "groupIdentity": "WebSharper.Extension.Template",
+  "shortName": "websharper-ext",
+  "sourceName": "WebSharper.Extension.FSharp",
+  "preferNameDirectory": true
+}

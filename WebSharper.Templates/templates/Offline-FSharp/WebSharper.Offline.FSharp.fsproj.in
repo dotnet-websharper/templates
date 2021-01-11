@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <StartAction>Program</StartAction>
+    <StartProgram>$([System.Environment]::GetEnvironmentVariable(`WinDir`))\explorer.exe</StartProgram>
+    <StartArguments>$(MSBuildThisFileDirectory)bin\html</StartArguments>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Client.fs" />
+    <Compile Include="Main.fs" />
+    <Content Include="Main.html" />
+    <None Include="extra.files" />
+    <None Include="wsconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="WebSharper" />    
+    <PackageReference Include="WebSharper.FSharp" />
+    <PackageReference Include="WebSharper.UI" />
+  </ItemGroup>
+
+</Project>
