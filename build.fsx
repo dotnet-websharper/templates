@@ -197,6 +197,7 @@ Target.create "Push" <| fun _ ->
         Trace.logfn "[NUGET] Publishing to %s" nugetPublishUrl 
         Paket.push <| fun p ->
             { p with
+                ToolType = ToolType.CreateLocalTool()
                 PublishUrl = nugetPublishUrl
                 ApiKey = nugetApiKey
                 WorkingDir = "build"
