@@ -129,7 +129,7 @@ Target.create "SetVersions" <| fun _ ->
     ]
 
     __SOURCE_DIRECTORY__ </> "WebSharper.Templates/WebSharper.Templates.csproj.in" |> replacesInFile [   
-        "{vsixversion}", version
+        "{nugetversion}", taggedVersion
     ]
 
     let dotnetProjReplaces =

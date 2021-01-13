@@ -2,7 +2,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <PackageType>Template</PackageType>
-    <PackageVersion>{vsixversion}</PackageVersion>
+    <PackageVersion>{nugetversion}</PackageVersion>
     <PackageId>WebSharper.Templates</PackageId>
     <Title>WebSharper 5 Templates</Title>
     <Authors>IntelliFactory</Authors>
