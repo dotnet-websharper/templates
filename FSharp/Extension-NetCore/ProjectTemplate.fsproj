@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Update="FSharp.Core" Version="4.7.0" />
     <PackageReference Include="WebSharper" Version="4.7.1.426" />    
     <PackageReference Include="WebSharper.FSharp" Version="4.7.1.426" />
   </ItemGroup>
