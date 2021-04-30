@@ -58,6 +58,9 @@
       </PropertyGroup>
     </When>
     <Otherwise>
+      <PropertyGroup Condition=" '$(FSharpTargetsPath)' == '' AND Exists('$(DevEnvDir)\CommonExtensions\Microsoft\FSharp\Tools\Microsoft.FSharp.Targets') ">
+        <FSharpTargetsPath>$(DevEnvDir)\CommonExtensions\Microsoft\FSharp\Tools\Microsoft.FSharp.Targets</FSharpTargetsPath>
+      </PropertyGroup>
       <PropertyGroup Condition=" '$(FSharpTargetsPath)' == '' AND Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\FSharp\Microsoft.FSharp.Targets') ">
         <FSharpTargetsPath>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\FSharp\Microsoft.FSharp.Targets</FSharpTargetsPath>
       </PropertyGroup>
