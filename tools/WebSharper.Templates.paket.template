@@ -13,6 +13,6 @@ tags
 packageTypes
     Template
 files
-    ../NetCore/**/*.* ==> content
+    ../NetCore/**/*.* ==> content/NetCore
     !../NetCore/**/*.in
     
