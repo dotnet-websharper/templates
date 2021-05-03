@@ -4,8 +4,12 @@
     <PackageType>Template</PackageType>
     <PackageVersion>{vsixversion}</PackageVersion>
     <PackageId>WebSharper.Templates</PackageId>
-    <Title>WebSharper 5 Templates</Title>
+    <PackageLicenseUrl>http://websharper.com/licensing</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/intellifactory/websharper.templates</PackageProjectUrl>
+    <PackageType>Template</PackageType>
+    <Title>WebSharper 4 Templates</Title>
     <Authors>IntelliFactory</Authors>
+    <Owners>IntelliFactory</Owners>
     <Description>Project templates for WebSharper</Description>
     <PackageTags>dotnet-new;templates;Web;JavaScript;F#;C#</PackageTags>
     <TargetFramework>netstandard2.0</TargetFramework>
