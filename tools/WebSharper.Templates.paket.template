@@ -11,7 +11,7 @@ description
 tags
     dotnet-new templates Web JavaScript F# C#
 packageTypes
-    <packageType name="Template" />
+    Template
 files
     ../NetCore/**/*.* ==> content
     !../NetCore/**/*.in
