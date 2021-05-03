@@ -14,4 +14,5 @@ packageTypes
     <packageType name="Template" />
 files
     ../NetCore/**/*.* ==> content
+    !../NetCore/**/*.in
     
