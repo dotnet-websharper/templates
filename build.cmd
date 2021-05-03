@@ -3,8 +3,8 @@ setlocal
     
 dotnet tool restore
 dotnet paket update
-if errorlevel 1 exit /b %errorlevel%    
-
+if errorlevel 1 exit /b %errorlevel%
+    
 :: Allow running `build SomeTask` instead of `build -t SomeTask`
 set _Add-t=""
 set FirstArg=%1

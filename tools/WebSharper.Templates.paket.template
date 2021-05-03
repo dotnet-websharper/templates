@@ -1,0 +1,17 @@
+type file
+id WebSharper.Templates
+authors
+    IntelliFactory
+owners
+    IntelliFactory
+licenseUrl http://websharper.com/licensing
+projectUrl https://github.com/dotnet-websharper/templates
+description
+    Templates for WebSharper 4
+tags
+    dotnet-new templates Web JavaScript F# C#
+packageTypes
+    <packageType name="Template" />
+files
+    ../NetCore/**/*.* ==> content
+    
