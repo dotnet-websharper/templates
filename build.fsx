@@ -182,12 +182,13 @@ Target.create "SetVersions" <| fun _ ->
 )
 
 Target.create "Package" <| fun _ ->
-    Paket.pack <| fun p ->
-        { p with
-            ToolType = ToolType.CreateLocalTool()
-            OutputPath = "build"
-            Version = taggedVersion
-        }
+    let exitCode =
+        Shell.Exec(
+            "tools/nuget.exe",
+            sprintf "pack -Version %s -OutputDirectory build WebSharper.Templates.nuspec" taggedVersion
+        )
+    if exitCode <> 0 then
+        failwithf "nuget.exe exited with code %d" exitCode
 
 Target.create "Push" <| fun _ ->
     match Environment.environVarOrNone "NugetPublishUrl", Environment.environVarOrNone "NugetApiKey" with
