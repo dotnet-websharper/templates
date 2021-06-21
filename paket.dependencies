@@ -5,14 +5,17 @@ framework: net461
 
 nuget FSharp.Core 4.7.0
 nuget System.ValueTuple ~> 4.4.0
-nuget WebSharper ~> 4.7
-nuget WebSharper.FSharp ~> 4.7
-nuget WebSharper.CSharp ~> 4.7
-nuget WebSharper.UI ~> 4.7
-nuget WebSharper.UI.CSharp ~> 4.7
-nuget WebSharper.AspNetCore ~> 4.7
-nuget WebSharper.Owin ~> 4.7
-nuget WebSharper.Suave ~> 4.7
+nuget WebSharper prerelease
+nuget WebSharper.FSharp prerelease
+nuget WebSharper.CSharp prerelease
+nuget WebSharper.UI prerelease
+nuget HtmlAgilityPack 1.11.0
+nuget System.Net.Http 4.3.2
+nuget Microsoft.NETCore.Platforms 1.1.0
+nuget WebSharper.UI.CSharp prerelease
+nuget WebSharper.AspNetCore prerelease
+nuget WebSharper.Owin prerelease
+nuget WebSharper.Suave prerelease
 nuget Microsoft.Owin.Diagnostics
 nuget Microsoft.Owin.FileSystems
 nuget Microsoft.Owin.Host.HttpListener
