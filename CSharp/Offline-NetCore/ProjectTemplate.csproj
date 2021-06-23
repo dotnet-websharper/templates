@@ -13,10 +13,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="WebSharper" Version="4.7.1.432" />    
-    <PackageReference Include="WebSharper.CSharp" Version="4.7.1.432" />
-    <PackageReference Include="WebSharper.UI" Version="4.7.1.234" />
-    <PackageReference Include="WebSharper.UI.CSharp" Version="4.7.1.234" />
+    <PackageReference Include="WebSharper" Version="4.7.2.445" />    
+    <PackageReference Include="WebSharper.CSharp" Version="4.7.2.445" />
+    <PackageReference Include="WebSharper.UI" Version="4.7.2.243" />
+    <PackageReference Include="WebSharper.UI.CSharp" Version="4.7.2.243" />
   </ItemGroup>
 
 </Project>
