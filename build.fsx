@@ -189,6 +189,10 @@ Target.create "Package" <| fun _ ->
     DotNet.pack (fun p ->
         { p with
             OutputPath = Some "build"    
+            MSBuildParams = { p.MSBuildParams with
+                                Verbosity = MSBuildVerbosity.Minimal |> Some
+                                DisableInternalBinLog = true
+                            }
         }) "WebSharper.Templates/WebSharper.Templates.csproj"
 
 Target.create "Push" <| fun _ ->
@@ -210,6 +214,8 @@ let msbuild o mode =
         { p with
             Targets = [ "Restore"; "Build" ]
             Properties = ["Configuration", mode]
+            Verbosity = MSBuildVerbosity.Minimal |> Some
+            DisableInternalBinLog = true
         }) "WebSharper.Vsix.sln"
 
 Target.create "BuildDebug" <| fun o ->

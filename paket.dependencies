@@ -1,5 +1,6 @@
 source https://daily.websharper.com/nuget
 source https://api.nuget.org/v3/index.json
+source c:/localnuget
 
 framework: netstandard2.0
 
@@ -14,7 +15,8 @@ nuget WebSharper.AspNetCore prerelease
 
 group build
     source https://api.nuget.org/v3/index.json
+    source c:/localnuget
     
-    framework: net460
+    framework: net50
     
-    nuget Microsoft.VSSDK.BuildTools 16.8.3038
+    nuget Microsoft.VSSDK.BuildTools 16.11.12
