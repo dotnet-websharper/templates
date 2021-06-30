@@ -209,6 +209,7 @@ let msbuild o mode =
         { p with
             Targets = [ "Restore"; "Build" ]
             Properties = ["Configuration", mode]
+            DisableInternalBinLog = true
         }) "WebSharper.Vsix.sln"
 
 Target.create "BuildDebug" <| fun o ->
