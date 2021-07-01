@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    $if$ ($visualstudioversion$ < 16.0)<PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.8" />
+    $if$ ($visualstudioversion$ < 16.0)<PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.9" />
         $endif$<PackageReference Include="WebSharper" Version="4.7.2.445" />    
     <PackageReference Include="WebSharper.FSharp" Version="4.7.2.445" />
     <PackageReference Include="WebSharper.UI" Version="4.7.2.243" />
