@@ -208,7 +208,6 @@ let msbuild o mode =
             Properties = ["Configuration", mode; "AssemblyOriginatorKeyFile", snk; "AssemblyName", "WebSharper." + taggedVersion]
             Verbosity = MSBuildVerbosity.Minimal |> Some
             DisableInternalBinLog = true
-            ToolPath = @"c:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\MSBuild\Current\Bin\MSBuild.exe"
         }) "WebSharper.Vsix.sln"
 
 Target.create "BuildDebug" <| fun o ->
