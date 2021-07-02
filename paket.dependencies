@@ -17,6 +17,9 @@ group build
     source https://api.nuget.org/v3/index.json
     source c:/localnuget
     
-    framework: net50
+    framework: net472
     
     nuget Microsoft.VSSDK.BuildTools 16.11.12
+	nuget Microsoft.VisualStudio.SDK 16.0.206
+    nuget Microsoft.VisualStudio.TemplateWizardInterface 16.10.31320.204
+

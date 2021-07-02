@@ -10,7 +10,6 @@ obj/
 /templates-test
 *.vstemplate
 *.user
-WebSharper.Vsix/WebSharper.Vsix.csproj
 WebSharper.Vsix/source.extension.vsixmanifest
 WebSharper.Templates/WebSharper.Templates.csproj
 paket.lock
@@ -25,3 +24,4 @@ launchSettings.json
 /paket-files
 /.ionide
 /testdotnet
+*~

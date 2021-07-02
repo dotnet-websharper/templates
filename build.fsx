@@ -29,6 +29,11 @@ open Fake.IO.FileSystemOperators
 
 let mutable taggedVersion = ""
 
+let snk, publicKeyToken =
+    match Environment.environVarOrNone "INTELLIFACTORY" with
+    | None -> "../tools/WebSharper.snk", "451ee5fa653b377d"
+    | Some p -> p </> "keys/IntelliFactory.snk", "dcd983dec8f76a71"
+
 Target.create "SetVersions" <| fun _ ->
 
     let lockFile = 
@@ -71,11 +76,6 @@ Target.create "SetVersions" <| fun _ ->
         File.Copy(nupkgFrom, nupkgTo)
     ) 
 
-    let snk, publicKeyToken =
-        match Environment.environVarOrNone "INTELLIFACTORY" with
-        | None -> "../tools/WebSharper.snk", "451ee5fa653b377d"
-        | Some p -> p </> "keys/IntelliFactory.snk", "dcd983dec8f76a71"
-
     let revision =
         match Environment.environVarOrNone "BUILD_NUMBER" with
         | None | Some "" -> "0"
@@ -114,15 +114,6 @@ Target.create "SetVersions" <| fun _ ->
 
     Directory.EnumerateFiles(__SOURCE_DIRECTORY__, "*.vstemplate.in", SearchOption.AllDirectories)
     |> Seq.iter (replacesInFile vstemplateReplaces)
-
-    __SOURCE_DIRECTORY__ </> "WebSharper.Vsix/WebSharper.Vsix.csproj.in" |> replacesInFile [   
-            for p, v in packageVersions do
-                yield
-                    sprintf "Include=\"Packages\\%s.nupkg\"" p, 
-                    sprintf "Include=\"Packages\\%s.%s.nupkg\"" p v
-            yield "{vsixversion}", taggedVersion
-            yield "{keyfilepath}", snk
-        ]
 
     __SOURCE_DIRECTORY__ </> "WebSharper.Vsix/source.extension.vsixmanifest.in" |> replacesInFile [   
         "{vsixversion}", version
@@ -191,6 +182,7 @@ Target.create "Package" <| fun _ ->
             OutputPath = Some "build"    
             MSBuildParams = { p.MSBuildParams with
                                 Verbosity = MSBuildVerbosity.Minimal |> Some
+                                Properties = ["Configuration", "Release"; "AssemblyOriginatorKeyFile", snk; "AssemblyName", "WebSharper." + taggedVersion]
                                 DisableInternalBinLog = true
                             }
         }) "WebSharper.Templates/WebSharper.Templates.csproj"
@@ -213,9 +205,10 @@ let msbuild o mode =
     MSBuild.build (fun p ->
         { p with
             Targets = [ "Restore"; "Build" ]
-            Properties = ["Configuration", mode]
+            Properties = ["Configuration", mode; "AssemblyOriginatorKeyFile", snk; "AssemblyName", "WebSharper." + taggedVersion]
             Verbosity = MSBuildVerbosity.Minimal |> Some
             DisableInternalBinLog = true
+            ToolPath = @"c:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\MSBuild\Current\Bin\MSBuild.exe"
         }) "WebSharper.Vsix.sln"
 
 Target.create "BuildDebug" <| fun o ->
