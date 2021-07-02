@@ -11,10 +11,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="WebSharper" Version="5.0.0.446-preview1" />    
-    <PackageReference Include="WebSharper.FSharp" Version="5.0.0.446-preview1" />
-    <PackageReference Include="WebSharper.UI" Version="4.1.1.64" />
-    <PackageReference Include="WebSharper.AspNetCore" Version="5.0.0.446-preview1" />
+    <PackageReference Include="WebSharper" Version="5.0.0.28-preview1" />    
+    <PackageReference Include="WebSharper.FSharp" Version="5.0.0.28-preview1" />
+    <PackageReference Include="WebSharper.UI" Version="5.0.0.28-preview1" />
+    <PackageReference Include="WebSharper.AspNetCore" Version="5.0.0.28-preview1" />
   </ItemGroup>
 
 </Project>
