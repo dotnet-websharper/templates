@@ -179,7 +179,7 @@ Target.create "SetVersions" <| fun _ ->
 Target.create "Package" <| fun _ ->
     DotNet.pack (fun p ->
         { p with
-            OutputPath = Some "build"    
+            OutputPath = Some (Environment.environVarOrNone "WSPackageFolder" |> Option.defaultValue "build")  
             MSBuildParams = { p.MSBuildParams with
                                 Verbosity = MSBuildVerbosity.Minimal |> Some
                                 Properties = ["Configuration", "Release"; "AssemblyOriginatorKeyFile", snk; "AssemblyName", "WebSharper." + taggedVersion]
