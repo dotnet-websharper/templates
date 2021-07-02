@@ -6,7 +6,7 @@
     <PackageId>WebSharper.Templates</PackageId>
     <PackageProjectUrl>https://websharper.com/</PackageProjectUrl>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <PackageIcon>https://github.com/dotnet-websharper/core/raw/websharper50/tools/WebSharper.png</PackageIcon>
+    <PackageIconUrl>https://github.com/dotnet-websharper/core/raw/websharper50/tools/WebSharper.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/dotnet-websharper/templates</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Title>WebSharper 5 Templates</Title>
