@@ -26,7 +26,7 @@
     <IncludeDebugSymbolsInLocalVSIXDeployment>true</IncludeDebugSymbolsInLocalVSIXDeployment>
     <CopyBuildOutputToOutputDirectory>false</CopyBuildOutputToOutputDirectory>
     <CopyOutputSymbolsToOutputDirectory>false</CopyOutputSymbolsToOutputDirectory>
-    <OutputPath Condition=" '$(WSPackageFolder)' != '' ">$(WSPackageFolder)</OutputPath>
+    <OutputPath Condition=" '$(WSPackageFolder)' != '' ">../$(WSPackageFolder)</OutputPath>
     <StartAction>Program</StartAction>
     <StartProgram Condition="'$(DevEnvDir)' != ''">$(DevEnvDir)devenv.exe</StartProgram>
     <StartArguments>/rootsuffix Exp</StartArguments>
