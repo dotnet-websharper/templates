@@ -1,5 +1,5 @@
 group build
   Microsoft.VSSDK.BuildTools
-	Microsoft.VisualStudio.SDK
+  Microsoft.VisualStudio.SDK
   Microsoft.VisualStudio.TemplateWizardInterface
 
