@@ -19,6 +19,13 @@ nuget Fake.DotNet.Paket
 nuget Paket.Core //"
 #endif
 
+#load "paket-files/wsbuild/github.com/dotnet-websharper/build-script/WebSharper.Fake.fsx"
+open WebSharper.Fake
+
+let targets =
+    LazyVersionFrom "WebSharper" |> WSTargets.Default
+    |> MakeTargets
+
 open System.IO
 open Paket.Constants
 open Fake.Core
@@ -176,7 +183,7 @@ Target.create "SetVersions" <| fun _ ->
         | _ -> ()
 )
 
-Target.create "Package" <| fun _ ->
+Target.create "PackageTemplates" <| fun _ ->
     DotNet.pack (fun p ->
         { p with
             OutputPath = Some (Environment.environVarOrNone "WSPackageFolder" |> Option.defaultValue "build")  
@@ -187,44 +194,12 @@ Target.create "Package" <| fun _ ->
                             }
         }) "WebSharper.Templates/WebSharper.Templates.csproj"
 
-Target.create "Push" <| fun _ ->
-    match Environment.environVarOrNone "NugetPublishUrl", Environment.environVarOrNone "NugetApiKey" with
-    | Some nugetPublishUrl, Some nugetApiKey ->
-        Trace.logfn "[NUGET] Publishing to %s" nugetPublishUrl 
-        Paket.push <| fun p ->
-            { p with
-                ToolType = ToolType.CreateLocalTool()
-                PublishUrl = nugetPublishUrl
-                ApiKey = nugetApiKey
-                WorkingDir = "build"
-            }
-    | _ -> Trace.traceError "[NUGET] Not publishing: NugetPublishUrl and/or NugetApiKey are not set"
+"WS-Update" 
+    ==> "SetVersions"
+    ==> "WS-Restore"
 
+"WS-BuildRelease"
+    ==> "PackageTemplates" 
+    ==> "WS-Package"
 
-let msbuild o mode =
-    MSBuild.build (fun p ->
-        { p with
-            Targets = [ "Restore"; "Build" ]
-            Properties = ["Configuration", mode; "AssemblyOriginatorKeyFile", snk; "AssemblyName", "WebSharper." + taggedVersion]
-            Verbosity = MSBuildVerbosity.Minimal |> Some
-            DisableInternalBinLog = true
-        }) "WebSharper.Vsix.sln"
-
-Target.create "BuildDebug" <| fun o ->
-    msbuild o "Debug"
-
-Target.create "BuildRelease" <| fun o ->
-    msbuild o "Release"
-
-Target.create "CI-Release" ignore
-
-"SetVersions" 
-    ==> "BuildDebug"
-
-"SetVersions" 
-    ==> "BuildRelease"
-    ==> "Package"
-    ==> "Push"
-    ==> "CI-Release"
-
-Target.runOrDefault "Package"
+Target.runOrDefault "WS-Package"

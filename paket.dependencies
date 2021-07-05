@@ -1,4 +1,5 @@
 source https://api.nuget.org/v3/index.json
+source https://nuget.pkg.github.com/dotnet-websharper/index.json
 source ../localnuget
 
 framework: netstandard2.0
@@ -11,6 +12,9 @@ nuget WebSharper.UI prerelease
 nuget WebSharper.UI.CSharp prerelease
 nuget WebSharper.AspNetCore prerelease
 //nuget WebSharper.Suave prerelease
+
+group wsbuild
+    git https://github.com/dotnet-websharper/build-script websharper50
 
 group build
     source https://api.nuget.org/v3/index.json

@@ -12,7 +12,6 @@ obj/
 *.user
 WebSharper.Vsix/source.extension.vsixmanifest
 WebSharper.Templates/WebSharper.Templates.csproj
-paket.lock
 .vs/
 /.vscode
 *.CSharp.csproj
