@@ -22,10 +22,6 @@ nuget Paket.Core //"
 #load "paket-files/wsbuild/github.com/dotnet-websharper/build-script/WebSharper.Fake.fsx"
 open WebSharper.Fake
 
-let targets =
-    LazyVersionFrom "WebSharper" |> WSTargets.Default
-    |> MakeTargets
-
 open System.IO
 open Paket.Constants
 open Fake.Core
@@ -182,6 +178,21 @@ Target.create "SetVersions" <| fun _ ->
             )
         | _ -> ()
 )
+
+let msbuild mode =
+    MSBuild.build (fun p ->
+        { p with
+            Targets = [ "Restore"; "Build" ]
+            Properties = ["Configuration", mode; "AssemblyOriginatorKeyFile", snk; "AssemblyName", "WebSharper." + taggedVersion]
+            Verbosity = MSBuildVerbosity.Minimal |> Some
+            DisableInternalBinLog = true
+        }) "WebSharper.Vsix.sln"
+
+let targets = MakeTargets { 
+    WSTargets.Default (LazyVersionFrom "WebSharper") with
+        BuildAction =
+            BuildAction.Custom <| fun mode -> msbuild (mode.ToString())
+}
 
 Target.create "PackageTemplates" <| fun _ ->
     DotNet.pack (fun p ->
