@@ -194,6 +194,17 @@ let targets = MakeTargets {
             BuildAction.Custom <| fun mode -> msbuild (mode.ToString())
 }
 
+Target.create "CopyVSIX" <| fun _ ->
+    let vsix = 
+        match Directory.GetFiles("WebSharper.Vsix/bin/Release", "*.vsix") with
+        | [| vsix |] -> vsix
+        | [||] -> failwith "Vsix output file not found"
+        | _ -> failwith "Multiple vsix output files found"
+
+    let outputPath = Environment.environVarOrNone "WSPackageFolder" |> Option.defaultValue "build"
+
+    File.Copy(vsix, outputPath </> Path.GetFileName vsix)
+
 Target.create "PackageTemplates" <| fun _ ->
     DotNet.pack (fun p ->
         { p with
@@ -208,6 +219,10 @@ Target.create "PackageTemplates" <| fun _ ->
 "WS-Update" 
     ==> "SetVersions"
     ==> "WS-Restore"
+
+"WS-BuildRelease"
+    ==> "CopyVSIX" 
+    ==> "WS-Package"
 
 "WS-BuildRelease"
     ==> "PackageTemplates" 
