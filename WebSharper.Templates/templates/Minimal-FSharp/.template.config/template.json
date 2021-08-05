@@ -1,0 +1,14 @@
+{
+  "author": "IntelliFactory",
+  "classifications": [ "WebSharper", "Web" ],
+  "name": "WebSharper 5 Minimal Application",
+  "tags": {
+    "language": "F#",
+    "type": "project"
+  },
+  "identity": "WebSharper.Min.FSharp.Template",
+  "groupIdentity": "WebSharper.Min.Template",
+  "shortName": "websharper-min",
+  "sourceName": "WebSharper.Min.FSharp",
+  "preferNameDirectory": true
+}
