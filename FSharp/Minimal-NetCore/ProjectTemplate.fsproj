@@ -11,8 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="WebSharper" Version="5.0.0.62-preview1" />    
-    <PackageReference Include="WebSharper.AspNetCore" Version="5.0.0.62-preview1" />
+    <PackageReference Include="WebSharper" Version="5.0.0.63-preview1" />    
+    <PackageReference Include="WebSharper.AspNetCore" Version="5.0.0.63-preview1" />
   </ItemGroup>
 
 </Project>
