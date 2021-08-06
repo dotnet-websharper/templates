@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
+  <TemplateData>
+    <Name>WebSharper 5 Minimal Application (.NET Core)</Name>
+    <Description>Creates a starter client-server web application based on sitelets.</Description>
+    <Icon>WebSharper.png</Icon>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>WebSharper</ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <TemplateID>82c0b39b-1687-49d2-aa8b-e1c691823037</TemplateID>
+    <CreateNewFolder>true</CreateNewFolder>
+    <CreateInPlace>true</CreateInPlace>
+    <DefaultName>Minimal</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+    <LanguageTag>CSharp</LanguageTag>
+    <PlatformTag>Windows</PlatformTag>
+    <PlatformTag>Linux</PlatformTag>
+    <PlatformTag>macOS</PlatformTag>
+    <ProjectTypeTag>Web</ProjectTypeTag>
+  </TemplateData>
+  <TemplateContent>
+    <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" OpenInEditor="true">Site.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true">Startup.cs</ProjectItem>
+      <ProjectItem>wsconfig.json</ProjectItem>
+    </Project>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>{vsixassembly}</Assembly>
+    <FullClassName>WebSharper.Vsix.VSVersionWizard</FullClassName>
+  </WizardExtension>
+</VSTemplate>
