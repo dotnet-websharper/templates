@@ -2,7 +2,7 @@
 <VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
   <TemplateData>
     <Name>WebSharper 5 Minimal Application (.NET Core)</Name>
-    <Description>Creates a starter client-server web application based on sitelets.</Description>
+    <Description>Creates a single site with 'Hello World' text.</Description>
     <Icon>WebSharper.png</Icon>
     <ProjectType>CSharp</ProjectType>
     <ProjectSubType>WebSharper</ProjectSubType>
