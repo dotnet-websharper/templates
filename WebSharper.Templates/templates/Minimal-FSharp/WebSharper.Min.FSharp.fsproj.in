@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <NoWarn>3186</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,7 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="WebSharper" />    
+    <PackageReference Include="WebSharper" />
+    <PackageReference Include="WebSharper.FSharp" />
     <PackageReference Include="WebSharper.AspNetCore" />
   </ItemGroup>
 
