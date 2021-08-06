@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="WebSharper" />
+    <PackageReference Include="WebSharper.CSharp" />
     <PackageReference Include="WebSharper.AspNetCore" />
   </ItemGroup>
 
