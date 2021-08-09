@@ -53,6 +53,13 @@
     </nav>
     <div class="container">
         <div ws-replace="Body">
+            <div ws-template="MainForm">
+                <input ws-var="TextToReverse" />
+                <button ws-onclick="OnSend">Send</button>
+                <hr />
+                <h4 class="text-muted">The server responded:</h4>
+                <div class="jumbotron">${Reversed}</div>
+            </div>
         </div>
     </div>
     <footer class="footer">
