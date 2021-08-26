@@ -26,7 +26,6 @@
       <ProjectItem ReplaceParameters="true">Remoting.fs</ProjectItem>
       <ProjectItem ReplaceParameters="true">Startup.fs</ProjectItem>
       <ProjectItem ReplaceParameters="true">Main.html</ProjectItem>
-      <ProjectItem>appsettings.json</ProjectItem>
       <ProjectItem>wsconfig.json</ProjectItem>
     </Project>
   </TemplateContent>

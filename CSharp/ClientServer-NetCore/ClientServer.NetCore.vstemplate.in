@@ -27,7 +27,6 @@
       <ProjectItem ReplaceParameters="true">Main.html</ProjectItem>
       <ProjectItem ReplaceParameters="true">WebSharper.UI.Templates\Main.g.cs</ProjectItem>
       <ProjectItem ReplaceParameters="true">Startup.cs</ProjectItem>
-      <ProjectItem>appsettings.json</ProjectItem>
       <ProjectItem>wsconfig.json</ProjectItem>
     </Project>
   </TemplateContent>

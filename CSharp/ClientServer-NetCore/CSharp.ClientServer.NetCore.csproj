@@ -68,7 +68,6 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="WebSharper.png" />
-    <Content Include="appsettings.json" />
     <Content Include="wsconfig.json" />
   </ItemGroup>
   <ItemGroup>
