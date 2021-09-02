@@ -84,7 +84,7 @@ namespace $safeprojectname$.Template
             }
             public Instance Create() {
                 var completed = WebSharper.UI.Templating.Runtime.Server.Handler.CompleteHoles(key, holes, new Tuple<string, WebSharper.UI.Templating.Runtime.Server.ValTy>[] { Tuple.Create("texttoreverse", WebSharper.UI.Templating.Runtime.Server.ValTy.String) });
-                var doc = WebSharper.UI.Templating.Runtime.Server.Runtime.GetOrLoadTemplate("main", FSharpOption<string>.Some("mainform"), FSharpOption<string>.Some("Main.html"), "<div>\r\n                <input ws-var=\"TextToReverse\">\r\n                <button ws-onclick=\"OnSend\">Send</button>\r\n                <hr>\r\n                <h4 class=\"text-muted\">The server responded:</h4>\r\n                <div class=\"jumbotron\">${Reversed}</div>\r\n            </div>", null, completed.Item1, FSharpOption<string>.Some("main"), ServerLoad.WhenChanged, new Tuple<string, FSharpOption<string>, string>[] {  }, null, true, false, false);
+                var doc = WebSharper.UI.Templating.Runtime.Server.Runtime.GetOrLoadTemplate("main", FSharpOption<string>.Some("mainform"), FSharpOption<string>.Some("Main.html"), "<div>\r\n                <input ws-var=\"TextToReverse\">\r\n                <button ws-onclick=\"OnSend\">Send</button>\r\n                <hr>\r\n                <h4 class=\"text-muted\">The server responded:</h4>\r\n                <div class=\"jumbotron\"><h1>${Reversed}</h1></div>\r\n            </div>", null, completed.Item1, FSharpOption<string>.Some("main"), ServerLoad.WhenChanged, new Tuple<string, FSharpOption<string>, string>[] {  }, null, true, false, false);
                 instance = new Instance(completed.Item2, doc);
                 return instance;
             }
