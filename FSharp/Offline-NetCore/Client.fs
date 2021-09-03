@@ -8,6 +8,7 @@ open WebSharper.UI.Templating
 [<JavaScript>]
 module Templates =   
     type MainTemplate = Templating.Template<"Main.html", ClientLoad.FromDocument, ServerLoad.WhenChanged>
+
 [<JavaScript>]
 module Client =
     let DoSomething (input: string) =
