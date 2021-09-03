@@ -1,0 +1,14 @@
+{
+  "author": "IntelliFactory",
+  "classifications": [ "WebSharper", "Web" ],
+  "name": "WebSharper 5 Single Page Application",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "identity": "WebSharper.SPA.CSharp.Template",
+  "groupIdentity": "WebSharper.SPA.Template",
+  "shortName": "websharper-spa",
+  "sourceName": "WebSharper.SPA.CSharp",
+  "preferNameDirectory": true
+}

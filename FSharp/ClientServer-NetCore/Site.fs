@@ -12,8 +12,6 @@ type EndPoint =
 module Templating =
     open WebSharper.UI.Html
 
-    type MainTemplate = Templating.Template<"Main.html">
-
     // Compute a menubar where the menu item for the given endpoint is active
     let MenuBar (ctx: Context<EndPoint>) endpoint : Doc list =
         let ( => ) txt act =
@@ -27,7 +25,7 @@ module Templating =
 
     let Main ctx action (title: string) (body: Doc list) =
         Content.Page(
-            MainTemplate()
+            Templates.MainTemplate()
                 .Title(title)
                 .MenuBar(MenuBar ctx action)
                 .Body(body)

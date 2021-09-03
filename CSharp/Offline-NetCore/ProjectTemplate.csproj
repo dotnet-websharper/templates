@@ -5,7 +5,6 @@
     <StartAction>Program</StartAction>
     <StartProgram>$([System.Environment]::GetEnvironmentVariable(`WinDir`))\explorer.exe</StartProgram>
     <StartArguments>$(MSBuildThisFileDirectory)bin\html</StartArguments>
-    <LangVersion>7.3</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,10 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="WebSharper" Version="4.7.3.446" />    
-    <PackageReference Include="WebSharper.CSharp" Version="4.7.3.446" />
-    <PackageReference Include="WebSharper.UI" Version="4.7.2.243" />
-    <PackageReference Include="WebSharper.UI.CSharp" Version="4.7.2.243" />
+    <PackageReference Include="WebSharper" Version="5.0.0.79-preview1" />    
+    <PackageReference Include="WebSharper.CSharp" Version="5.0.0.79-preview1" />
+    <PackageReference Include="WebSharper.UI" Version="5.0.0.79-preview1" />
+    <PackageReference Include="WebSharper.UI.CSharp" Version="5.0.0.79-preview1" />
   </ItemGroup>
 
 </Project>

@@ -1,30 +1,27 @@
-source https://daily.websharper.com/nuget
 source https://api.nuget.org/v3/index.json
+source https://nuget.pkg.github.com/dotnet-websharper/index.json
+source ../localnuget
 
-framework: net461
+framework: netstandard2.0
 
-nuget FSharp.Core 4.7.0
-nuget System.ValueTuple ~> 4.4.0
+nuget FSharp.Core 5.0.0
 nuget WebSharper prerelease
 nuget WebSharper.FSharp prerelease
 nuget WebSharper.CSharp prerelease
 nuget WebSharper.UI prerelease
-nuget HtmlAgilityPack 1.11.0
-nuget System.Net.Http 4.3.2
-nuget Microsoft.NETCore.Platforms 1.1.0
 nuget WebSharper.UI.CSharp prerelease
 nuget WebSharper.AspNetCore prerelease
-nuget WebSharper.Owin prerelease
-nuget WebSharper.Suave prerelease
-nuget Microsoft.Owin.Diagnostics
-nuget Microsoft.Owin.FileSystems
-nuget Microsoft.Owin.Host.HttpListener
-nuget Microsoft.Owin.Hosting
-nuget Microsoft.Owin.StaticFiles
+//nuget WebSharper.Suave prerelease
+
+group wsbuild
+    git https://github.com/dotnet-websharper/build-script websharper50
 
 group build
     source https://api.nuget.org/v3/index.json
     
-    framework: net460
+    framework: net472
     
-    nuget Microsoft.VSSDK.BuildTools 16.8.3038
+    nuget Microsoft.VSSDK.BuildTools 16.11.12
+	nuget Microsoft.VisualStudio.SDK 16.0.206
+    nuget Microsoft.VisualStudio.TemplateWizardInterface 16.10.31320.204
+

@@ -1,0 +1,14 @@
+{
+  "author": "IntelliFactory",
+  "classifications": [ "WebSharper", "Web" ],
+  "name": "WebSharper 5 Client-Server Application",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "identity": "WebSharper.ClientServer.CSharp.Template",
+  "groupIdentity": "WebSharper.ClientServer.Template",
+  "shortName": "websharper-web",
+  "sourceName": "WebSharper.ClientServer.CSharp",
+  "preferNameDirectory": true
+}

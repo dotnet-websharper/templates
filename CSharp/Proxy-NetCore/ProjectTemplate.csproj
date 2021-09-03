@@ -2,8 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <WebSharperProject>Library</WebSharperProject>
-    <LangVersion>7.3</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,8 +10,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="WebSharper" Version="4.7.3.446" />    
-    <PackageReference Include="WebSharper.CSharp" Version="4.7.3.446" />
+    <PackageReference Include="WebSharper" Version="5.0.0.79-preview1" />    
+    <PackageReference Include="WebSharper.CSharp" Version="5.0.0.79-preview1" />
   </ItemGroup>
 
 </Project>

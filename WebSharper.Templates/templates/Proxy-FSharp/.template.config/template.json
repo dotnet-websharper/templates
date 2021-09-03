@@ -1,0 +1,14 @@
+{
+  "author": "IntelliFactory",
+  "classifications": [ "WebSharper" ],
+  "name": "WebSharper 5 Proxy",
+  "tags": {
+    "language": "F#",
+    "type": "project"
+  },
+  "identity": "WebSharper.Proxy.FSharp.Template",
+  "groupIdentity": "WebSharper.Proxy.Template",
+  "shortName": "websharper-prx",
+  "sourceName": "WebSharper.Proxy.FSharp",
+  "preferNameDirectory": true
+}

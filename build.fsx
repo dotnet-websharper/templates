@@ -19,6 +19,9 @@ nuget Fake.DotNet.Paket
 nuget Paket.Core //"
 #endif
 
+#load "paket-files/wsbuild/github.com/dotnet-websharper/build-script/WebSharper.Fake.fsx"
+open WebSharper.Fake
+
 open System.IO
 open Paket.Constants
 open Fake.Core
@@ -28,6 +31,11 @@ open Fake.IO
 open Fake.IO.FileSystemOperators
 
 let mutable taggedVersion = ""
+
+let snk, publicKeyToken =
+    match Environment.environVarOrNone "INTELLIFACTORY" with
+    | None -> "../tools/WebSharper.snk", "451ee5fa653b377d"
+    | Some p -> p </> "keys/IntelliFactory.snk", "dcd983dec8f76a71"
 
 Target.create "SetVersions" <| fun _ ->
 
@@ -71,11 +79,6 @@ Target.create "SetVersions" <| fun _ ->
         File.Copy(nupkgFrom, nupkgTo)
     ) 
 
-    let snk, publicKeyToken =
-        match Environment.environVarOrNone "INTELLIFACTORY" with
-        | None -> "../tools/WebSharper.snk", "451ee5fa653b377d"
-        | Some p -> p </> "keys/IntelliFactory.snk", "dcd983dec8f76a71"
-
     let revision =
         match Environment.environVarOrNone "BUILD_NUMBER" with
         | None | Some "" -> "0"
@@ -115,17 +118,12 @@ Target.create "SetVersions" <| fun _ ->
     Directory.EnumerateFiles(__SOURCE_DIRECTORY__, "*.vstemplate.in", SearchOption.AllDirectories)
     |> Seq.iter (replacesInFile vstemplateReplaces)
 
-    __SOURCE_DIRECTORY__ </> "WebSharper.Vsix/WebSharper.Vsix.csproj.in" |> replacesInFile [   
-            for p, v in packageVersions do
-                yield
-                    sprintf "Include=\"Packages\\%s.nupkg\"" p, 
-                    sprintf "Include=\"Packages\\%s.%s.nupkg\"" p v
-            yield "{vsixversion}", taggedVersion
-            yield "{keyfilepath}", snk
-        ]
-
     __SOURCE_DIRECTORY__ </> "WebSharper.Vsix/source.extension.vsixmanifest.in" |> replacesInFile [   
         "{vsixversion}", version
+    ]
+
+    __SOURCE_DIRECTORY__ </> "WebSharper.Templates/WebSharper.Templates.csproj.in" |> replacesInFile [   
+        "{nugetversion}", taggedVersion
     ]
 
     let dotnetProjReplaces =
@@ -148,7 +146,7 @@ Target.create "SetVersions" <| fun _ ->
         """    $if$ ($visualstudioversion$ < 16.0)<PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.8" />
         $endif$<PackageReference Include="WebSharper" """
 
-    Directory.EnumerateDirectories(__SOURCE_DIRECTORY__ </> "NetCore")
+    Directory.EnumerateDirectories(__SOURCE_DIRECTORY__ </> "WebSharper.Templates/templates")
     |> Seq.iter (fun ncPath ->
         match Path.GetFileName(ncPath).Split('-') with
         | [| name; lang |] ->
@@ -181,52 +179,53 @@ Target.create "SetVersions" <| fun _ ->
         | _ -> ()
 )
 
-Target.create "Package" <| fun _ ->
-    let exitCode =
-        Shell.Exec(
-            "tools/nuget.exe",
-            sprintf "pack -Version %s -OutputDirectory build WebSharper.Templates.nuspec" taggedVersion
-        )
-    if exitCode <> 0 then
-        failwithf "nuget.exe exited with code %d" exitCode
-
-Target.create "Push" <| fun _ ->
-    match Environment.environVarOrNone "NugetPublishUrl", Environment.environVarOrNone "NugetApiKey" with
-    | Some nugetPublishUrl, Some nugetApiKey ->
-        Trace.logfn "[NUGET] Publishing to %s" nugetPublishUrl 
-        Paket.push <| fun p ->
-            { p with
-                ToolType = ToolType.CreateLocalTool()
-                PublishUrl = nugetPublishUrl
-                ApiKey = nugetApiKey
-                WorkingDir = "build"
-            }
-    | _ -> Trace.traceError "[NUGET] Not publishing: NugetPublishUrl and/or NugetApiKey are not set"
-
-
-let msbuild o mode =
+let msbuild mode =
     MSBuild.build (fun p ->
         { p with
             Targets = [ "Restore"; "Build" ]
-            Properties = ["Configuration", mode]
+            Properties = ["Configuration", mode; "AssemblyOriginatorKeyFile", snk; "AssemblyName", "WebSharper." + taggedVersion]
+            Verbosity = MSBuildVerbosity.Minimal |> Some
             DisableInternalBinLog = true
         }) "WebSharper.Vsix.sln"
 
-Target.create "BuildDebug" <| fun o ->
-    msbuild o "Debug"
+let targets = MakeTargets { 
+    WSTargets.Default (LazyVersionFrom "WebSharper") with
+        BuildAction =
+            BuildAction.Custom <| fun mode -> msbuild (mode.ToString())
+}
 
-Target.create "BuildRelease" <| fun o ->
-    msbuild o "Release"
+Target.create "CopyVSIX" <| fun _ ->
+    let vsix = 
+        match Directory.GetFiles("WebSharper.Vsix/bin/Release", "*.vsix") with
+        | [| vsix |] -> vsix
+        | [||] -> failwith "Vsix output file not found"
+        | _ -> failwith "Multiple vsix output files found"
 
-Target.create "CI-Release" ignore
+    let outputPath = Environment.environVarOrNone "WSPackageFolder" |> Option.defaultValue "build"
 
-"SetVersions" 
-    ==> "BuildDebug"
+    File.Copy(vsix, outputPath </> Path.GetFileName vsix)
 
-"SetVersions" 
-    ==> "BuildRelease"
-    ==> "Package"
-    ==> "Push"
-    ==> "CI-Release"
+Target.create "PackageTemplates" <| fun _ ->
+    DotNet.pack (fun p ->
+        { p with
+            OutputPath = Some (Environment.environVarOrNone "WSPackageFolder" |> Option.defaultValue "build")  
+            MSBuildParams = { p.MSBuildParams with
+                                Verbosity = MSBuildVerbosity.Minimal |> Some
+                                Properties = ["Configuration", "Release"; "AssemblyOriginatorKeyFile", snk; "AssemblyName", "WebSharper." + taggedVersion]
+                                DisableInternalBinLog = true
+                            }
+        }) "WebSharper.Templates/WebSharper.Templates.csproj"
 
-Target.runOrDefault "BuildRelease"
+"WS-Update" 
+    ==> "SetVersions"
+    ==> "WS-Restore"
+
+"WS-BuildRelease"
+    ==> "CopyVSIX" 
+    ==> "WS-Package"
+
+"WS-BuildRelease"
+    ==> "PackageTemplates" 
+    ==> "WS-Package"
+
+Target.runOrDefault "WS-Package"

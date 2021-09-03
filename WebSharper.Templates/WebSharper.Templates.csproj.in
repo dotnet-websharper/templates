@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <PackageType>Template</PackageType>
+    <PackageVersion>{nugetversion}</PackageVersion>
+    <PackageId>WebSharper.Templates</PackageId>
+    <PackageProjectUrl>https://websharper.com/</PackageProjectUrl>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageIconUrl>https://github.com/dotnet-websharper/core/raw/websharper50/tools/WebSharper.png</PackageIconUrl>
+    <RepositoryUrl>https://github.com/dotnet-websharper/templates</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Title>WebSharper 5 Templates</Title>
+    <Authors>IntelliFactory</Authors>
+    <Description>Project templates for WebSharper</Description>
+    <PackageTags>dotnet-new;templates;Web;JavaScript;F#;C#</PackageTags>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <ContentTargetFolders>content</ContentTargetFolders>
+    <NoWarn>$(NoWarn);NU5128</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="templates\**\*" Exclude="templates\**\*.in;templates\**\wwwroot\Content\**;templates\**\wwwroot\Scripts\**;templates\**\bin\**;templates\**\obj\**;templates\**\*.user;templates\**\Properties\launchSettings.json" />
+    <Compile Remove="**\*" />
+  </ItemGroup>
+</Project>
