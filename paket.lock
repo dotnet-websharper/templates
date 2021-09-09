@@ -78,7 +78,6 @@ NUGET
       System.Memory (>= 4.5.4)
     System.Threading.Tasks.Extensions (4.5.4)
       System.Runtime.CompilerServices.Unsafe (>= 4.5.3)
-  remote: https://nuget.pkg.github.com/dotnet-websharper/index.json
     WebSharper (5.0.0.100-preview1)
       FSharp.Core (>= 5.0)
       Microsoft.AspNetCore.Mvc.Abstractions (>= 2.0)
@@ -92,12 +91,13 @@ NUGET
       WebSharper (5.0.0.100-preview1)
     WebSharper.FSharp (5.0.0.100-preview1)
       WebSharper (5.0.0.100-preview1)
-    WebSharper.UI (5.0.0.100-preview1)
+  remote: https://nuget.pkg.github.com/dotnet-websharper/index.json
+    WebSharper.UI (5.0.0.102-preview1)
       HtmlAgilityPack (>= 1.11)
       WebSharper (>= 5.0 < 5.1)
-    WebSharper.UI.CSharp (5.0.0.100-preview1)
+    WebSharper.UI.CSharp (5.0.0.102-preview1)
       WebSharper (>= 5.0 < 5.1)
-      WebSharper.UI (5.0.0.100-preview1)
+      WebSharper.UI (5.0.0.102-preview1)
 
 GROUP build
 RESTRICTION: == net472
@@ -753,4 +753,4 @@ GROUP wsbuild
 
 GIT
   remote: https://github.com/dotnet-websharper/build-script
-     (bb49d04e155f762421568eeb581e72294e02622b)
+     (d3d4e5340ae8561c239c0fff3a018a2ee2a40ec2)
