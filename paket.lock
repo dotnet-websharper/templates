@@ -2,7 +2,7 @@ RESTRICTION: == netstandard2.0
 NUGET
   remote: https://api.nuget.org/v3/index.json
     FSharp.Core (5.0)
-    HtmlAgilityPack (1.11.36)
+    HtmlAgilityPack (1.11.37)
     Microsoft.AspNetCore.Authentication.Abstractions (2.2)
       Microsoft.AspNetCore.Http.Abstractions (>= 2.2)
       Microsoft.Extensions.Logging.Abstractions (>= 2.2)
@@ -78,7 +78,6 @@ NUGET
       System.Memory (>= 4.5.4)
     System.Threading.Tasks.Extensions (4.5.4)
       System.Runtime.CompilerServices.Unsafe (>= 4.5.3)
-  remote: https://nuget.pkg.github.com/dotnet-websharper/index.json
     WebSharper (5.0.0.104-preview1)
       FSharp.Core (>= 5.0)
       Microsoft.AspNetCore.Mvc.Abstractions (>= 2.0)
@@ -92,12 +91,13 @@ NUGET
       WebSharper (5.0.0.104-preview1)
     WebSharper.FSharp (5.0.0.104-preview1)
       WebSharper (5.0.0.104-preview1)
-    WebSharper.UI (5.0.0.103-preview1)
+  remote: https://nuget.pkg.github.com/dotnet-websharper/index.json
+    WebSharper.UI (5.0.0.105-preview1)
       HtmlAgilityPack (>= 1.11)
       WebSharper (>= 5.0 < 5.1)
-    WebSharper.UI.CSharp (5.0.0.103-preview1)
+    WebSharper.UI.CSharp (5.0.0.105-preview1)
       WebSharper (>= 5.0 < 5.1)
-      WebSharper.UI (5.0.0.103-preview1)
+      WebSharper.UI (5.0.0.105-preview1)
 
 GROUP build
 RESTRICTION: == net472
