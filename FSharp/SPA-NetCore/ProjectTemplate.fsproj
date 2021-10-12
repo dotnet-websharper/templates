@@ -13,7 +13,7 @@
   <ItemGroup>
     <PackageReference Include="WebSharper" Version="5.0.0.104-preview1" />    
     <PackageReference Include="WebSharper.FSharp" Version="5.0.0.104-preview1" />
-    <PackageReference Include="WebSharper.UI" Version="5.0.0.105-preview1" />
+    <PackageReference Include="WebSharper.UI" Version="5.0.0.106-preview1" />
     <PackageReference Include="WebSharper.AspNetCore" Version="5.0.0.104-preview1" />
   </ItemGroup>
 

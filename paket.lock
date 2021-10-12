@@ -92,12 +92,12 @@ NUGET
     WebSharper.FSharp (5.0.0.104-preview1)
       WebSharper (5.0.0.104-preview1)
   remote: https://nuget.pkg.github.com/dotnet-websharper/index.json
-    WebSharper.UI (5.0.0.105-preview1)
+    WebSharper.UI (5.0.0.106-preview1)
       HtmlAgilityPack (>= 1.11)
       WebSharper (>= 5.0 < 5.1)
-    WebSharper.UI.CSharp (5.0.0.105-preview1)
+    WebSharper.UI.CSharp (5.0.0.106-preview1)
       WebSharper (>= 5.0 < 5.1)
-      WebSharper.UI (5.0.0.105-preview1)
+      WebSharper.UI (5.0.0.106-preview1)
 
 GROUP build
 RESTRICTION: == net472
