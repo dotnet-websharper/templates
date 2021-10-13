@@ -15,7 +15,7 @@ type Startup() =
     member this.ConfigureServices(services: IServiceCollection) =
         ()
 
-    member this.Configure(app: IApplicationBuilder, env: $if$ ($visualstudioversion$ >= 16.0)IWebHostEnvironment$else$IHostingEnvironment$endif$) =
+    member this.Configure(app: IApplicationBuilder, env: IWebHostEnvironment) =
         if env.IsDevelopment() then app.UseDeveloperExceptionPage() |> ignore
 
         app.UseDefaultFiles()

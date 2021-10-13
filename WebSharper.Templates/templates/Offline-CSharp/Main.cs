@@ -12,10 +12,10 @@ using static WebSharper.UI.Html;
 namespace WebSharper.Offline.CSharp
 {
     [EndPoint("/")]
-    public class Home { }
+    public record Home;
 
     [EndPoint("GET /about")]
-    public class About { }
+    public record About;
 
     class Website : IWebsite<object>
     {

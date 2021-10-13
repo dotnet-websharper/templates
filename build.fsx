@@ -165,7 +165,6 @@ Target.create "SetVersions" <| fun _ ->
                     let res = 
                         File.ReadAllText(f)
                             .Replace(sprintf "WebSharper.%s.%s" name lang, "$safeprojectname$")
-                            .Replace("IWebHostEnvironment", "$if$ ($visualstudioversion$ >= 16.0)IWebHostEnvironment$else$IHostingEnvironment$endif$")
                     let res =
                         if res.Contains("netcoreapp3.1") then
                             res

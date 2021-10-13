@@ -13,16 +13,10 @@ namespace WebSharper.ClientServer.CSharp
     public class Site
     {
         [EndPoint("/")]
-        public class Home {
-            public override bool Equals(object obj) => obj is Home;
-            public override int GetHashCode() => 0;
-        }
+        public record Home;
 
         [EndPoint("GET /about")]
-        public class About {
-            public override bool Equals(object obj) => obj is About;
-            public override int GetHashCode() => 1;
-        }
+        public record About;
 
         public static Doc MenuBar(Context<object> ctx, object endpoint)
         {

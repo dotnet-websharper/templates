@@ -19,7 +19,7 @@ namespace $safeprojectname$
         {
         }
 
-        public void Configure(IApplicationBuilder app, $if$ ($visualstudioversion$ >= 16.0)IWebHostEnvironment$else$IHostingEnvironment$endif$ env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment()) { app.UseDeveloperExceptionPage(); }
 
