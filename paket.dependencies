@@ -21,7 +21,7 @@ group build
     
     framework: net472
     
-    nuget Microsoft.VSSDK.BuildTools 16.11.12
+    nuget Microsoft.VSSDK.BuildTools 17.0.5232
 	nuget Microsoft.VisualStudio.SDK 16.0.206
     nuget Microsoft.VisualStudio.TemplateWizardInterface 16.10.31320.204
 
