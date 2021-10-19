@@ -92,12 +92,12 @@ NUGET
       WebSharper (5.0.0.107)
     WebSharper.FSharp (5.0.0.107)
       WebSharper (5.0.0.107)
-    WebSharper.UI (5.0.0.107)
+    WebSharper.UI (5.0.0.111)
       HtmlAgilityPack (>= 1.11)
       WebSharper (>= 5.0 < 5.1)
-    WebSharper.UI.CSharp (5.0.0.107)
+    WebSharper.UI.CSharp (5.0.0.111)
       WebSharper (>= 5.0 < 5.1)
-      WebSharper.UI (5.0.0.107)
+      WebSharper.UI (5.0.0.111)
 
 GROUP build
 RESTRICTION: == net472
