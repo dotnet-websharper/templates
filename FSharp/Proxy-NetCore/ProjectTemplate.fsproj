@@ -10,8 +10,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="WebSharper" Version="5.0.0.119" />    
-    <PackageReference Include="WebSharper.FSharp" Version="5.0.0.119" />
+    <PackageReference Include="WebSharper" Version="5.0.0.120" />    
+    <PackageReference Include="WebSharper.FSharp" Version="5.0.0.120" />
   </ItemGroup>
 
 </Project>
