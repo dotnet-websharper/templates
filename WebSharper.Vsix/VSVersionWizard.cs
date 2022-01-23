@@ -31,7 +31,11 @@ namespace WebSharper.Vsix
             var dte = (_DTE)automationObject;
             replacementsDictionary.Add("$visualstudioversion$", dte.Version);
             var v = Version.Parse(dte.Version);
-            if (v >= new Version(16, 8))
+            if (v >= new Version(17, 0))
+            {
+                replacementsDictionary.Add("$aspnetcoreversion$", "net6.0");
+            }
+            else if (v >= new Version(16, 8))
             {
                 replacementsDictionary.Add("$aspnetcoreversion$", "net5.0");
             }
