@@ -3,6 +3,7 @@ source https://nuget.pkg.github.com/dotnet-websharper/index.json
 source ../localnuget
 
 framework: netstandard2.0
+storage: none
 
 nuget FSharp.Core
 nuget WebSharper prerelease
@@ -15,13 +16,4 @@ nuget WebSharper.AspNetCore prerelease
 
 group wsbuild
     git https://github.com/dotnet-websharper/build-script websharper50
-
-group build
-    source https://api.nuget.org/v3/index.json
-    
-    framework: net472
-    
-    nuget Microsoft.VSSDK.BuildTools 17.0.5232
-	nuget Microsoft.VisualStudio.SDK 16.0.206
-    nuget Microsoft.VisualStudio.TemplateWizardInterface 16.10.31320.204
 

@@ -68,18 +68,6 @@ Target.create "SetVersions" <| fun _ ->
         )
         |> List.ofSeq
 
-    let pkgFolder = __SOURCE_DIRECTORY__ </> "WebSharper.Vsix/Packages"
-    if Directory.Exists pkgFolder then
-        Directory.delete pkgFolder
-    Directory.create pkgFolder
-
-    packageVersions
-    |> Seq.iter (fun (n, v) ->
-        let nupkgFrom = nupkgPath n v
-        let nupkgTo = pkgFolder </> Path.GetFileName nupkgFrom
-        File.Copy(nupkgFrom, nupkgTo)
-    ) 
-
     let revision =
         match Environment.environVarOrNone "BUILD_NUMBER" with
         | None | Some "" -> "0"
@@ -104,25 +92,6 @@ Target.create "SetVersions" <| fun _ ->
         printfn "Created: %s" fn
         File.WriteAllText(fn, res)
 
-    let vsixAssembly =
-        "WebSharper." + taggedVersion + ", Version=1.0.0.0, Culture=neutral, PublicKeyToken=" + publicKeyToken
-
-    let vstemplateReplaces =
-        [   
-            for p, v in packageVersions do
-                yield 
-                    sprintf "package id=\"%s\"" p, 
-                    sprintf "package id=\"%s\" version=\"%s\"" p v
-            yield "{vsixassembly}", vsixAssembly
-        ]
-
-    Directory.EnumerateFiles(__SOURCE_DIRECTORY__, "*.vstemplate.in", SearchOption.AllDirectories)
-    |> Seq.iter (replacesInFile vstemplateReplaces)
-
-    __SOURCE_DIRECTORY__ </> "WebSharper.Vsix/source.extension.vsixmanifest.in" |> replacesInFile [   
-        "{vsixversion}", version
-    ]
-
     __SOURCE_DIRECTORY__ </> "WebSharper.Templates/WebSharper.Templates.csproj.in" |> replacesInFile [   
         "{nugetversion}", taggedVersion
     ]
@@ -141,44 +110,6 @@ Target.create "SetVersions" <| fun _ ->
     Directory.EnumerateFiles(__SOURCE_DIRECTORY__, "*.CSharp.csproj.in", SearchOption.AllDirectories)
     |> Seq.iter (replacesInFile dotnetProjReplaces)
 
-    let wsRef = """    <PackageReference Include="WebSharper" """
-
-    let ancNugetRef =
-        """    $if$ ($visualstudioversion$ < 16.0)<PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.8" />
-        $endif$<PackageReference Include="WebSharper" """
-
-    Directory.EnumerateDirectories(__SOURCE_DIRECTORY__ </> "WebSharper.Templates/templates")
-    |> Seq.iter (fun ncPath ->
-        match Path.GetFileName(ncPath).Split('-') with
-        | [| name; lang |] ->
-            let vcPath = __SOURCE_DIRECTORY__ </> lang </> (name + "-NetCore")
-            Directory.EnumerateFiles(ncPath, "*.*", SearchOption.AllDirectories)
-            |> Seq.iter (fun f ->
-                if not (f.Contains("\\bin") || f.Contains("\\obj") || f.Contains("\\.template.config") || f.EndsWith(".in") || f.EndsWith(".user")) then
-                    let fn =
-                        if f.EndsWith("proj") then 
-                            "ProjectTemplate." + (if lang = "CSharp" then "csproj" else "fsproj")    
-                        else f
-                    let copyTo =
-                        vcPath </> Fake.IO.Path.toRelativeFrom ncPath fn
-                    printfn "Copied: %s -> %s" f copyTo
-                    Directory.CreateDirectory(Path.GetDirectoryName(copyTo)) |> ignore
-                    let res = 
-                        File.ReadAllText(f)
-                            .Replace(sprintf "WebSharper.%s.%s" name lang, "$safeprojectname$")
-                    let res =
-                        if res.Contains("netcoreapp3.1") then
-                            res
-                                .Replace("netcoreapp3.1", "$aspnetcoreversion$")
-                                .Replace(wsRef, ancNugetRef)
-                        else
-                            res
-                
-                    File.WriteAllText(copyTo, res)
-            )
-        | _ -> ()
-)
-
 let msbuild mode =
     MSBuild.build (fun p ->
         { p with
@@ -193,17 +124,6 @@ let targets = MakeTargets {
         BuildAction =
             BuildAction.Custom <| fun mode -> msbuild (mode.ToString())
 }
-
-Target.create "CopyVSIX" <| fun _ ->
-    let vsix = 
-        match Directory.GetFiles("WebSharper.Vsix/bin/Release", "*.vsix") with
-        | [| vsix |] -> vsix
-        | [||] -> failwith "Vsix output file not found"
-        | _ -> failwith "Multiple vsix output files found"
-
-    let outputPath = Environment.environVarOrNone "WSPackageFolder" |> Option.defaultValue "build"
-
-    File.Copy(vsix, outputPath </> Path.GetFileName vsix)
 
 Target.create "PackageTemplates" <| fun _ ->
     DotNet.pack (fun p ->
@@ -221,7 +141,6 @@ Target.create "PackageTemplates" <| fun _ ->
     ==> "WS-Restore"
 
 "WS-BuildRelease"
-    ==> "CopyVSIX" 
     ==> "WS-Package"
 
 "WS-BuildRelease"
