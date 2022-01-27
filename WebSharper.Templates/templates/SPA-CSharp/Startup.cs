@@ -1,43 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using WebSharper.AspNetCore;
+﻿using WebSharper.AspNetCore;
+using WebSharper.SPA.CSharp;
 
-namespace WebSharper.SPA.CSharp
+var builder = WebApplication.CreateBuilder(args);
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (!app.Environment.IsDevelopment())
 {
-    public class Startup
-    {
-        public void ConfigureServices(IServiceCollection services)
-        {
-        }
-
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
-            if (env.IsDevelopment()) { app.UseDeveloperExceptionPage(); }
-
-            app.UseDefaultFiles()
-                .UseStaticFiles()
-                .UseWebSharper(builder => builder.UseSitelets(false))
-                .Run(context => {
-                    context.Response.StatusCode = 404;
-                    return context.Response.WriteAsync("Page not found");
-                   });
-        }
-
-        public static void Main(string[] args)
-        {
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .Build()
-                .Run();
-        }
-    }
+    app.UseExceptionHandler("/Error");
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseHsts();
 }
+
+app.UseHttpsRedirection();
+
+app.UseDefaultFiles();
+
+app.UseStaticFiles();
+
+app.UseWebSharper(builder => builder.UseSitelets(false));
+
+app.Run(context =>
+{
+    context.Response.StatusCode = 404;
+    return context.Response.WriteAsync("Page not found");
+});
+
+app.Run();
