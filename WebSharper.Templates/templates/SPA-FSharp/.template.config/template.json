@@ -1,7 +1,7 @@
 {
   "author": "IntelliFactory",
   "classifications": [ "WebSharper", "Web" ],
-  "name": "WebSharper 5 Single Page Application",
+  "name": "WebSharper 6 Single Page Application",
   "tags": {
     "language": "F#",
     "type": "project"

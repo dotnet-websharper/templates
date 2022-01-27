@@ -55,16 +55,7 @@ Target.create "SetVersions" <| fun _ ->
         |> Map.toSeq
         |> Seq.map (fun (i, p) ->
             let n = i.Name
-            let version = 
-                // version in lock file might not be the full one in the file name
-                let v = p.Version.AsString
-                let n' = nupkgPath n v
-                if File.exists n' then v else
-                let v = v + ".0"
-                let n = nupkgPath n v
-                if File.exists n then v else
-                v + ".0"
-            n, version
+            n, p.Version.AsString
         )
         |> List.ofSeq
 
@@ -76,6 +67,7 @@ Target.create "SetVersions" <| fun _ ->
     let version, tag = 
         let wsVersion =
             packageVersions |> List.pick (function "WebSharper", v -> Some v | _ -> None)
+        printfn "WebSharper version: %s" wsVersion
         let withoutTag, tag =
             match wsVersion.IndexOf('-') with
             | -1 -> wsVersion, ""
@@ -84,6 +76,8 @@ Target.create "SetVersions" <| fun _ ->
         (nums.[0 .. 2] |> String.concat ".") + "." + revision, tag
 
     taggedVersion <- version + tag
+
+    printfn "WebSharper.Templates version: %s" taggedVersion
 
     let replacesInFile replaces p =
         let inp = File.ReadAllText(p)
