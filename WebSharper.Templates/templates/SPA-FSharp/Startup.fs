@@ -12,12 +12,19 @@ let main args =
     
     let app = builder.Build()
 
+    // Configure the HTTP request pipeline.
+    if not (app.Environment.IsDevelopment()) then
+        app.UseExceptionHandler("/Error")
+            // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+            .UseHsts()
+        |> ignore
+    
     app.UseHttpsRedirection()
         .UseDefaultFiles()
         .UseStaticFiles()
         .UseWebSharper(fun builder -> builder.UseSitelets(false) |> ignore)
-        .Run(fun context ->
-            context.Response.StatusCode <- 404
-            context.Response.WriteAsync("Page not found"))
+    |> ignore 
+       
+    app.Run()
 
     0 // Exit code

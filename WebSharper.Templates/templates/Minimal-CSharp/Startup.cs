@@ -25,10 +25,4 @@ app.UseStaticFiles();
 
 app.UseWebSharper();
 
-app.Run(context =>
-{
-    context.Response.StatusCode = 404;
-    return context.Response.WriteAsync("Page not found");
-});
-
 app.Run();
