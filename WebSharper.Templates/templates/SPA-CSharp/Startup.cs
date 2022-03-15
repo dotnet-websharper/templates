@@ -3,6 +3,11 @@ using WebSharper.SPA.CSharp;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Add services to the container.
+builder.Services.AddWebSharper()
+                .AddAuthentication("WebSharper")
+                .AddCookie("WebSharper", options => { });
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

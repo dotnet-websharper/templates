@@ -10,6 +10,12 @@ open WebSharper.SPA.FSharp
 let main args =
     let builder = WebApplication.CreateBuilder(args)
     
+    // Add services to the container.
+    builder.Services.AddWebSharper()
+        .AddAuthentication("WebSharper")
+        .AddCookie("WebSharper", fun options -> ())
+    |> ignore
+
     let app = builder.Build()
 
     // Configure the HTTP request pipeline.

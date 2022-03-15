@@ -10,6 +10,7 @@ open WebSharper.ClientServer.FSharp
 let main args =
     let builder = WebApplication.CreateBuilder(args)
     
+    // Add services to the container.
     builder.Services.AddSitelet(Site.Main)
         .AddAuthentication("WebSharper")
         .AddCookie("WebSharper", fun options -> ())
