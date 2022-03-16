@@ -10,6 +10,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using Microsoft.FSharp.Core;
 using WebSharper;
 using WebSharper.UI;
@@ -17,6 +18,8 @@ using WebSharper.UI.Templating;
 using SDoc = WebSharper.UI.Doc;
 using DomElement = WebSharper.JavaScript.Dom.Element;
 using DomEvent = WebSharper.JavaScript.Dom.Event;
+using static WebSharper.UI.Templating.Runtime.Server;
+using static WebSharper.JavaScript.Pervasives;
 namespace WebSharper.ClientServer.CSharp.Template
 {
     [JavaScript]
@@ -25,6 +28,22 @@ namespace WebSharper.ClientServer.CSharp.Template
         string key = System.Guid.NewGuid().ToString();
         List<TemplateHole> holes = new List<TemplateHole>();
         Instance instance;
+        FSharpOption<IRequiresResources> templateInitialzier = FSharpOption<IRequiresResources>.None;
+        public Main()
+        {
+            var completed = Handler.CompleteHoles(key, holes, new Tuple<string, ValTy>[] {  });
+            if (WebSharper.Pervasives.IsClient) { }
+            else
+            {
+                if (completed.Item2 is CompletedHoles.Server s)
+                {
+                    if (s.Item is FSharpOption<TemplateInitializer> v)
+                    {
+                        templateInitialzier = v.Value;
+                    }
+                }
+            }
+        }
         public Main Title(string x) { holes.Add(TemplateHole.NewText("title", x)); return this; }
         public Main Title(View<string> x) { holes.Add(TemplateHole.NewTextView("title", x)); return this; }
         public Main MenuBar(Doc x) { holes.Add(TemplateHole.NewElt("menubar", x)); return this; }
@@ -44,17 +63,15 @@ namespace WebSharper.ClientServer.CSharp.Template
         public Main scripts(View<string> x) { holes.Add(TemplateHole.NewTextView("scripts", x)); return this; }
         public struct Vars
         {
-            public Vars(Instance i) { instance = i; }
-            readonly Instance instance;
         }
-        public class Instance : WebSharper.UI.Templating.Runtime.Server.TemplateInstance
+        public class Instance : TemplateInstance
         {
-            public Instance(WebSharper.UI.Templating.Runtime.Server.CompletedHoles v, Doc d) : base(v, d) { }
-            public Vars Vars => new Vars(this);
+            public Instance(CompletedHoles v, Doc d) : base(v, d) { }
+            public Vars Vars => As<Vars>(this);
         }
         public Instance Create() {
-            var completed = WebSharper.UI.Templating.Runtime.Server.Handler.CompleteHoles(key, holes, new Tuple<string, WebSharper.UI.Templating.Runtime.Server.ValTy>[] {  });
-            var doc = WebSharper.UI.Templating.Runtime.Server.Runtime.GetOrLoadTemplate("main", null, FSharpOption<string>.Some("Main.html"), "<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <title>${Title}</title>\r\n    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css\">\r\n    <style>\r\n        /* Sticky footer styles */\r\n        html {\r\n            position: relative;\r\n            min-height: 100%;\r\n        }\r\n\r\n        body {\r\n            /* Margin bottom by footer height */\r\n            margin-bottom: 60px;\r\n        }\r\n\r\n        .footer {\r\n            position: absolute;\r\n            bottom: 0;\r\n            width: 100%;\r\n            /* Set the fixed height of the footer here */\r\n            height: 60px;\r\n            background-color: #f5f5f5;\r\n        }\r\n\r\n        .container .text-muted {\r\n            margin: 20px 0;\r\n        }\r\n    </style>\r\n</head>\r\n<body>\r\n    <!-- Static navbar -->\r\n    <nav class=\"navbar navbar-default navbar-static-top\">\r\n        <div class=\"container\">\r\n            <div class=\"navbar-header\">\r\n                <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\" aria-expanded=\"false\" aria-controls=\"navbar\">\r\n                    <span class=\"sr-only\">Toggle navigation</span>\r\n                    <span class=\"icon-bar\"></span>\r\n                    <span class=\"icon-bar\"></span>\r\n                </button>\r\n                <a class=\"navbar-brand\" href=\"#\">Your App!</a>\r\n            </div>\r\n            <div id=\"navbar\" class=\"navbar-collapse collapse\">\r\n                <ul class=\"nav navbar-nav\" ws-hole=\"MenuBar\"></ul>\r\n                <ul class=\"nav navbar-nav navbar-right\">\r\n                    <li><a href=\"https://websharper.com\">websharper.com</a></li>\r\n                </ul>\r\n            </div><!--/.nav-collapse -->\r\n        </div>\r\n    </nav>\r\n    <div class=\"container\">\r\n        <div ws-replace=\"Body\">\r\n            \r\n        </div>\r\n    </div>\r\n    <footer class=\"footer\">\r\n        <div class=\"container\">\r\n            <p class=\"text-muted\">\r\n                For an enhanced template that provides automatic GitHub deployment to Azure, fork from <a href=\"https://github.com/intellifactory/ClientServer.Azure\">GitHub</a>, or\r\n                read more <a href=\"https://websharper.com/blog-entry/4368/deploying-websharper-apps-to-azure-via-github\">here</a>.\r\n            </p>\r\n        </div>\r\n    </footer>\r\n    <script ws-replace=\"scripts\"></script>\r\n</body>\r\n</html>", null, completed.Item1, FSharpOption<string>.Some("main"), ServerLoad.WhenChanged, new Tuple<string, FSharpOption<string>, string>[] {  }, null, true, false, false);
+            var completed = Handler.CompleteHoles(key, holes, new Tuple<string, ValTy>[] {  });
+            var doc = Runtime.GetOrLoadTemplate("main", null, FSharpOption<string>.Some("Main.html"), "<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"utf-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <title>${Title}</title>\r\n    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css\">\r\n    <style>\r\n        /* Sticky footer styles */\r\n        html {\r\n            position: relative;\r\n            min-height: 100%;\r\n        }\r\n\r\n        body {\r\n            /* Margin bottom by footer height */\r\n            margin-bottom: 60px;\r\n        }\r\n\r\n        .footer {\r\n            position: absolute;\r\n            bottom: 0;\r\n            width: 100%;\r\n            /* Set the fixed height of the footer here */\r\n            height: 60px;\r\n            background-color: #f5f5f5;\r\n        }\r\n\r\n        .container .text-muted {\r\n            margin: 20px 0;\r\n        }\r\n    </style>\r\n</head>\r\n<body>\r\n    <!-- Static navbar -->\r\n    <nav class=\"navbar navbar-default navbar-static-top\">\r\n        <div class=\"container\">\r\n            <div class=\"navbar-header\">\r\n                <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\" aria-expanded=\"false\" aria-controls=\"navbar\">\r\n                    <span class=\"sr-only\">Toggle navigation</span>\r\n                    <span class=\"icon-bar\"></span>\r\n                    <span class=\"icon-bar\"></span>\r\n                </button>\r\n                <a class=\"navbar-brand\" href=\"#\">Your App</a>\r\n            </div>\r\n            <div id=\"navbar\" class=\"navbar-collapse collapse\">\r\n                <ul class=\"nav navbar-nav\" ws-hole=\"MenuBar\"></ul>\r\n                <ul class=\"nav navbar-nav navbar-right\">\r\n                    <li><a href=\"https://websharper.com\">websharper.com</a></li>\r\n                </ul>\r\n            </div><!--/.nav-collapse -->\r\n        </div>\r\n    </nav>\r\n    <div class=\"container\">\r\n        <div ws-replace=\"Body\">\r\n            \r\n        </div>\r\n    </div>\r\n    <footer class=\"footer\">\r\n        <div class=\"container\">\r\n            <p class=\"text-muted\">\r\n                For an enhanced template that provides automatic GitHub deployment to Azure, fork from <a href=\"https://github.com/intellifactory/ClientServer.Azure\">GitHub</a>, or\r\n                read more <a href=\"https://websharper.com/blog-entry/4368/deploying-websharper-apps-to-azure-via-github\">here</a>.\r\n            </p>\r\n        </div>\r\n    </footer>\r\n    <script ws-replace=\"scripts\"></script>\r\n</body>\r\n</html>", null, completed.Item1, FSharpOption<string>.Some("main"), ServerLoad.WhenChanged, new Tuple<string, FSharpOption<string>, string>[] {  }, null, true, false, false);
             instance = new Instance(completed.Item2, doc);
             return instance;
         }
@@ -65,26 +82,46 @@ namespace WebSharper.ClientServer.CSharp.Template
             string key = System.Guid.NewGuid().ToString();
             List<TemplateHole> holes = new List<TemplateHole>();
             Instance instance;
+            FSharpOption<IRequiresResources> templateInitialzier = FSharpOption<IRequiresResources>.None;
+            public MainForm()
+            {
+                var completed = Handler.CompleteHoles(key, holes, new Tuple<string, ValTy>[] { Tuple.Create("texttoreverse", ValTy.String) });
+                if (WebSharper.Pervasives.IsClient) { }
+                else
+                {
+                    if (completed.Item2 is CompletedHoles.Server s)
+                    {
+                        if (s.Item is FSharpOption<TemplateInitializer> v)
+                        {
+                            templateInitialzier = v.Value;
+                        }
+                    }
+                }
+            }
             public MainForm TextToReverse(Var<string> x) { holes.Add(TemplateHole.NewVarStr("texttoreverse", x)); return this; }
             public MainForm OnSend(Action<DomElement, WebSharper.JavaScript.Dom.MouseEvent> x) { holes.Add(TemplateHole.NewActionEvent("onsend", x)); return this; }
-            public MainForm OnSend(Action x) { holes.Add(TemplateHole.NewEvent("onsend", FSharpConvert.Fun<DomElement, DomEvent>((a,b) => x()))); return this; }
-            public MainForm OnSend(Action<WebSharper.UI.Templating.Runtime.Server.TemplateEvent<Vars, WebSharper.JavaScript.Dom.MouseEvent>> x) { holes.Add(TemplateHole.NewEvent("onsend", FSharpConvert.Fun<DomElement, DomEvent>((a,b) => x(new WebSharper.UI.Templating.Runtime.Server.TemplateEvent<Vars, WebSharper.JavaScript.Dom.MouseEvent>(new Vars(instance), a, (WebSharper.JavaScript.Dom.MouseEvent)b))))); return this; }
+            public MainForm OnSend(Action x) { holes.Add(Handler.EventClient("onsend", FSharpConvert.Fun<DomElement, DomEvent>((a,b) => x()))); return this; }
+            public MainForm OnSend(Action<TemplateEvent<Vars, WebSharper.JavaScript.Dom.MouseEvent>> x) { holes.Add(Handler.EventClient("onsend", FSharpConvert.Fun<DomElement, DomEvent>((a,b) => x(new TemplateEvent<Vars, WebSharper.JavaScript.Dom.MouseEvent>(instance.Vars, a, (WebSharper.JavaScript.Dom.MouseEvent)b))))); return this; }
+            [JavaScript(false)]
+            public MainForm OnSend_Server(Expression<Action<DomElement, WebSharper.JavaScript.Dom.MouseEvent>> y) { holes.Add(TemplateHole.NewEventExpr("onsend", "", templateInitialzier, y)); return this; }
+            [JavaScript(false)]
+            public MainForm OnSend_Server(Expression<Action> y) { holes.Add(TemplateHole.NewEventExprAction("onsend", y)); return this; }
+            [JavaScript(false)]
+            public MainForm OnSend_Server(Expression<Action<TemplateEvent<Vars, WebSharper.JavaScript.Dom.MouseEvent>>> y) { holes.Add(TemplateHole.NewEventExpr("onsend", key, templateInitialzier, Expression.Lambda<Action<DomElement, WebSharper.JavaScript.Dom.MouseEvent>>(y.Body, Expression.Parameter(typeof(DomElement)), Expression.Parameter(typeof(WebSharper.JavaScript.Dom.MouseEvent))))); return this; }
             public MainForm Reversed(string x) { holes.Add(TemplateHole.NewText("reversed", x)); return this; }
             public MainForm Reversed(View<string> x) { holes.Add(TemplateHole.NewTextView("reversed", x)); return this; }
             public struct Vars
             {
-                public Vars(Instance i) { instance = i; }
-                readonly Instance instance;
-                [Inline] public Var<string> TextToReverse => (Var<string>)TemplateHole.Value(instance.Hole("texttoreverse"));
+                [Inline] public Var<string> TextToReverse => (Var<string>)TemplateHole.Value((As<Instance>(this)).Hole("texttoreverse"));
             }
-            public class Instance : WebSharper.UI.Templating.Runtime.Server.TemplateInstance
+            public class Instance : TemplateInstance
             {
-                public Instance(WebSharper.UI.Templating.Runtime.Server.CompletedHoles v, Doc d) : base(v, d) { }
-                public Vars Vars => new Vars(this);
+                public Instance(CompletedHoles v, Doc d) : base(v, d) { }
+                public Vars Vars => As<Vars>(this);
             }
             public Instance Create() {
-                var completed = WebSharper.UI.Templating.Runtime.Server.Handler.CompleteHoles(key, holes, new Tuple<string, WebSharper.UI.Templating.Runtime.Server.ValTy>[] { Tuple.Create("texttoreverse", WebSharper.UI.Templating.Runtime.Server.ValTy.String) });
-                var doc = WebSharper.UI.Templating.Runtime.Server.Runtime.GetOrLoadTemplate("main", FSharpOption<string>.Some("mainform"), FSharpOption<string>.Some("Main.html"), "<div>\r\n                <input ws-var=\"TextToReverse\">\r\n                <button ws-onclick=\"OnSend\">Send</button>\r\n                <hr>\r\n                <h4 class=\"text-muted\">The server responded:</h4>\r\n                <div class=\"jumbotron\"><h1>${Reversed}</h1></div>\r\n            </div>", null, completed.Item1, FSharpOption<string>.Some("main"), ServerLoad.WhenChanged, new Tuple<string, FSharpOption<string>, string>[] {  }, null, true, false, false);
+                var completed = Handler.CompleteHoles(key, holes, new Tuple<string, ValTy>[] { Tuple.Create("texttoreverse", ValTy.String) });
+                var doc = Runtime.GetOrLoadTemplate("main", FSharpOption<string>.Some("mainform"), FSharpOption<string>.Some("Main.html"), "<div>\r\n                <input ws-var=\"TextToReverse\">\r\n                <button ws-onclick=\"OnSend\">Send</button>\r\n                <hr>\r\n                <h4 class=\"text-muted\">The server responded:</h4>\r\n                <div class=\"jumbotron\"><h1>${Reversed}</h1></div>\r\n            </div>", null, completed.Item1, FSharpOption<string>.Some("main"), ServerLoad.WhenChanged, new Tuple<string, FSharpOption<string>, string>[] {  }, null, true, false, false);
                 instance = new Instance(completed.Item2, doc);
                 return instance;
             }
