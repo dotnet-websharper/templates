@@ -100,12 +100,12 @@ NUGET
       WebSharper (6.0.0.174)
     WebSharper.FSharp (6.0.0.174)
       WebSharper (6.0.0.174)
-    WebSharper.UI (6.0.0.174)
+    WebSharper.UI (6.0.0.175)
       HtmlAgilityPack (>= 1.11)
       WebSharper (>= 6.0 < 6.1)
-    WebSharper.UI.CSharp (6.0.0.174)
+    WebSharper.UI.CSharp (6.0.0.175)
       WebSharper (>= 6.0 < 6.1)
-      WebSharper.UI (6.0.0.174)
+      WebSharper.UI (6.0.0.175)
 
 GROUP wsbuild
 
