@@ -3,7 +3,7 @@ using WebSharper.AspNetCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddSitelet(Site.Main)
+builder.Services.AddWebSharper()
                 .AddAuthentication("WebSharper")
                 .AddCookie("WebSharper", options => { });
 
@@ -23,6 +23,6 @@ app.UseAuthentication();
 
 app.UseStaticFiles();
 
-app.UseWebSharper();
+app.UseWebSharper(ws => ws.AddSitelet(Site.Main));
 
 app.Run();

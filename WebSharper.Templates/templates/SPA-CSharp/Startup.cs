@@ -24,6 +24,7 @@ app.UseDefaultFiles();
 
 app.UseStaticFiles();
 
-app.UseWebSharper(builder => builder.UseSitelets(false));
+//Enable if you want to make RPC calls to server
+//app.UseWebSharperRemoting();
 
 app.Run();

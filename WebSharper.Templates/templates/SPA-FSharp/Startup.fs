@@ -28,7 +28,8 @@ let main args =
     app.UseHttpsRedirection()
         .UseDefaultFiles()
         .UseStaticFiles()
-        .UseWebSharper(fun builder -> builder.UseSitelets(false) |> ignore)
+        //Enable if you want to make RPC calls to server
+        //.UseWebSharperRemoting()
     |> ignore 
        
     app.Run()

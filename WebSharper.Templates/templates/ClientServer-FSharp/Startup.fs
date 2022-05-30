@@ -11,7 +11,7 @@ let main args =
     let builder = WebApplication.CreateBuilder(args)
     
     // Add services to the container.
-    builder.Services.AddSitelet(Site.Main)
+    builder.Services.AddWebSharper()
         .AddAuthentication("WebSharper")
         .AddCookie("WebSharper", fun options -> ())
     |> ignore
@@ -28,7 +28,7 @@ let main args =
     app.UseHttpsRedirection()
         .UseAuthentication()
         .UseStaticFiles()
-        .UseWebSharper()
+        .UseWebSharper(fun ws -> ws.UseSitelet(Site.Main))
     |> ignore
 
     app.Run()
