@@ -58,6 +58,12 @@ try {
     dotnet new websharper-min -o Cs.Min -lang c#
     dotnet sln add Cs.Min/Cs.Min.csproj
 
+    dotnet new websharper-svc -o Fs.Svc -lang f#
+    dotnet sln add Fs.Svc/Fs.Svc.fsproj
+
+    dotnet new websharper-svc -o Cs.Svc -lang c#
+    dotnet sln add Cs.Svc/Cs.Svc.csproj
+
     dotnet new websharper-prx -o Fs.Prx -lang f#
     dotnet sln add Fs.Prx/Fs.Prx.fsproj
 

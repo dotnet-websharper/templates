@@ -1,0 +1,14 @@
+{
+  "author": "IntelliFactory",
+  "classifications": [ "WebSharper", "Web" ],
+  "name": "WebSharper 6 Service Application",
+  "tags": {
+    "language": "F#",
+    "type": "project"
+  },
+  "identity": "WebSharper.Svc.FSharp.Template",
+  "groupIdentity": "WebSharper.Svc.Template",
+  "shortName": "websharper-svc",
+  "sourceName": "WebSharper.Svc.FSharp",
+  "preferNameDirectory": true
+}
