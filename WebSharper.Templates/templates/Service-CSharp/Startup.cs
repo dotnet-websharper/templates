@@ -17,6 +17,6 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseWebSharperSitelets(ws => ws.AddSitelet(Site.Main));
+app.UseWebSharperSitelets(ws => ws.Sitelet(Service.Main));
 
 app.Run();

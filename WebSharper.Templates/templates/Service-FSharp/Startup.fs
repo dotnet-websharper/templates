@@ -23,7 +23,7 @@ let main args =
         |> ignore
 
     app.UseHttpsRedirection()
-        .UseWebSharperSitelets(fun ws -> ws.UseSitelet(Site.Main))
+        .UseWebSharperSitelets(fun ws -> ws.Sitelet(Service.Main) |> ignore)
     |> ignore
     
     app.Run()

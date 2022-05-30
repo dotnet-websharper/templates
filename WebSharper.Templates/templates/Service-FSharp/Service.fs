@@ -4,12 +4,13 @@ open WebSharper
 open WebSharper.Sitelets
 
 type EndPoint =
-    | [<EndPoint "GET /user">] GetUser of int: id
+    // sample endpoint: /user/1
+    | [<EndPoint "GET /user">] GetUser of Id: int
 
 type User =
     { 
         Id: int
-        Name: int
+        Name: string
     }
 
 [<Website>]

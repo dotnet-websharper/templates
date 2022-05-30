@@ -27,7 +27,7 @@ let main args =
     app.UseHttpsRedirection()
         .UseAuthentication()
         .UseStaticFiles()
-        .UseWebSharper(fun ws -> ws.UseSitelet(Site.Main))
+        .UseWebSharper(fun ws -> ws.Sitelet(Site.Main) |> ignore)
     |> ignore
     
     app.Run()

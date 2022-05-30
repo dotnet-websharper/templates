@@ -24,6 +24,6 @@ app.UseAuthentication();
 
 app.UseStaticFiles();
 
-app.UseWebSharper(ws => ws.AddSitelet(Site.Main));
+app.UseWebSharper(ws => ws.Sitelet(Site.Main));
 
 app.Run();
