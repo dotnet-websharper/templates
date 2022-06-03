@@ -3,9 +3,12 @@ module Service
 open WebSharper
 open WebSharper.Sitelets
 
+type EndPointWithCors =
+    | [<EndPoint "GET /user">] GetUser of Id: int 
+
 type EndPoint =
-    // sample endpoint: /user/1
-    | [<EndPoint "GET /user">] GetUser of Id: int
+    | [<EndPoint "/">] Home
+    | EndPointWithCors of Cors<EndPointWithCors>
 
 type User =
     { 
@@ -13,10 +16,23 @@ type User =
         Name: string
     }
 
+let HandleApi ctx endpoint =
+    match endpoint with
+    | GetUser uid ->
+        Content.Json { Id = uid; Name = "John" }
+
 [<Website>]
 let Main =
     Application.MultiPage (fun ctx endpoint ->
         match endpoint with
-        | EndPoint.GetUser uid ->
-            Content.Json { Id = uid; Name = "John" }
+        | Home -> Content.Text "Service version 1.0"
+        | EndPointWithCors endpoint ->
+            Content.Cors endpoint 
+                (fun corsAllows ->
+                    { corsAllows with
+                        Origins = ["http://example.com"]
+                    }
+                )
+                (HandleApi ctx)
     )
+
