@@ -8,7 +8,7 @@ type EndPointWithCors =
 
 type EndPoint =
     | [<EndPoint "/">] Home
-    | EndPointWithCors of Cors<EndPointWithCors>
+    | [<EndPoint "/">] EndPointWithCors of Cors<EndPointWithCors>
 
 type User =
     { 
