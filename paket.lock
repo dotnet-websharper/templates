@@ -3,7 +3,7 @@ RESTRICTION: == netstandard2.0
 NUGET
   remote: https://api.nuget.org/v3/index.json
     FSharp.Core (6.0.5)
-    HtmlAgilityPack (1.11.43)
+    HtmlAgilityPack (1.11.45)
     Microsoft.AspNetCore.Authentication.Abstractions (2.2)
       Microsoft.AspNetCore.Http.Abstractions (>= 2.2)
       Microsoft.Extensions.Logging.Abstractions (>= 2.2)
@@ -86,26 +86,26 @@ NUGET
       System.Runtime.CompilerServices.Unsafe (>= 6.0)
     System.Threading.Tasks.Extensions (4.5.4)
       System.Runtime.CompilerServices.Unsafe (>= 4.5.3)
-    WebSharper (6.0.0.228)
+  remote: https://nuget.pkg.github.com/dotnet-websharper/index.json
+    WebSharper (6.0.0.232)
       FSharp.Core (>= 6.0.5)
       System.Reflection.Emit.Lightweight (>= 4.7)
-    WebSharper.AspNetCore (6.0.0.228)
+    WebSharper.AspNetCore (6.0.0.232)
       Microsoft.AspNetCore.Authentication.Abstractions (>= 2.0)
       Microsoft.AspNetCore.Hosting.Abstractions (>= 2.0)
       Microsoft.AspNetCore.Mvc.Abstractions (>= 2.0)
       System.Configuration.ConfigurationManager (>= 4.7)
-      WebSharper (6.0.0.228)
-    WebSharper.CSharp (6.0.0.228)
-      WebSharper (6.0.0.228)
-    WebSharper.FSharp (6.0.0.228)
-      WebSharper (6.0.0.228)
-  remote: https://nuget.pkg.github.com/dotnet-websharper/index.json
-    WebSharper.UI (6.0.0.230)
+      WebSharper (6.0.0.232)
+    WebSharper.CSharp (6.0.0.232)
+      WebSharper (6.0.0.232)
+    WebSharper.FSharp (6.0.0.232)
+      WebSharper (6.0.0.232)
+    WebSharper.UI (6.0.0.232)
       HtmlAgilityPack (>= 1.11)
       WebSharper (>= 6.0 < 6.1)
-    WebSharper.UI.CSharp (6.0.0.230)
+    WebSharper.UI.CSharp (6.0.0.232)
       WebSharper (>= 6.0 < 6.1)
-      WebSharper.UI (6.0.0.230)
+      WebSharper.UI (6.0.0.232)
 
 GROUP wsbuild
 
