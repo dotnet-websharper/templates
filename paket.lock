@@ -86,7 +86,6 @@ NUGET
       System.Runtime.CompilerServices.Unsafe (>= 6.0)
     System.Threading.Tasks.Extensions (4.5.4)
       System.Runtime.CompilerServices.Unsafe (>= 4.5.3)
-  remote: https://nuget.pkg.github.com/dotnet-websharper/index.json
     WebSharper (6.0.3.237)
       FSharp.Core (>= 6.0.5)
       System.Reflection.Emit.Lightweight (>= 4.7)
@@ -100,12 +99,13 @@ NUGET
       WebSharper (6.0.3.237)
     WebSharper.FSharp (6.0.3.237)
       WebSharper (6.0.3.237)
-    WebSharper.UI (6.0.3.237)
+  remote: https://nuget.pkg.github.com/dotnet-websharper/index.json
+    WebSharper.UI (6.0.4.238)
       HtmlAgilityPack (>= 1.11)
       WebSharper (>= 6.0.3 < 6.1)
-    WebSharper.UI.CSharp (6.0.3.237)
+    WebSharper.UI.CSharp (6.0.4.238)
       WebSharper (>= 6.0.3 < 6.1)
-      WebSharper.UI (6.0.3.237)
+      WebSharper.UI (6.0.4.238)
 
 GROUP wsbuild
 
