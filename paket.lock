@@ -100,12 +100,12 @@ NUGET
     WebSharper.FSharp (6.0.3.237)
       WebSharper (6.0.3.237)
   remote: https://nuget.pkg.github.com/dotnet-websharper/index.json
-    WebSharper.UI (6.0.4.238)
+    WebSharper.UI (6.0.5.239)
       HtmlAgilityPack (>= 1.11)
       WebSharper (>= 6.0.3 < 6.1)
-    WebSharper.UI.CSharp (6.0.4.238)
+    WebSharper.UI.CSharp (6.0.5.239)
       WebSharper (>= 6.0.3 < 6.1)
-      WebSharper.UI (6.0.4.238)
+      WebSharper.UI (6.0.5.239)
 
 GROUP wsbuild
 
