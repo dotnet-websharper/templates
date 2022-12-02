@@ -98,15 +98,15 @@ NUGET
       WebSharper (6.0.5.244)
     WebSharper.FSharp (6.0.5.244)
       WebSharper (6.0.5.244)
-    WebSharper.UI (6.0.6.246)
+    WebSharper.UI (6.0.6.247)
       HtmlAgilityPack (>= 1.11)
       WebSharper (>= 6.0.5 < 6.1)
-    WebSharper.UI.CSharp (6.0.6.246)
+    WebSharper.UI.CSharp (6.0.6.247)
       WebSharper (>= 6.0.5 < 6.1)
-      WebSharper.UI (6.0.6.246)
+      WebSharper.UI (6.0.6.247)
 
 GROUP wsbuild
 
 GIT
   remote: https://github.com/dotnet-websharper/build-script
-     (2a22acbfb930c9a34b4843b86d924a2a247cb558)
+     (9e8c1e75760322e6dff2e976414bd85ec6c0cdbe)
