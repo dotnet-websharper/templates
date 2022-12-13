@@ -18,4 +18,4 @@ for example `OriginalLib.Proxy`.
 2. Add the code files of the original library to this project.
 3. Compile, if there are `not found in JavaScript compilation` errors, additional
 proxies are needed. You can add extra code files with WebSharper proxies.
-(Use `[WebSharper.Procy(typeof(TargetType))]` attribute.)
+(Use `[WebSharper.Proxy(typeof(TargetType))]` attribute.)
