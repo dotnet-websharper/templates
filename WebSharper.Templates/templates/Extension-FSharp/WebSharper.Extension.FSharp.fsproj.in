@@ -12,7 +12,6 @@
   <ItemGroup>
     <PackageReference Include="WebSharper" />    
     <PackageReference Include="WebSharper.FSharp" />
-    <PackageReference Update="FSharp.Core" />
   </ItemGroup>
 
 </Project>

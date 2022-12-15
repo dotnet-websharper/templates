@@ -15,7 +15,6 @@
     <PackageReference Include="WebSharper.FSharp" />
     <PackageReference Include="WebSharper.UI" />
     <PackageReference Include="WebSharper.AspNetCore" />
-    <PackageReference Update="FSharp.Core" />
   </ItemGroup>
 
 </Project>

@@ -96,10 +96,6 @@ Target.create "SetVersions" <| fun _ ->
                 yield 
                     sprintf "Include=\"%s\"" p, 
                     sprintf "Include=\"%s\" Version=\"%s\"" p v
-                if p = "FSharp.Core" then
-                    yield 
-                        sprintf "Update=\"%s\"" p, 
-                        sprintf "Update=\"%s\" Version=\"%s\"" p v
     ]
 
     Directory.EnumerateFiles(__SOURCE_DIRECTORY__, "*.FSharp.fsproj.in", SearchOption.AllDirectories)
