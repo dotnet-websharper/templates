@@ -5,13 +5,13 @@ source ../localnuget
 framework: netstandard2.0
 storage: none
 
-nuget WebSharper prerelease
-nuget WebSharper.FSharp prerelease
-nuget WebSharper.CSharp prerelease
-nuget WebSharper.UI prerelease
-nuget WebSharper.UI.CSharp prerelease
-nuget WebSharper.AspNetCore prerelease
-//nuget WebSharper.Suave prerelease
+nuget WebSharper ~> 6.0
+nuget WebSharper.FSharp ~> 6.0
+nuget WebSharper.CSharp ~> 6.0
+nuget WebSharper.UI ~> 6.0
+nuget WebSharper.UI.CSharp ~> 6.0
+nuget WebSharper.AspNetCore ~> 6.0
+//nuget WebSharper.Suave ~> 6.0
 
 group wsbuild
     git https://github.com/dotnet-websharper/build-script websharper50
