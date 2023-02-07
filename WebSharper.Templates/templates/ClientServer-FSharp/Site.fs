@@ -15,9 +15,13 @@ module Templating =
     // Compute a menubar where the menu item for the given endpoint is active
     let MenuBar (ctx: Context<EndPoint>) endpoint : Doc list =
         let ( => ) txt act =
-             li [if endpoint = act then yield attr.``class`` "active"] [
-                a [attr.href (ctx.Link act)] [text txt]
-             ]
+            let isActive = if endpoint = act then "nav-link active" else "nav-link"
+            li [ attr.``class`` "nav-item" ] [
+                a [
+                    attr.``class`` isActive
+                    attr.href (ctx.Link act)
+                ] [text txt]
+            ]
         [
             "Home" => EndPoint.Home
             "About" => EndPoint.About
@@ -56,3 +60,4 @@ module Site =
             | EndPoint.Home -> HomePage ctx
             | EndPoint.About -> AboutPage ctx
         )
+

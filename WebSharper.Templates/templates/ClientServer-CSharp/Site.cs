@@ -17,8 +17,8 @@ public class Site
     {
         Doc link(string txt, object act) =>
             li(
-                endpoint.Equals(act) ? attr.@class("active") : null,
-                a(attr.href(ctx.Link(act)), txt)
+                attr.@class("nav-item"),
+                a(attr.href(ctx.Link(act)), attr.@class(endpoint.Equals(act) ? "nav-link active" : "nav-link"), txt)
             );
         return doc(
             li(link("Home", new Home())),
