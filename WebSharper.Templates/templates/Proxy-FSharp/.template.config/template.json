@@ -1,7 +1,7 @@
 {
   "author": "IntelliFactory",
   "classifications": [ "WebSharper" ],
-  "name": "WebSharper 6 .NET Proxy",
+  "name": "WebSharper 7 .NET Proxy",
   "tags": {
     "language": "F#",
     "type": "project"
