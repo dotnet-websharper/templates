@@ -8,6 +8,7 @@ storage: none
 nuget WebSharper prerelease
 nuget WebSharper.FSharp prerelease
 nuget WebSharper.CSharp prerelease
+nuget WebSharper.MathJS prerelease
 nuget WebSharper.UI prerelease
 nuget WebSharper.UI.CSharp prerelease
 nuget WebSharper.AspNetCore prerelease
