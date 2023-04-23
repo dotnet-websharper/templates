@@ -16,7 +16,7 @@ module Templating =
     let MenuBar (ctx: Context<EndPoint>) endpoint : Doc list =
         let ( => ) txt act =
             let isActive = if endpoint = act then "nav-link active" else "nav-link"
-            li [ attr.``class`` "nav-item" ] [
+            li [attr.``class`` "nav-item"] [
                 a [
                     attr.``class`` isActive
                     attr.href (ctx.Link act)
