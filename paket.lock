@@ -101,13 +101,13 @@ NUGET
     WebSharper.MathJS (7.0.3.348-beta2)
       WebSharper (7.0.3.348-beta2)
   remote: https://nuget.pkg.github.com/dotnet-websharper/index.json
-    WebSharper.UI (7.0.1.349-beta2)
+    WebSharper.UI (7.0.1.351-beta2)
       HtmlAgilityPack (>= 1.11)
       WebSharper (>= 7.0.3 < 7.1)
       WebSharper.MathJS (>= 7.0.3 < 7.1)
-    WebSharper.UI.CSharp (7.0.1.349-beta2)
+    WebSharper.UI.CSharp (7.0.1.351-beta2)
       WebSharper (>= 7.0.3 < 7.1)
-      WebSharper.UI (7.0.1.349-beta2)
+      WebSharper.UI (7.0.1.351-beta2)
 
 GROUP wsbuild
 
