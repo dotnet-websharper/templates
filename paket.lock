@@ -101,13 +101,13 @@ NUGET
       WebSharper (7.0.3.358-beta2)
     WebSharper.MathJS (7.0.3.358-beta2)
       WebSharper (7.0.3.358-beta2)
-    WebSharper.UI (7.0.1.355-beta2)
+    WebSharper.UI (7.0.1.359-beta2)
       HtmlAgilityPack (>= 1.11)
       WebSharper (>= 7.0.3 < 7.1)
       WebSharper.MathJS (>= 7.0.3 < 7.1)
-    WebSharper.UI.CSharp (7.0.1.355-beta2)
+    WebSharper.UI.CSharp (7.0.1.359-beta2)
       WebSharper (>= 7.0.3 < 7.1)
-      WebSharper.UI (7.0.1.355-beta2)
+      WebSharper.UI (7.0.1.359-beta2)
 
 GROUP wsbuild
 
