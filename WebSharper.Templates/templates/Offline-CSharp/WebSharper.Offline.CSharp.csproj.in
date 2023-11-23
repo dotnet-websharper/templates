@@ -5,8 +5,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <StartAction>Program</StartAction>
-    <StartProgram>$([System.Environment]::GetEnvironmentVariable(`WinDir`))\explorer.exe</StartProgram>
-    <StartArguments>$(MSBuildThisFileDirectory)bin\html</StartArguments>
+    <StartProgram>dotnet.exe</StartProgram>
+    <StartArguments>serve</StartArguments>
+    <StartWorkingDirectory>$(MSBuildThisFileDirectory)bin\html</StartWorkingDirectory>
   </PropertyGroup>
 
   <ItemGroup>
