@@ -3,7 +3,7 @@ RESTRICTION: == netstandard2.0
 NUGET
   remote: https://api.nuget.org/v3/index.json
     FSharp.Core (8.0.100)
-    HtmlAgilityPack (1.11.54)
+    HtmlAgilityPack (1.11.55)
     Microsoft.AspNetCore.Authentication.Abstractions (2.2)
       Microsoft.AspNetCore.Http.Abstractions (>= 2.2)
       Microsoft.Extensions.Logging.Abstractions (>= 2.2)
@@ -105,13 +105,12 @@ NUGET
       WebSharper (7.0.6.386-beta4)
     WebSharper.MathJS (7.0.6.386-beta3)
       WebSharper (>= 7.0.6 < 7.1)
-    WebSharper.UI (7.0.4.386-beta4)
+    WebSharper.UI (7.0.4.387-beta4)
       HtmlAgilityPack (>= 1.11)
       WebSharper (>= 7.0.6 < 7.1)
-      WebSharper.MathJS (>= 7.0.6 < 7.1)
-    WebSharper.UI.CSharp (7.0.4.386-beta4)
+    WebSharper.UI.CSharp (7.0.4.387-beta4)
       WebSharper (>= 7.0.6 < 7.1)
-      WebSharper.UI (7.0.4.386-beta4)
+      WebSharper.UI (7.0.4.387-beta4)
 
 GROUP wsbuild
 
