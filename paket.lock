@@ -3,7 +3,7 @@ RESTRICTION: == netstandard2.0
 NUGET
   remote: https://api.nuget.org/v3/index.json
     FSharp.Core (8.0.100)
-    HtmlAgilityPack (1.11.55)
+    HtmlAgilityPack (1.11.57)
     Microsoft.AspNetCore.Authentication.Abstractions (2.2)
       Microsoft.AspNetCore.Http.Abstractions (>= 2.2)
       Microsoft.Extensions.Logging.Abstractions (>= 2.2)
