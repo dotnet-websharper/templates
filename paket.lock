@@ -2,7 +2,7 @@ STORAGE: NONE
 RESTRICTION: == netstandard2.0
 NUGET
   remote: https://api.nuget.org/v3/index.json
-    FSharp.Core (8.0.100)
+    FSharp.Core (8.0.101)
     HtmlAgilityPack (1.11.57)
     Microsoft.AspNetCore.Authentication.Abstractions (2.2)
       Microsoft.AspNetCore.Http.Abstractions (>= 2.2)
@@ -53,14 +53,14 @@ NUGET
       Microsoft.Extensions.DependencyInjection.Abstractions (>= 8.0)
       System.Buffers (>= 4.5.1)
       System.Memory (>= 4.5.5)
-    Microsoft.Extensions.Options (8.0)
+    Microsoft.Extensions.Options (8.0.1)
       Microsoft.Extensions.DependencyInjection.Abstractions (>= 8.0)
       Microsoft.Extensions.Primitives (>= 8.0)
       System.ComponentModel.Annotations (>= 5.0)
     Microsoft.Extensions.Primitives (8.0)
       System.Memory (>= 4.5.5)
       System.Runtime.CompilerServices.Unsafe (>= 6.0)
-    Microsoft.Net.Http.Headers (8.0)
+    Microsoft.Net.Http.Headers (8.0.1)
     System.Buffers (4.5.1)
     System.ComponentModel.Annotations (5.0)
     System.Configuration.ConfigurationManager (8.0)
