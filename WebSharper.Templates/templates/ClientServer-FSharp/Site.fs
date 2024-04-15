@@ -28,13 +28,11 @@ module Templating =
         ]
 
     let Main ctx action (title: string) (body: Doc list) =
-        Content.Page(
-            Templates.MainTemplate()
-                .Title(title)
-                .MenuBar(MenuBar ctx action)
-                .Body(body)
-                .Doc()
-        )
+        Templates.MainTemplate()
+            .Title(title)
+            .MenuBar(MenuBar ctx action)
+            .Body(body)
+            .Doc()
 
 module Site =
     open WebSharper.UI.Html
@@ -42,16 +40,29 @@ module Site =
     open type WebSharper.UI.ClientServer
 
     let HomePage ctx =
-        Templating.Main ctx EndPoint.Home "Home" [
-            h1 [] [text "Say Hi to the server!"]
-            div [] [client (Client.Main())]
-        ]
+        Content.Page(
+            Templating.Main ctx EndPoint.Home "Home" [
+                h1 [] [text "Say Hi to the server!"]
+                div [] [client (Client.Main())]
+            ]
+//-:cnd:noEmit
+#if RELEASE
+            ,
+            Bundle = "home"
+#endif
+        )
 
     let AboutPage ctx =
-        Templating.Main ctx EndPoint.About "About" [
-            h1 [] [text "About"]
-            p [] [text "This is a template WebSharper client-server application."]
-        ]
+        Content.Page(
+            Templating.Main ctx EndPoint.About "About" [
+                h1 [] [text "About"]
+                p [] [text "This is a template WebSharper client-server application."]
+            ]
+#if RELEASE
+            ,
+            Bundle = "about"
+#endif
+        )
 
     [<Website>]
     let Main =
