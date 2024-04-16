@@ -19,7 +19,6 @@
   <ItemGroup>
     <PackageReference Include="WebSharper" />    
     <PackageReference Include="WebSharper.FSharp" />
-    <PackageReference Include="WebSharper.MathJS" />
     <PackageReference Include="WebSharper.UI" />
   </ItemGroup>
 
