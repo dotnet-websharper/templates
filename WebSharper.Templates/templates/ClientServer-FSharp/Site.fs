@@ -46,7 +46,7 @@ module Site =
                 div [] [client (Client.Main())]
             ]
 //-:cnd:noEmit
-#if RELEASE
+#if !DEBUG
             ,
             Bundle = "home"
 #endif
@@ -58,7 +58,7 @@ module Site =
                 h1 [] [text "About"]
                 p [] [text "This is a template WebSharper client-server application."]
             ]
-#if RELEASE
+#if !DEBUG
             ,
             Bundle = "about"
 #endif
