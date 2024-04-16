@@ -103,8 +103,6 @@ NUGET
       WebSharper (7.0.6.449-beta5)
     WebSharper.FSharp (7.0.6.449-beta5)
       WebSharper (7.0.6.449-beta5)
-    WebSharper.MathJS (7.0.6.447-beta5)
-      WebSharper (>= 7.0.6 < 7.1)
     WebSharper.UI (7.0.4.449-beta5)
       HtmlAgilityPack (>= 1.11)
       WebSharper (>= 7.0.6 < 7.1)
