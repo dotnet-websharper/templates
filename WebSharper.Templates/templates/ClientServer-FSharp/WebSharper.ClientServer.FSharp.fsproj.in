@@ -21,12 +21,9 @@
     <PackageReference Include="WebSharper.UI" />
     <PackageReference Include="WebSharper.AspNetCore" />
   </ItemGroup>
-
-  <Target Name="EnsureNodeModulesInstalled" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
-    <Exec Command="npm install" />
-  </Target>
   
   <Target Name="ESBuildBundle" AfterTargets="WebSharperCompile" Condition=" '$(Configuration)' == 'Release' ">
+    <Exec Command="npm install" />
     <Exec Command="node ./esbuild.config.mjs" />
   </Target>
 
