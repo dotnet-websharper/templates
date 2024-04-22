@@ -17,6 +17,7 @@ files.forEach(file => {
       globalName: 'wsbundle'
     };
 
+    console.log("Bundling:", file);
     build(options);
   }
 });

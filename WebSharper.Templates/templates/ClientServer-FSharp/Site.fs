@@ -44,12 +44,8 @@ module Site =
             Templating.Main ctx EndPoint.Home "Home" [
                 h1 [] [text "Say Hi to the server!"]
                 div [] [client (Client.Main())]
-            ]
-//-:cnd:noEmit
-#if !DEBUG
-            ,
+            ], 
             Bundle = "home"
-#endif
         )
 
     let AboutPage ctx =
@@ -57,11 +53,8 @@ module Site =
             Templating.Main ctx EndPoint.About "About" [
                 h1 [] [text "About"]
                 p [] [text "This is a template WebSharper client-server application."]
-            ]
-#if !DEBUG
-            ,
+            ], 
             Bundle = "about"
-#endif
         )
 
     [<Website>]
