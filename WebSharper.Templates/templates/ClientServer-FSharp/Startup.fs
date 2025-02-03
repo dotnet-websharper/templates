@@ -26,6 +26,11 @@ let main args =
         |> ignore
 
     app.UseHttpsRedirection()
+//-:cnd:noEmit
+#if DEBUG        
+        .UseWebSharperScriptRedirect(startVite = true)
+#endif
+//+:cnd:noEmit
         .UseAuthentication()
         .UseStaticFiles()
         .UseWebSharper(fun ws -> ws.Sitelet(Site.Main) |> ignore)

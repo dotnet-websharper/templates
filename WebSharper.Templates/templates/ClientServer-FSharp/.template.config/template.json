@@ -10,5 +10,15 @@
   "groupIdentity": "WebSharper.ClientServer.Template",
   "shortName": "websharper-web",
   "sourceName": "WebSharper.ClientServer.FSharp",
-  "preferNameDirectory": true
+  "preferNameDirectory": true,
+  "symbols": {
+    "VitePort": {
+      "type": "generated",
+      "generator": "port",
+      "replaces": "1234",
+      "parameters": {
+        "fallback": "5173"
+      }
+    }
+  }
 }
