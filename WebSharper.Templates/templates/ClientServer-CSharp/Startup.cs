@@ -22,7 +22,7 @@ app.UseHttpsRedirection();
 
 //-:cnd:noEmit
 #if DEBUG        
-app.UseWebSharperScriptRedirect(startVite: true)
+app.UseWebSharperScriptRedirect(startVite: true);
 #endif
 //+:cnd:noEmit
 
