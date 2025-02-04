@@ -26,7 +26,7 @@ public class Site
         );
     }
 
-    public static Task<Content> PageContent(Context<object> ctx, object endpoint, string title, Doc body) =>
+    public static Doc PageContent(Context<object> ctx, object endpoint, string title, Doc body) =>
         new Template.Main()
             .Title(title)
             .MenuBar(MenuBar(ctx, endpoint))
