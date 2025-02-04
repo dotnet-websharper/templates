@@ -26,32 +26,36 @@ public class Site
         );
     }
 
-    public static Task<Content> Page(Context<object> ctx, object endpoint, string title, Doc body) =>
-        Content.Page(
-            new Template.Main()
-                .Title(title)
-                .MenuBar(MenuBar(ctx, endpoint))
-                .Body(body)
-                .Doc()
-        );
+    public static Task<Content> PageContent(Context<object> ctx, object endpoint, string title, Doc body) =>
+        new Template.Main()
+            .Title(title)
+            .MenuBar(MenuBar(ctx, endpoint))
+            .Body(body)
+            .Doc();
 
     [Website]
     public static Sitelet<object> Main =>
         new SiteletBuilder()
             .With<Home>((ctx, action) =>
-                Page(ctx, action, "Home",
-                    doc(
-                        h1("Say Hi to the server!"),
-                        div(client(() => Client.ClientMain()))
-                    )
+                Content.Page(
+                    PageContent(ctx, action, "Home",
+                        doc(
+                            h1("Say Hi to the server!"),
+                            div(client(() => Client.ClientMain()))
+                        )
+                    ),
+                    Bundle: "home"
                 )
             )
             .With<About>((ctx, action) =>
-                Page(ctx, action, "About",
-                    doc(
-                        h1("About"),
-                        p("This is a template WebSharper client-server application.")
-                    )
+                Content.Page(
+                    PageContent(ctx, action, "About",
+                        doc(
+                            h1("About"),
+                            p("This is a template WebSharper client-server application.")
+                        )
+                    ),
+                    Bundle: "about"
                 )
             )
             .Install();
