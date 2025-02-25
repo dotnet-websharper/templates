@@ -3,7 +3,7 @@ RESTRICTION: == netstandard2.0
 NUGET
   remote: https://api.nuget.org/v3/index.json
     FSharp.Core (9.0.201)
-    HtmlAgilityPack (1.11.72)
+    HtmlAgilityPack (1.11.73)
     Microsoft.AspNetCore.Authentication.Abstractions (2.3)
       Microsoft.AspNetCore.Http.Abstractions (>= 2.3)
       Microsoft.Extensions.Logging.Abstractions (>= 8.0.2)
@@ -98,24 +98,24 @@ NUGET
       WebSharper (>= 6.1.5 < 6.2)
       WebSharper.UI (6.1.4.317)
   remote: https://nuget.pkg.github.com/dotnet-websharper/index.json
-    WebSharper (6.1.8.506)
+    WebSharper (6.1.9.513)
       FSharp.Core (>= 6.0)
       System.Reflection.Emit.Lightweight (>= 4.7)
-    WebSharper.AspNetCore (6.1.8.506)
+    WebSharper.AspNetCore (6.1.9.513)
       Microsoft.AspNetCore.Authentication.Abstractions (>= 2.0)
       Microsoft.AspNetCore.Hosting.Abstractions (>= 2.0)
       Microsoft.AspNetCore.Mvc.Abstractions (>= 2.0)
       System.Configuration.ConfigurationManager (>= 4.7)
-      WebSharper (6.1.8.506)
-    WebSharper.CSharp (6.1.8.506)
-      WebSharper (6.1.8.506)
-    WebSharper.FSharp (6.1.8.506)
-      WebSharper (6.1.8.506)
-    WebSharper.MathJS (6.1.8.506)
-      WebSharper (6.1.8.506)
+      WebSharper (6.1.9.513)
+    WebSharper.CSharp (6.1.9.513)
+      WebSharper (6.1.9.513)
+    WebSharper.FSharp (6.1.9.513)
+      WebSharper (6.1.9.513)
+    WebSharper.MathJS (6.1.9.513)
+      WebSharper (6.1.9.513)
 
 GROUP wsbuild
 
 GIT
   remote: https://github.com/dotnet-websharper/build-script
-     (52d3d94a012dc8b24f9dc76d8010c2bccc82405d)
+     (31f766913d1e0a152a5d65b84940da0982374a69)
