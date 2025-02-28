@@ -26,6 +26,11 @@ let main args =
         |> ignore
     
     app.UseHttpsRedirection()
+//-:cnd:noEmit
+#if DEBUG        
+        .UseWebSharperScriptRedirect(startVite = true)
+#endif
+//+:cnd:noEmit
         .UseDefaultFiles()
         .UseStaticFiles()
         //Enable if you want to make RPC calls to server

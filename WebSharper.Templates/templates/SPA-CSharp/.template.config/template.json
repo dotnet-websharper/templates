@@ -10,5 +10,15 @@
   "groupIdentity": "WebSharper.SPA.Template",
   "shortName": "websharper-spa",
   "sourceName": "WebSharper.SPA.CSharp",
-  "preferNameDirectory": true
+  "preferNameDirectory": true,
+  "symbols": {
+    "VitePort": {
+      "type": "generated",
+      "generator": "port",
+      "replaces": "1234",
+      "parameters": {
+        "fallback": "5173"
+      }
+    }
+  }
 }

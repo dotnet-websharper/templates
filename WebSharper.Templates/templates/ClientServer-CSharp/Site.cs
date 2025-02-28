@@ -1,11 +1,10 @@
-﻿using System.Threading.Tasks;
-using WebSharper;
+﻿using WebSharper;
 using WebSharper.Sitelets;
 using WebSharper.UI;
 using static WebSharper.UI.Html;
 
 namespace WebSharper.ClientServer.CSharp;
-
+    
 public class Site
 {
     [EndPoint("/")]
@@ -23,44 +22,41 @@ public class Site
             );
         return doc(
             li(link("Home", new Home())),
-            li(link("About", new About()))
+            li(link("About", new About()))  
         );
     }
 
-    public static Task<Content> MainPage(Context<object> ctx, object endpoint) =>
-        Content.Page(
-            new Template.Main()
-                .Title("Home")
-                .MenuBar(MenuBar(ctx, endpoint))
-                .Body(
-                    doc(
-                        h1("Say Hi to the server!"),
-                        div(client(() => Client.ClientMain()))
-                    )
-                )
-                .Doc(),
-            Bundle: "home"
-        );
-
-    public static Task<Content> AboutPage(Context<object> ctx, object endpoint) =>
-        Content.Page(
-            new Template.Main()
-                .Title("About")
-                .MenuBar(MenuBar(ctx, endpoint))
-                .Body(
-                    doc(
-                        h1("About"),
-                        p("This is a template WebSharper client-server application.")
-                    )
-                )
-                .Doc(),
-            Bundle: "about"
-        );
+    public static Doc PageContent(Context<object> ctx, object endpoint, string title, Doc body) =>
+        new Template.Main()
+            .Title(title)
+            .MenuBar(MenuBar(ctx, endpoint))
+            .Body(body)
+            .Doc();
 
     [Website]
     public static Sitelet<object> Main =>
         new SiteletBuilder()
-            .With<Home>(MainPage)
-            .With<About>(AboutPage)
+            .With<Home>((ctx, action) =>
+                Content.Page(
+                    PageContent(ctx, action, "Home",
+                        doc(
+                            h1("Say Hi to the server!"),
+                            div(client(() => Client.ClientMain()))
+                        )
+                    ),
+                    Bundle: "home"
+                )
+            )
+            .With<About>((ctx, action) =>
+                Content.Page(
+                    PageContent(ctx, action, "About",
+                        doc(
+                            h1("About"),
+                            p("This is a template WebSharper client-server application.")
+                        )
+                    ),
+                    Bundle: "about"
+                )
+            )
             .Install();
 }

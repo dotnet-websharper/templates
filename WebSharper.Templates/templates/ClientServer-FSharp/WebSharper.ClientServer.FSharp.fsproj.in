@@ -12,6 +12,7 @@
     <Content Include="Main.html" CopyToPublishDirectory="Always" />
     <None Include="package.json" />
     <None Include="esbuild.config.mjs" />
+    <None Include="vite.config.js" />
     <None Include="wsconfig.json" />
   </ItemGroup>
 

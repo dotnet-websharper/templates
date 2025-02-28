@@ -20,6 +20,12 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+//-:cnd:noEmit
+#if DEBUG        
+app.UseWebSharperScriptRedirect(startVite: true);
+#endif
+//+:cnd:noEmit
+
 app.UseDefaultFiles();
 
 app.UseStaticFiles();
