@@ -22,7 +22,7 @@
     <PackageReference Include="WebSharper.UI.CSharp" />
   </ItemGroup>
 
-  <Target Name="ESBuildBundle" AfterTargets="WebSharperCompile" Condition=" '$(Configuration)' == 'Release' ">
+  <Target Name="ESBuildBundle" AfterTargets="WebSharperCompile">
     <Exec Command="npm install" />
     <Exec Command="node ./esbuild.config.mjs" />
   </Target>
