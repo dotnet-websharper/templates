@@ -5,12 +5,13 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <StartAction>Program</StartAction>
-    <StartProgram>dotnet.exe</StartProgram>
+    <StartProgram>dotnet</StartProgram>
     <StartArguments>serve</StartArguments>
     <StartWorkingDirectory>$(MSBuildThisFileDirectory)bin\html</StartWorkingDirectory>
   </PropertyGroup>
-
+  
   <ItemGroup>
+    <None Include="package.json" />
     <None Include="wsconfig.json" />
   </ItemGroup>
 
@@ -20,5 +21,10 @@
     <PackageReference Include="WebSharper.UI" />
     <PackageReference Include="WebSharper.UI.CSharp" />
   </ItemGroup>
+
+  <Target Name="ESBuildBundle" AfterTargets="WebSharperCompile" Condition=" '$(Configuration)' == 'Release' ">
+    <Exec Command="npm install" />
+    <Exec Command="node ./esbuild.config.mjs" />
+  </Target>
 
 </Project>

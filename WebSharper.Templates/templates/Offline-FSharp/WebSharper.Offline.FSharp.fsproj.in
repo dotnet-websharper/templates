@@ -3,16 +3,18 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <StartAction>Program</StartAction>
-    <StartProgram>dotnet.exe</StartProgram>
+    <StartProgram>dotnet</StartProgram>
     <StartArguments>serve</StartArguments>
     <StartWorkingDirectory>$(MSBuildThisFileDirectory)bin\html</StartWorkingDirectory>
   </PropertyGroup>
-
+  
   <ItemGroup>
     <Compile Include="Client.fs" />
     <Compile Include="Main.fs" />
     <Content Include="Main.html" />
     <None Include="extra.files" />
+    <None Include="package.json" />
+    <None Include="esbuild.config.mjs" />
     <None Include="wsconfig.json" />
   </ItemGroup>
 
@@ -21,5 +23,10 @@
     <PackageReference Include="WebSharper.FSharp" />
     <PackageReference Include="WebSharper.UI" />
   </ItemGroup>
+
+  <Target Name="ESBuildBundle" AfterTargets="WebSharperCompile" Condition=" '$(Configuration)' == 'Release' ">
+    <Exec Command="npm install" />
+    <Exec Command="node ./esbuild.config.mjs" />
+  </Target>
 
 </Project>
