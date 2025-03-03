@@ -11,6 +11,7 @@
   </PropertyGroup>
   
   <ItemGroup>
+    <Content Include="Main.html" />
     <None Include="package.json" />
     <None Include="wsconfig.json" />
   </ItemGroup>

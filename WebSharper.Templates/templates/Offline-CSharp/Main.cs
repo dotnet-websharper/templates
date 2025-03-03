@@ -1,4 +1,5 @@
-﻿using WebSharper;
+﻿using System.Collections.Generic;
+using WebSharper;
 using WebSharper.Sitelets;
 using WebSharper.UI;
 using static WebSharper.UI.Html;
@@ -18,25 +19,48 @@ class Website : IWebsite<object>
     public IEnumerable<object> Actions =>
         new object[] { new Home(), new About() };
 
+    public static Doc MenuBar(Context<object> ctx, object endpoint)
+    {
+        Doc link(string txt, object act) =>
+            li(
+                attr.@class("nav-item"),
+                a(attr.href(ctx.Link(act)), attr.@class(endpoint.Equals(act) ? "nav-link active" : "nav-link"), txt)
+            );
+        return doc(
+            li(link("Home", new Home())),
+            li(link("About", new About()))
+        );
+    }
+
+    public static Doc PageContent(Context<object> ctx, object endpoint, string title, Doc body) =>
+        new Template.Main()
+            .Title(title)
+            .MenuBar(MenuBar(ctx, endpoint))
+            .Body(body)
+            .Doc();
+
     public Sitelet<object> Sitelet =>
         new SiteletBuilder()
             .With<Home>((ctx, action) =>
                 Content.Page(
-                    Body: doc(
-                        h1("My list of unique people"),
-                        client(() => Client.Main()),
-                        button("Clear list", on.click((el, ev) => Client.ClearNames())),
-                        div(a(attr.href(ctx.Link(new About())), "About"))
-                    )
+                    PageContent(ctx, action, "Home",
+                        doc(
+                            h1("Say Hi to the server!"),
+                            div(client(() => Client.ClientMain()))
+                        )
+                    ),
+                    Bundle: "home"
                 )
             )
             .With<About>((ctx, action) =>
                 Content.Page(
-                    Body: doc(
-                        h1("About page"),
-                        div("This is a simple WebSharper example on working with a reactive list model."),
-                        div(a(attr.href(ctx.Link(new Home())), "Home"))
-                    )
+                    PageContent(ctx, action, "About",
+                        doc(
+                            h1("About"),
+                            p("This is a template WebSharper client-server application.")
+                        )
+                    ),
+                    Bundle: "about"
                 )
             )
             .Install();

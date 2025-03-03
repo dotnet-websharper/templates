@@ -1,36 +1,26 @@
 ﻿using WebSharper;
 using WebSharper.UI;
-using WebSharper.UI.Client;
-using static WebSharper.UI.Client.Html;
+using static WebSharper.UI.Templating.AST;
 
 namespace WebSharper.Offline.CSharp;
 
 [JavaScript]
 public static class Client
 {
-    static ListModel<string, string> People = 
-        new ListModel<string, string>(x => x) { "John", "Paul" };
-
-    static Var<string> NewName = Var.Create("");
-
-    static public IControlBody Main()
+    static public string DoSomething(string input)
     {
-        return doc(
-            ul(People.View.DocSeqCached((string x) => li(x))),
-            div(
-                input(NewName, attr.placeholder("Name")),
-                button("Add", () =>
-                {
-                    People.Add(NewName.Value);
-                    NewName.Value = "";
-                }),
-                div("You are about to add: ", NewName)
-            )
-        );
+        return new string(input.ToCharArray().Reverse().ToArray());
     }
 
-    static public void ClearNames()
-	{
-        People.Clear();
+    static public IControlBody ClientMain()
+    {
+        var vReversed = Var.Create("");
+        return new Template.Main.MainForm()
+            .Reversed(vReversed.View)
+            .OnSend(e => {
+                var rev = DoSomething(e.Vars.TextToReverse.Value);
+                vReversed.Set(rev);
+            })
+            .Doc();
     }
 }
