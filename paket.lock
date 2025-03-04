@@ -97,19 +97,19 @@ NUGET
       WebSharper (>= 8.0 < 8.1)
       WebSharper.UI (8.0.0.512-beta2)
   remote: https://nuget.pkg.github.com/dotnet-websharper/index.json
-    WebSharper (8.0.0.514-beta2)
+    WebSharper (8.0.0.516-beta2)
       FSharp.Core (>= 6.0)
       System.Reflection.Emit.Lightweight (>= 4.7)
-    WebSharper.AspNetCore (8.0.0.514-beta2)
+    WebSharper.AspNetCore (8.0.0.516-beta2)
       Microsoft.AspNetCore.Authentication.Abstractions (>= 2.0)
       Microsoft.AspNetCore.Hosting.Abstractions (>= 2.0)
       Microsoft.AspNetCore.Mvc.Abstractions (>= 2.0)
       System.Configuration.ConfigurationManager (>= 4.7)
-      WebSharper (8.0.0.514-beta2)
-    WebSharper.CSharp (8.0.0.514-beta2)
-      WebSharper (8.0.0.514-beta2)
-    WebSharper.FSharp (8.0.0.514-beta2)
-      WebSharper (8.0.0.514-beta2)
+      WebSharper (8.0.0.516-beta2)
+    WebSharper.CSharp (8.0.0.516-beta2)
+      WebSharper (8.0.0.516-beta2)
+    WebSharper.FSharp (8.0.0.516-beta2)
+      WebSharper (8.0.0.516-beta2)
 
 GROUP wsbuild
 
