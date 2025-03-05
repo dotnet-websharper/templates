@@ -52,7 +52,7 @@ public class Site
                     PageContent(ctx, action, "About",
                         doc(
                             h1("About"),
-                            p("This is a template WebSharper client-server application.")
+                            p("This is a template WebSharper generated html application.")
                         )
                     ),
                     Bundle: "about"
