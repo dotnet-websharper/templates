@@ -90,13 +90,6 @@ NUGET
       System.Runtime.CompilerServices.Unsafe (>= 6.0)
     System.Threading.Tasks.Extensions (4.6)
       System.Runtime.CompilerServices.Unsafe (>= 6.1)
-    WebSharper.UI (8.0.0.512-beta2)
-      HtmlAgilityPack (>= 1.11)
-      WebSharper (>= 8.0 < 8.1)
-    WebSharper.UI.CSharp (8.0.0.512-beta2)
-      WebSharper (>= 8.0 < 8.1)
-      WebSharper.UI (8.0.0.512-beta2)
-  remote: https://nuget.pkg.github.com/dotnet-websharper/index.json
     WebSharper (8.0.0.517-beta2)
       FSharp.Core (>= 6.0)
       System.Reflection.Emit.Lightweight (>= 4.7)
@@ -108,8 +101,15 @@ NUGET
       WebSharper (8.0.0.517-beta2)
     WebSharper.CSharp (8.0.0.517-beta2)
       WebSharper (8.0.0.517-beta2)
+  remote: https://nuget.pkg.github.com/dotnet-websharper/index.json
     WebSharper.FSharp (8.0.0.517-beta2)
       WebSharper (8.0.0.517-beta2)
+    WebSharper.UI (8.0.0.518-beta2)
+      HtmlAgilityPack (>= 1.11)
+      WebSharper (>= 8.0 < 8.1)
+    WebSharper.UI.CSharp (8.0.0.518-beta2)
+      WebSharper (>= 8.0 < 8.1)
+      WebSharper.UI (8.0.0.518-beta2)
 
 GROUP wsbuild
 
