@@ -62,7 +62,6 @@ NUGET
       System.Memory (>= 4.5.5)
       System.Runtime.CompilerServices.Unsafe (>= 6.0)
     Microsoft.Net.Http.Headers (9.0.3)
-      Microsoft.Extensions.Primitives (>= 9.0.3)
     System.Buffers (4.6)
     System.ComponentModel.Annotations (5.0)
     System.Configuration.ConfigurationManager (9.0.3)
@@ -91,7 +90,6 @@ NUGET
       System.Runtime.CompilerServices.Unsafe (>= 6.0)
     System.Threading.Tasks.Extensions (4.6)
       System.Runtime.CompilerServices.Unsafe (>= 6.1)
-  remote: https://nuget.pkg.github.com/dotnet-websharper/index.json
     WebSharper (8.0.0.521-rc)
       FSharp.Core (>= 6.0)
       System.Reflection.Emit.Lightweight (>= 4.7)
