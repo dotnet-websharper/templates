@@ -1,7 +1,9 @@
-﻿import { readdirSync, cpSync } from 'fs'
+﻿import { existsSync, cpSync, readdirSync } from 'fs'
 import { build } from 'esbuild'
 
-cpSync('./build/Content/WebSharper/', './wwwroot/Content/WebSharper/', { recursive: true });
+if (existsSync('./build/Content/WebSharper/')) {
+  cpSync('./build/Content/WebSharper/', './wwwroot/Content/WebSharper/', { recursive: true });
+}
 
 const files = readdirSync('./build/Scripts/WebSharper/WebSharper.ClientServer.CSharp/');
 
