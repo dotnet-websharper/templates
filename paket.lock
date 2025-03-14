@@ -90,7 +90,6 @@ NUGET
       System.Runtime.CompilerServices.Unsafe (>= 6.0)
     System.Threading.Tasks.Extensions (4.6)
       System.Runtime.CompilerServices.Unsafe (>= 6.1)
-  remote: https://nuget.pkg.github.com/dotnet-websharper/index.json
     WebSharper (8.0.0.525-rc2)
       FSharp.Core (>= 6.0)
       System.Reflection.Emit.Lightweight (>= 4.7)
