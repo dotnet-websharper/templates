@@ -104,12 +104,12 @@ NUGET
       WebSharper (8.0.0.534-rc2)
     WebSharper.FSharp (8.0.0.534-rc2)
       WebSharper (8.0.0.534-rc2)
-    WebSharper.UI (8.0.0.534-rc2)
+    WebSharper.UI (8.0.0.535-rc2)
       HtmlAgilityPack (>= 1.11)
       WebSharper (>= 8.0 < 8.1)
-    WebSharper.UI.CSharp (8.0.0.534-rc2)
+    WebSharper.UI.CSharp (8.0.0.535-rc2)
       WebSharper (>= 8.0 < 8.1)
-      WebSharper.UI (8.0.0.534-rc2)
+      WebSharper.UI (8.0.0.535-rc2)
 
 GROUP wsbuild
 
