@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Main.html" />
+    <AdditionalFiles Include="Main.html" />
     <None Include="package.json" />
     <None Include="wsconfig.json" />
   </ItemGroup>

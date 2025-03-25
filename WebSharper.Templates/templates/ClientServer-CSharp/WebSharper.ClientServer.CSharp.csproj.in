@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Main.html" CopyToPublishDirectory="Always" />
+    <AdditionalFiles Include="Main.html" CopyToPublishDirectory="Always" />
     <None Include="package.json" />
     <None Include="wsconfig.json" />
   </ItemGroup>
