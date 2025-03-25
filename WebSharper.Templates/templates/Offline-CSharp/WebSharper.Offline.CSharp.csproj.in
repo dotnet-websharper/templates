@@ -8,7 +8,15 @@
     <StartProgram>dotnet</StartProgram>
     <StartArguments>serve</StartArguments>
     <StartWorkingDirectory>$(MSBuildThisFileDirectory)bin\html</StartWorkingDirectory>
+    <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+    <CompilerGeneratedFilesOutputPath>Generated</CompilerGeneratedFilesOutputPath>
   </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Exclude the output of source generators from the C# compilation but pass to WebSharper -->
+    <Compile Remove="$(CompilerGeneratedFilesOutputPath)/**/*.cs" />
+    <GeneratedSources Include="$(CompilerGeneratedFilesOutputPath)/**/*.cs" />
+  </ItemGroup>
   
   <ItemGroup>
     <Content Include="Main.html" />

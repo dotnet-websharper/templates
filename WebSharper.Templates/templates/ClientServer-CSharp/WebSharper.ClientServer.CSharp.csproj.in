@@ -4,7 +4,15 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+    <CompilerGeneratedFilesOutputPath>Generated</CompilerGeneratedFilesOutputPath>
   </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Exclude the output of source generators from the C# compilation but pass to WebSharper -->
+    <Compile Remove="$(CompilerGeneratedFilesOutputPath)/**/*.cs" />
+    <GeneratedSources Include="$(CompilerGeneratedFilesOutputPath)/**/*.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <Content Include="Main.html" CopyToPublishDirectory="Always" />
