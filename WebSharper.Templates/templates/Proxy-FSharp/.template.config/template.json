@@ -10,5 +10,52 @@
   "groupIdentity": "WebSharper.Proxy.Template",
   "shortName": "websharper-prx",
   "sourceName": "WebSharper.Proxy.FSharp",
-  "preferNameDirectory": true
+  "preferNameDirectory": true,
+  "symbols": {
+    "Framework": {
+      "type": "parameter",
+      "description": "The target framework for the project.",
+      "datatype": "choice",
+      "choices": [
+        {
+          "choice": "netstandard2.0",
+          "description": "Target netstandard2.0",
+          "displayName": ".NET Standard 2.0"
+        },
+        {
+          "choice": "netstandard2.1",
+          "description": "Target netstandard2.1",
+          "displayName": ".NET Standard 2.1"
+        },
+        {
+          "choice": "net5.0",
+          "description": "Target net5.0",
+          "displayName": ".NET 5.0"
+        },
+        {
+          "choice": "net6.0",
+          "description": "Target net6.0",
+          "displayName": ".NET 6.0"
+        },
+        {
+          "choice": "net7.0",
+          "description": "Target net7.0",
+          "displayName": ".NET 7.0"
+        },
+        {
+          "choice": "net8.0",
+          "description": "Target net8.0",
+          "displayName": ".NET 8.0"
+        },
+        {
+          "choice": "net9.0",
+          "description": "Target net9.0",
+          "displayName": ".NET 9.0"
+        }
+      ],
+      "replaces": "net8.0",
+      "defaultValue": "net8.0",
+      "displayName": "Framework"
+    }
+  }
 }
