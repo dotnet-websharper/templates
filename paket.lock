@@ -3,7 +3,7 @@ RESTRICTION: == netstandard2.0
 NUGET
   remote: https://api.nuget.org/v3/index.json
     FSharp.Core (9.0.202)
-    HtmlAgilityPack (1.12)
+    HtmlAgilityPack (1.12.1)
     Microsoft.AspNetCore.Authentication.Abstractions (2.3)
       Microsoft.AspNetCore.Http.Abstractions (>= 2.3)
       Microsoft.Extensions.Logging.Abstractions (>= 8.0.2)
@@ -98,21 +98,21 @@ NUGET
       WebSharper (>= 6.1.5 < 6.2)
       WebSharper.UI (6.1.4.317)
   remote: https://nuget.pkg.github.com/dotnet-websharper/index.json
-    WebSharper (6.1.10.544)
+    WebSharper (6.1.11.550)
       FSharp.Core (>= 6.0)
       System.Reflection.Emit.Lightweight (>= 4.7)
-    WebSharper.AspNetCore (6.1.10.544)
+    WebSharper.AspNetCore (6.1.11.550)
       Microsoft.AspNetCore.Authentication.Abstractions (>= 2.0)
       Microsoft.AspNetCore.Hosting.Abstractions (>= 2.0)
       Microsoft.AspNetCore.Mvc.Abstractions (>= 2.0)
       System.Configuration.ConfigurationManager (>= 4.7)
-      WebSharper (6.1.10.544)
-    WebSharper.CSharp (6.1.10.544)
-      WebSharper (6.1.10.544)
-    WebSharper.FSharp (6.1.10.544)
-      WebSharper (6.1.10.544)
-    WebSharper.MathJS (6.1.10.544)
-      WebSharper (6.1.10.544)
+      WebSharper (6.1.11.550)
+    WebSharper.CSharp (6.1.11.550)
+      WebSharper (6.1.11.550)
+    WebSharper.FSharp (6.1.11.550)
+      WebSharper (6.1.11.550)
+    WebSharper.MathJS (6.1.11.550)
+      WebSharper (6.1.11.550)
 
 GROUP wsbuild
 
