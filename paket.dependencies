@@ -15,5 +15,5 @@ nuget WebSharper.AspNetCore ~> 6.0
 //nuget WebSharper.Suave ~> 6.0
 
 group wsbuild
-    git https://github.com/dotnet-websharper/build-script websharper50
+    git https://github.com/dotnet-websharper/build-script websharper80
 

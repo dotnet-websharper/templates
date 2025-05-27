@@ -1,4 +1,3 @@
-#if INTERACTIVE
 #r "nuget: FAKE.Core"
 #r "nuget: Fake.Core.Target"
 #r "nuget: Fake.IO.FileSystem"
@@ -6,19 +5,14 @@
 #r "nuget: Fake.DotNet.Cli"
 #r "nuget: Fake.DotNet.AssemblyInfoFile"
 #r "nuget: Fake.DotNet.Paket"
-#r "nuget: Paket.Core"
-#else
-#r "paket:
-nuget FSharp.Core 5.0.0
-nuget FAKE.Core
-nuget Fake.Core.Target
-nuget Fake.IO.FileSystem
-nuget Fake.Tools.Git
-nuget Fake.DotNet.Cli
-nuget Fake.DotNet.AssemblyInfoFile
-nuget Fake.DotNet.Paket
-nuget Paket.Core prerelease //"
-#endif
+
+open Fake.Core
+System.Environment.GetCommandLineArgs()
+|> Array.skip 2 // skip fsi.exe; build.fsx
+|> Array.toList
+|> Fake.Core.Context.FakeExecutionContext.Create false __SOURCE_FILE__
+|> Fake.Core.Context.RuntimeContext.Fake
+|> Fake.Core.Context.setExecutionContext
 
 #load "paket-files/wsbuild/github.com/dotnet-websharper/build-script/WebSharper.Fake.fsx"
 open WebSharper.Fake
@@ -71,7 +65,9 @@ Target.create "SetVersions" <| fun _ ->
         let withoutTag, tag =
             match wsVersion.IndexOf('-') with
             | -1 -> wsVersion, ""
-            | i -> wsVersion.[.. i - 1], wsVersion.[i ..]
+            | i ->
+                printfn "%A"  wsVersion.[i ..]
+                wsVersion.[.. i - 1], wsVersion.[i ..]
         let nums = withoutTag.Split('.')
         (nums.[0 .. 2] |> String.concat ".") + "." + revision, tag
 
@@ -105,10 +101,11 @@ Target.create "SetVersions" <| fun _ ->
     |> Seq.iter (replacesInFile dotnetProjReplaces)
 
 let msbuild mode =
+    printfn "%A" taggedVersion
     MSBuild.build (fun p ->
         { p with
             Targets = [ "Restore"; "Build" ]
-            Properties = ["Configuration", mode; "AssemblyOriginatorKeyFile", snk; "AssemblyName", "WebSharper." + taggedVersion]
+            Properties = ["Configuration", mode; "AssemblyOriginatorKeyFile", snk; "AssemblyName", "WebSharper." + taggedVersion; "dummy", "test"]
             Verbosity = MSBuildVerbosity.Minimal |> Some
             DisableInternalBinLog = true
         }) "WebSharper.Vsix.sln"
@@ -120,12 +117,13 @@ let targets = MakeTargets {
 }
 
 Target.create "PackageTemplates" <| fun _ ->
+    printfn "%A" taggedVersion
     DotNet.pack (fun p ->
         { p with
             OutputPath = Some (Environment.environVarOrNone "WSPackageFolder" |> Option.defaultValue "build")  
             MSBuildParams = { p.MSBuildParams with
                                 Verbosity = MSBuildVerbosity.Minimal |> Some
-                                Properties = ["Configuration", "Release"; "AssemblyOriginatorKeyFile", snk; "AssemblyName", "WebSharper." + taggedVersion]
+                                Properties = ["Configuration", "Release"; "AssemblyOriginatorKeyFile", snk; "AssemblyName", "WebSharper." + taggedVersion; "dummy", "test"]
                                 DisableInternalBinLog = true
                             }
         }) "WebSharper.Templates/WebSharper.Templates.csproj"
