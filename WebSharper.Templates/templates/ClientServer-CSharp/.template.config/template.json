@@ -54,6 +54,10 @@
       "replaces": "net8.0",
       "defaultValue": "net8.0",
       "displayName": "Framework"
+    },
+    "needsLangVersion": {
+      "type": "computed",
+      "value": "Framework == \"net5.0\""
     }
   }
 }

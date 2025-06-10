@@ -1,6 +1,8 @@
 using WebSharper;
 using WebSharper.Sitelets;
 
+namespace WebSharper.Min.CSharp;
+
 public class Site
 {
     [Website]

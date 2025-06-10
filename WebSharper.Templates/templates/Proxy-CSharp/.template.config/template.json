@@ -56,6 +56,10 @@
       "replaces": "netstandard2.0",
       "defaultValue": "netstandard2.0",
       "displayName": "Framework"
+    },
+    "needsLangVersion": {
+      "type": "computed",
+      "value": "Framework == \"netstandard2.0\" || Framework == \"netstandard2.1\" || Framework == \"net5.0\""
     }
   }
 }
