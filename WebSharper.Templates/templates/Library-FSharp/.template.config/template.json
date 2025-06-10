@@ -53,8 +53,8 @@
           "displayName": ".NET 9.0"
         }
       ],
-      "replaces": "net8.0",
-      "defaultValue": "net8.0",
+      "replaces": "netstandard2.0",
+      "defaultValue": "netstandard2.0",
       "displayName": "Framework"
     }
   }
