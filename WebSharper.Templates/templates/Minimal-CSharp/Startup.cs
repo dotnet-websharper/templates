@@ -1,4 +1,5 @@
 using WebSharper.AspNetCore;
+using WebSharper.Min.CSharp;
 
 var builder = WebApplication.CreateBuilder(args);
 
