@@ -45,7 +45,7 @@ class Website : IWebsite<object>
                 Content.Page(
                     PageContent(ctx, action, "Home",
                         doc(
-                            h1("Say Hi to the server!"),
+                            h1("Say Hi to JavaScript!"),
                             div(client(() => Client.ClientMain()))
                         )
                     ),
