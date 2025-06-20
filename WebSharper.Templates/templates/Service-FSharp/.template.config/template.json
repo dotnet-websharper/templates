@@ -1,7 +1,7 @@
 {
   "author": "IntelliFactory",
   "classifications": [ "WebSharper", "Web" ],
-  "name": "WebSharper 9 Service Application",
+  "name": "WebSharper 10 Service Application",
   "tags": {
     "language": "F#",
     "type": "project"
@@ -41,6 +41,11 @@
           "choice": "net9.0",
           "description": "Target net9.0",
           "displayName": ".NET 9.0"
+        },
+        {
+          "choice": "net10.0",
+          "description": "Target net10.0",
+          "displayName": ".NET 10.0"
         }
       ],
       "replaces": "net8.0",

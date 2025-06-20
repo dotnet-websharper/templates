@@ -9,7 +9,7 @@
     <PackageIconUrl>https://github.com/dotnet-websharper/core/raw/websharper50/tools/WebSharper.png</PackageIconUrl>
     <RepositoryUrl>https://github.com/dotnet-websharper/templates</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <Title>WebSharper 9 Templates</Title>
+    <Title>WebSharper 10 Templates</Title>
     <Authors>IntelliFactory</Authors>
     <Description>Project templates for WebSharper</Description>
     <PackageTags>dotnet-new;templates;Web;JavaScript;F#;C#</PackageTags>
