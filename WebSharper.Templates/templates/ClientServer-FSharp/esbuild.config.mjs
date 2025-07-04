@@ -1,13 +1,11 @@
-﻿import { existsSync, cpSync, readdirSync } from 'fs'
+﻿import { cpSync, readdirSync, existsSync } from 'fs'
 import { build } from 'esbuild'
 
-if (existsSync('./build/Content/WebSharper/')) {
-  cpSync('./build/Content/WebSharper/', './wwwroot/Content/WebSharper/', { recursive: true });
-}
+cpSync('./build/', './wwwroot/', { recursive: true });
 
-const files = readdirSync('./build/Scripts/WebSharper/WebSharper.ClientServer.FSharp/');
+const prebundles = readdirSync('./build/Scripts/WebSharper/WebSharper.ClientServer.FSharp/');
 
-files.forEach(file => {
+prebundles.forEach(file => {
   if (file.endsWith('.js')) {
     var options =
     {
@@ -23,3 +21,23 @@ files.forEach(file => {
     build(options);
   }
 });
+
+if (existsSync('./build/Scripts/WebSharper/workers/')) {
+  const workers = readdirSync('./build/Scripts/WebSharper/workers/');
+
+  workers.forEach(file => {
+    if (file.endsWith('.js')) {
+      var options =
+      {
+        entryPoints: ['./build/Scripts/WebSharper/workers/' + file],
+        bundle: true,
+        minify: true,
+        format: 'iife',
+        outfile: 'wwwroot/Scripts/WebSharper/workers/' + file,
+      };
+
+      console.log("Bundling worker:", file);
+      build(options);
+    }
+  });
+}
