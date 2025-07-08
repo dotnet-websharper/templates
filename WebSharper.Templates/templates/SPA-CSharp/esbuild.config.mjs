@@ -22,18 +22,18 @@ prebundles.forEach(file => {
   }
 });
 
-if (existsSync('./build/Scripts/WebSharper/workers/')) {
-  const workers = readdirSync('./build/Scripts/WebSharper/workers/');
+if (existsSync('./build/workers/')) {
+  const workers = readdirSync('./build/workers/');
 
   workers.forEach(file => {
     if (file.endsWith('.js')) {
       var options =
       {
-        entryPoints: ['./build/Scripts/WebSharper/workers/' + file],
+        entryPoints: ['./build/workers/' + file],
         bundle: true,
         minify: true,
         format: 'iife',
-        outfile: 'wwwroot/Scripts/WebSharper/workers/' + file,
+        outfile: 'wwwroot/Scripts/workers/' + file,
       };
 
       console.log("Bundling worker:", file);
