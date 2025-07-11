@@ -1,9 +1,11 @@
-﻿import { existsSync, cpSync, readdirSync } from 'fs'
+﻿import { cpSync, readdirSync, existsSync } from 'fs'
 import { build } from 'esbuild'
 
-const files = readdirSync('./build/');
+cpSync('./build/', './wwwroot/Scripts/', { recursive: true });
 
-files.forEach(file => {
+const prebundles = readdirSync('./build/');
+
+prebundles.forEach(file => {
   if (file.endsWith('.js')) {
     var options =
     {
@@ -19,3 +21,23 @@ files.forEach(file => {
     build(options);
   }
 });
+
+if (existsSync('./build/workers/')) {
+  const workers = readdirSync('./build/workers/');
+
+  workers.forEach(file => {
+    if (file.endsWith('.js')) {
+      var options =
+      {
+        entryPoints: ['./build/workers/' + file],
+        bundle: true,
+        minify: true,
+        format: 'iife',
+        outfile: 'wwwroot/Scripts/workers/' + file,
+      };
+
+      console.log("Bundling worker:", file);
+      build(options);
+    }
+  });
+}
