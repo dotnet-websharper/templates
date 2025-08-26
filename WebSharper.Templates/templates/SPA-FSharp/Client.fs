@@ -8,7 +8,7 @@ open WebSharper.UI.Templating
 
 [<JavaScript>]
 module Client =
-    // The templates are loaded from the DOM, so you just can edit index.html
+    // The templates are loaded from the DOM, so you can just edit index.html
     // and refresh your browser, no need to recompile unless you add or remove holes.
     type IndexTemplate = Template<"wwwroot/index.html", ClientLoad.FromDocument>
 
