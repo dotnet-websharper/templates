@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>selectedframework</TargetFramework>
     <StartAction>Program</StartAction>
     <StartProgram>dotnet</StartProgram>
     <StartArguments>serve</StartArguments>
