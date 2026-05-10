@@ -1,10 +1,20 @@
 # WebSharper.Templates
 
-The project templates used by the Visual Studio and Xamarin Studio addins.
+Dotnet `dotnet new` templates for WebSharper.
 
 ## Building
 
-Requires MSBuild 16.0 (Build Tools for Visual Studio 2019).
+This repository produces NuGet packages implementing `dotnet new` templates. It does not require Visual Studio or local vsix tools to build; use the included build script to create release packages.
 
-`build.cmd` builds the NuGet package and tests the templates.
-Testing can be skipped by running `build.cmd skiptests`.
+Build release packages:
+
+```powershell
+.\build CI-Release
+```
+
+Install and test a generated package locally:
+
+```powershell
+dotnet new install <path-to-nupkg>
+dotnet new websharper-web -n MyApp -lang F#
+```
