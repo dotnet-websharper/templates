@@ -5,6 +5,7 @@
 #r "nuget: Fake.DotNet.Cli"
 #r "nuget: Fake.DotNet.AssemblyInfoFile"
 #r "nuget: Fake.DotNet.Paket"
+#r "nuget: Paket.Core, 12.0.0-alpha001"
 
 open Fake.Core
 System.Environment.GetCommandLineArgs()
