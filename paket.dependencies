@@ -5,12 +5,12 @@ source ../localnuget
 framework: netstandard2.0
 storage: none
 
-nuget WebSharper prerelease
-nuget WebSharper.FSharp prerelease
-nuget WebSharper.CSharp prerelease
-nuget WebSharper.UI prerelease
-nuget WebSharper.UI.CSharp prerelease
-nuget WebSharper.AspNetCore prerelease
+nuget WebSharper ~> 10.0
+nuget WebSharper.FSharp ~> 10.0
+nuget WebSharper.CSharp ~> 10.0
+nuget WebSharper.UI ~> 10.0
+nuget WebSharper.UI.CSharp ~> 10.0
+nuget WebSharper.AspNetCore ~> 10.0
 //nuget WebSharper.Suave prerelease
 
 group wsbuild
