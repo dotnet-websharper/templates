@@ -2,29 +2,29 @@ STORAGE: NONE
 RESTRICTION: == netstandard2.0
 NUGET
   remote: https://api.nuget.org/v3/index.json
-    FSharp.Core (11.0.100)
+    FSharp.Core (10.1.403)
     HtmlAgilityPack (1.13.1)
     System.Reflection.Emit.ILGeneration (4.7)
     System.Reflection.Emit.Lightweight (4.7)
       System.Reflection.Emit.ILGeneration (>= 4.7)
   remote: https://nuget.pkg.github.com/dotnet-websharper/index.json
-    WebSharper (10.1.7.680)
+    WebSharper (10.1.9.686)
       FSharp.Core (>= 6.0)
       System.Reflection.Emit.Lightweight (>= 4.7)
-    WebSharper.AspNetCore (10.1.7.680)
-    WebSharper.CSharp (10.1.7.680)
-      WebSharper (10.1.7.680)
-    WebSharper.FSharp (10.1.7.680)
-      WebSharper (10.1.7.680)
-    WebSharper.UI (10.1.6.680)
+    WebSharper.AspNetCore (10.1.9.686)
+    WebSharper.CSharp (10.1.9.686)
+      WebSharper (10.1.9.686)
+    WebSharper.FSharp (10.1.9.686)
+      WebSharper (10.1.9.686)
+    WebSharper.UI (10.1.7.686)
       HtmlAgilityPack (>= 1.12.4)
-      WebSharper (>= 10.1.7.680 < 10.1.8)
-    WebSharper.UI.CSharp (10.1.6.680)
-      WebSharper (>= 10.1.7.680 < 10.1.8)
-      WebSharper.UI (10.1.6.680)
+      WebSharper (>= 10.1.9.686 < 10.1.10)
+    WebSharper.UI.CSharp (10.1.7.686)
+      WebSharper (>= 10.1.9.686 < 10.1.10)
+      WebSharper.UI (10.1.7.686)
 
 GROUP wsbuild
 
 GIT
   remote: https://github.com/dotnet-websharper/build-script
-     (f7e340ad41f38d87e701cdbc5418dc06632d2142)
+     (6ecf97f00d4afc53204d3277c355fc69c6f8b812)
