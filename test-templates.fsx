@@ -196,8 +196,10 @@ let testStaticHtml (t: TemplateTest) (outputDir: string) =
     printfn "%s: %d static pages ok" t.Name pages.Length
 
 /// The F# booster (wsfscservice) keeps running after a build, with its working directory in
-/// the first project it compiled, which keeps the work folder locked on Windows. Stop the
-/// boosters of the WebSharper.FSharp versions referenced by the templates.
+/// the first project it compiled, which keeps an earlier work folder locked on Windows. If the
+/// folder can't be deleted, stop the boosters of the WebSharper.FSharp versions referenced by
+/// the templates. They are left running otherwise: builds after this one in the same stack
+/// connect to them, and a booster started from inside some MSBuild builds can hang them.
 let boosterVersions =
     use zip = ZipFile.OpenRead nupkg
     zip.Entries
@@ -219,9 +221,12 @@ let stopBoosters () =
             proc.Kill()
             proc.WaitForExit()
 
-stopBoosters ()
 if Directory.Exists workDir then
-    Directory.Delete(workDir, true)
+    try
+        Directory.Delete(workDir, true)
+    with :? IOException | :? UnauthorizedAccessException ->
+        stopBoosters ()
+        Directory.Delete(workDir, true)
 Directory.CreateDirectory workDir |> ignore
 
 let nugetConfig =
@@ -235,26 +240,23 @@ let nugetConfig =
     ]
 File.WriteAllText(Path.Combine(workDir, "NuGet.Config"), nugetConfig)
 
-try
-    run workDir [ "new"; "install"; nupkg; "--debug:custom-hive"; hive ]
-    run workDir [ "new"; "sln"; "-n"; "TemplateTests" ]
-    let solution = Directory.GetFiles(workDir, "TemplateTests.sln*") |> Array.exactlyOne
+run workDir [ "new"; "install"; nupkg; "--debug:custom-hive"; hive ]
+run workDir [ "new"; "sln"; "-n"; "TemplateTests" ]
+let solution = Directory.GetFiles(workDir, "TemplateTests.sln*") |> Array.exactlyOne
 
-    for t in tests do
-        run workDir [ "new"; t.ShortName; "-lang"; t.Lang; "-o"; t.Name; "--debug:custom-hive"; hive ]
-        run workDir [ "sln"; solution; "add"; projectFile t.Name ]
+for t in tests do
+    run workDir [ "new"; t.ShortName; "-lang"; t.Lang; "-o"; t.Name; "--debug:custom-hive"; hive ]
+    run workDir [ "sln"; solution; "add"; projectFile t.Name ]
 
-    for project, refs in references do
-        run workDir ([ "add"; projectFile project; "reference" ] @ List.map projectFile refs)
+for project, refs in references do
+    run workDir ([ "add"; projectFile project; "reference" ] @ List.map projectFile refs)
 
-    run workDir [ "build"; solution; "-c"; "Release"; "-nr:false" ]
+run workDir [ "build"; solution; "-c"; "Release"; "-nr:false" ]
 
-    for t in tests do
-        match t.Check with
-        | BuildOnly -> printfn "%s: build ok" t.Name
-        | Site checks -> testSite t checks
-        | StaticHtml outputDir -> testStaticHtml t outputDir
-finally
-    stopBoosters ()
+for t in tests do
+    match t.Check with
+    | BuildOnly -> printfn "%s: build ok" t.Name
+    | Site checks -> testSite t checks
+    | StaticHtml outputDir -> testStaticHtml t outputDir
 
 printfn "All %d templates passed." tests.Length
