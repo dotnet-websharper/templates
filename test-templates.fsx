@@ -63,8 +63,8 @@ let tests =
         { ShortName = "websharper-min"; Lang = "C#"; Name = "Cs.Min"; Check = Site [ "/", "Hello World" ] }
         { ShortName = "websharper-svc"; Lang = "F#"; Name = "Fs.Svc"; Check = Site [ "/", "Service version 1.0"; "/user/42", "John" ] }
         { ShortName = "websharper-svc"; Lang = "C#"; Name = "Cs.Svc"; Check = Site [ "/", "Service version 1.0"; "/user/42", "John" ] }
-        { ShortName = "websharper-html"; Lang = "F#"; Name = "Fs.Html"; Check = StaticHtml "build" }
-        { ShortName = "websharper-html"; Lang = "C#"; Name = "Cs.Html"; Check = StaticHtml "build" }
+        { ShortName = "websharper-html"; Lang = "F#"; Name = "Fs.Html"; Check = StaticHtml "bin/html" }
+        { ShortName = "websharper-html"; Lang = "C#"; Name = "Cs.Html"; Check = StaticHtml "bin/html" }
     ]
 
 /// Project references added on top of the templates, to also test cross-project compilation.
