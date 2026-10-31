@@ -14,6 +14,12 @@ Build release packages:
 .\build CI-Release
 ```
 
+`CI-Release` also runs `TestTemplatesRelease`, which uses `test-templates.fsx` to install the built package into a separate template hive, instantiate every template under `build/tests`, build them in Release, and check that the web projects serve their pages and scripts. To test an existing package without the rest of the build:
+
+```powershell
+dotnet fsi test-templates.fsx <path-to-nupkg> build/tests
+```
+
 Install and test a generated package locally:
 
 ```powershell

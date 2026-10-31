@@ -129,7 +129,22 @@ Target.create "PackageTemplates" <| fun _ ->
                             }
         }) "WebSharper.Templates/WebSharper.Templates.csproj"
 
-"WS-Update" 
+Target.create "TestTemplatesRelease" <| fun _ ->
+    let packageFolder =
+        Environment.environVarOrNone "WSPackageFolder" |> Option.defaultValue "build" |> Path.GetFullPath
+    let nupkg =
+        if taggedVersion <> "" then
+            packageFolder </> sprintf "WebSharper.Templates.%s.nupkg" taggedVersion
+        else
+            // version is not computed when running with --single-target, test the latest package
+            Directory.GetFiles(packageFolder, "WebSharper.Templates.*.nupkg")
+            |> Array.maxBy File.GetLastWriteTimeUtc
+    let workDir = __SOURCE_DIRECTORY__ </> "build" </> "tests"
+    let res = DotNet.exec id "fsi" (sprintf "test-templates.fsx \"%s\" \"%s\"" nupkg workDir)
+    if not res.OK then
+        failwithf "Template tests failed, see %s" workDir
+
+"WS-Update"
     ==> "SetVersions"
     ==> "WS-Restore"
 
@@ -137,7 +152,11 @@ Target.create "PackageTemplates" <| fun _ ->
     ==> "WS-Package"
 
 "WS-BuildRelease"
-    ==> "PackageTemplates" 
+    ==> "PackageTemplates"
     ==> "WS-Package"
+
+"PackageTemplates"
+    ==> "TestTemplatesRelease"
+    ==> "CI-Release"
 
 Target.runOrDefault "WS-Package"
