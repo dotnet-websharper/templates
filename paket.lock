@@ -7,24 +7,24 @@ NUGET
     System.Reflection.Emit.ILGeneration (4.7)
     System.Reflection.Emit.Lightweight (4.7)
       System.Reflection.Emit.ILGeneration (>= 4.7)
-  remote: ../localnuget
-    WebSharper (10.1.6.9999)
+  remote: https://nuget.pkg.github.com/dotnet-websharper/index.json
+    WebSharper (11.0.0.695-preview.1)
       FSharp.Core (>= 6.0)
       System.Reflection.Emit.Lightweight (>= 4.7)
-    WebSharper.AspNetCore (10.1.6.9999)
-    WebSharper.CSharp (10.1.6.9999)
-      WebSharper (10.1.6.9999)
-    WebSharper.FSharp (10.1.6.9999)
-      WebSharper (10.1.6.9999)
-    WebSharper.UI (10.1.5.9999)
+    WebSharper.AspNetCore (11.0.0.695-preview.1)
+    WebSharper.CSharp (11.0.0.695-preview.1)
+      WebSharper (11.0.0.695-preview.1)
+    WebSharper.FSharp (11.0.0.695-preview.1)
+      WebSharper (11.0.0.695-preview.1)
+    WebSharper.UI (11.0.0.695-preview.1)
       HtmlAgilityPack (>= 1.12.4)
-      WebSharper (>= 10.1.6.9999 < 10.1.7)
-    WebSharper.UI.CSharp (10.1.5.9999)
-      WebSharper (>= 10.1.6.9999 < 10.1.7)
-      WebSharper.UI (10.1.5.9999)
+      WebSharper (>= 11.0.0.695-preview.1 < 11.0.1-preview)
+    WebSharper.UI.CSharp (11.0.0.695-preview.1)
+      WebSharper (>= 11.0.0.695-preview.1 < 11.0.1-preview)
+      WebSharper.UI (11.0.0.695-preview.1)
 
 GROUP wsbuild
 
 GIT
   remote: https://github.com/dotnet-websharper/build-script
-     (f7e340ad41f38d87e701cdbc5418dc06632d2142)
+     (6ecf97f00d4afc53204d3277c355fc69c6f8b812)
