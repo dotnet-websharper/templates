@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>selectedframework</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Library.fs" />
+    <None Include="wsconfig.json" />
+    <None Include="package.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="WebSharper" />
+    <PackageReference Include="WebSharper.FSharp" />
+  </ItemGroup>
+
+  <!-- Clean the npm output folder before WebSharper regenerates it. -->
+  <Target Name="CleanNpmOutput" BeforeTargets="CoreCompile">
+    <RemoveDir Directories="dist" />
+  </Target>
+
+  <!-- Make dist/ a publishable npm package by copying its package.json in. -->
+  <Target Name="CopyPackageJson" AfterTargets="WebSharperCompile">
+    <Copy SourceFiles="package.json" DestinationFolder="dist" />
+  </Target>
+
+</Project>

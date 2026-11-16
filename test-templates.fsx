@@ -39,6 +39,8 @@ type Check =
     | Site of (string * string) list
     /// Check the static HTML output folder and the local scripts its pages reference.
     | StaticHtml of outputDir: string
+    /// Check the generated npm package: entry point, type declarations and source maps.
+    | NpmPackage of outputDir: string
 
 type TemplateTest =
     {
@@ -52,6 +54,7 @@ let tests =
     [
         { ShortName = "websharper-lib"; Lang = "F#"; Name = "Fs.Lib"; Check = BuildOnly }
         { ShortName = "websharper-lib"; Lang = "C#"; Name = "Cs.Lib"; Check = BuildOnly }
+        { ShortName = "websharper-npm"; Lang = "F#"; Name = "Fs.Npm"; Check = NpmPackage "dist" }
         { ShortName = "websharper-ext"; Lang = "F#"; Name = "Fs.Ext"; Check = BuildOnly }
         { ShortName = "websharper-prx"; Lang = "F#"; Name = "Fs.Prx"; Check = BuildOnly }
         { ShortName = "websharper-prx"; Lang = "C#"; Name = "Cs.Prx"; Check = BuildOnly }
@@ -195,6 +198,20 @@ let testStaticHtml (t: TemplateTest) (outputDir: string) =
                 printfn "  warning: %s: %s references missing stylesheet %s" t.Name page style
     printfn "%s: %d static pages ok" t.Name pages.Length
 
+let testNpmPackage (t: TemplateTest) (outputDir: string) =
+    let dir = Path.Combine(workDir, t.Name, outputDir)
+    let require (file: string) =
+        let path = Path.Combine(dir, file)
+        if not (File.Exists path) then
+            failwithf "%s: missing npm output %s" t.Name path
+    require "package.json"
+    require "index.js"
+    require "index.d.ts"
+    let maps = Directory.GetFiles(dir, "*.js.map", SearchOption.AllDirectories)
+    if Array.isEmpty maps then
+        failwithf "%s: no source maps generated in %s" t.Name dir
+    printfn "%s: npm package ok (index.js, index.d.ts, %d source maps)" t.Name maps.Length
+
 /// The F# booster (wsfscservice) keeps running after a build, with its working directory in
 /// the first project it compiled, which keeps an earlier work folder locked on Windows. If the
 /// folder can't be deleted, stop the boosters of the WebSharper.FSharp versions referenced by
@@ -258,5 +275,6 @@ for t in tests do
     | BuildOnly -> printfn "%s: build ok" t.Name
     | Site checks -> testSite t checks
     | StaticHtml outputDir -> testStaticHtml t outputDir
+    | NpmPackage outputDir -> testNpmPackage t outputDir
 
 printfn "All %d templates passed." tests.Length

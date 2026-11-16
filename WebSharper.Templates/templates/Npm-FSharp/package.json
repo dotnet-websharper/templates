@@ -1,0 +1,9 @@
+{
+  "name": "WebSharper.Npm.FSharp",
+  "version": "1.0.0",
+  "description": "An npm package built from F# with WebSharper.",
+  "type": "module",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "license": "Apache-2.0"
+}
