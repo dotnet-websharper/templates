@@ -1,0 +1,42 @@
+# Build output
+bin/
+obj/
+build/
+
+# WebSharper generated client output
+Content/
+Scripts/
+wwwroot/Content/
+wwwroot/Scripts/
+
+# npm package output (websharper-npm)
+dist/
+node_modules/
+*.tgz
+
+# WebSharper artifacts
+websharper.log
+*.websharper
+*.websharper.*
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+launchSettings.json
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# Visual Studio Code (F#/Ionide and C# extensions)
+.vscode/
+.ionide/
+.fake/
+
+# OS / editors
+.DS_Store
+Thumbs.db
+*~
